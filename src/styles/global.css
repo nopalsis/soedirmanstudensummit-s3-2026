@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* ============================================
+   S3 2026 — Global Styles & Custom Theme
+   ============================================ */
+
+@theme {
+	/* Typography */
+	--font-inter: 'Inter', sans-serif;
+	--font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
+	--font-space-grotesk: 'Space Grotesk', sans-serif;
+
+	/* Primary Colors — Dark Premium Palette */
+	--color-dark-base: #0a0a0f;
+	--color-dark-secondary: #12121a;
+	--color-dark-surface: #1a1a2e;
+	--color-dark-border: #2a2a3e;
+
+	/* Accent Colors */
+	--color-accent-primary: #6366f1;
+	--color-accent-secondary: #8b5cf6;
+	--color-accent-tertiary: #a78bfa;
+	--color-accent-glow: #818cf8;
+
+	/* Warm Accents */
+	--color-warm-primary: #f59e0b;
+	--color-warm-secondary: #fbbf24;
+
+	/* Text Colors */
+	--color-text-primary: #f1f5f9;
+	--color-text-secondary: #94a3b8;
+	--color-text-muted: #64748b;
+
+	/* Surface Colors */
+	--color-surface-glass: rgba(255, 255, 255, 0.05);
+	--color-surface-glass-hover: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	body {
+		font-family: var(--font-plus-jakarta-sans);
+		background-color: var(--color-dark-base);
+		color: var(--color-text-primary);
+	}
+
+	::selection {
+		background-color: var(--color-accent-primary);
+		color: white;
+	}
+
+	h1 {
+		@apply text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl;
+	}
+
+	h2 {
+		@apply text-2xl font-semibold md:text-3xl lg:text-4xl;
+	}
+
+	h3 {
+		@apply text-xl font-semibold md:text-2xl lg:text-3xl;
+	}
+
+	h4 {
+		@apply text-lg font-medium md:text-xl lg:text-2xl;
+	}
+
+	p {
+		@apply text-sm leading-relaxed sm:text-base;
+	}
+}
+
+@layer components {
+	.glass-card {
+		background: var(--color-surface-glass);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid var(--color-dark-border);
+	}
+
+	.glass-card:hover {
+		background: var(--color-surface-glass-hover);
+	}
+
+	.text-gradient {
+		background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary), var(--color-accent-tertiary));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+}

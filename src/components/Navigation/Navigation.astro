@@ -1,0 +1,234 @@
+---
+import NavLink from './NavLink.astro';
+---
+
+<header
+	id="header"
+	class="bg-[--color-dark-base] bg-opacity-80 backdrop-blur-md border-b border-[--color-dark-border] w-full flex justify-center items-center fixed top-0 left-0 z-[999]"
+>
+	<nav class="w-full max-w-7xl relative px-6 lg:p-0">
+		<!-- Desktop Nav -->
+		<div class="hidden lg:flex justify-evenly items-center w-full py-5">
+			<div class="flex items-center gap-6">
+				<NavLink href="/">Beranda</NavLink>
+				<div class="relative inline-block text-left group">
+					<!-- Dropdown Title -->
+					<button
+						id="dropdownButton"
+						type="button"
+						class="inline-flex justify-center items-center text-[--color-text-secondary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] transition-all duration-300 w-fit cursor-pointer"
+					>
+						Jelajahi Unsoed
+						<!-- Dropdown Arrow -->
+						<svg
+							class="w-4 h-4 ml-1 transition-transform duration-200"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+						</svg>
+					</button>
+					<!-- Dropdown Menu -->
+					<div
+						id="dropdownMenu"
+						class="absolute left-0 mt-2 w-48 origin-top-left glass-card rounded-xl shadow-lg opacity-0 invisible transition-all duration-300 transform scale-95"
+					>
+						<div class="py-2 flex flex-col gap-1">
+							<a
+								href="/tentang-unsoed"
+								class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300"
+							>Tentang Unsoed</a>
+							<a
+								href="/ukm"
+								class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300"
+							>UKM</a>
+							<a
+								href="/paguyuban"
+								class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300"
+							>Paguyuban</a>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Info Gensoed Dropdown -->
+				<div class="relative inline-block text-left group">
+					<button
+						id="dropdownInfoButton"
+						type="button"
+						class="inline-flex justify-center items-center text-[--color-text-secondary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] transition-all duration-300 w-fit cursor-pointer"
+					>
+						Info Gensoed
+						<svg
+							class="w-4 h-4 ml-1 transition-transform duration-200"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+						</svg>
+					</button>
+					<div
+						id="dropdownInfoMenu"
+						class="absolute left-0 mt-2 w-48 origin-top-left glass-card rounded-xl shadow-lg opacity-0 invisible transition-all duration-300 transform scale-95"
+					>
+						<div class="py-2 flex flex-col gap-1">
+							<a href="/info-gensoed" class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300">Overview</a>
+							<a href="/info-gensoed/dresscode" class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300">Dresscode</a>
+							<a href="/info-gensoed/peralatan" class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300">Peralatan</a>
+							<a href="/info-gensoed/twibbon" class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300">Twibbon</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			
+			<a href="/" class="font-space-grotesk text-2xl font-bold text-gradient mx-8 flex-shrink-0">
+				S3
+			</a>
+			
+			<div class="flex items-center gap-6">
+				<!-- Penugasan Dropdown -->
+				<div class="relative inline-block text-left group">
+					<button
+						id="dropdownTugasButton"
+						type="button"
+						class="inline-flex justify-center items-center text-[--color-text-secondary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] transition-all duration-300 w-fit cursor-pointer"
+					>
+						Penugasan
+						<svg
+							class="w-4 h-4 ml-1 transition-transform duration-200"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+						</svg>
+					</button>
+					<div
+						id="dropdownTugasMenu"
+						class="absolute left-0 mt-2 w-48 origin-top-left glass-card rounded-xl shadow-lg opacity-0 invisible transition-all duration-300 transform scale-95"
+					>
+						<div class="py-2 flex flex-col gap-1">
+							<a href="/penugasan" class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300">Semua Tugas</a>
+							<a href="/penugasan/snbp-snbt" class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300">SNBP & SNBT</a>
+							<a href="/penugasan/mandiri" class="block px-4 py-2 text-[--color-text-primary] text-sm font-plus-jakarta-sans hover:text-[--color-accent-primary] hover:bg-[--color-surface-glass-hover] transition-all duration-300">Mandiri</a>
+						</div>
+					</div>
+				</div>
+				<NavLink href="/faq">FAQ</NavLink>
+				<NavLink href="/hubungi-kami">Hubungi Kami</NavLink>
+			</div>
+		</div>
+
+		<!-- Mobile Nav -->
+		<div class="lg:hidden flex justify-between items-center py-4">
+			<a href="/" class="font-space-grotesk text-xl font-bold text-gradient">
+				S3
+			</a>
+			<button id="mobileMenuBtn" class="text-[--color-text-primary] p-2" aria-label="Toggle Menu">
+				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+				</svg>
+			</button>
+		</div>
+		
+		<!-- Mobile Sidebar -->
+		<div
+			id="mobileSidebar"
+			class="lg:hidden absolute top-full left-0 w-full bg-[--color-dark-surface] border-b border-[--color-dark-border] transition-all duration-300 overflow-hidden max-h-0 opacity-0"
+		>
+			<div class="flex flex-col p-6 gap-4 overflow-y-auto max-h-[calc(100vh-80px)]">
+				<NavLink href="/">Beranda</NavLink>
+				<div class="flex flex-col gap-2 border-l-2 border-[--color-dark-border] pl-4">
+					<span class="text-[--color-text-primary] text-sm font-semibold">Jelajahi Unsoed</span>
+					<NavLink href="/tentang-unsoed">Tentang Unsoed</NavLink>
+					<NavLink href="/ukm">UKM</NavLink>
+					<NavLink href="/paguyuban">Paguyuban</NavLink>
+				</div>
+				<div class="flex flex-col gap-2 border-l-2 border-[--color-dark-border] pl-4">
+					<span class="text-[--color-text-primary] text-sm font-semibold">Info Gensoed</span>
+					<NavLink href="/info-gensoed">Overview</NavLink>
+					<NavLink href="/info-gensoed/dresscode">Dresscode</NavLink>
+					<NavLink href="/info-gensoed/peralatan">Peralatan</NavLink>
+					<NavLink href="/info-gensoed/twibbon">Twibbon</NavLink>
+				</div>
+				<div class="flex flex-col gap-2 border-l-2 border-[--color-dark-border] pl-4">
+					<span class="text-[--color-text-primary] text-sm font-semibold">Penugasan</span>
+					<NavLink href="/penugasan">Semua Tugas</NavLink>
+					<NavLink href="/penugasan/snbp-snbt">SNBP & SNBT</NavLink>
+					<NavLink href="/penugasan/mandiri">Mandiri</NavLink>
+				</div>
+				<NavLink href="/faq">FAQ</NavLink>
+				<NavLink href="/hubungi-kami">Hubungi Kami</NavLink>
+			</div>
+		</div>
+	</nav>
+</header>
+
+<script>
+	// Simple dropdown logic for desktop
+	function setupDropdown(btnId: string, menuId: string) {
+		const btn = document.getElementById(btnId);
+		const menu = document.getElementById(menuId);
+		if (!btn || !menu) return;
+		
+		btn.addEventListener('click', (e) => {
+			e.stopPropagation();
+			const isVisible = !menu.classList.contains('invisible');
+			
+			// close others
+			document.querySelectorAll('[id^="dropdownMenu"], [id^="dropdownInfoMenu"], [id^="dropdownTugasMenu"]').forEach(el => {
+				if (el.id !== menuId) {
+					el.classList.add('invisible', 'opacity-0', 'scale-95');
+					el.classList.remove('visible', 'opacity-100', 'scale-100');
+					const svg = el.previousElementSibling?.querySelector('svg');
+					if (svg) svg.style.transform = 'rotate(0deg)';
+				}
+			});
+
+			if (isVisible) {
+				menu.classList.add('invisible', 'opacity-0', 'scale-95');
+				menu.classList.remove('visible', 'opacity-100', 'scale-100');
+				const svg = btn.querySelector('svg');
+				if (svg) svg.style.transform = 'rotate(0deg)';
+			} else {
+				menu.classList.remove('invisible', 'opacity-0', 'scale-95');
+				menu.classList.add('visible', 'opacity-100', 'scale-100');
+				const svg = btn.querySelector('svg');
+				if (svg) svg.style.transform = 'rotate(180deg)';
+			}
+		});
+	}
+
+	setupDropdown('dropdownButton', 'dropdownMenu');
+	setupDropdown('dropdownInfoButton', 'dropdownInfoMenu');
+	setupDropdown('dropdownTugasButton', 'dropdownTugasMenu');
+
+	// Close dropdowns on outside click
+	document.addEventListener('click', () => {
+		document.querySelectorAll('[id^="dropdownMenu"], [id^="dropdownInfoMenu"], [id^="dropdownTugasMenu"]').forEach(menu => {
+			menu.classList.add('invisible', 'opacity-0', 'scale-95');
+			menu.classList.remove('visible', 'opacity-100', 'scale-100');
+			const svg = menu.previousElementSibling?.querySelector('svg');
+			if (svg) svg.style.transform = 'rotate(0deg)';
+		});
+	});
+
+	// Mobile menu logic
+	const mobileBtn = document.getElementById('mobileMenuBtn');
+	const mobileSidebar = document.getElementById('mobileSidebar');
+	
+	if (mobileBtn && mobileSidebar) {
+		mobileBtn.addEventListener('click', () => {
+			const isExpanded = mobileSidebar.classList.contains('max-h-screen');
+			if (isExpanded) {
+				mobileSidebar.classList.remove('max-h-screen', 'opacity-100');
+				mobileSidebar.classList.add('max-h-0', 'opacity-0');
+			} else {
+				mobileSidebar.classList.remove('max-h-0', 'opacity-0');
+				mobileSidebar.classList.add('max-h-screen', 'opacity-100');
+			}
+		});
+	}
+</script>
