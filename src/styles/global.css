@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* ============================================
+   S3 2026 — Global Styles & Custom Theme
+   ============================================ */
+
+@theme {
+	/* Typography */
+	--font-inter: 'Inter', sans-serif;
+	--font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
+	--font-space-grotesk: 'Space Grotesk', sans-serif;
+	--font-poppins: 'Poppins', sans-serif;
+
+	/* Primary Colors — Dark Premium Palette */
+	--color-dark-base: #0a0a0f;
+	--color-dark-secondary: #12121a;
+	--color-dark-surface: #1a1a2e;
+	--color-dark-border: #2a2a3e;
+
+	/* Accent Colors */
+	--color-accent-primary: #6366f1;
+	--color-accent-secondary: #8b5cf6;
+	--color-accent-tertiary: #a78bfa;
+	--color-accent-glow: #818cf8;
+
+	/* Warm Accents */
+	--color-warm-primary: #f59e0b;
+	--color-warm-secondary: #fbbf24;
+
+	/* Text Colors */
+	--color-text-primary: #f1f5f9;
+	--color-text-secondary: #94a3b8;
+	--color-text-muted: #64748b;
+
+	/* Surface Colors */
+	--color-surface-glass: rgba(255, 255, 255, 0.05);
+	--color-surface-glass-hover: rgba(255, 255, 255, 0.08);
+
+	/* S3 Brand Colors */
+	--color-s3-blue: #002855;
+	--color-s3-deep-blue: #001a35;
+	--color-s3-gold: #C9A84C;
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	body {
+		font-family: var(--font-plus-jakarta-sans);
+		background-color: var(--color-dark-base);
+		color: var(--color-text-primary);
+	}
+
+	::selection {
+		background-color: var(--color-s3-gold);
+		color: var(--color-s3-blue);
+	}
+
+	h1 {
+		@apply text-3xl font-bold md:text-4xl lg:text-5xl xl:text-6xl;
+	}
+
+	h2 {
+		@apply text-2xl font-semibold md:text-3xl lg:text-4xl;
+	}
+
+	h3 {
+		@apply text-xl font-semibold md:text-2xl lg:text-3xl;
+	}
+
+	h4 {
+		@apply text-lg font-medium md:text-xl lg:text-2xl;
+	}
+
+	p {
+		@apply text-sm leading-relaxed sm:text-base;
+	}
+}
+
+@layer components {
+	.glass-card {
+		background: var(--color-surface-glass);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid var(--color-dark-border);
+	}
+
+	.glass-card:hover {
+		background: var(--color-surface-glass-hover);
+	}
+
+	.text-gradient {
+		background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary), var(--color-accent-tertiary));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	/* S3 specific glass effect */
+	.s3-glass {
+		background: rgba(255, 255, 255, 0.10);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.s3-text-glow {
+		text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+	}
+}
+
+@layer utilities {
+
+	/* Float animation for hero logo */
+	@keyframes float {
+		0% {
+			transform: translateY(0px);
+		}
+
+		50% {
+			transform: translateY(-10px);
+		}
+
+		100% {
+			transform: translateY(0px);
+		}
+	}
+
+	.animate-float {
+		animation: float 4s ease-in-out infinite;
+	}
+
+	/* Hero background */
+	.hero-bg {
+		background:
+			linear-gradient(rgba(0, 26, 53, 0.75), rgba(0, 26, 53, 0.75)),
+			url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvgM6BaXzYzwcFtlOl1gLbHtaIm9s506W4z9BO7QRMCzXHp8G030-KkXKNhCoRXO7H_XXnQfHSsvitGaXQiJuKhj0j1eO-xc9DWVKbPalRku36UQPEbeSUBoxH0FUFYcSBe4xNtmsTgsvr-Xts9kf34fSEuPx2obQTbbjtirD6eRcMDvRgvTv3CbKNF7ru2iu2YBS5MuSvqfmEPz5XKOSfPxRyXbeK7ygj-P1qqrgNW4KZ8OjiQQYbRIDdwsWo9x8kdeEtaxschFB-');
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+	}
+}
