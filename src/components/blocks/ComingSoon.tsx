@@ -64,7 +64,7 @@ const ComingSoon = () => {
 
         {/* Gold glow */}
         <div
-          className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] opacity-20 blur-3xl hidden md:block"
+          className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-150 h-75 opacity-20 blur-3xl hidden md:block"
           style={{
             background: "radial-gradient(ellipse, #C9A84C 0%, transparent 70%)",
           }}
@@ -223,4 +223,5 @@ const ComingSoon = () => {
     </div >
   )
 }
+
 export default ComingSoon
