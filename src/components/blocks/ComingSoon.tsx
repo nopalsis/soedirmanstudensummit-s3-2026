@@ -87,7 +87,7 @@ const ComingSoon = () => {
           initial={{ opacity: 1, y: 0, scale: 1 }}
         >
           <h1
-            className="text-6xl md:text-8xl font-poppins tracking-tighter leading-none"
+            className="text-6xl md:text-8xl font-love-craft leading-none"
             style={{
               color: "#C9A84C",
               textShadow: "0 0 60px #C9A84C80, 0 0 120px #C9A84C30",
@@ -96,7 +96,7 @@ const ComingSoon = () => {
             COMING
           </h1>
           <h1
-            className="text-6xl md:text-8xl font-poppins tracking-tighter leading-none"
+            className="text-6xl md:text-8xl font-love-craft leading-none"
             style={{
               WebkitTextStroke: "2px #C9A84C",
               color: "transparent",
@@ -183,18 +183,17 @@ const ComingSoon = () => {
               <img
                 src="/images/logo.png"
                 alt="Logo S3"
-                className="w-32 md:w-44 lg:w-52 object-contain select-none mx-auto"
+                className="w-32 md:w-44 lg:w-52 object-contain select-none mx-auto justify-center"
                 style={{
                   filter: "drop-shadow(0 0 24px #6ea8fe60) brightness(1.1)",
                 }}
               />
             </motion.div>
 
-            <h1 className="font-poppins font-semibold leading-none tracking-tighter mb-8 text-white text-4xl md:text-6xl lg:text-7xl">
+            <h1 className="font-reikna font-semibold leading-none text-white text-4xl sm:text-6xl md:text-[90px] lg:text-[120px]">
               Soedirman Student Summit
-              <br />
-              <span className="font-poppins text-s3-gold">2026</span>
             </h1>
+              <span className="font-love-craft text-s3-gold text-4xl md:text-5xl lg:text-[64px] mb-4">2026</span>
 
             <div className="s3-glass rounded-3xl mx-auto max-w-3xl py-10 px-10 mb-8">
               <p className="font-poppins text-lg md:text-xl leading-relaxed text-center text-blue-100">

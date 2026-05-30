@@ -3,13 +3,26 @@
 /* ============================================
    S3 2026 — Global Styles & Custom Theme
    ============================================ */
+@font-face {
+  font-family: 'LoveCraft';
+  src: url('public/fonts/LoveCraft.ttf') format('woff2');
+  font-weight: 400;
+}
 
+@font-face {
+  font-family: 'Reikna';
+  src: url('/fonts/Reikna.ttf') format('woff2');
+  font-weight: 700;
+}
 @theme {
 	/* Typography */
 	--font-inter: 'Inter', sans-serif;
 	--font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
 	--font-space-grotesk: 'Space Grotesk', sans-serif;
 	--font-poppins: 'Poppins', sans-serif;
+	--font-love-craft: 'LoveCraft', sans-serif;
+	--font-reikna: 'Reikna', sans-serif;
+
 
 	/* Primary Colors — Dark Premium Palette */
 	--color-dark-base: #0a0a0f;
@@ -135,12 +148,5 @@
 	}
 
 	/* Hero background */
-	.hero-bg {
-		background:
-			linear-gradient(rgba(0, 26, 53, 0.75), rgba(0, 26, 53, 0.75)),
-			url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvgM6BaXzYzwcFtlOl1gLbHtaIm9s506W4z9BO7QRMCzXHp8G030-KkXKNhCoRXO7H_XXnQfHSsvitGaXQiJuKhj0j1eO-xc9DWVKbPalRku36UQPEbeSUBoxH0FUFYcSBe4xNtmsTgsvr-Xts9kf34fSEuPx2obQTbbjtirD6eRcMDvRgvTv3CbKNF7ru2iu2YBS5MuSvqfmEPz5XKOSfPxRyXbeK7ygj-P1qqrgNW4KZ8OjiQQYbRIDdwsWo9x8kdeEtaxschFB-');
-		background-size: cover;
-		background-position: center;
-		background-attachment: fixed;
-	}
+	
 }
