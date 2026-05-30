@@ -5,7 +5,7 @@
    ============================================ */
 @font-face {
   font-family: 'LoveCraft';
-  src: url('public/fonts/LoveCraft.ttf') format('woff2');
+  src: url('/fonts/LoveCraft.ttf') format('woff2');
   font-weight: 400;
 }
 
