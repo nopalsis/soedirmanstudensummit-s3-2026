@@ -52,7 +52,12 @@ const ComingSoon = () => {
   }
 
   return (
-    <div ref={scope} className="relative h-screen w-full" style={{ touchAction: "pan-y" }}>
+    <div
+      ref={scope}
+      className="relative h-screen w-full"
+      style={{ touchAction: "pan-y", cursor: revealed ? "default" : "pointer" }}
+      onClick={handleReveal}
+    >
       <ContainerSticky
         className="flex flex-col items-center justify-center overflow-clip"
         style={{
@@ -106,12 +111,10 @@ const ComingSoon = () => {
           </h1>
 
           {!revealed && (
-            <motion.button
-              onClick={handleReveal}
-              className="mt-10 bg-flex flex-col items-center gap-2 cursor-pointer border-none bg-transparent p-0"
+            <motion.div
+              className="mt-10 flex flex-col items-center gap-2 pointer-events-none"
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
-              aria-label="Reveal content"
             >
               <div
                 className="w-4 h-4 rotate-45"
@@ -127,7 +130,7 @@ const ComingSoon = () => {
                   borderBottom: "1.5px solid #C9A84C40",
                 }}
               />
-            </motion.button>
+            </motion.div>
           )}
         </motion.div>
 
