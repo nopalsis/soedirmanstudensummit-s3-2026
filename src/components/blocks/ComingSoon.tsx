@@ -17,15 +17,25 @@ const ComingSoon = () => {
       await animate("#statue-layer", { opacity: 1 }, { duration: 0.3 })
       await animate("#overlay-text", { opacity: 1, y: 0 }, { duration: 0.3 })
       await animate("#logo-overlay", { opacity: 1, scale: 1, y: 0 }, { duration: 0.3 })
+      animate("#cs-frame-tl", { opacity: 0, scale: 1.1 }, { duration: 0.4, ease: "easeIn" })
+      animate("#cs-frame-br", { opacity: 0, scale: 1.1 }, { duration: 0.4, ease: "easeIn", delay: 0.08 })
+      animate("#cs-frame-tr", { opacity: 0, scale: 1.1 }, { duration: 0.4, ease: "easeIn", delay: 0.16 })
+      await animate("#cs-frame-bl", { opacity: 0, scale: 1.1 }, { duration: 0.4, ease: "easeIn", delay: 0.24 })
       return
     }
 
     // 1. Fade out Coming Soon
-    await animate(
-      "#coming-soon-text",
-      { opacity: 0, y: -60, scale: 0.85 },
-      { duration: 0.5, ease: "easeInOut" }
-    )
+    await Promise.all([
+  animate(
+    "#coming-soon-text",
+    { opacity: 0, y: -60, scale: 0.85 },
+    { duration: 0.5, ease: "easeInOut" }
+  ),
+  animate("#cs-frame-tl", { opacity: 0, scale: 1.1 }, { duration: 0.4, ease: "easeIn" }),
+  animate("#cs-frame-tr", { opacity: 0, scale: 1.1 }, { duration: 0.4, ease: "easeIn", delay: 0.08 }),
+  animate("#cs-frame-bl", { opacity: 0, scale: 1.1 }, { duration: 0.4, ease: "easeIn", delay: 0.16 }),
+  animate("#cs-frame-br", { opacity: 0, scale: 1.1 }, { duration: 0.4, ease: "easeIn", delay: 0.24 }),
+])
 
     // 2. Iris open statue
     animate("#statue-layer", { opacity: 1, scale: 1 }, { duration: 0.6, ease: "easeOut" })
@@ -67,6 +77,30 @@ const ComingSoon = () => {
           willChange: "transform",
         }}
       >
+        {/* Corner frames */}
+
+<motion.img 
+  src="/images/frame.webp" alt="" aria-hidden="true" id="cs-frame-tl"
+  className="absolute bottom-0 left-0 w-20 md:w-30 pointer-events-none select-none z-30"
+  initial={{ opacity: 1, scale: 1 }}
+/>
+<motion.img 
+  src="/images/frame.webp" alt="" aria-hidden="true" id="cs-frame-tr"
+  className="absolute bottom-0 right-0 w-20 md:w-30 pointer-events-none select-none z-30 -scale-x-100"
+  initial={{ opacity: 1, scale: 1 }}
+/>
+<motion.img 
+  src="/images/frame.webp" alt="" aria-hidden="true" id="cs-frame-bl"
+  className="absolute top-0 left-0 w-20 md:w-30 pointer-events-none select-none z-30 -scale-y-100"
+  initial={{ opacity: 1, scale: 1 }}
+/>
+<motion.img 
+  src="/images/frame.webp" alt="" aria-hidden="true" id="cs-frame-br"
+  className="absolute top-0 right-0 w-20 md:w-30 pointer-events-none select-none z-30 -scale-x-100 -scale-y-100" 
+  initial={{ opacity: 1, scale: 1 }}
+  
+/>
+
         {/* Grid lines */}
         <div
           className="pointer-events-none absolute inset-0 opacity-10"
@@ -91,7 +125,9 @@ const ComingSoon = () => {
           className="relative z-10 flex flex-col items-center gap-3 text-center px-6"
           initial={{ opacity: 1, y: 0, scale: 1 }}
         >
-          <h1
+          <img src="/images/comingsoon.webp" className="w-48 sm:w-75 lg:w-150">
+          </img>
+          {/* <h1
             className="text-6xl md:text-8xl font-love-craft leading-none"
             style={{
               color: "#C9A84C",
@@ -99,8 +135,8 @@ const ComingSoon = () => {
             }}
           >
             COMING
-          </h1>
-          <h1
+          </h1> */}
+          {/* <h1
             className="text-6xl md:text-8xl font-love-craft leading-none"
             style={{
               WebkitTextStroke: "2px #C9A84C",
@@ -108,7 +144,7 @@ const ComingSoon = () => {
             }}
           >
             SOON
-          </h1>
+          </h1> */}
 
           {!revealed && (
             <motion.div
@@ -146,12 +182,10 @@ const ComingSoon = () => {
           style={{ willChange: "transform, opacity, clip-path" }}
         >
           <div
-            className="absolute inset-x-0 top-0 h-40 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(to bottom, #020509 10%, transparent 100%)" }}
+            className="absolute inset-x-0 top-0 h-75 z-10 pointer-events-none bg-gradient-to-b from-[#020509] from-[10%] to-transparent"
           />
           <div
-            className="absolute inset-x-0 bottom-0 h-48 z-10 pointer-events-none"
-            style={{ background: "linear-gradient(to top, #020509 10%, transparent 100%)" }}
+            className="absolute inset-x-0 bottom-0 h-75 z-10 pointer-events-none bg-gradient-to-t from-[#020509] to-transparent"
           />
 
           <img
@@ -193,10 +227,13 @@ const ComingSoon = () => {
               />
             </motion.div>
 
-            <h1 className="font-reikna font-semibold leading-none text-white text-4xl sm:text-6xl md:text-[90px] lg:text-[120px]">
+            <h1 style={{
+              filter:
+              "drop-shadow(2px 2px 1px #D6953A) drop-shadow(5px 5px 15px #D6953A)",}}
+              className="font-reikna font-semibold leading-none text-4xl sm:text-6xl md:text-[90px] lg:text-[120px] bg-gradient-to-b from-[#FFE8A5] to-[#FBCA65] bg-clip-text text-transparent">
               Soedirman Student Summit
             </h1>
-              <span className="font-love-craft text-s3-gold text-4xl md:text-5xl lg:text-[64px] mb-4">2026</span>
+              <span className="font-love-craft text-s3-gold text-4xl md:text-5xl lg:text-[64px] mb-4 bg-gradient-to-b from-[#FFE8A5] to-[#FBCA65] bg-clip-text text-transparent [filter:drop-shadow(2px_2px_0_#D6953A)_drop-shadow(0_0_20px_#D6953A)]">2026</span>
 
             <div className="s3-glass rounded-3xl mx-auto max-w-3xl py-10 px-10 mb-8">
               <p className="font-poppins text-lg md:text-xl leading-relaxed text-center text-blue-100">
