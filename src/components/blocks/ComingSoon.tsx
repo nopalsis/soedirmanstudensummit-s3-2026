@@ -196,54 +196,37 @@ const ComingSoon = () => {
         {/* ===== COMING SOON ===== */}
         <motion.div
           id="coming-soon-text"
-          className="relative z-10 flex flex-col items-center gap-3 text-center px-6"
+          className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-6"
           initial={{ opacity: 1, y: 0, scale: 1 }}
         >
           <img
             src="/images/comingsoon.webp"
-            className="w-48 sm:w-75 lg:w-150"
-          ></img>
-          {/* <h1
-            className="text-6xl md:text-8xl font-love-craft leading-none"
-            style={{
-              color: "#C9A84C",
-              textShadow: "0 0 60px #C9A84C80, 0 0 120px #C9A84C30",
-            }}
-          >
-            COMING
-          </h1> */}
-          {/* <h1
-            className="text-6xl md:text-8xl font-love-craft leading-none"
-            style={{
-              WebkitTextStroke: "2px #C9A84C",
-              color: "transparent",
-            }}
-          >
-            SOON
-          </h1> */}
+            className="w-80 sm:w-[600px] lg:w-[900px] xl:w-[1100px] h-auto object-contain"
+            alt="Coming Soon"
+          />
 
           {!revealed && (
             <motion.div
-              className="mt-10 flex flex-col items-center gap-2 pointer-events-none"
-              animate={{ y: [0, 8, 0] }}
+              className="mt-12 flex flex-col items-center gap-2 pointer-events-none"
+              animate={{ y: [0, 12, 0] }}
               transition={{
                 repeat: Infinity,
-                duration: 1.4,
+                duration: 1.5,
                 ease: "easeInOut",
               }}
             >
               <div
-                className="w-4 h-4 rotate-45"
+                className="w-5 h-5 rotate-45"
                 style={{
-                  borderRight: "1.5px solid #C9A84C80",
-                  borderBottom: "1.5px solid #C9A84C80",
+                  borderRight: "2px solid #C9A84C80",
+                  borderBottom: "2px solid #C9A84C80",
                 }}
               />
               <div
-                className="w-4 h-4 rotate-45 -mt-2"
+                className="w-5 h-5 rotate-45 -mt-3"
                 style={{
-                  borderRight: "1.5px solid #C9A84C40",
-                  borderBottom: "1.5px solid #C9A84C40",
+                  borderRight: "2px solid #C9A84C40",
+                  borderBottom: "2px solid #C9A84C40",
                 }}
               />
             </motion.div>
