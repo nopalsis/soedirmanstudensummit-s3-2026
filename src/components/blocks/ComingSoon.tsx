@@ -265,21 +265,21 @@ const ComingSoon = () => {
           {/* ===== OVERLAY TEXT ===== */}
           <motion.div
             id="overlay-text"
-            className="absolute inset-0 z-20 text-center w-full px-6 flex flex-col items-center justify-center pb-48 md:pb-32"
+            className="absolute inset-0 z-20 text-center w-full px-6 flex flex-col items-center justify-start pt-12 pb-16 md:pb-24 md:justify-center md:pt-0"
             initial={{ opacity: 0, y: 30 }}
             style={{ willChange: "transform, opacity" }}
           >
             {/* Logo */}
             <motion.div
               id="logo-overlay"
-              className="pointer-events-none mb-3"
+              className="pointer-events-none mb-6"
               initial={{ opacity: 0, scale: 0.7, y: -30 }}
               style={{ willChange: "transform, opacity" }}
             >
               <img
                 src="/images/logo.png"
                 alt="Logo S3"
-                className="w-30 sm:w-25 md:w-35 lg:w-40 object-contain select-none mx-auto"
+                className="w-32 sm:w-25 md:w-35 lg:w-40 object-contain select-none mx-auto"
                 style={{
                   filter: "drop-shadow(0 0 24px #6ea8fe60) brightness(1.1)",
                 }}
@@ -292,14 +292,14 @@ const ComingSoon = () => {
                 filter:
                   "drop-shadow(2px 2px 1px #D6953A) drop-shadow(5px 5px 15px #D6953A)",
               }}
-              className="font-reikna font-semibold leading-none text-5xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl bg-linear-to-b from-[#FFE8A5] to-[#FBCA65] bg-clip-text text-transparent"
+              className="font-reikna font-semibold leading-none text-[38px] sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl bg-linear-to-b from-[#FFE8A5] to-[#FBCA65] bg-clip-text text-transparent whitespace-nowrap"
             >
               Soedirman Student Summit
             </h1>
 
             {/* Year */}
             <span
-              className="font-love-craft text-2xl sm:text-4xl md:text-5xl lg:text-4xl mb-4 bg-gradient-to-b from-[#FFE8A5] to-[#FBCA65] bg-clip-text text-transparent"
+              className="font-love-craft text-[32px] sm:text-4xl md:text-5xl lg:text-4xl mb-6 bg-gradient-to-b from-[#FFE8A5] to-[#FBCA65] bg-clip-text text-transparent"
               style={{
                 filter:
                   "drop-shadow(2px 2px 1px #D6953A) drop-shadow(0 0 20px #D6953A)",
@@ -309,8 +309,8 @@ const ComingSoon = () => {
             </span>
 
             {/* Description */}
-            <div className="s3-glass rounded-3xl mx-auto w-full max-w-xs sm:max-w-md md:max-w-xl lg:max-w-3xl py-5 px-6 sm:py-7 sm:px-8 md:py-10 md:px-12 mb-6">
-              <p className="font-poppins text-sm sm:text-sm md:text-sm lg:text-sm leading-relaxed text-center text-blue-100 [text-shadow:0_2px_8px_rgba(0,0,0,0.8)]">
+            <div className="s3-glass rounded-3xl mx-auto w-full max-w-[260px] sm:max-w-md md:max-w-xl lg:max-w-3xl py-3 px-4 sm:py-7 sm:px-8 md:py-10 md:px-12 mb-4">
+              <p className="font-poppins text-[10px] sm:text-sm md:text-sm lg:text-sm leading-relaxed text-center text-blue-100 [text-shadow:2px_2px_4px_rgba(0,0,0,1)]">
                 Soedirman Student Summit (S3) merupakan kegiatan tahunan yang
                 diselenggarakan sebagai wadah untuk pengenalan kehidupan
                 perkuliahan dan untuk menyambut mahasiswa baru Universitas
@@ -320,7 +320,7 @@ const ComingSoon = () => {
             </div>
 
             {/* Tombol Play */}
-            <div className="absolute right-4 bottom-32 md:right-10 md:bottom-24 z-30">
+            <div className="absolute right-4 bottom-24 md:right-10 md:bottom-24 z-30">
               <audio
                 ref={audioRef}
                 src="/audio/generasi-soedirman.mp3"
@@ -328,26 +328,6 @@ const ComingSoon = () => {
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               />
-              
-              {/* Radiating Sound Waves (Ripple Effect) */}
-              {isPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                  {[1, 2].map((i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ scale: 1, opacity: 0.6 }}
-                      animate={{ scale: [1, 1.8, 2.2], opacity: [0.6, 0.2, 0] }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 2,
-                        delay: i * 0.8,
-                        ease: "easeOut",
-                      }}
-                      className="absolute inset-0 rounded-full border border-s3-gold/40"
-                    />
-                  ))}
-                </div>
-              )}
 
               <button
                 id="btn-play-music"
@@ -381,9 +361,9 @@ const ComingSoon = () => {
             </div>
 
             {/* ===== FOOTER ===== */}
-            <div className="w-full px-4 sm:px-6 md:px-10 py-3 md:py-4 absolute bottom-0 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0 bg-linear-to-r from-[#000B2F]/30 to-[#002395]/30">
+            <div className="w-full px-4 sm:px-6 md:px-10 py-2 md:py-4 absolute bottom-0 flex flex-col md:flex-row items-center justify-between gap-1.5 md:gap-0 bg-linear-to-r from-[#000B2F]/30 to-[#002395]/30">
               {/* Copyright */}
-              <p className="text-[10px] sm:text-xs font-plus-jakarta-sans text-white/40 order-3 md:order-1 text-center md:text-left">
+              <p className="text-[8px] sm:text-[10px] md:text-xs font-plus-jakarta-sans text-white/40 order-3 md:order-1 text-center md:text-left whitespace-nowrap">
                 Copyright &copy; Soedirman Student Summit 2026 - Universitas
                 Jenderal Soedirman
               </p>
