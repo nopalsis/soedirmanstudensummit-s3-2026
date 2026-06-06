@@ -345,10 +345,31 @@ const ComingSoon = () => {
                 onPlay={() => setIsPlaying(true)}
                 onPause={() => setIsPlaying(false)}
               />
+              
+              {/* Radiating Sound Waves (Ripple Effect) */}
+              {isPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  {[1, 2].map((i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ scale: 1, opacity: 0.6 }}
+                      animate={{ scale: [1, 1.8, 2.2], opacity: [0.6, 0.2, 0] }}
+                      transition={{
+                        repeat: Infinity,
+                        duration: 2,
+                        delay: i * 0.8,
+                        ease: "easeOut",
+                      }}
+                      className="absolute inset-0 rounded-full border border-s3-gold/40"
+                    />
+                  ))}
+                </div>
+              )}
+
               <button
                 id="btn-play-music"
                 onClick={toggleMusic}
-                className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20 text-white text-[10px] sm:text-xs font-plus-jakarta-sans transition-all duration-200 hover:bg-white/10 hover:border-s3-gold hover:text-s3-gold"
+                className="s3-glass flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-white text-[10px] sm:text-xs font-plus-jakarta-sans transition-all duration-300 hover:bg-white/20 hover:border-s3-gold hover:text-s3-gold shadow-xl"
               >
                 {isPlaying ? (
                   <>
