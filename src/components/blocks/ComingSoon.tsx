@@ -5,12 +5,31 @@ import "@/styles/global.css";
 
 const ComingSoon = () => {
   const [revealed, setRevealed] = React.useState(false);
+  const [isPlaying, setIsPlaying] = React.useState(false);
+  const audioRef = React.useRef<HTMLAudioElement | null>(null);
   const [scope, animate] = useAnimate();
   const shouldReduce = useReducedMotion();
+
+  const toggleMusic = (e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch((err) => console.log("Audio play failed:", err));
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   const handleReveal = async () => {
     if (revealed) return;
     setRevealed(true);
+
+    // Play music on reveal (user interaction)
+    if (audioRef.current) {
+      audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => console.log("Audio play failed:", err));
+    }
 
     if (shouldReduce) {
       await animate("#coming-soon-text", { opacity: 0 }, { duration: 0.2 });
@@ -317,6 +336,46 @@ const ComingSoon = () => {
               </p>
             </div>
 
+            {/* Tombol Play */}
+            <div className="absolute right-4 bottom-32 md:right-10 md:bottom-24 z-30">
+              <audio
+                ref={audioRef}
+                src="/audio/generasi-soedirman.mp3"
+                loop
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+              />
+              <button
+                id="btn-play-music"
+                onClick={toggleMusic}
+                className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20 text-white text-[10px] sm:text-xs font-plus-jakarta-sans transition-all duration-200 hover:bg-white/10 hover:border-s3-gold hover:text-s3-gold"
+              >
+                {isPlaying ? (
+                  <>
+                    <svg
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                    </svg>
+                    <span>Pause Music</span>
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                    <span>Play Music</span>
+                  </>
+                )}
+              </button>
+            </div>
+
             {/* ===== FOOTER ===== */}
             <div className="w-full px-4 sm:px-6 md:px-10 py-3 md:py-4 absolute bottom-0 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-0 bg-linear-to-r from-[#000B2F]/30 to-[#002395]/30">
               {/* Copyright */}
@@ -399,24 +458,6 @@ const ComingSoon = () => {
                   </svg>
                 </a>
               </div>
-
-              {/* Tombol Play */}
-              <button
-                id="btn-play-music"
-                onClick={() => {
-                  /* handle play */
-                }}
-                className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-white/20 text-white text-[10px] sm:text-xs font-plus-jakarta-sans transition-all duration-200 hover:bg-white/10 hover:border-s3-gold hover:text-s3-gold order-2 md:order-3"
-              >
-                <svg
-                  className="w-3.5 h-3.5 sm:w-4 sm:h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-                <span>Play Music</span>
-              </button>
             </div>
           </motion.div>
         </motion.div>
