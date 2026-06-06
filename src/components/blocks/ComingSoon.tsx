@@ -196,18 +196,18 @@ const ComingSoon = () => {
         {/* ===== COMING SOON ===== */}
         <motion.div
           id="coming-soon-text"
-          className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-6"
+          className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-6 pb-24 md:pb-0"
           initial={{ opacity: 1, y: 0, scale: 1 }}
         >
           <img
             src="/images/comingsoon.webp"
-            className="w-80 sm:w-[600px] lg:w-[900px] xl:w-[1100px] h-auto object-contain"
+            className="w-72 sm:w-[600px] lg:w-[900px] xl:w-[1100px] h-auto object-contain"
             alt="Coming Soon"
           />
 
           {!revealed && (
             <motion.div
-              className="mt-12 flex flex-col items-center gap-2 pointer-events-none"
+              className="mt-8 md:mt-12 flex flex-col items-center gap-2 pointer-events-none"
               animate={{ y: [0, 12, 0] }}
               transition={{
                 repeat: Infinity,
@@ -265,7 +265,7 @@ const ComingSoon = () => {
           {/* ===== OVERLAY TEXT ===== */}
           <motion.div
             id="overlay-text"
-            className="absolute inset-0 z-20 text-center w-full px-6 flex flex-col items-center justify-center pb-32"
+            className="absolute inset-0 z-20 text-center w-full px-6 flex flex-col items-center justify-center pb-48 md:pb-32"
             initial={{ opacity: 0, y: 30 }}
             style={{ willChange: "transform, opacity" }}
           >
@@ -417,6 +417,19 @@ const ComingSoon = () => {
                   </svg>
                 </a>
                 <a
+                  href="https://www.youtube.com/channel/UCruSR4_IaHdP23WbbykYT1w"
+                  title="YouTube"
+                  className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
+                >
+                  <svg
+                    className="w-3.5 h-3.5 sm:w-4 sm:h-4"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.016 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </a>
+                <a
                   href="#"
                   title="WhatsApp"
                   className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
@@ -430,7 +443,7 @@ const ComingSoon = () => {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://open.spotify.com/user/317jtugbgtp3gi5jnrnj6pys265q?si=YaDJSEF9R6-e0GNzd-glQw"
                   title="Spotify"
                   className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
                 >
