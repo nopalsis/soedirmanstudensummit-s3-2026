@@ -198,7 +198,7 @@ const ComingSoon = () => {
         {/* ===== COMING SOON ===== */}
         <motion.div
           id="coming-soon-text"
-          className="relative z-10 flex flex-col items-center justify-center w-full h-full text-center px-6 pb-24 md:pb-0"
+          className="relative z-10 flex flex-col items-center justify-center gap-0 text-center px-6"
           initial={{ opacity: 1, y: 0, scale: 1 }}
         >
           <img
@@ -209,7 +209,7 @@ const ComingSoon = () => {
 
           {!revealed && (
             <motion.div
-              className="mt-8 md:mt-12 flex flex-col items-center pointer-events-none"
+              className="mt-6 flex flex-col items-center pointer-events-none"
               animate={{ y: [0, 12, 0] }}
               transition={{
                 repeat: Infinity,
