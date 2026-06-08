@@ -10,6 +10,28 @@ const ComingSoon = () => {
   const [scope, animate] = useAnimate();
   const shouldReduce = useReducedMotion();
 
+  React.useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!audioRef.current) return;
+
+      if (document.hidden) {
+        if (isPlaying) {
+          audioRef.current.pause();
+        }
+      } else {
+        if (isPlaying) {
+          audioRef.current.play().catch(err => console.log("Audio resume failed:", err));
+        }
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [isPlaying]);
+
   const toggleMusic = (e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
     if (!audioRef.current) return;
@@ -28,10 +50,10 @@ const ComingSoon = () => {
     if (revealed) return;
     setRevealed(true);
 
-    // // Play music on reveal (user interaction)
-    // if (audioRef.current) {
-    //   audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => console.log("Audio play failed:", err));
-    // }
+    // Play music on reveal (user interaction)
+    if (audioRef.current) {
+      audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => console.log("Audio play failed:", err));
+    }
 
     if (shouldReduce) {
       await animate("#coming-soon-text", { opacity: 0 }, { duration: 0.2 });
@@ -328,7 +350,11 @@ const ComingSoon = () => {
                 src="/audio/generasi-soedirman.mp3"
                 loop
                 onPlay={() => setIsPlaying(true)}
-                onPause={() => setIsPlaying(false)}
+                onPause={() => {
+                  if (!document.hidden) {
+                    setIsPlaying(false);
+                  }
+                }}
               />
 
               {/* Tombol Play */}
