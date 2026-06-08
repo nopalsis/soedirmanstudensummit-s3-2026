@@ -17,7 +17,9 @@ const ComingSoon = () => {
     if (isPlaying) {
       audioRef.current.pause();
     } else {
-      audioRef.current.play().catch((err) => console.log("Audio play failed:", err));
+      audioRef.current
+        .play()
+        .catch((err) => console.log("Audio play failed:", err));
     }
     setIsPlaying(!isPlaying);
   };
@@ -26,10 +28,10 @@ const ComingSoon = () => {
     if (revealed) return;
     setRevealed(true);
 
-    // Play music on reveal (user interaction)
-    if (audioRef.current) {
-      audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => console.log("Audio play failed:", err));
-    }
+    // // Play music on reveal (user interaction)
+    // if (audioRef.current) {
+    //   audioRef.current.play().then(() => setIsPlaying(true)).catch((err) => console.log("Audio play failed:", err));
+    // }
 
     if (shouldReduce) {
       await animate("#coming-soon-text", { opacity: 0 }, { duration: 0.2 });
@@ -201,13 +203,13 @@ const ComingSoon = () => {
         >
           <img
             src="/images/comingsoon.webp"
-            className="w-72 sm:w-[600px] lg:w-[900px] xl:w-[1100px] h-auto object-contain"
+            className="w-72 sm:w-[400px] lg:w-[500px] xl:w-[600px] h-auto object-contain"
             alt="Coming Soon"
           />
 
           {!revealed && (
             <motion.div
-              className="mt-8 md:mt-12 flex flex-col items-center gap-2 pointer-events-none"
+              className="mt-8 md:mt-12 flex flex-col items-center pointer-events-none"
               animate={{ y: [0, 12, 0] }}
               transition={{
                 repeat: Infinity,
@@ -265,7 +267,7 @@ const ComingSoon = () => {
           {/* ===== OVERLAY TEXT ===== */}
           <motion.div
             id="overlay-text"
-            className="absolute inset-0 z-20 text-center w-full px-6 flex flex-col items-center justify-start pt-12 pb-16 md:pb-24 md:justify-center md:pt-0"
+            className="absolute inset-0 z-20 text-center w-full px-6 flex flex-col items-center justify-center pb-16 md:pb-24 md:justify-center md:pt-0"
             initial={{ opacity: 0, y: 30 }}
             style={{ willChange: "transform, opacity" }}
           >
@@ -309,7 +311,7 @@ const ComingSoon = () => {
             </span>
 
             {/* Description */}
-            <div className="s3-glass rounded-3xl mx-auto w-full max-w-[260px] sm:max-w-md md:max-w-xl lg:max-w-3xl py-3 px-4 sm:py-7 sm:px-8 md:py-10 md:px-12 mb-4">
+            <div className="s3-glass rounded-3xl mx-auto w-full max-w-[300px] sm:max-w-md md:max-w-xl lg:max-w-3xl py-3 px-4 sm:py-7 sm:px-8 md:py-10 md:px-12 mb-4">
               <p className="font-poppins text-[10px] sm:text-sm md:text-sm lg:text-sm leading-relaxed text-center text-blue-100 [text-shadow:2px_2px_4px_rgba(0,0,0,1)]">
                 Soedirman Student Summit (S3) merupakan kegiatan tahunan yang
                 diselenggarakan sebagai wadah untuk pengenalan kehidupan
@@ -320,7 +322,7 @@ const ComingSoon = () => {
             </div>
 
             {/* Tombol Play */}
-            <div className="absolute right-4 bottom-24 md:right-10 md:bottom-24 z-30">
+            <div className="absolute right-4 bottom-24 md:right-10 md:bottom-24 z-30 flex items-center gap-2">
               <audio
                 ref={audioRef}
                 src="/audio/generasi-soedirman.mp3"
@@ -329,11 +331,44 @@ const ComingSoon = () => {
                 onPause={() => setIsPlaying(false)}
               />
 
+              {/* Tombol Play */}
               <button
                 id="btn-play-music"
                 onClick={toggleMusic}
-                className="s3-glass flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-white text-[10px] sm:text-xs font-plus-jakarta-sans transition-all duration-300 hover:bg-white/20 hover:border-s3-gold hover:text-s3-gold shadow-xl"
+                className="bg-[#002395]/30 flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-white text-[10px] sm:text-xs font-plus-jakarta-sans transition-all duration-300 border border-transparent hover:border-s3-gold hover:text-s3-gold shadow-xl"
               >
+                <div className="relative w-8 h-8 sm:w-9 sm:h-9 shrink-0 flex items-center justify-center">
+                  {/* Border piringan berputar */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full border-2 border-white"
+                    animate={isPlaying ? { rotate: 360 } : { rotate: 0 }}
+                    transition={
+                      isPlaying
+                        ? { repeat: Infinity, duration: 3, ease: "linear" }
+                        : { duration: 0.5 }
+                    }
+                  />
+                  {/* Background bulat - sama persis ukurannya */}
+                  <div className="absolute inset-0 rounded-full bg-[#001a6e]/60 backdrop-blur-sm" />
+                  {/* Logo */}
+                  <motion.img
+                    src="/images/logo.png"
+                    alt=""
+                    aria-hidden="true"
+                    className="relative z-10 w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                    style={{
+                      mixBlendMode: "screen",
+                      filter: "brightness(1.3)",
+                    }}
+                    animate={isPlaying ? { rotate: 360 } : { rotate: 0 }}
+                    transition={
+                      isPlaying
+                        ? { repeat: Infinity, duration: 8, ease: "linear" }
+                        : { duration: 0.5 }
+                    }
+                  />
+                </div>
+
                 {isPlaying ? (
                   <>
                     <svg
@@ -343,7 +378,7 @@ const ComingSoon = () => {
                     >
                       <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
                     </svg>
-                    <span>Pause Music</span>
+                    <span className="">Pause</span>
                   </>
                 ) : (
                   <>
@@ -354,7 +389,7 @@ const ComingSoon = () => {
                     >
                       <path d="M8 5v14l11-7z" />
                     </svg>
-                    <span>Play Music</span>
+                    <span className="">Play</span>
                   </>
                 )}
               </button>
@@ -410,7 +445,7 @@ const ComingSoon = () => {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://whatsapp.com/channel/0029Vb7LYoy3bbV6zgIGfN3S"
                   title="WhatsApp"
                   className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
                 >
