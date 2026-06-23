@@ -3,12 +3,26 @@
 /* ============================================
    S3 2026 — Global Styles & Custom Theme
    ============================================ */
+@font-face {
+  font-family: 'LoveCraft';
+  src: url('/fonts/LoveCraft.ttf') format('woff2');
+  font-weight: 400;
+}
 
+@font-face {
+  font-family: 'Reikna';
+  src: url('/fonts/Reikna.ttf') format('woff2');
+  font-weight: 700;
+}
 @theme {
 	/* Typography */
 	--font-inter: 'Inter', sans-serif;
 	--font-plus-jakarta-sans: 'Plus Jakarta Sans', sans-serif;
 	--font-space-grotesk: 'Space Grotesk', sans-serif;
+	--font-poppins: 'Poppins', sans-serif;
+	--font-love-craft: 'LoveCraft', sans-serif;
+	--font-reikna: 'Reikna', sans-serif;
+
 
 	/* Primary Colors — Dark Premium Palette */
 	--color-dark-base: #0a0a0f;
@@ -34,6 +48,11 @@
 	/* Surface Colors */
 	--color-surface-glass: rgba(255, 255, 255, 0.05);
 	--color-surface-glass-hover: rgba(255, 255, 255, 0.08);
+
+	/* S3 Brand Colors */
+	--color-s3-blue: #002855;
+	--color-s3-deep-blue: #001a35;
+	--color-s3-gold: #C9A84C;
 }
 
 @layer base {
@@ -50,8 +69,8 @@
 	}
 
 	::selection {
-		background-color: var(--color-accent-primary);
-		color: white;
+		background-color: var(--color-s3-gold);
+		color: var(--color-s3-blue);
 	}
 
 	h1 {
@@ -93,4 +112,41 @@
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 	}
+
+	/* S3 specific glass effect */
+	.s3-glass {
+		background: rgba(255, 255, 255, 0.10);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.s3-text-glow {
+		text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+	}
+}
+
+@layer utilities {
+
+	/* Float animation for hero logo */
+	@keyframes float {
+		0% {
+			transform: translateY(0px);
+		}
+
+		50% {
+			transform: translateY(-10px);
+		}
+
+		100% {
+			transform: translateY(0px);
+		}
+	}
+
+	.animate-float {
+		animation: float 4s ease-in-out infinite;
+	}
+
+	/* Hero background */
+	
 }
