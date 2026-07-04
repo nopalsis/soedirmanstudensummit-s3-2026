@@ -14,6 +14,13 @@
   src: url('/fonts/Reikna.ttf') format('woff2');
   font-weight: 700;
 }
+
+@font-face {
+  font-family: 'GoblinOne';
+  src: url('/fonts/GoblinOne.ttf') format('woff2');
+  font-weight: 700;
+}
+
 @theme {
 	/* Typography */
 	--font-inter: 'Inter', sans-serif;
@@ -22,6 +29,7 @@
 	--font-poppins: 'Poppins', sans-serif;
 	--font-love-craft: 'LoveCraft', sans-serif;
 	--font-reikna: 'Reikna', sans-serif;
+	--font-goblin: 'GoblinOne', sans-serif;
 
 
 	/* Primary Colors — Dark Premium Palette */
@@ -53,6 +61,8 @@
 	--color-s3-blue: #002855;
 	--color-s3-deep-blue: #001a35;
 	--color-s3-gold: #C9A84C;
+
+	--nav-height: 76px;
 }
 
 @layer base {

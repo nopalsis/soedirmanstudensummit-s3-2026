@@ -301,7 +301,7 @@ const ComingSoon = () => {
               style={{ willChange: "transform, opacity" }}
             >
               <img
-                src="/images/logo.png"
+                src="/images/logo.webp"
                 alt="Logo S3"
                 className="w-32 sm:w-25 md:w-35 lg:w-40 object-contain select-none mx-auto"
                 style={{
@@ -378,7 +378,7 @@ const ComingSoon = () => {
                   <div className="absolute inset-0 rounded-full bg-[#001a6e]/60 backdrop-blur-sm" />
                   {/* Logo */}
                   <motion.img
-                    src="/images/logo.png"
+                    src="/images/logo.webp"
                     alt=""
                     aria-hidden="true"
                     className="relative z-10 w-5 h-5 sm:w-6 sm:h-6 object-contain"

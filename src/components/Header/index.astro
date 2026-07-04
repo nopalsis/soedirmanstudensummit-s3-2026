@@ -1,0 +1,312 @@
+---
+import NavLink from "./NavLink.astro";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  id="header"
+  class="w-full flex justify-center items-center sticky top-0 z-[999] bg-s3-blue shadow-[0_4px_20px_rgba(0,0,0,0.35)] min-h-[var(--nav-height)]"
+>
+  <nav class="w-full max-w-screen-xl">
+    <!-- Desktop Nav -->
+    <div class="hidden lg:flex justify-between items-center w-full px-6 py-3">
+      <a href="/" class="flex items-center shrink-0">
+        <img
+          src="/images/logo.webp"
+          alt="Soedirman Student Summit Logo"
+          width="44"
+          height="44"
+          class="w-11 h-11 object-contain"
+        />
+      </a>
+
+      <div class="flex items-center gap-2">
+        <NavLink href="/" active={currentPath === "/"}>Beranda</NavLink>
+
+        <div class="relative inline-block text-left">
+          <div class="group">
+            <button
+              id="dropdownButton"
+              type="button"
+              class="inline-flex justify-center items-center text-s3-gold/90 hover:text-s3-gold text-sm font-plus-jakarta-sans font-medium transition-all duration-300 w-fit cursor-pointer px-1"
+            >
+              Jelajahi Unsoed
+              <svg
+                class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+              </svg>
+            </button>
+            <div
+              id="dropdownMenu"
+              class="absolute left-0 w-44 mt-3 origin-top-left bg-white divide-y divide-gray-100 rounded-2xl shadow-lg opacity-0 invisible transition duration-300 overflow-hidden"
+            >
+              <div class="py-1">
+                
+                  href="/tentang-unsoed"
+                  class="block px-4 py-2 text-s3-blue text-sm font-plus-jakarta-sans hover:bg-s3-gold/10 transition-all duration-300"
+                  >Tentang Unsoed</a
+                >
+                
+                  href="/ukm"
+                  class="block px-4 py-2 text-s3-blue text-sm font-plus-jakarta-sans hover:bg-s3-gold/10 transition-all duration-300"
+                  >UKM</a
+                >
+                
+                  href="/paguyuban"
+                  class="block px-4 py-2 text-s3-blue text-sm font-plus-jakarta-sans hover:bg-s3-gold/10 transition-all duration-300"
+                  >Paguyuban</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <NavLink href="/info-gensoed" active={currentPath.startsWith("/info-gensoed")}>Info Gensoed</NavLink>
+        <NavLink href="/penugasan" active={currentPath.startsWith("/penugasan")}>Penugasan</NavLink>
+        <NavLink href="/faq" active={currentPath === "/faq"}>FAQ</NavLink>
+      </div>
+
+      <a
+        href="/hubungi-kami"
+        class="bg-s3-gold text-s3-blue text-sm font-plus-jakarta-sans font-semibold px-5 py-2 rounded-full hover:brightness-95 transition-all duration-300 shrink-0"
+      >
+        Hubungi Kami
+      </a>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div class="lg:hidden flex justify-between items-center px-5 py-3">
+      <a href="/" class="flex items-center">
+        <img
+          src="/images/logo.png"
+          alt="Soedirman Student Summit Logo"
+          width="38"
+          height="38"
+          class="w-9.5 h-9.5 object-contain"
+        />
+      </a>
+      <button class="hamburger hamburger--collapse h-[21px]" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <div
+        class="absolute top-full right-0 mt-3 w-[250px] z-[999] rounded-3xl transition-all duration-300 flex flex-col gap-5 px-6 py-6 items-end bg-s3-blue shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+        id="sidebar"
+        style="right:-110%"
+      >
+        <NavLink href="/" active={currentPath === "/"}>Beranda</NavLink>
+
+        <div class="flex flex-col gap-2 items-end">
+          <div class="group relative">
+            <button
+              type="button"
+              id="toggleButton"
+              class="flex items-center text-s3-gold/90 hover:text-s3-gold text-sm font-plus-jakarta-sans font-medium transition-all duration-300 cursor-pointer"
+            >
+              <span>Jelajahi Unsoed</span>
+              <svg
+                class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+              </svg>
+            </button>
+            <div id="contentArea" class="mt-2 w-full hidden">
+              <ul class="flex flex-col gap-1 text-right">
+                <li><NavLink href="/tentang-unsoed">Tentang Unsoed</NavLink></li>
+                <li><NavLink href="/ukm">UKM</NavLink></li>
+                <li><NavLink href="/paguyuban">Paguyuban</NavLink></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <NavLink href="/info-gensoed" active={currentPath.startsWith("/info-gensoed")}>Info Gensoed</NavLink>
+        <NavLink href="/penugasan" active={currentPath.startsWith("/penugasan")}>Penugasan</NavLink>
+        <NavLink href="/faq" active={currentPath === "/faq"}>FAQ</NavLink>
+        
+          href="/hubungi-kami"
+          class="bg-s3-gold text-s3-blue text-sm font-plus-jakarta-sans font-semibold px-5 py-2 rounded-full hover:brightness-95 transition-all duration-300"
+        >
+          Hubungi Kami
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .hamburger {
+    padding: 0px 0px;
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+  }
+  .hamburger:hover {
+    opacity: 0.7;
+  }
+  .hamburger.is-active:hover {
+    opacity: 0.7;
+  }
+  .hamburger.is-active .hamburger-inner,
+  .hamburger.is-active .hamburger-inner::before,
+  .hamburger.is-active .hamburger-inner::after {
+    background-color: var(--color-s3-gold);
+  }
+
+  .hamburger-box {
+    width: 21px;
+    height: 16.5px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -1.25px;
+  }
+  .hamburger-inner,
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    width: 21px;
+    height: 2.5px;
+    background-color: var(--color-s3-gold);
+    border-radius: 2.5px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    content: "";
+    display: block;
+  }
+  .hamburger-inner::before {
+    top: -7px;
+  }
+  .hamburger-inner::after {
+    bottom: -7px;
+  }
+
+  .hamburger--collapse .hamburger-inner {
+    top: auto;
+    bottom: 0;
+    transition-duration: 0.13s;
+    transition-delay: 0.13s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  .hamburger--collapse .hamburger-inner::after {
+    top: -14px;
+    transition:
+      top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+      opacity 0.1s linear;
+  }
+  .hamburger--collapse .hamburger-inner::before {
+    transition:
+      top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1),
+      transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  .hamburger--collapse.is-active .hamburger-inner {
+    transform: translate3d(0, -7px, 0) rotate(-45deg);
+    transition-delay: 0.22s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .hamburger--collapse.is-active .hamburger-inner::after {
+    top: 0;
+    opacity: 0;
+    transition:
+      top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+      opacity 0.1s 0.22s linear;
+  }
+  .hamburger--collapse.is-active .hamburger-inner::before {
+    top: 0;
+    transform: rotate(-90deg);
+    transition:
+      top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
+      transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+</style>
+
+<script>
+  const hamburgerButton = document.querySelector(".hamburger");
+  const sidebar = document.querySelector("#sidebar");
+  if (hamburgerButton && sidebar) {
+    hamburgerButton.addEventListener("click", () => {
+      if (hamburgerButton.classList.contains("is-active")) {
+        sidebar.setAttribute("style", "right: -110%");
+        hamburgerButton.classList.remove("is-active");
+      } else {
+        sidebar.setAttribute("style", "right: 0px");
+        hamburgerButton.classList.add("is-active");
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById("dropdownButton") as HTMLButtonElement | null;
+    const menu = document.getElementById("dropdownMenu") as HTMLElement | null;
+    if (!button || !menu) return;
+    const svgIcon = button.querySelector("svg") as SVGElement;
+
+    button.addEventListener("click", function (event: MouseEvent) {
+      const isVisible = menu.classList.contains("opacity-100");
+      if (!isVisible) {
+        menu.classList.remove("opacity-0", "invisible");
+        menu.classList.add("opacity-100", "visible");
+        svgIcon.style.transform = "rotate(0deg)";
+      } else {
+        menu.classList.remove("opacity-100", "visible");
+        menu.classList.add("opacity-0", "invisible");
+        svgIcon.style.transform = "rotate(90deg)";
+      }
+      event.stopPropagation();
+    });
+
+    document.addEventListener("click", function (event: MouseEvent) {
+      if (
+        event.target instanceof Node &&
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+      ) {
+        menu.classList.remove("opacity-100", "visible");
+        menu.classList.add("opacity-0", "invisible");
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("toggleButton") as HTMLElement | null;
+    const contentArea = document.getElementById("contentArea") as HTMLElement | null;
+    if (!toggleButton || !contentArea) return;
+    const svgIcon = toggleButton.querySelector("svg") as SVGElement;
+
+    toggleButton.addEventListener("click", function () {
+      contentArea.classList.toggle("hidden");
+      if (contentArea.classList.contains("hidden")) {
+        svgIcon.style.transform = "rotate(90deg)";
+      } else {
+        svgIcon.style.transform = "rotate(0deg)";
+      }
+    });
+  });
+</script>
