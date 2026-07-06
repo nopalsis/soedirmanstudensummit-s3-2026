@@ -2,10 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/HeroSections/HeroSection.astro';
 import Divider from '../components/divider/Divider.astro';
+import KnowMore from '../components/KnowMore/KnowMore.astro';
 ---
 
 <Layout title="Selamat Datang">
   <Hero />
-  <Divider class="-mt-4 md:-mt-16" />
+  <div class="relative z-20 -mb-32">
+    <Divider class="-mt-4 md:-mt-16" />
+  </div>
+
+  <KnowMore />
 </Layout>
 

@@ -46,17 +46,17 @@ const currentPath = Astro.url.pathname;
               class="absolute left-0 w-44 mt-3 origin-top-left bg-white divide-y divide-gray-100 rounded-2xl shadow-lg opacity-0 invisible transition duration-300 overflow-hidden"
             >
               <div class="py-1">
-                
+                <a
                   href="/tentang-unsoed"
                   class="block px-4 py-2 text-s3-blue text-sm font-plus-jakarta-sans hover:bg-s3-gold/10 transition-all duration-300"
                   >Tentang Unsoed</a
                 >
-                
+                <a
                   href="/ukm"
                   class="block px-4 py-2 text-s3-blue text-sm font-plus-jakarta-sans hover:bg-s3-gold/10 transition-all duration-300"
                   >UKM</a
                 >
-                
+                <a
                   href="/paguyuban"
                   class="block px-4 py-2 text-s3-blue text-sm font-plus-jakarta-sans hover:bg-s3-gold/10 transition-all duration-300"
                   >Paguyuban</a
@@ -96,49 +96,50 @@ const currentPath = Astro.url.pathname;
         </span>
       </button>
 
-      <div
-        class="absolute top-full right-0 mt-3 w-[250px] z-[999] rounded-3xl transition-all duration-300 flex flex-col gap-5 px-6 py-6 items-end bg-s3-blue shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
-        id="sidebar"
-        style="right:-110%"
-      >
-        <NavLink href="/" active={currentPath === "/"}>Beranda</NavLink>
+      <div class="fixed inset-0 overflow-hidden pointer-events-none z-[999]">
+        <div
+          class="absolute top-[var(--nav-height)] right-0 mt-3 w-[250px] rounded-3xl transition-transform duration-300 flex flex-col gap-5 px-6 py-6 items-end bg-s3-blue shadow-[0_10px_30px_rgba(0,0,0,0.35)] translate-x-full pointer-events-auto"
+          id="sidebar"
+        >
+          <NavLink href="/" active={currentPath === "/"}>Beranda</NavLink>
 
-        <div class="flex flex-col gap-2 items-end">
-          <div class="group relative">
-            <button
-              type="button"
-              id="toggleButton"
-              class="flex items-center text-s3-gold/90 hover:text-s3-gold text-sm font-plus-jakarta-sans font-medium transition-all duration-300 cursor-pointer"
-            >
-              <span>Jelajahi Unsoed</span>
-              <svg
-                class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+          <div class="flex flex-col gap-2 items-end">
+            <div class="group relative">
+              <button
+                type="button"
+                id="toggleButton"
+                class="flex items-center text-s3-gold/90 hover:text-s3-gold text-sm font-plus-jakarta-sans font-medium transition-all duration-300 cursor-pointer"
               >
-                <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
-              </svg>
-            </button>
-            <div id="contentArea" class="mt-2 w-full hidden">
-              <ul class="flex flex-col gap-1 text-right">
-                <li><NavLink href="/tentang-unsoed">Tentang Unsoed</NavLink></li>
-                <li><NavLink href="/ukm">UKM</NavLink></li>
-                <li><NavLink href="/paguyuban">Paguyuban</NavLink></li>
-              </ul>
+                <span>Jelajahi Unsoed</span>
+                <svg
+                  class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+                </svg>
+              </button>
+              <div id="contentArea" class="mt-2 w-full hidden">
+                <ul class="flex flex-col gap-1 text-right">
+                  <li><NavLink href="/tentang-unsoed">Tentang Unsoed</NavLink></li>
+                  <li><NavLink href="/ukm">UKM</NavLink></li>
+                  <li><NavLink href="/paguyuban">Paguyuban</NavLink></li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
 
-        <NavLink href="/info-gensoed" active={currentPath.startsWith("/info-gensoed")}>Info Gensoed</NavLink>
-        <NavLink href="/penugasan" active={currentPath.startsWith("/penugasan")}>Penugasan</NavLink>
-        <NavLink href="/faq" active={currentPath === "/faq"}>FAQ</NavLink>
-        
-          href="/hubungi-kami"
-          class="bg-s3-gold text-s3-blue text-sm font-plus-jakarta-sans font-semibold px-5 py-2 rounded-full hover:brightness-95 transition-all duration-300"
-        >
-          Hubungi Kami
-        </a>
+          <NavLink href="/info-gensoed" active={currentPath.startsWith("/info-gensoed")}>Info Gensoed</NavLink>
+          <NavLink href="/penugasan" active={currentPath.startsWith("/penugasan")}>Penugasan</NavLink>
+          <NavLink href="/faq" active={currentPath === "/faq"}>FAQ</NavLink>
+          <a
+            href="/hubungi-kami"
+            class="bg-s3-gold text-s3-blue text-sm font-plus-jakarta-sans font-semibold px-5 py-2 rounded-full hover:brightness-95 transition-all duration-300"
+          >
+            Hubungi Kami
+          </a>
+        </div>
       </div>
     </div>
   </nav>
@@ -253,10 +254,10 @@ const currentPath = Astro.url.pathname;
   if (hamburgerButton && sidebar) {
     hamburgerButton.addEventListener("click", () => {
       if (hamburgerButton.classList.contains("is-active")) {
-        sidebar.setAttribute("style", "right: -110%");
+        sidebar.classList.add("translate-x-full");
         hamburgerButton.classList.remove("is-active");
       } else {
-        sidebar.setAttribute("style", "right: 0px");
+        sidebar.classList.remove("translate-x-full");
         hamburgerButton.classList.add("is-active");
       }
     });

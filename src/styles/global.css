@@ -63,6 +63,7 @@
 	--color-s3-gold: #C9A84C;
 
 	--nav-height: 76px;
+	--breakpoint-xs: 420px;
 }
 
 @layer base {
