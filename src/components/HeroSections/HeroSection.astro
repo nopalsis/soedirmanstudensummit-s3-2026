@@ -6,69 +6,80 @@
   id="hero"
   class="relative w-full h-[calc(100vh-var(--nav-height))] flex justify-center items-center overflow-hidden bg-gradient-to-b from-[#1E4B82] to-[#0F1F52] px-4 sm:px-6"
 >
-  <img
-    src="/images/elements/wave.svg"
-    alt=""
-    class="absolute top-0 left-0 w-full h-auto z-0 opacity-80"
-  />
+  <!-- Wave (hidden di mobile, tampil mulai sm) -->
+<img
+  src="/images/elements/wave.svg"
+  alt=""
+  class="hidden sm:block absolute top-0 left-0 w-full h-auto z-0 opacity-80"
+/>
 
-  <!-- Burung: disembunyiin di mobile biar gak sesak, muncul dari sm ke atas -->
-  <img
-    src="/images/elements/burung.svg"
-    alt=""
-    class="hidden sm:block absolute top-[20%] sm:top-[12%] md:top-[25%] right-[6%] sm:right-[10%] md:right-[30%] w-20 sm:w-20 md:w-[600px] z-10 animate-bird-fly"
-  />
+<!-- Burung (tampil di semua ukuran) -->
+<img
+  src="/images/elements/burung.svg"
+  alt=""
+  class="absolute top-[20%] sm:top-[12%] md:top-[25%] right-[0%] sm:right-[10%] md:right-[30%] w-100 sm:w-20 md:w-[600px] z-10 animate-bird-fly"
+/>
 
-  <!-- Wayang kiri -->
-  <img
-    src="/images/elements/wayang-awan.svg"
-    alt="Wayang"
-    class="absolute left-0 bottom-2 sm:bottom-5 z-[999] w-20 xs:w-28 sm:w-48 md:w-72 lg:w-80 animate-fade-in-left"
-  />
+<!-- Wayang kiri -->
+<img
+  src="/images/elements/wayang-awan.svg"
+  alt="Wayang"
+  class="absolute left-0 bottom-0 sm:bottom-5 z-[999] w-35 xs:w-28 sm:w-48 md:w-72 lg:w-80 animate-fade-in-left"
+/>
 
-  <!-- Wayang kanan (mirror) -->
-  <img
-    src="/images/elements/wayang-awan.svg"
-    alt="wayang"
-    class="absolute bottom-4 sm:bottom-10 right-0 w-20 xs:w-28 sm:w-48 md:w-72 lg:w-80 z-20 -scale-x-100 animate-fade-in-right"
-  />
+<!-- Wayang kanan (mirror) -->
+<img
+  src="/images/elements/wayang-awan.svg"
+  alt="Wayang"
+  class="absolute bottom-0 sm:bottom-10 right-0 w-35 xs:w-28 sm:w-48 md:w-72 lg:w-80 z-20 -scale-x-100 animate-fade-in-right"
+/>
 
-  <div class="absolute top-1/2 -translate-y-1/2 sm:top-[10%] sm:translate-y-0 left-1/2 -translate-x-1/2 w-full px-4 z-10">
+<div class="absolute top-1/2 -translate-y-1/2 sm:top-[10%] sm:translate-y-0 left-1/2 -translate-x-1/2 w-full px-4 z-10">
+  <div class="flex flex-col items-center animate-fade-up">
 
-    <div class="flex flex-col items-center animate-fade-up">
+    <!-- Matahari -->
+    <div class="relative w-44 h-44 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 shrink-0">
+      <div
+        class="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,#FFDC96_0%,#FFC34C_100%)] shadow-[0_0_47.2px_6px_rgba(253,200,92,1)]">
+      </div>
 
-      <div class="relative w-44 h-44 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 shrink-0">
+      <!-- Judul -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center gap-0 z-30 text-center w-[92vw] sm:w-[90vw] max-w-3xl px-2">
 
-        <div class="absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,#FFDC96_0%,#FFC34C_100%)] shadow-[0_0_47.2px_6px_rgba(253,200,92,1)]">
-        </div>
+        <h1
+          class="text-s3-blue font-reikna text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_0_rgba(201,168,76,0.6)] leading-none">
+          Soedirman
+        </h1>
 
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center   gap-0 z-30 text-center w-[92vw] sm:w-[90vw] max-w-3xl px-2">
+        <h1
+          class="text-s3-blue font-reikna text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-[0_2px_0_rgba(201,168,76,0.6)] leading-none">
+          Student Summit
+        </h1>
 
-        <h1 class="text-s3-blue font-reikna text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_0_rgba(201,168,76,0.6)] leading-none"> Soedirman </h1>
-
-        <h1 class="text-s3-blue font-reikna text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-[0_2px_0_rgba(201,168,76,0.6)] leading-none">Student Summit</h1>
-
-        <p class="text-s3-blue font-goblin text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none">
+        <p
+          class="text-s3-blue font-goblin text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none">
           2026
         </p>
 
       </div>
-
     </div>
-      
-      <!-- Selamat Datang: tetap di posisinya, gak ikut ke tengah matahari -->
-      <p class="text-white text-xs xs:text-sm sm:text-base md:text-lg max-w-xl w-[92vw] sm:w-[90vw] font-plus-jakarta-sans text-center mt-3 sm:mt-4 z-30 px-2">
-        Selamat Datang Generasi Soedirman di Universitas Jenderal Soedirman
-      </p>
 
-    </div>
+    <!-- Subtitle -->
+    <p
+      class="text-white text-xs xs:text-sm sm:text-base md:text-lg max-w-xl w-[92vw] sm:w-[90vw] font-plus-jakarta-sans text-center mt-3 sm:mt-4 z-30 px-2">
+      Selamat Datang Generasi Soedirman di Universitas Jenderal Soedirman
+    </p>
+
   </div>
+</div>
 
-  <img
-    src="/images/elements/ombakbawah.svg"
-    alt=""
-    class="absolute bottom-0 left-0 w-full h-auto z-[1]"
-  />
+<!-- Ombak bawah -->
+<img
+  src="/images/elements/ombakbawah.svg"
+  alt=""
+  class="absolute bottom-0 left-0 w-full h-auto z-[1]"
+/>
 </section>
 
 <style>
