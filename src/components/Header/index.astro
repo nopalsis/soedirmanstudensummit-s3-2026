@@ -246,9 +246,35 @@ const currentPath = Astro.url.pathname;
       top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333),
       transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
   }
+
+  #header {
+    transition: all 0.3s ease;
+  }
+
+  #header.scrolled {
+    background: rgba(0, 40, 85, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
 </style>
 
 <script>
+  // Scroll detection untuk glass effect
+  const header = document.getElementById("header");
+  let lastScrollY = 0;
+
+  window.addEventListener("scroll", () => {
+    lastScrollY = window.scrollY;
+    
+    if (lastScrollY > 10) {
+      header?.classList.add("scrolled");
+    } else {
+      header?.classList.remove("scrolled");
+    }
+  }, { passive: true });
+
   const hamburgerButton = document.querySelector(".hamburger");
   const sidebar = document.querySelector("#sidebar");
   if (hamburgerButton && sidebar) {

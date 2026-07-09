@@ -13,18 +13,27 @@
   class="hidden sm:block absolute top-0 left-0 w-full h-auto z-0 opacity-80"
 />
 
-<!-- Burung (tampil di semua ukuran) -->
+<!-- Burung Kiri (terbang ke kanan) -->
 <img
-  src="/images/elements/burung.svg"
+  src="/images/elements/burung2.svg"
   alt=""
-  class="absolute top-[20%] sm:top-[12%] md:top-[25%] right-[0%] sm:right-[10%] md:right-[30%] w-100 sm:w-20 md:w-[600px] z-10 animate-bird-fly"
+  class="absolute left-[24%] top-[30%] w-10 sm:w-14 md:w-20 z-10 animate-bird-fly-1"
 />
+
+
+<!-- Burung Kanan (terbang ke kiri) -->
+<img
+  src="/images/elements/burung1.svg"
+  alt=""
+  class="absolute right-[20%] top-[14%] w-12 sm:w-16 md:w-24 z-10 animate-bird-fly-1"
+/>
+
 
 <!-- Wayang kiri -->
 <img
   src="/images/elements/wayang-awan.svg"
   alt="Wayang"
-  class="absolute left-0 bottom-0 sm:bottom-5 z-[999] w-35 xs:w-28 sm:w-48 md:w-72 lg:w-80 animate-fade-in-left"
+  class="absolute left-0 bottom-0 sm:bottom-5 z-20 w-35 xs:w-28 sm:w-48 md:w-72 lg:w-80 animate-fade-in-left"
 />
 
 <!-- Wayang kanan (mirror) -->
@@ -83,17 +92,29 @@
 </section>
 
 <style>
-  @keyframes birdFly {
+  @keyframes birdFly1 {
     0%,
     100% {
       transform: translate(0, 0);
     }
     50% {
-      transform: translate(-12px, -10px);
+      transform: translate(-12px, -8px);
     }
   }
-  .animate-bird-fly {
-    animation: birdFly 5s ease-in-out infinite;
+  @keyframes birdFly2 {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    50% {
+      transform: translate(-8px, -12px);
+    }
+  }
+  .animate-bird-fly-1 {
+    animation: birdFly1 6s ease-in-out infinite;
+  }
+  .animate-bird-fly-2 {
+    animation: birdFly2 5s ease-in-out 1.2s infinite;
   }
 
   @keyframes fadeInLeft {

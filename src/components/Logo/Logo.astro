@@ -1,0 +1,34 @@
+---
+import LogoCard from "./LogoCard.astro";
+---
+
+<section
+  class="relative w-full bg-gradient-to-b from-[#76A3ED] to-[#5B8FD4] overflow-hidden min-h-screen flex flex-col items-center justify-center py-20"
+>
+  <!-- Gradient Kuning di Awal -->
+  <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-yellow-400/60 to-transparent pointer-events-none z-0"></div>
+  <!-- Background Decorative Elements -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <img
+      src="/images/elements/element-logo.svg"
+      alt="Background Elements"
+      class=""
+    />
+  </div>
+
+  <!-- Title Section -->
+  <div class="flex flex-col items-center mb-10 sm:mb-14 relative z-10" data-aos="fade-down" data-aos-duration="800" data-aos-once="true">
+          <img src="/images/elements/title.svg" alt="" class="w-16 sm:w-20 md:w-24 mb-3" />
+          <h2 class="font-reikna text-2xl sm:text-3xl md:text-4xl text-[#fbbf24] drop-shadow-[0_2px_0_rgba(0,40,85,1)] leading-tight text-center">
+            Rangkaian Acara
+          </h2>
+          <img src="/images/elements/title.svg" alt="" class="w-16 sm:w-20 md:w-24 mt-3 rotate-180" />
+        </div>
+
+  <!-- Logo Card Section - Main Focus -->
+  <div class="relative z-30 w-full px-5 sm:px-8 md:px-12 flex justify-center">
+    <div class="w-full max-w-6xl">
+      <LogoCard />
+    </div>
+  </div>
+</section>

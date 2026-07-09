@@ -1,72 +1,170 @@
 ---
 import DocumentationCard from "./DocumentationCard.astro";
+
+const events: { title: string }[] = [
+  { title: "Expo" },
+  { title: "Parade" },
+  { title: "FGD" },
+  { title: "Art Performance" },
+  { title: "Closing" },
+];
 ---
 
 <section
   id="know-more"
-  class="pb-24 md:pt-24 section-padding-x text-white-base bg-[#76A3ED] bg-[url('/images/elements/bgbatik.svg')] perbukitan-size bg-bottom bg-no-repeat m-auto overflow-x-hidden"
+  class="relative pt-20 sm:pt-24 pb-0 section-padding-x text-white-base bg-[#76A3ED] bg-[url('/images/elements/bgbatik.svg')] perbukitan-size bg-top bg-repeat-y bg-[length:400px_50%] sm:bg-[length:600px_50%] md:bg-cover m-auto overflow-x-hidden"
 >
-  <div class="container max-w-screen-xl mx-auto">
 
+  <div class="container max-w-screen-xl mx-auto relative z-10">
     <!-- Mascots Description (side by side, speech bubble menyatu di gambar) -->
-    <div class="w-full mb-8 sm:mb-12 flex flex-col items-center justify-center gap-4">
-  <div
-    class="w-1/2 sm:max-w-[220px] md:max-w-[600px]"
-    data-aos="fade-right"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out"
-    data-aos-offset="300"
-    data-aos-once="true"
-  >
-    <img
-      src="/images/mascots/maskot-cowo.svg"
-      alt="Perkenalan Chibi Maskot S3 Cowok"
-      class="w-full h-auto"
-    />
-  </div>
-
-  <div
-    class="w-1/2 sm:max-w-[220px] md:max-w-[600px]"
-    data-aos="fade-left"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out"
-    data-aos-offset="300"
-    data-aos-once="true"
-  >
-    <img
-      src="/images/mascots/maskot-cewe.svg"
-      alt="Perkenalan Chibi Maskot S3 Cewek"
-      class="w-full h-auto"
-    />
-  </div>
-
-  
-  <div class="w-full flex justify-center mb-8">
-      <div class="max-w-[220px] sm:max-w-xs md:max-w-sm" data-aos="fade-down" data-aos-duration="800" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-offset="300" data-aos-once="true">
-        <img class="w-full h-auto" src="/images/mascots/chibi-maskot.svg" alt="Maskot Soedirman Student Summit" />
+    <div
+      class="w-full mb-8 sm:mb-12 flex flex-col items-center justify-center gap-4"
+    >
+      <div
+        class="w-[75%] xs:w-[65%] sm:max-w-[220px] md:max-w-[600px]"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-offset="300"
+        data-aos-once="true"
+      >
+        <img
+          src="/images/mascots/maskot-cowo.svg"
+          alt="Perkenalan Chibi Maskot S3 Cowok"
+          class="w-full h-auto"
+        />
       </div>
-</div>
 
-    <!-- Mengenal Lebih Dekat dengan S3 -->
-    <div class="w-full">
-      <div class="max-w-screen-md mx-auto text-center mb-8">
-        <h2 class="font-semibold capitalize header-font-size mb-4 font-heading p-2 text-dark-base backdrop-blur-sm bg-white-base bg-opacity-25 rounded-md" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-offset="200" data-aos-once="true">
-          Mengenal Lebih Dekat dengan S3!!
-        </h2>
-        <p class="normal-font-size lg:text-xl text-justify md:text-center text-secondary p-2 md:p-2 text-dark-base backdrop-blur-sm bg-white-base bg-opacity-25 rounded-md" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-in-out" data-aos-offset="50" data-aos-once="true">
-          Soedirman Student Summit (S3) merupakan kegiatan tahunan yang diselenggarakan sebagai wadah untuk pengenalan kehidupan perkuliahan dan untuk menyambut mahasiswa baru Universitas Jenderal Soedirman. Rangkaian kegiatan S3 bertujuan sebagai gerbang awal mahasiswa baru untuk mengenal dirinya sendiri dengan mengimplementasikan nilai-nilai yang akan dibawakan, serta mengenal lebih jauh tentang Universitas Jenderal Soedirman
-        </p>
+      <div
+        class="w-[75%] xs:w-[65%] sm:max-w-[220px] md:max-w-[600px]"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-offset="300"
+        data-aos-once="true"
+      >
+        <img
+          src="/images/mascots/maskot-cewe.svg"
+          alt="Perkenalan Chibi Maskot S3 Cewek"
+          class="w-full h-auto"
+        />
+      </div>
+
+      <!-- Wrapper for Chibi Maskot + Text and Gapura -->
+      <div class="relative w-full z-10 flex flex-col items-center py-4">
+        <!-- Gapura di kanan kiri (seluas area maskot + teks) -->
+        <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[110vw] sm:w-screen pointer-events-none z-0 flex justify-center items-end" data-aos="zoom-in" data-aos-duration="1000" data-aos-once="true">
+          <img class="w-full h-auto max-h-full object-contain object-bottom" src="/images/elements/gapura.svg" alt="Gapura" />
+        </div>
+
+        <!-- Chibi Maskot -->
+        <div class="max-w-[180px] xs:max-w-[220px] sm:max-w-xs md:max-w-sm mb-8 relative z-10" data-aos="fade-down" data-aos-duration="800" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-offset="300" data-aos-once="true">
+          <img class="w-full h-auto" src="/images/mascots/chibi-maskot.svg" alt="Maskot Soedirman Student Summit" />
+        </div>
+
+        <!-- Mengenal Lebih Dekat dengan S3 -->
+        <div class="w-full relative z-10 px-4 sm:px-0">
+          <div class="max-w-[240px] xs:max-w-[300px] sm:max-w-screen-md mx-auto text-center mb-8">
+            <h2 class="font-reikna text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl text-[#fbbf24] drop-shadow-[0_2px_0_rgba(0,40,85,1)] mb-4 sm:mb-6 leading-tight" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-offset="200" data-aos-once="true">
+              Mengenal lebih dekat Soedirman Student Summit
+            </h2>
+            <p class="text-xs sm:text-base md:text-lg lg:text-xl text-justify md:text-center text-dark-base leading-relaxed" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-in-out" data-aos-offset="50" data-aos-once="true">
+              Soedirman Student Summit merupakan kegiatan yang diadakan untuk menyambut Mahasiswa Baru Universitas Jenderal Soedirman sebagai gerbang atau langkah awal dalam mengenal lingkungan kampus. Diadakan oleh Badan Eksekutif Mahasiswa dengan rangkaian acaranya terdiri dari Expo, Parade, FGD, dan serangkaian acara yang nantinya akan disusun oleh panitia setiap tahunnya. Diharapkan dengan kegiatan ini, Maba akan lebih mengenal tentang kehidupan kampus dan meningkatkan minat kedalam organisasi di Universitas Jenderal Soedirman
+            </p>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      <!-- Documentation Photos -->
+      <div class="w-full flex justify-center">
+        <DocumentationCard />
+      </div>
+
+      <!-- Wave Maskot di belakang Documentation Card -->
+      <div class="relative w-full md:w-screen md:left-1/2 md:-translate-x-1/2 pb-12 sm:pb-16 md:pb-24 lg:pb-32">
+        <img src="/images/elements/wave-maskot.svg" alt="" class="absolute bottom-0 left-0 w-full h-auto z-0 pointer-events-none" />
+      </div>
+
+      <!-- Rangkaian Acara -->
+      <div class="w-full mt-8 sm:mt-12 md:mt-16 lg:mt-20 relative">
+        <!-- Awan Biru Container (mentok kanan kiri) -->
+         <div class="absolute inset-x-0 bottom-0 w-screen left-1/2 -translate-x-1/2 h-0 pointer-events-none z-0">
+           <!-- Awan Biru Kiri -->
+           <img
+             src="/images/elements/awan-biru.svg"
+             alt=""
+             class="absolute left-0 bottom-0 w-[100px] sm:w-[150px] md:w-[200px] lg:w-[280px] xl:w-[350px] h-auto pointer-events-none"
+             data-aos="fade-right"
+             data-aos-duration="1000"
+             data-aos-once="true"
+           />
+           <!-- Awan Biru Kanan (mirror) -->
+           <img
+             src="/images/elements/awan-biru.svg"
+             alt=""
+             class="absolute right-0 bottom-0 w-[100px] sm:w-[150px] md:w-[200px] lg:w-[280px] xl:w-[350px] h-auto pointer-events-none -scale-x-100"
+             data-aos="fade-left"
+             data-aos-duration="1000"
+             data-aos-once="true"
+           />
+         </div>
+
+        <!-- Heading dengan Ornamen Title -->
+        <div class="flex flex-col items-center mb-10 sm:mb-14 relative z-10" data-aos="fade-down" data-aos-duration="800" data-aos-once="true">
+          <img src="/images/elements/title.svg" alt="" class="w-16 sm:w-20 md:w-24 mb-3" />
+          <h2 class="font-reikna text-2xl sm:text-3xl md:text-4xl text-[#fbbf24] drop-shadow-[0_2px_0_rgba(0,40,85,1)] leading-tight text-center">
+            Rangkaian Acara
+          </h2>
+          <img src="/images/elements/title.svg" alt="" class="w-16 sm:w-20 md:w-24 mt-3 rotate-180" />
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-6 px-10 sm:px-16 md:px-20 relative z-10">
+          {events.map((event, i) => (
+            <div
+              class="bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl w-[140px] sm:w-[180px] md:w-[200px] aspect-[3/4] flex items-center justify-center shadow-md"
+              data-aos="zoom-in"
+              data-aos-duration="600"
+              data-aos-delay={`${i * 100}`}
+              data-aos-once="true"
+            >
+              <span class="text-white font-semibold text-sm sm:text-base text-center px-2">{event.title}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-
-    <!-- Documentation Photos -->
-    <div class="w-full flex justify-center">
-      <DocumentationCard />
-    </div>
   </div>
+
+  </div>
+
+  <style>
+    #know-more::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(to bottom, rgba(255, 193, 7, 0) 0%, rgba(255, 193, 7, 0.6) 100%);
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    .perbukitan-size {
+      background-size: 400px;
+    }
+    @media screen and (min-width: 640px) {
+      .perbukitan-size {
+        background-size: 600px;
+      }
+    }
+    @media screen and (min-width: 768px) {
+      .perbukitan-size {
+        background-size: cover;
+      }
+    }
+  </style>
 </section>
-
-<style>
-  .perbukitan-size { background-size: 800px; }
-  @media screen and (min-width: 768px) { .perbukitan-size { background-size: cover; } }
-</style>
