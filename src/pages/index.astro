@@ -4,6 +4,8 @@ import Hero from '../components/HeroSections/HeroSection.astro';
 import Divider from '../components/divider/Divider.astro';
 import KnowMore from '../components/KnowMore/KnowMore.astro';
 import Logo from '../components/Logo/Logo.astro';
+import Sambutan from '../components/sambutan/Sambutan.astro';
+import Marque from '../components/Marque.astro';
 ---
 
 <Layout title="Selamat Datang">
@@ -13,4 +15,11 @@ import Logo from '../components/Logo/Logo.astro';
      </div>
   <KnowMore />
   <Logo />
+  <Sambutan />
+  <Marque 
+      bgColor="bg-dark-base"
+      textColor="text-white-base"
+      direction="right"
+      img="/images/logo-parts/logo.webp"
+    />
 </Layout>

@@ -158,6 +158,33 @@
 		animation: float 4s ease-in-out infinite;
 	}
 
+	/* Marquee animations */
+	@keyframes marquee {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-100%);
+		}
+	}
+
+	@keyframes marqueeReverse {
+		0% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
+
+	.animate-marquee {
+		animation: marquee 40s linear infinite;
+	}
+
+	.animate-marqueeReverse {
+		animation: marqueeReverse 40s linear infinite;
+	}
+
 	/* Hero background */
 	
 }
