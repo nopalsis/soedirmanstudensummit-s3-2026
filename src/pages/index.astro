@@ -6,6 +6,7 @@ import KnowMore from '../components/KnowMore/KnowMore.astro';
 import Logo from '../components/Logo/Logo.astro';
 import Sambutan from '../components/sambutan/Sambutan.astro';
 import Marque from '../components/Marque.astro';
+import Countdown from '../components/Countdown/Countdown.astro';
 ---
 
 <Layout title="Selamat Datang">
@@ -15,11 +16,19 @@ import Marque from '../components/Marque.astro';
      </div>
   <KnowMore />
   <Logo />
-  <Sambutan />
   <Marque 
       bgColor="bg-dark-base"
       textColor="text-white-base"
       direction="right"
       img="/images/logo-parts/logo.webp"
     />
+  <Sambutan />
+  <Countdown />
+  <Marque 
+      bgColor="bg-dark-base"
+      textColor="text-white-base"
+      direction="left"
+      img="/images/logo-parts/logo.webp"
+    />
+
 </Layout>

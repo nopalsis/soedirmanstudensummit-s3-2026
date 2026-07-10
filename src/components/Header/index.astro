@@ -96,9 +96,9 @@ const currentPath = Astro.url.pathname;
         </span>
       </button>
 
-      <div class="fixed inset-0 overflow-hidden pointer-events-none z-[999]">
+      <div class="fixed inset-0 overflow-hidden pointer-events-none z-[9999]">
         <div
-          class="absolute top-[var(--nav-height)] right-0 mt-3 w-[250px] rounded-3xl transition-transform duration-300 flex flex-col gap-5 px-6 py-6 items-end bg-s3-blue shadow-[0_10px_30px_rgba(0,0,0,0.35)] translate-x-full pointer-events-auto"
+          class="fixed top-[var(--nav-height)] right-0 mt-3 w-[250px] rounded-3xl transition-transform duration-300 flex flex-col gap-5 px-6 py-6 items-end bg-s3-blue shadow-[0_10px_30px_rgba(0,0,0,0.35)] translate-x-full pointer-events-auto z-[9999]"
           id="sidebar"
         >
           <NavLink href="/" active={currentPath === "/"}>Beranda</NavLink>
