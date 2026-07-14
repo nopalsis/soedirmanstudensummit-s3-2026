@@ -4,9 +4,9 @@ import Hero from '../components/HeroSections/HeroSection.astro';
 import Divider from '../components/divider/Divider.astro';
 import KnowMore from '../components/KnowMore/KnowMore.astro';
 import Logo from '../components/Logo/Logo.astro';
-import Sambutan from '../components/sambutan/Sambutan.astro';
+import SambutanCountdown from '../components/SambutanCountdownWrapper.astro';
 import Marque from '../components/Marque.astro';
-import Countdown from '../components/Countdown/Countdown.astro';
+import FlashbackWrapper from '../components/FlashbackWrapper.astro';
 ---
 
 <Layout title="Selamat Datang">
@@ -17,18 +17,18 @@ import Countdown from '../components/Countdown/Countdown.astro';
   <KnowMore />
   <Logo />
   <Marque 
-      bgColor="bg-dark-base"
-      textColor="text-white-base"
+      bgColor="bg-s3-gold"
+      textColor="text-s3-blue"
       direction="right"
       img="/images/logo-parts/logo.webp"
     />
-  <Sambutan />
-  <Countdown />
+  <SambutanCountdown />
   <Marque 
-      bgColor="bg-dark-base"
-      textColor="text-white-base"
+      bgColor="bg-s3-gold"
+      textColor="text-s3-blue"
       direction="left"
       img="/images/logo-parts/logo.webp"
     />
+  <FlashbackWrapper />
 
 </Layout>

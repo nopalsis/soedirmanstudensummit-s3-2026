@@ -1,5 +1,6 @@
 ---
 import Navigation from '../components/Header/index.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -34,6 +35,17 @@ const {
   <body class="overflow-x-hidden">
     <Navigation />
     <slot />
+    <Footer />
+    <script>
+      import AOS from 'aos';
+      import 'aos/dist/aos.css';
+      
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+      });
+    </script>
   </body>
 </html>
 
