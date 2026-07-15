@@ -12,14 +12,24 @@ const events: { title: string }[] = [
 
 <section
   id="know-more"
-  class="relative pt-20 sm:pt-24 pb-0 section-padding-x text-white-base bg-[#76A3ED] bg-[url('/images/elements/bgbatik.svg')] batik-size bg-top bg-repeat-y bg-[length:400px_50%] sm:bg-[length:600px_50%] md:bg-cover m-auto overflow-x-hidden"
+  class="relative pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-0 section-padding-x text-white-base bg-[#76A3ED] bg-[url('/images/elements/bgbatik.svg')] batik-size bg-top bg-repeat-y bg-[length:400px_50%] sm:bg-[length:600px_50%] md:bg-cover m-auto overflow-x-hidden"
 >
 
   <div class="container max-w-screen-xl mx-auto relative z-10">
     <!-- Mascots Description (side by side, speech bubble menyatu di gambar) -->
     <div
-      class="w-full mb-8 sm:mb-12 flex flex-col items-center justify-center gap-4"
+      class="w-full mb-16 sm:mb-20 md:mb-24 lg:mb-32 flex flex-col items-center justify-center gap-4 relative"
     >
+      <!-- Awan Kuning Kiri -->
+      <div class="absolute left-1/2 -translate-x-1/2 top-[18%] w-screen h-auto pointer-events-none flex justify-start" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+        <img src="/images/elements/awan-kuning.svg" alt="" class="w-[100px] sm:w-[150px] md:w-[250px] lg:w-[350px] h-auto animate-float-cloud" />
+      </div>
+
+      <!-- Awan Kuning Kanan -->
+      <div class="absolute left-1/2 -translate-x-1/2 top-[3%] w-screen h-auto pointer-events-none flex justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+        <img src="/images/elements/awan-kuning.svg" alt="" class="w-[100px] sm:w-[150px] md:w-[250px] lg:w-[350px] h-auto -scale-x-100 animate-float-cloud" />
+      </div>
+
       <div
         class="w-[75%] xs:w-[65%] sm:max-w-[220px] md:max-w-[600px]"
         data-aos="fade-right"
@@ -165,6 +175,19 @@ const events: { title: string }[] = [
       .batik-size {
         background-size: cover;
       }
+    }
+
+    @keyframes floatCloud {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .animate-float-cloud {
+      animation: floatCloud 6s ease-in-out infinite;
     }
   </style>
 </section>

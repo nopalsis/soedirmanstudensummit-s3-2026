@@ -57,17 +57,17 @@
         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center gap-0 z-30 text-center w-[92vw] sm:w-[90vw] max-w-3xl px-2">
 
         <h1
-          class="text-s3-blue font-reikna text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl drop-shadow-[0_2px_0_rgba(201,168,76,0.6)] leading-none">
-          Soedirman
+          class="text-s3-blue font-reikna drop-shadow-[0_4px_0_rgba(0,0,0,0.3)] leading-none soedirman-hero">
+          <span class="soedirman-text"><span class="stylistic-letter">S</span>oedirma<span class="stylistic-letter">n</span></span>
         </h1>
 
         <h1
-          class="text-s3-blue font-reikna text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl drop-shadow-[0_2px_0_rgba(201,168,76,0.6)] leading-none">
-          Student Summit
+          class="text-s3-blue font-reikna drop-shadow-[0_4px_0_rgba(0,0,0,0.3)] leading-none -mt-5 sm:-mt-6 md:-mt-7 lg:-mt-8 student-summit-hero">
+          <span class="student-summit-text"><span class="stylistic-letter">S</span>tuden<span class="stylistic-letter">t</span> <span class="stylistic-letter">S</span>ummi<span class="stylistic-letter">t</span></span>
         </h1>
 
         <p
-          class="text-s3-blue font-goblin text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-none">
+          class="text-s3-blue font-goblin text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-none drop-shadow-[0_4px_0_rgba(0,0,0,0.3)] year-text">
           2026
         </p>
 
@@ -77,7 +77,7 @@
     <!-- Subtitle -->
     <p
       class="text-white text-xs xs:text-sm sm:text-base md:text-lg max-w-xl w-[92vw] sm:w-[90vw] font-plus-jakarta-sans text-center mt-3 sm:mt-4 z-30 px-2">
-      Selamat Datang Generasi Soedirman di Universitas Jenderal Soedirman
+      Selamat Datang Generasi Soedirman <br/>di Universitas Jenderal Soedirman
     </p>
 
   </div>
@@ -156,5 +156,78 @@
   }
   .animate-fade-up {
     animation: fadeUp 700ms ease-out 300ms both;
+  }
+
+  .soedirman-text {
+    color: #001A58;
+    -webkit-text-stroke: 3px #DEB65B;
+    paint-order: stroke fill;
+    font-size: 1.2em;
+    display: inline-block;
+  }
+
+  .student-summit-text {
+    color: #001A58;
+    -webkit-text-stroke: 3px #DEB65B;
+    paint-order: stroke fill;
+    display: inline-block;
+  }
+
+  .stylistic-letter {
+    font-feature-settings: "ss01" 1, "ss02" 1;
+  }
+
+  .year-text {
+    color: #001A58;
+    -webkit-text-stroke: 3px #DEB65B;
+    paint-order: stroke fill;
+  }
+
+  .soedirman-hero {
+    font-size: 32px;
+  }
+  @media screen and (min-width: 420px) {
+    .soedirman-hero {
+      font-size: 36px;
+    }
+  }
+  @media screen and (min-width: 640px) {
+    .soedirman-hero {
+      font-size: 44px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .soedirman-hero {
+      font-size: 52px;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .soedirman-hero {
+      font-size: 85px;
+    }
+  }
+
+  .student-summit-hero {
+    font-size: 40px;
+  }
+  @media screen and (min-width: 420px) {
+    .student-summit-hero {
+      font-size: 44px;
+    }
+  }
+  @media screen and (min-width: 640px) {
+    .student-summit-hero {
+      font-size: 52px;
+    }
+  }
+  @media screen and (min-width: 768px) {
+    .student-summit-hero {
+      font-size: 64px;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .student-summit-hero {
+      font-size: 85px;
+    }
   }
 </style>
