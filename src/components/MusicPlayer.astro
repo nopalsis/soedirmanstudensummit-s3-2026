@@ -1,0 +1,84 @@
+---
+---
+
+<audio id="bgMusic" src="/audio/generasi-soedirman.mp3" loop></audio>
+<button
+  id="btn-play-music"
+  class="fixed bottom-8 right-8 z-50 bg-[#002395]/30 flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-white text-[10px] sm:text-xs font-plus-jakarta-sans transition-all duration-300 border border-transparent hover:border-s3-gold hover:text-s3-gold shadow-xl"
+>
+  <div class="relative w-8 h-8 sm:w-9 sm:h-9 shrink-0 flex items-center justify-center">
+    <div id="musicRotate" class="absolute inset-0 rounded-full border-2 border-white"></div>
+    <div class="absolute inset-0 rounded-full bg-[#001a6e]/60 backdrop-blur-sm"></div>
+    <img
+      id="musicLogo"
+      src="/images/logo.webp"
+      alt=""
+      aria-hidden="true"
+      class="relative z-10 w-5 h-5 sm:w-6 sm:h-6 object-contain"
+      style="mix-blend-mode: screen; filter: brightness(1.3);"
+    />
+  </div>
+  <svg id="playIcon" class="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M8 5v14l11-7z"></path>
+  </svg>
+  <svg id="pauseIcon" class="w-3.5 h-3.5 sm:w-4 sm:h-4 hidden" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+  </svg>
+  <span id="playText">Play</span>
+</button>
+
+<script>
+  const audio = document.getElementById('bgMusic') as HTMLAudioElement;
+  const btn = document.getElementById('btn-play-music');
+  const playIcon = document.getElementById('playIcon');
+  const pauseIcon = document.getElementById('pauseIcon');
+  const playText = document.getElementById('playText');
+  const musicRotate = document.getElementById('musicRotate');
+  const musicLogo = document.getElementById('musicLogo');
+  let isPlaying = false;
+
+  function toggleMusic() {
+    if (isPlaying) {
+      audio.pause();
+      isPlaying = false;
+      playIcon?.classList.remove('hidden');
+      pauseIcon?.classList.add('hidden');
+      playText!.textContent = 'Play';
+      musicRotate?.style.setProperty('animation', 'none');
+      musicLogo?.style.setProperty('animation', 'none');
+    } else {
+      audio.play().catch(err => console.log('Audio play failed:', err));
+      isPlaying = true;
+      playIcon?.classList.add('hidden');
+      pauseIcon?.classList.remove('hidden');
+      playText!.textContent = 'Pause';
+      musicRotate?.style.setProperty('animation', 'rotate 3s linear infinite');
+      musicLogo?.style.setProperty('animation', 'rotate 8s linear infinite');
+    }
+  }
+
+  btn?.addEventListener('click', toggleMusic);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (isPlaying) {
+        audio.pause();
+      }
+    } else {
+      if (isPlaying) {
+        audio.play().catch(err => console.log('Audio resume failed:', err));
+      }
+    }
+  });
+</script>
+
+<style>
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
