@@ -7,14 +7,37 @@ interface Props {
 const { href, active = false } = Astro.props;
 ---
 
-<a
+  <a
   href={href}
   class:list={[
-    "text-sm font-plus-jakarta-sans font-medium transition-all duration-300 w-fit",
-    active
-      ? "bg-s3-gold text-s3-blue px-5 py-2 rounded-full"
-      : "text-s3-gold/90 hover:text-s3-gold px-1",
+    "text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-fit relative flex items-center h-6",
+    {
+      "text-s3-gold": active,
+      "text-s3-gold/90 hover:text-s3-gold": !active,
+    }
   ]}
+  data-active={active}
 >
   <slot />
 </a>
+
+<style>
+  a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
+
+  a[data-active="true"]::after {
+    width: 100%;
+  }
+</style>

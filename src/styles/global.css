@@ -24,6 +24,13 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'JunigardenSwash';
+  src: url('/fonts/JunigardenSwash.otf') format('opentype');
+  font-weight: 400;
+  font-display: swap;
+}
+
 @theme {
 	/* Typography */
 	--font-inter: 'Inter', sans-serif;
@@ -33,6 +40,7 @@
 	--font-love-craft: 'LoveCraft', sans-serif;
 	--font-reikna: 'Reikna', sans-serif;
 	--font-goblin: 'GoblinOne', sans-serif;
+	--font-junigarden-swash: 'JunigardenSwash', sans-serif;
 
 
 	/* Primary Colors — Dark Premium Palette */
@@ -63,7 +71,7 @@
 	/* S3 Brand Colors */
 	--color-s3-blue: #002855;
 	--color-s3-deep-blue: #001a35;
-	--color-s3-gold: #C9A84C;
+	--color-s3-gold: #fbbf24;
 
 	--nav-height: 76px;
 	--breakpoint-xs: 420px;
@@ -190,4 +198,14 @@
 
 	/* Hero background */
 	
+	.gradient-text-title {
+	  background: linear-gradient(180deg, #F9E7A9 0%, #C9A84C 100%);
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+	  background-clip: text;
+	}
+
+	.text-stroke-gold {
+	  -webkit-text-stroke: 0.1px #F9E7A9;
+	}
 }

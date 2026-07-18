@@ -134,26 +134,36 @@ const logos = [
     transform: scale(1.5);
   }
 
+  /* ===== Panah carousel ===== */
   :global(.swiper-button-next),
   :global(.swiper-button-prev) {
     width: 40px;
-    height: 40px;
-    background: #fbbf24;
-    border-radius: 50%;
-    display: flex;
+    height: 20px;
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    margin: 0 -30px;
     top: 50% !important;
     transform: translateY(-50%);
+    cursor: pointer;
   }
 
   :global(.swiper-button-next::after),
   :global(.swiper-button-prev::after) {
-    font-size: 12px;
-    color: #002855;
-    font-weight: 600;
-    stroke-width: 1;
+    display: none !important;
+  }
+
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    font-size: 28px;
+    color: #FFFF;
+  }
+
+  :global(.swiper-button-next) {
+    right: 10px;
+  }
+
+  :global(.swiper-button-prev) {
+    left: 10px;
   }
 
   :global(.swiper-pagination) {
@@ -163,7 +173,7 @@ const logos = [
 
 <script>
   import Swiper from "swiper/bundle";
-  import "swiper/swiper-bundle.css";
+  // import "swiper/swiper-bundle.css";
 
   const logos = [
     {
