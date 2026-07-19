@@ -10,8 +10,8 @@ const sambutanData = [
   },
   {
     title: "Sambutan Kedua",
-    name: "Nama Pimpinan / Rektor",
-    role: "Wakil Rektor Bidang Kemahasiswaan — Unsoed",
+    name: "Rusdi",
+    role: "Presiden BEM Unsoed 2026",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     message: ["Dengan penuh rasa bangga, saya menyambut terselenggaranya Soedirman Student Summit 2026. Kegiatan ini mencerminkan semangat mahasiswa Unsoed yang aktif, kritis, dan berani mengambil peran dalam pengembangan diri maupun almamater.", "Universitas Jenderal Soedirman senantiasa mendukung ruang-ruang seperti ini, tempat mahasiswa dapat mengasah kepemimpinan, memperluas wawasan, dan membangun jejaring yang bermanfaat jauh melampaui bangku kuliah.", "Selamat mengikuti rangkaian acara. Semoga S3 2026 membekas dan menginspirasi langkah-langkah berikutnya."],
     image: "/images/sambutan/Bimo-Maulana.webp",
@@ -19,93 +19,91 @@ const sambutanData = [
 ];
 ---
 
-<section class="relative w-full py-20 sm:py-28 md:py-36 px-0">
+<section class="relative w-full py-12 sm:py-16 md:py-20 px-0">
    
   <div class="container max-w-screen-xl mx-auto relative z-10 px-4 sm:px-6 md:px-8">
     <!-- Sambutan 1 -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center mb-20 sm:mb-28 md:mb-36" data-aos="fade-up" data-aos-duration="800" data-aos-delay="0">
       <!-- Card -->
-      <div class="bg-gradient-to-br from-s3-blue/80 to-s3-blue/60 border border-s3-gold/20 rounded-2xl p-10 sm:p-12 md:p-14 relative overflow-hidden" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-s3-gold"></div>
-        
-        <div class="text-6xl text-s3-gold opacity-40 leading-none mb-2">"</div>
-        
-        <div class="flex flex-col items-center mb-8">
-          <h3 class="text-white font-semibold text-lg text-center">{sambutanData[0].name}</h3>
-          <p class="text-s3-gold text-xs tracking-wide mt-1">{sambutanData[0].role}</p>
-        </div>
+      <div class="order-2 md:order-1 bg-gradient-to-br from-s3-blue/80 to-s3-blue/60 border border-s3-gold/20 rounded-2xl p-6 sm:p-8 md:p-12 lg:p-14 relative overflow-hidden" data-aos="fade-right" data-aos-duration="800" data-aos-delay="100">
+         <div class="absolute top-0 left-0 right-0 h-1 bg-s3-gold"></div>
+         
+         <div class="text-4xl sm:text-5xl text-s3-gold opacity-40 leading-none mb-2">"</div>
+         
+         <div class="flex flex-col mb-6">
+           <h3 class="text-white font-reikna font-semibold text-3xl sm:text-4xl md:text-5xl">Sambutan Project Officer</h3>
+         </div>
 
-        <div class="space-y-4 mb-6">
-          {sambutanData[0].message.map((msg) => (
-            <p class="text-gray-200 text-sm leading-relaxed">{msg}</p>
-          ))}
-        </div>
+         <div class="space-y-3 mb-6">
+           {sambutanData[0].message.map((msg) => (
+             <p class="text-gray-200 text-xs sm:text-sm leading-relaxed">{msg}</p>
+           ))}
+         </div>
 
-        <div class="border-t border-s3-gold/20 pt-6 mt-6">
-          <p class="text-s3-gold italic font-serif text-base">{sambutanData[0].name}</p>
-          <p class="text-gray-300 text-xs">{sambutanData[0].role.split(" — ")[0]}</p>
-        </div>
-      </div>
+         <div class="border-t border-s3-gold/20 pt-4 mt-6">
+           <p class="text-s3-gold italic font-serif text-sm sm:text-base">{sambutanData[0].name}</p>
+           <p class="text-gray-300 text-xs">{sambutanData[0].role.split(" — ")[0]}</p>
+         </div>
+       </div>
 
       <!-- Foto -->
-      <div class="flex justify-center px-2 sm:px-4 relative" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+      <div class="order-1 md:order-2 flex justify-center px-2 sm:px-4 relative" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
         <div class="relative w-full max-w-sm">
           <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 opacity-20 rounded-3xl"></div>
           <div class="relative p-4 rounded-3xl border-4 border-white/40">
             <img src={sambutanData[0].image} alt={sambutanData[0].name} class="w-full aspect-[3/4] object-cover rounded-2xl" />
           </div>
         </div>
-        <!-- Nametag -->
-        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-full px-2 sm:px-4 z-20">
-          <div class="relative w-full max-w-sm mx-auto scale-125">
-            <img src="/images/elements/nametag.svg" alt="Nametag" class="w-full h-auto" />
-            <p class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-s3-blue font-goblin text-md md:text-lg tracking-wider whitespace-nowrap">PROJECT OFFICER</p>
-          </div>
-        </div>
+         <!-- Nametag -->
+         <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-full px-2 sm:px-4 z-20">
+            <div class="relative w-full max-w-sm mx-auto scale-100 sm:scale-100 md:scale-125">
+             <img src="/images/elements/nametag.svg" alt="Nametag" class="w-full h-auto" />
+               <p class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-s3-blue font-reikna text-lg sm:text-2xl md:text-2xl lg:text-3xl tracking-wider whitespace-nowrap">PROJECT OFFICER</p>
+           </div>
+         </div>
       </div>
     </div>
 
     <!-- Sambutan 2 -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-      <!-- Foto Kiri -->
-      <div class="flex justify-center order-2 md:order-1 px-2 sm:px-4 relative" data-aos="fade-right" data-aos-duration="800" data-aos-delay="400">
+       <!-- Foto Kiri -->
+       <div class="flex justify-center order-1 md:order-1 px-2 sm:px-4 relative" data-aos="fade-right" data-aos-duration="800" data-aos-delay="400">
         <div class="relative w-full max-w-sm">
           <div class="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-600 opacity-20 rounded-3xl"></div>
           <div class="relative p-4 rounded-3xl border-4 border-white/40">
             <img src={sambutanData[1].image} alt={sambutanData[1].name} class="w-full aspect-[3/4] object-cover rounded-2xl" />
           </div>
-        </div>
-        <!-- Nametag -->
-        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-full px-2 sm:px-4 z-20">
-          <div class="relative w-full max-w-sm mx-auto scale-125">
-            <img src="/images/elements/nametag.svg" alt="Nametag" class="w-full h-auto" />
-            <p class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-s3-blue font-goblin text-xs md:text-sm tracking-wider whitespace-nowrap">Presiden BEM Unsoed 2026</p>
-          </div>
-        </div>
+         </div>
+          <!-- Nametag -->
+          <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 w-full px-2 sm:px-4 z-20">
+           <div class="relative w-full max-w-sm mx-auto scale-100 sm:scale-100 md:scale-125">
+              <img src="/images/elements/nametag.svg" alt="Nametag" class="w-full h-auto" />
+               <p class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-s3-blue font-reikna text-xl sm:text-2xl md:text-xl lg:text-2xl tracking-wider whitespace-nowrap">Presiden BEM Unsoed <span class="font-goblin text-xs sm:text-base md:text-sm">2026</span></p>
+           </div>
+         </div>
       </div>
 
-      <!-- Card Kanan -->
-      <div class="order-1 md:order-2 bg-gradient-to-br from-s3-blue/80 to-s3-blue/60 border border-s3-gold/20 rounded-2xl p-10 sm:p-12 md:p-14 relative overflow-hidden" data-aos="fade-left" data-aos-duration="800" data-aos-delay="500">
-        <div class="absolute top-0 left-0 right-0 h-1 bg-s3-gold"></div>
-        
-        <div class="text-6xl text-s3-gold opacity-40 leading-none mb-2">"</div>
-        
-        <div class="flex flex-col items-center mb-8">
-          <h3 class="text-white font-semibold text-lg text-center">{sambutanData[1].name}</h3>
-          <p class="text-s3-gold text-xs tracking-wide mt-1">{sambutanData[1].role}</p>
-        </div>
+       <!-- Card Kanan -->
+       <div class="order-2 md:order-2 bg-gradient-to-br from-s3-blue/80 to-s3-blue/60 border border-s3-gold/20 rounded-2xl p-6 sm:p-8 md:p-12 lg:p-14 relative overflow-hidden" data-aos="fade-left" data-aos-duration="800" data-aos-delay="500">
+         <div class="absolute top-0 left-0 right-0 h-1 bg-s3-gold"></div>
+         
+         <div class="text-4xl sm:text-5xl text-s3-gold opacity-40 leading-none mb-2">"</div>
+         
+         <div class="flex flex-col mb-6">
+           <h3 class="text-white font-reikna font-semibold text-3xl sm:text-4xl md:text-5xl">Sambutan Presiden BEM Unsoed</h3>
+         </div>
 
-        <div class="space-y-4 mb-6">
-          {sambutanData[1].message.map((msg) => (
-            <p class="text-gray-200 text-sm leading-relaxed">{msg}</p>
-          ))}
-        </div>
+         <div class="space-y-3 mb-6">
+           {sambutanData[1].message.map((msg) => (
+             <p class="text-gray-200 text-xs sm:text-sm leading-relaxed">{msg}</p>
+           ))}
+         </div>
 
-        <div class="border-t border-s3-gold/20 pt-6 mt-6">
-          <p class="text-s3-gold italic font-serif text-base">{sambutanData[1].name}</p>
-          <p class="text-gray-300 text-xs">{sambutanData[1].role.split(" — ")[0]}</p>
-        </div>
-      </div>
+         <div class="border-t border-s3-gold/20 pt-4 mt-6">
+           <p class="text-s3-gold italic font-serif text-sm sm:text-base">{sambutanData[1].name}</p>
+           <p class="text-gray-300 text-xs">{sambutanData[1].role.split(" — ")[0]}</p>
+         </div>
+       </div>
     </div>
   </div>
 </section>

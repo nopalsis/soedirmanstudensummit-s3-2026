@@ -12,26 +12,144 @@ console.log("Current Path:", currentPath);
   <nav class="w-full max-w-screen-xl">
     <!-- Desktop Nav -->
     <div class="hidden lg:flex justify-between items-center w-full px-8 py-1">
-      <a href="/" class="flex items-center shrink-0 hover:opacity-80 transition-opacity">
-        <img
-          src="/images/logo.webp"
-          alt="Soedirman Student Summit Logo"
-          width="80"
-          height="80"
-          class="w-20 h-20 object-contain transition-all duration-300"
-          id="logoDesktop"
-        />
+      <a href="/" class="flex items-center shrink-0 group">
+         <img
+           src="/images/logo.webp"
+           alt="Soedirman Student Summit Logo"
+           width="80"
+           height="80"
+           class="w-20 h-20 object-contain transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6"
+           id="logoDesktop"
+         />
       </a>
 
       <div class="flex items-center justify-center gap-8 ml-18">
-        <NavLink href="/" active={currentPath === "/" || currentPath === ""}>Beranda</NavLink>
+         <NavLink href="/" active={currentPath === "/" || currentPath === ""}>Beranda</NavLink>
 
-        <div class="relative inline-block text-left">
-          <div class="group">
+         <div class="relative inline-block text-left">
+           <div class="group">
+             <button
+               id="dropdownButton"
+               type="button"
+               class="inline-flex justify-center items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-fit cursor-pointer relative h-6 flex items-center after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+             >
+               Jelajahi Unsoed
+               <svg
+                 class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor"
+               >
+                 <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+               </svg>
+             </button>
+             <div
+               id="dropdownMenu"
+               class="absolute left-0 w-44 mt-2 origin-top-left bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm"
+             >
+               <div class="py-2">
+                 <a
+                   href="/tentang-unsoed"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >Tentang Unsoed</a
+                 >
+                 <a
+                   href="/ukm"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >UKM</a
+                 >
+                 <a
+                   href="/paguyuban"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >Paguyuban</a
+                 >
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <div class="relative inline-block text-left">
+           <div class="group">
+             <button
+               id="gensodDropdownButton"
+               type="button"
+               class="inline-flex justify-center items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-fit cursor-pointer relative h-6 flex items-center after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+             >
+               Gensoed Guide
+               <svg
+                 class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor"
+               >
+                 <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+               </svg>
+             </button>
+             <div
+               id="gensodDropdownMenu"
+               class="absolute left-0 w-44 mt-2 origin-top-left bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm"
+             >
+               <div class="py-2">
+                 <a
+                   href="/info-gensoed"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >Assignment</a
+                 >
+                 <a
+                   href="/info-gensoed"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >Starterpack</a
+                 >
+                 <a
+                   href="/info-gensoed/twibbon"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >Twibbon</a
+                 >
+               </div>
+             </div>
+           </div>
+         </div>
+
+         <NavLink href="/committee" active={currentPath.startsWith("/committee")}>Committee</NavLink>
+       </div>
+
+       <a
+         href="/hubungi-kami"
+         class="bg-[#E7C055] text-s3-blue text-base font-plus-jakarta-sans font-bold px-6 py-2.5 rounded-full hover:shadow-lg hover:brightness-95 transition-all duration-300 shrink-0 hover:scale-105 hover:-translate-y-1"
+       >
+         Hubungi Kami
+       </a>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div class="lg:hidden flex justify-between items-center px-5 py-3">
+      <a href="/" class="flex items-center hover:opacity-80 transition-opacity group">
+         <img
+           src="/images/logo.png"
+           alt="Soedirman Student Summit Logo"
+           width="38"
+           height="38"
+           class="w-9.5 h-9.5 object-contain transition-all duration-300 group-hover:scale-110 group-hover:-rotate-6"
+         />
+      </a>
+      <button class="hamburger hamburger--collapse h-[21px]" type="button">
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+
+      <div class="fixed inset-0 overflow-hidden pointer-events-none z-[9999]">
+        <div
+          class="fixed top-[var(--nav-height)] right-0 mt-0 w-[280px] rounded-3xl transition-transform duration-300 flex flex-col gap-4 px-6 py-6 items-end bg-gradient-to-b from-s3-blue to-s3-blue/95 shadow-[0_10px_30px_rgba(0,0,0,0.35)] translate-x-full pointer-events-auto z-[9999]"
+          id="sidebar"
+        >
+          <NavLink href="/" active={currentPath === "/"}>Beranda</NavLink>
+
+          <div class="relative inline-block text-left w-full">
             <button
-              id="dropdownButton"
               type="button"
-              class="inline-flex justify-center items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-fit cursor-pointer relative h-6 flex items-center after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+              id="toggleButton"
+              class="flex items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-full justify-end cursor-pointer relative h-6 after:absolute after:bottom-[-4px] after:right-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
             >
               Jelajahi Unsoed
               <svg
@@ -44,8 +162,8 @@ console.log("Current Path:", currentPath);
               </svg>
             </button>
             <div
-              id="dropdownMenu"
-              class="absolute left-0 w-44 mt-2 origin-top-left bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm"
+              id="contentArea"
+              class="absolute right-0 w-44 mt-2 origin-top-right bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm z-50"
             >
               <div class="py-2">
                 <a
@@ -66,80 +184,54 @@ console.log("Current Path:", currentPath);
               </div>
             </div>
           </div>
-        </div>
 
-        <NavLink href="/info-gensoed" active={currentPath.startsWith("/info-gensoed")}>Info Gensoed</NavLink>
-        <NavLink href="/penugasan" active={currentPath.startsWith("/penugasan")}>Penugasan</NavLink>
-        
-      </div>
-
-      <a
-        href="/hubungi-kami"
-        class="bg-s3-gold text-s3-blue text-base font-plus-jakarta-sans font-bold px-6 py-2.5 rounded-full hover:shadow-lg hover:brightness-95 transition-all duration-300 shrink-0"
-      >
-        Hubungi Kami
-      </a>
-    </div>
-
-    <!-- Mobile Nav -->
-    <div class="lg:hidden flex justify-between items-center px-5 py-3">
-      <a href="/" class="flex items-center hover:opacity-80 transition-opacity">
-        <img
-          src="/images/logo.png"
-          alt="Soedirman Student Summit Logo"
-          width="38"
-          height="38"
-          class="w-9.5 h-9.5 object-contain"
-        />
-      </a>
-      <button class="hamburger hamburger--collapse h-[21px]" type="button">
-        <span class="hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
-
-      <div class="fixed inset-0 overflow-hidden pointer-events-none z-[9999]">
-        <div
-          class="fixed top-[var(--nav-height)] right-0 mt-0 w-[280px] rounded-3xl transition-transform duration-300 flex flex-col gap-4 px-6 py-6 items-end bg-gradient-to-b from-s3-blue to-s3-blue/95 shadow-[0_10px_30px_rgba(0,0,0,0.35)] translate-x-full pointer-events-auto z-[9999]"
-          id="sidebar"
-        >
-          <NavLink href="/" active={currentPath === "/"}>Beranda</NavLink>
-
-          <div class="flex flex-col gap-2 items-end w-full">
-            <div class="group relative w-full">
-              <button
-                type="button"
-                id="toggleButton"
-                class="flex items-center text-s3-gold/80 hover:text-s3-gold text-sm font-plus-jakarta-sans font-semibold transition-all duration-300 cursor-pointer w-full justify-end px-2 py-2 rounded-lg hover:bg-s3-gold/10"
+          <div class="relative inline-block text-left w-full">
+            <button
+              id="mobileGensodDropdownButton"
+              type="button"
+              class="flex items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-full justify-end cursor-pointer relative h-6 after:absolute after:bottom-[-4px] after:right-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+            >
+              Gensoed Guide
+              <svg
+                class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
               >
-                <span>Jelajahi Unsoed</span>
-                <svg
-                  class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
+                <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+              </svg>
+            </button>
+            <div
+              id="mobileGensodDropdownMenu"
+              class="absolute right-0 w-44 mt-2 origin-top-right bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm z-50"
+            >
+              <div class="py-2">
+                <a
+                  href="/info-gensoed"
+                  class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                  >Assignment</a
                 >
-                  <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
-                </svg>
-              </button>
-              <div id="contentArea" class="mt-2 w-full hidden">
-                <ul class="flex flex-col gap-1 text-right">
-                  <li><NavLink href="/tentang-unsoed">Tentang Unsoed</NavLink></li>
-                  <li><NavLink href="/ukm">UKM</NavLink></li>
-                  <li><NavLink href="/paguyuban">Paguyuban</NavLink></li>
-                </ul>
+                <a
+                  href="/info-gensoed"
+                  class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                  >Starterpack</a
+                >
+                <a
+                  href="/info-gensoed/twibbon"
+                  class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                  >Twibbon</a
+                >
               </div>
             </div>
           </div>
 
-          <NavLink href="/info-gensoed" active={currentPath.startsWith("/info-gensoed")}>Info Gensoed</NavLink>
-          <NavLink href="/penugasan" active={currentPath.startsWith("/penugasan")}>Penugasan</NavLink>
-          <a
-            href="/hubungi-kami"
-            class="bg-gradient-to-r from-s3-gold to-yellow-400 text-s3-blue text-sm font-plus-jakarta-sans font-bold px-6 py-2.5 rounded-full hover:shadow-lg hover:brightness-110 transition-all duration-300 w-full text-center"
-          >
-            Hubungi Kami
-          </a>
+           <NavLink href="/committee" active={currentPath.startsWith("/committee")}>Committee</NavLink>
+           <a
+             href="/hubungi-kami"
+             class="bg-gradient-to-r from-s3-gold to-yellow-400 text-s3-blue text-sm font-plus-jakarta-sans font-bold px-6 py-2.5 rounded-full hover:shadow-lg hover:brightness-110 transition-all duration-300 w-full text-center hover:scale-105 hover:-translate-y-1"
+           >
+             Hubungi Kami
+           </a>
         </div>
       </div>
     </div>
@@ -322,17 +414,97 @@ console.log("Current Path:", currentPath);
   });
 
   document.addEventListener("DOMContentLoaded", function () {
-    const toggleButton = document.getElementById("toggleButton") as HTMLElement | null;
+    const gensodButton = document.getElementById("gensodDropdownButton") as HTMLButtonElement | null;
+    const gensodMenu = document.getElementById("gensodDropdownMenu") as HTMLElement | null;
+    if (!gensodButton || !gensodMenu) return;
+    const gensodSvgIcon = gensodButton.querySelector("svg") as SVGElement;
+
+    gensodButton.addEventListener("click", function (event: MouseEvent) {
+      const isVisible = gensodMenu.classList.contains("opacity-100");
+      if (!isVisible) {
+        gensodMenu.classList.remove("opacity-0", "invisible");
+        gensodMenu.classList.add("opacity-100", "visible");
+        gensodSvgIcon.style.transform = "rotate(0deg)";
+      } else {
+        gensodMenu.classList.remove("opacity-100", "visible");
+        gensodMenu.classList.add("opacity-0", "invisible");
+        gensodSvgIcon.style.transform = "rotate(90deg)";
+      }
+      event.stopPropagation();
+    });
+
+    document.addEventListener("click", function (event: MouseEvent) {
+      if (
+        event.target instanceof Node &&
+        !gensodMenu.contains(event.target) &&
+        !gensodButton.contains(event.target)
+      ) {
+        gensodMenu.classList.remove("opacity-100", "visible");
+        gensodMenu.classList.add("opacity-0", "invisible");
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("toggleButton") as HTMLButtonElement | null;
     const contentArea = document.getElementById("contentArea") as HTMLElement | null;
     if (!toggleButton || !contentArea) return;
     const svgIcon = toggleButton.querySelector("svg") as SVGElement;
 
-    toggleButton.addEventListener("click", function () {
-      contentArea.classList.toggle("hidden");
-      if (contentArea.classList.contains("hidden")) {
-        svgIcon.style.transform = "rotate(90deg)";
-      } else {
+    toggleButton.addEventListener("click", function (event: MouseEvent) {
+      const isVisible = contentArea.classList.contains("opacity-100");
+      if (!isVisible) {
+        contentArea.classList.remove("opacity-0", "invisible");
+        contentArea.classList.add("opacity-100", "visible");
         svgIcon.style.transform = "rotate(0deg)";
+      } else {
+        contentArea.classList.remove("opacity-100", "visible");
+        contentArea.classList.add("opacity-0", "invisible");
+        svgIcon.style.transform = "rotate(90deg)";
+      }
+      event.stopPropagation();
+    });
+
+    document.addEventListener("click", function (event: MouseEvent) {
+      if (
+        event.target instanceof Node &&
+        !contentArea.contains(event.target) &&
+        !toggleButton.contains(event.target)
+      ) {
+        contentArea.classList.remove("opacity-100", "visible");
+        contentArea.classList.add("opacity-0", "invisible");
+      }
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const mobileGensodButton = document.getElementById("mobileGensodDropdownButton") as HTMLButtonElement | null;
+    const mobileGensodMenu = document.getElementById("mobileGensodDropdownMenu") as HTMLElement | null;
+    if (!mobileGensodButton || !mobileGensodMenu) return;
+    const mobileGensodSvgIcon = mobileGensodButton.querySelector("svg") as SVGElement;
+
+    mobileGensodButton.addEventListener("click", function (event: MouseEvent) {
+      const isVisible = mobileGensodMenu.classList.contains("opacity-100");
+      if (!isVisible) {
+        mobileGensodMenu.classList.remove("opacity-0", "invisible");
+        mobileGensodMenu.classList.add("opacity-100", "visible");
+        mobileGensodSvgIcon.style.transform = "rotate(0deg)";
+      } else {
+        mobileGensodMenu.classList.remove("opacity-100", "visible");
+        mobileGensodMenu.classList.add("opacity-0", "invisible");
+        mobileGensodSvgIcon.style.transform = "rotate(90deg)";
+      }
+      event.stopPropagation();
+    });
+
+    document.addEventListener("click", function (event: MouseEvent) {
+      if (
+        event.target instanceof Node &&
+        !mobileGensodMenu.contains(event.target) &&
+        !mobileGensodButton.contains(event.target)
+      ) {
+        mobileGensodMenu.classList.remove("opacity-100", "visible");
+        mobileGensodMenu.classList.add("opacity-0", "invisible");
       }
     });
   });

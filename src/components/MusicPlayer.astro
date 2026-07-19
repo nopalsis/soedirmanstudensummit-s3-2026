@@ -70,6 +70,22 @@
       }
     }
   });
+
+  // Hide button when footer is in view
+  const footerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        btn?.classList.add('opacity-0', 'pointer-events-none');
+      } else {
+        btn?.classList.remove('opacity-0', 'pointer-events-none');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  const footer = document.querySelector('footer');
+  if (footer) {
+    footerObserver.observe(footer);
+  }
 </script>
 
 <style>

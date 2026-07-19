@@ -53,39 +53,39 @@ const logos = [
 ];
 ---
 
-<div class="swiper logo-swiper mb-8 sm:mb-10 md:mb-12">
-  <div class="swiper-wrapper">
-    {
-      logos.map((logo) => (
-        <div class="swiper-slide">
-          <img
-            src={logo.img}
-            alt={logo.title}
-            class="logo-img"
-            data-aos="fade-up"
-            data-aos-duration="600"
-            data-aos-delay="200"
-            data-aos-easing="ease-out"
-            data-aos-offset="440"
-            data-aos-once="true"
-          />
-        </div>
-      ))
-    }
-  </div>
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
-  <div class="swiper-pagination"></div>
-</div>
-<div
-  class="max-w-screen-md m-auto text-center mb-20 sm:mb-24 md:mb-32"
-  data-aos="fade-up"
-  data-aos-duration="600"
-  data-aos-delay="200"
-  data-aos-easing="ease-out"
-  data-aos-offset="0"
-  data-aos-once="true"
->
+<div class="swiper logo-swiper mb-8 sm:mb-10 md:mb-12 px-4 sm:px-0">
+   <div class="swiper-wrapper">
+     {
+       logos.map((logo) => (
+         <div class="swiper-slide">
+           <img
+             src={logo.img}
+             alt={logo.title}
+             class="logo-img"
+             data-aos="fade-up"
+             data-aos-duration="600"
+             data-aos-delay="200"
+             data-aos-easing="ease-out"
+             data-aos-offset="440"
+             data-aos-once="true"
+           />
+         </div>
+       ))
+     }
+   </div>
+   <div class="swiper-button-next"></div>
+   <div class="swiper-button-prev"></div>
+   <div class="swiper-pagination"></div>
+ </div>
+ <div
+   class="max-w-screen-md m-auto text-center mb-12 sm:mb-20 md:mb-24 lg:mb-32 px-4 sm:px-6 md:px-0"
+   data-aos="fade-up"
+   data-aos-duration="600"
+   data-aos-delay="200"
+   data-aos-easing="ease-out"
+   data-aos-offset="0"
+   data-aos-once="true"
+ >
   <h3 class="text-primary mb-2 sub-header-font-size logo-title font-heading">
     Kepala
   </h3>
@@ -107,13 +107,25 @@ const logos = [
 
   .swiper-slide {
     position: relative;
-    width: 180px;
+    width: 100px;
     aspect-ratio: 1;
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 8px;
+  }
+
+  @media (min-width: 640px) {
+    .swiper-slide {
+      width: 140px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .swiper-slide {
+      width: 180px;
+    }
   }
 
   .swiper-slide img {
@@ -126,12 +138,22 @@ const logos = [
   }
 
   .logo-img {
-    transform: scale(1.2);
+    transform: scale(0.8);
     transition: transform 0.3s ease;
   }
 
   .swiper-slide-active .logo-img {
-    transform: scale(1.5);
+    transform: scale(1);
+  }
+
+  @media (min-width: 640px) {
+    .logo-img {
+      transform: scale(1.2);
+    }
+
+    .swiper-slide-active .logo-img {
+      transform: scale(1.5);
+    }
   }
 
   /* ===== Panah carousel ===== */
@@ -154,8 +176,15 @@ const logos = [
 
   :global(.swiper-button-next),
   :global(.swiper-button-prev) {
-    font-size: 28px;
+    font-size: 18px;
     color: #FFFF;
+  }
+
+  @media (min-width: 640px) {
+    :global(.swiper-button-next),
+    :global(.swiper-button-prev) {
+      font-size: 28px;
+    }
   }
 
   :global(.swiper-button-next) {
@@ -167,7 +196,13 @@ const logos = [
   }
 
   :global(.swiper-pagination) {
-    bottom: -40px !important;
+    bottom: -10px !important;
+  }
+
+  @media (min-width: 640px) {
+    :global(.swiper-pagination) {
+      bottom: -40px !important;
+    }
   }
 </style>
 
