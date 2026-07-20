@@ -3,76 +3,77 @@ const logos = [
   {
     title: "Aksara Jawa",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    img: "/images/logo-parts/aksarajawa.svg",
+    img: "/images/logo-parts/aksarajawa.webp",
   },
   {
     title: "Cakar",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-    img: "/images/logo-parts/cakar.svg",
+    img: "/images/logo-parts/cakar.webp",
   },
   {
     title: "Ekor",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
-    img: "/images/logo-parts/ekor.svg",
+    img: "/images/logo-parts/ekor.webp",
   },
   {
     title: "Elang Jawa",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
-    img: "/images/logo-parts/elangjawa.svg",
+    img: "/images/logo-parts/elangjawa.webp",
   },
   {
     title: "Kepala",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-    img: "/images/logo-parts/kepala.svg",
+    img: "/images/logo-parts/kepala.webp",
   },
   {
     title: "Lope",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
-    img: "/images/logo-parts/lope.svg",
+    img: "/images/logo-parts/lope.webp",
   },
   {
     title: "Paruh",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut labore et dolore magnam aliquam quaerat voluptatem animi.",
-    img: "/images/logo-parts/paruh.svg",
+    img: "/images/logo-parts/paruh.webp",
   },
   {
     title: "S3",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.",
-    img: "/images/logo-parts/s3.svg",
+    img: "/images/logo-parts/s3.webp",
   },
   {
     title: "S3 Lope",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At vero eos et accusamus et iusto odio dignissimos ducimus blanditiis.",
-    img: "/images/logo-parts/s3lope.svg",
+    img: "/images/logo-parts/s3lope.webp",
   },
   {
     title: "Sayap",
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil.",
-    img: "/images/logo-parts/sayap.svg",
+    img: "/images/logo-parts/sayap.webp",
   },
 ];
 ---
 
 <div class="swiper logo-swiper mb-8 sm:mb-10 md:mb-12 px-4 sm:px-0">
-   <div class="swiper-wrapper">
-     {
-       logos.map((logo) => (
-         <div class="swiper-slide">
-           <img
-             src={logo.img}
-             alt={logo.title}
-             class="logo-img"
-             data-aos="fade-up"
-             data-aos-duration="600"
-             data-aos-delay="200"
-             data-aos-easing="ease-out"
-             data-aos-offset="440"
-             data-aos-once="true"
-           />
-         </div>
-       ))
-     }
-   </div>
+    <div class="swiper-wrapper">
+      {
+        logos.map((logo, index) => (
+          <div 
+            class="swiper-slide"
+            data-aos="zoom-in"
+            data-aos-duration="700"
+            data-aos-delay={100 + index * 50}
+            data-aos-easing="ease-out-back"
+            data-aos-once="true"
+          >
+            <img
+              src={logo.img}
+              alt={logo.title}
+              class="logo-img"
+            />
+          </div>
+        ))
+      }
+    </div>
    <div class="swiper-button-next"></div>
    <div class="swiper-button-prev"></div>
    <div class="swiper-pagination"></div>
@@ -114,6 +115,16 @@ const logos = [
     align-items: center;
     justify-content: center;
     padding: 8px;
+    z-index: 1;
+  }
+
+  .swiper-slide-active {
+    z-index: 10;
+  }
+
+  .swiper-slide-prev,
+  .swiper-slide-next {
+    z-index: 5;
   }
 
   @media (min-width: 640px) {
@@ -214,52 +225,52 @@ const logos = [
     {
       title: "Aksara Jawa",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      img: "/images/logo-parts/aksarajawa.svg",
+      img: "/images/logo-parts/aksarajawa.webp",
     },
     {
       title: "Cakar",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-      img: "/images/logo-parts/cakar.svg",
+      img: "/images/logo-parts/cakar.webp",
     },
     {
       title: "Ekor",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
-      img: "/images/logo-parts/ekor.svg",
+      img: "/images/logo-parts/ekor.webp",
     },
     {
       title: "Elang Jawa",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
-      img: "/images/logo-parts/elangjawa.svg",
+      img: "/images/logo-parts/elangjawa.webp",
     },
     {
       title: "Kepala",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
-      img: "/images/logo-parts/kepala.svg",
+      img: "/images/logo-parts/kepala.webp",
     },
     {
       title: "Lope",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
-      img: "/images/logo-parts/lope.svg",
+      img: "/images/logo-parts/lope.webp",
     },
     {
       title: "Paruh",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut labore et dolore magnam aliquam quaerat voluptatem animi.",
-      img: "/images/logo-parts/paruh.svg",
+      img: "/images/logo-parts/paruh.webp",
     },
     {
       title: "S3",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.",
-      img: "/images/logo-parts/s3.svg",
+      img: "/images/logo-parts/s3.webp",
     },
     {
       title: "S3 Lope",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At vero eos et accusamus et iusto odio dignissimos ducimus blanditiis.",
-      img: "/images/logo-parts/s3lope.svg",
+      img: "/images/logo-parts/s3lope.webp",
     },
     {
       title: "Sayap",
       desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil.",
-      img: "/images/logo-parts/sayap.svg",
+      img: "/images/logo-parts/sayap.webp",
     },
   ];
 
@@ -267,7 +278,7 @@ const logos = [
     effect: "creative",
     grabCursor: true,
     centeredSlides: true,
-    initialSlide: 4,
+    initialSlide: 3,
     speed: 600,
     preventClicks: true,
     slidesPerView: 1,
