@@ -28,7 +28,7 @@
   font-family: 'JunigardenSwash';
   src: url('/fonts/JunigardenSwash.otf') format('opentype');
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
 }
 
 @theme {

@@ -385,31 +385,20 @@ console.log("Current Path:", currentPath);
     const button = document.getElementById("dropdownButton") as HTMLButtonElement | null;
     const menu = document.getElementById("dropdownMenu") as HTMLElement | null;
     if (!button || !menu) return;
+    const wrapper = button.closest(".group") as HTMLElement;
+    if (!wrapper) return;
     const svgIcon = button.querySelector("svg") as SVGElement;
 
-    button.addEventListener("click", function (event: MouseEvent) {
-      const isVisible = menu.classList.contains("opacity-100");
-      if (!isVisible) {
-        menu.classList.remove("opacity-0", "invisible");
-        menu.classList.add("opacity-100", "visible");
-        svgIcon.style.transform = "rotate(0deg)";
-      } else {
-        menu.classList.remove("opacity-100", "visible");
-        menu.classList.add("opacity-0", "invisible");
-        svgIcon.style.transform = "rotate(90deg)";
-      }
-      event.stopPropagation();
+    wrapper.addEventListener("mouseenter", function () {
+      menu.classList.remove("opacity-0", "invisible");
+      menu.classList.add("opacity-100", "visible");
+      svgIcon.style.transform = "rotate(0deg)";
     });
 
-    document.addEventListener("click", function (event: MouseEvent) {
-      if (
-        event.target instanceof Node &&
-        !menu.contains(event.target) &&
-        !button.contains(event.target)
-      ) {
-        menu.classList.remove("opacity-100", "visible");
-        menu.classList.add("opacity-0", "invisible");
-      }
+    wrapper.addEventListener("mouseleave", function () {
+      menu.classList.remove("opacity-100", "visible");
+      menu.classList.add("opacity-0", "invisible");
+      svgIcon.style.transform = "rotate(90deg)";
     });
   });
 
@@ -417,31 +406,20 @@ console.log("Current Path:", currentPath);
     const gensodButton = document.getElementById("gensodDropdownButton") as HTMLButtonElement | null;
     const gensodMenu = document.getElementById("gensodDropdownMenu") as HTMLElement | null;
     if (!gensodButton || !gensodMenu) return;
+    const gensodWrapper = gensodButton.closest(".group") as HTMLElement;
+    if (!gensodWrapper) return;
     const gensodSvgIcon = gensodButton.querySelector("svg") as SVGElement;
 
-    gensodButton.addEventListener("click", function (event: MouseEvent) {
-      const isVisible = gensodMenu.classList.contains("opacity-100");
-      if (!isVisible) {
-        gensodMenu.classList.remove("opacity-0", "invisible");
-        gensodMenu.classList.add("opacity-100", "visible");
-        gensodSvgIcon.style.transform = "rotate(0deg)";
-      } else {
-        gensodMenu.classList.remove("opacity-100", "visible");
-        gensodMenu.classList.add("opacity-0", "invisible");
-        gensodSvgIcon.style.transform = "rotate(90deg)";
-      }
-      event.stopPropagation();
+    gensodWrapper.addEventListener("mouseenter", function () {
+      gensodMenu.classList.remove("opacity-0", "invisible");
+      gensodMenu.classList.add("opacity-100", "visible");
+      gensodSvgIcon.style.transform = "rotate(0deg)";
     });
 
-    document.addEventListener("click", function (event: MouseEvent) {
-      if (
-        event.target instanceof Node &&
-        !gensodMenu.contains(event.target) &&
-        !gensodButton.contains(event.target)
-      ) {
-        gensodMenu.classList.remove("opacity-100", "visible");
-        gensodMenu.classList.add("opacity-0", "invisible");
-      }
+    gensodWrapper.addEventListener("mouseleave", function () {
+      gensodMenu.classList.remove("opacity-100", "visible");
+      gensodMenu.classList.add("opacity-0", "invisible");
+      gensodSvgIcon.style.transform = "rotate(90deg)";
     });
   });
 

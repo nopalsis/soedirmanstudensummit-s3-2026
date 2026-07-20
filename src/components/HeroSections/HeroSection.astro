@@ -10,14 +10,14 @@
 <img
   src="/images/elements/wave.svg"
   alt=""
-  class="hidden sm:block absolute top-0 left-0 w-full h-auto z-0 opacity-80"
+  class="hidden sm:block absolute top-0 left-0 w-full h-auto z-0 animate-wave-fade-in"
 />
 
 <!-- Burung Kiri (terbang ke kanan) -->
 <img
   src="/images/elements/burung2.svg"
   alt=""
-  class="absolute left-[15%] xs:left-[20%] sm:left-[24%] top-[20%] xs:top-[20%] sm:top-[22%] w-7 xs:w-9 sm:w-14 md:w-20 z-10 animate-bird-fly-1"
+  class="absolute left-[15%] xs:left-[20%] sm:left-[24%] top-[20%] xs:top-[20%] sm:top-[26%] w-7 xs:w-9 sm:w-14 md:w-20 z-10 animate-bird-fly-1"
 />
 
 
@@ -25,7 +25,7 @@
 <img
   src="/images/elements/burung1.svg"
   alt=""
-  class="absolute right-[12%] xs:right-[16%] sm:right-[20%] top-[20%] xs:top-[20%] sm:top-[22%] w-8 xs:w-11 sm:w-16 md:w-24 z-10 animate-bird-fly-1"
+  class="absolute right-[12%] xs:right-[16%] sm:right-[20%] top-[20%] xs:top-[20%] sm:top-[18%] w-8 xs:w-11 sm:w-16 md:w-24 z-10 animate-bird-fly-1"
 />
 
 
@@ -33,18 +33,18 @@
 <img
   src="/images/elements/wayang-awan.svg"
   alt="Wayang"
-  class="absolute left-0 bottom-0 sm:bottom-5 z-20 w-35 xs:w-28 sm:w-48 md:w-72 lg:w-80 animate-fade-in-left"
+  class="absolute left-0 bottom-0 sm:bottom-5 z-20 w-35 xs:w-28 sm:w-48 md:w-72 lg:w-80 animate-fade-in-left-delayed"
 />
 
 <!-- Wayang kanan (mirror) -->
 <img
   src="/images/elements/wayang-awan.svg"
   alt="Wayang"
-  class="absolute bottom-0 sm:bottom-10 right-0 w-35 xs:w-28 sm:w-48 md:w-72 lg:w-80 z-20 -scale-x-100 animate-fade-in-right"
+  class="absolute bottom-0 sm:bottom-10 right-0 w-35 xs:w-28 sm:w-48 md:w-72 lg:w-80 z-20 -scale-x-100 animate-fade-in-right-delayed"
 />
 
 <div class="absolute top-1/2 -translate-y-1/2 sm:top-[10%] sm:translate-y-0 left-1/2 -translate-x-1/2 w-full px-4 z-10">
-  <div class="flex flex-col items-center animate-fade-up">
+  <div class="flex flex-col items-center animate-fade-up-sun">
 
     <!-- Matahari -->
     <div class="relative w-44 h-44 xs:w-48 xs:h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 shrink-0">
@@ -110,6 +110,31 @@
       transform: translate(-8px, -12px);
     }
   }
+
+  @keyframes waveFadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes sunFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-wave-fade-in {
+    animation: waveFadeIn 800ms ease-out both;
+  }
+
   .animate-bird-fly-1 {
     animation: birdFly1 6s ease-in-out infinite;
   }
@@ -144,6 +169,13 @@
     animation: fadeInRight 900ms ease-out both;
   }
 
+  .animate-fade-in-left-delayed {
+    animation: fadeInLeft 600ms ease-out 1000ms both;
+  }
+  .animate-fade-in-right-delayed {
+    animation: fadeInRight 600ms ease-out 1000ms both;
+  }
+
   @keyframes fadeUp {
     from {
       opacity: 0;
@@ -153,6 +185,10 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+
+  .animate-fade-up-sun {
+    animation: sunFadeUp 700ms ease-out 200ms both;
   }
   .animate-fade-up {
     animation: fadeUp 700ms ease-out 300ms both;
