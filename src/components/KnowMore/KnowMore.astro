@@ -1,0 +1,264 @@
+---
+import DocumentationCard from "./DocumentationCard.astro";
+
+const events: { name: string; img: string }[] = [
+  { name: "Expo", img: "/images/events/expo.webp" },
+  { name: "Parade", img: "/images/events/parade.webp" },
+  { name: "FGD", img: "/images/events/fgd.jpg" },
+  { name: "Art Performance", img: "/images/events/artperformance.webp" },
+  { name: "Closing", img: "/images/events/closing.webp" },
+  { name: "Expo", img: "/images/events/expo.jpg" },
+  { name: "Parade", img: "/images/events/parade.jpg" },
+];
+---
+
+<section
+  id="know-more"
+  class="relative z-10 pt-16 sm:pt-32 md:pt-48 lg:pt-56 pb-0 section-padding-x text-white-base bg-[#76A3ED] bg-[url('/images/elements/bgbatik.webp')] batik-size bg-top bg-repeat-y bg-[length:400px_50%] sm:bg-[length:600px_50%] md:bg-cover m-auto overflow-visible"
+>
+
+  <div class="container max-w-screen-xl mx-auto relative z-10">
+    <!-- Mascots Description (side by side, speech bubble menyatu di gambar) -->
+    <div
+      class="w-full mb-16 sm:mb-20 md:mb-24 lg:mb-32 flex flex-col items-center justify-center gap-4 relative"
+    >
+      <!-- Awan Kuning Kiri -->
+      <div class="absolute left-1/2 -translate-x-1/2 top-[18%] w-screen h-auto pointer-events-none flex justify-start" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+        <img src="/images/elements/awan-kuning.svg" alt="" class="w-[100px] sm:w-[150px] md:w-[250px] lg:w-[350px] h-auto animate-float-cloud" />
+      </div>
+
+      <!-- Awan Kuning Kanan -->
+      <div class="absolute left-1/2 -translate-x-1/2 top-[3%] w-screen h-auto pointer-events-none flex justify-end" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+        <img src="/images/elements/awan-kuning.svg" alt="" class="w-[100px] sm:w-[150px] md:w-[250px] lg:w-[350px] h-auto -scale-x-100 animate-float-cloud" />
+      </div>
+
+       <div
+         class="w-[75%] xs:w-[65%] sm:max-w-[220px] md:max-w-[600px] animate-float-up-down"
+         data-aos="fade-right"
+         data-aos-duration="1000"
+         data-aos-easing="ease-in-out"
+         data-aos-offset="300"
+         data-aos-once="true"
+       >
+         <img
+           src="/images/mascots/maskot-cowo.webp"
+           alt="Perkenalan Chibi Maskot S3 Cowok"
+           class="w-full h-auto"
+         />
+       </div>
+
+       <div
+         class="w-[75%] xs:w-[65%] sm:max-w-[220px] md:max-w-[600px] animate-float-up-down"
+         data-aos="fade-left"
+         data-aos-duration="1000"
+         data-aos-easing="ease-in-out"
+         data-aos-offset="300"
+         data-aos-once="true"
+       >
+         <img
+           src="/images/mascots/maskot-cewe.svg"
+           alt="Perkenalan Chibi Maskot S3 Cewek"
+           class="w-full h-auto"
+         />
+       </div>
+
+      <!-- Wrapper for Chibi Maskot + Text and Gapura -->
+      <div class="relative w-full z-10 flex flex-col items-center py-4">
+        <!-- Gapura di kanan kiri (seluas area maskot + teks) -->
+         <div class="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[95vw] sm:w-screen pointer-events-none z-0 flex justify-center items-end" data-aos="zoom-in" data-aos-duration="1000" data-aos-once="true">
+          <img class="w-full h-auto max-h-full object-contain object-bottom" src="/images/elements/gapura.webp" alt="Gapura" />
+        </div>
+
+        <!-- Chibi Maskot -->
+         <div class="max-w-[180px] xs:max-w-[220px] sm:max-w-xs md:max-w-sm mb-8 relative z-10 animate-pulse-scale" data-aos="fade-down" data-aos-duration="800" data-aos-delay="200" data-aos-easing="ease-in-out" data-aos-offset="300" data-aos-once="true">
+          <img class="w-full h-auto" src="/images/mascots/chibi-maskot.webp" alt="Maskot Soedirman Student Summit" />
+        </div>
+
+        <!-- Mengenal Lebih Dekat dengan S3 -->
+         <div class="w-full relative z-10 px-4 sm:px-0">
+            <div class="max-w-full xs:max-w-full sm:max-w-6xl md:max-w-7xl mx-auto text-center mb-8">
+              <h2 class="gradient-text-title  font-reikna text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl drop-shadow-[0_2px_0_rgba(0,0,0,0.2)] mb-4 sm:mb-6 leading-tight text-stroke-gold" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-offset="200" data-aos-once="true">
+                Mengenal lebih dekat Soedirman Student Summit
+              </h2>
+             <p class="text-[10px] xs:text-xs sm:text-xs md:text-sm lg:text-base text-center text-s3-blue leading-snug font-medium max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-in-out" data-aos-offset="50" data-aos-once="true">
+               Soedirman Student Summit (S3) merupakan kegiatan tahunan yang diselenggarakan sebagai wadah untuk pengenalan kehidupan perkuliahan dan untuk menyambut mahasiswa baru Universitas Jenderal Soedirman. Rangkaian kegiatan S3 bertujuan sebagai gerbang awal mahasiswa baru untuk mengenal dirinya sendiri dengan mengimplementasikan nilai-nilai yang akan dibawakan, serta mengenal lebih jauh tentang Universitas Jenderal Soedirman.
+             </p>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      <!-- Documentation Photos -->
+      <div class="w-full flex flex-col items-center">
+        <div class="flex flex-col items-center mb-10 sm:mb-14 relative z-10" data-aos="fade-down" data-aos-duration="800" data-aos-once="true">
+          <img src="/images/elements/scroll-above.svg" alt="" class="w-16 sm:w-20 md:w-28" />
+          <img src="/images/elements/scroll-down.svg" alt="" class="w-16 sm:w-20 md:w-28 mt-4" />
+        </div>
+        <DocumentationCard />
+      </div>
+
+      <!-- Wave Maskot di belakang Documentation Card -->
+      <div class="relative w-screen left-1/2 -translate-x-1/2 pb-8 sm:pb-12 md:pb-24 lg:pb-32 -mt-8 sm:-mt-12 md:-mt-16 lg:-mt-20">
+        <img src="/images/elements/wave-maskot.svg" alt="" class="w-full h-auto z-0 pointer-events-none" />
+      </div>
+
+      <!-- Rangkaian Acara -->
+      <div class="w-full -mt-6 sm:-mt-8 md:-mt-12 lg:-mt-16 relative">
+        <!-- Awan Biru Container (mentok kanan kiri) -->
+         <div class="absolute inset-x-0 bottom-0 w-screen left-1/2 -translate-x-1/2 h-0 pointer-events-none z-0">
+           <!-- Awan Biru Kiri -->
+           <img
+             src="/images/elements/awan-biru.svg"
+             alt=""
+             class="absolute left-0 bottom-0 w-[100px] sm:w-[150px] md:w-[200px] lg:w-[280px] xl:w-[350px] h-auto pointer-events-none"
+             data-aos="fade-right"
+             data-aos-duration="1000"
+             data-aos-once="true"
+           />
+           <!-- Awan Biru Kanan (mirror) -->
+           <img
+             src="/images/elements/awan-biru.svg"
+             alt=""
+             class="absolute right-0 bottom-0 w-[100px] sm:w-[150px] md:w-[200px] lg:w-[280px] xl:w-[350px] h-auto pointer-events-none -scale-x-100"
+             data-aos="fade-left"
+             data-aos-duration="1000"
+             data-aos-once="true"
+           />
+         </div>
+
+        <!-- Heading dengan Ornamen Title -->
+         <div class="flex flex-col items-center mb-10 sm:mb-14 relative z-10" data-aos="fade-down" data-aos-duration="800" data-aos-once="true">
+           <img src="/images/elements/scroll-above.svg" alt="" class="w-16 sm:w-20 md:w-28" />
+            <h2 class="gradient-text-title font-junigarden-swash text-xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_0_rgba(0,40,85,1)] leading-tight text-stroke-gold text-center mt-4">
+              Rangkaian Acara
+            </h2>
+            <img src="/images/elements/scroll-down.svg" alt="" class="w-16 sm:w-20 md:w-28 mt-4" />
+         </div>
+
+        <!-- Cards Grid -->
+          <div
+            class="w-full overflow-x-auto overflow-y-hidden px-2 pb-4 relative z-10 snap-x snap-mandatory"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="1200"
+          >
+            {events.map((event, i) => (
+              <div
+                class="relative flex-shrink-0 group cursor-pointer snap-center"
+                data-aos="fade-right"
+                data-aos-duration="600"
+                data-aos-delay={`${1400 + i * 150}`}
+              >
+                <div
+                  class="relative w-40 h-72 sm:w-44 sm:h-80 md:w-54 md:h-96 rounded-xl overflow-hidden shadow-xl transition-shadow duration-500 group-hover:shadow-2xl"
+                >
+                 <img
+                   src={event.img}
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                   alt={`${event.name} Foto`}
+                   loading="lazy"
+                 />
+                 <div
+                   class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"
+                 ></div>
+
+                 <div
+                   class="absolute bottom-0 left-0 right-0 p-4 text-white z-20"
+                 >
+                   <h3 class="text-lg md:text-xl font-bold drop-shadow-lg text-center">
+                     {event.name}
+                   </h3>
+                 </div>
+               </div>
+             </div>
+           ))}
+         </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+   <style>
+     #know-more::after {
+       content: '';
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       height: 120px;
+       background: linear-gradient(to bottom, rgba(255, 193, 7, 0) 0%, rgba(255, 193, 7, 0.6) 100%);
+       pointer-events: none;
+       z-index: 5;
+     }
+
+     .scroll-bar-hide {
+       -ms-overflow-style: none;
+       scrollbar-width: none;
+     }
+
+     .scroll-bar-hide::-webkit-scrollbar {
+       display: none;
+     }
+
+     .batik-size {
+       background-size: 400px;
+     }
+     @media screen and (min-width: 640px) {
+       .batik-size {
+         background-size: 600px;
+       }
+     }
+     @media screen and (min-width: 768px) {
+       .batik-size {
+         background-size: cover;
+       }
+     }
+
+     @keyframes floatCloud {
+       0%, 100% {
+         transform: translateY(0px);
+       }
+       50% {
+         transform: translateY(-20px);
+       }
+     }
+
+     .animate-float-cloud {
+       animation: floatCloud 6s ease-in-out infinite;
+     }
+
+     @keyframes pulseScale {
+       0%, 100% {
+         transform: scale(1);
+       }
+       50% {
+         transform: scale(1.05);
+       }
+     }
+
+     .animate-pulse-scale {
+       animation: pulseScale 5s ease-in-out infinite;
+     }
+
+     @keyframes floatUpDown {
+       0%, 100% {
+         transform: translateY(0px);
+       }
+       50% {
+         transform: translateY(-15px);
+       }
+     }
+
+     .animate-float-up-down {
+       animation: floatUpDown 4s ease-in-out infinite;
+     }
+
+     .know-more-title {
+       color: #DEB65B;
+       -webkit-text-stroke: 2px #001A58;
+       paint-order: stroke fill;
+     }
+    </style>
+</section>

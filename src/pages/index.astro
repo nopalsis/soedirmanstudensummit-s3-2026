@@ -1,8 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ComingSoon from "../components/blocks/ComingSoon";
+import Hero from '../components/HeroSections/HeroSection.astro';
+import Divider from '../components/divider/Divider.astro';
+import KnowMore from '../components/KnowMore/KnowMore.astro';
+import Logo from '../components/Logo/Logo.astro';
+import SambutanCountdown from '../components/SambutanCountdownWrapper.astro';
+import Marque from '../components/Marque.astro';
+import FlashbackWrapper from '../components/FlashbackWrapper.astro';
 ---
 
-<Layout>
-  <ComingSoon client:load />
+<Layout title="Selamat Datang">
+  <Hero />
+    <div class="relative z-20 -mb-12 sm:-mb-24 md:-mb-32">
+      <Divider class="-mt-4 md:-mt-16" />
+     </div>
+  <KnowMore />
+  <Logo />
+   <Marque 
+      bgColor="bg-[#E7C055]"
+      textColor="text-s3-blue"
+      direction="right"
+      img="/images/logo.webp"
+    />
+  <SambutanCountdown />
+  <Marque 
+      bgColor="bg-[#E7C055]"
+      textColor="text-s3-blue"
+      direction="left"
+      img="/images/logo.webp"
+    />
+  <FlashbackWrapper />
+
 </Layout>

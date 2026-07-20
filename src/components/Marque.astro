@@ -1,0 +1,104 @@
+---
+const data = "Soedirman Student Summit";
+
+interface Props {
+  img: string;
+  direction: "left" | "right";
+  bgColor: string;
+  textColor: string;
+}
+
+const { img, direction, bgColor, textColor } = Astro.props;
+---
+
+<div class=`flex overflow-x-hidden ${bgColor} ${textColor} py-3 sm:py-4 md:py-5`>
+   <!--  -->
+   <div
+     class=`whitespace-nowrap flex min-w-max ${direction == "left" ? "animate-marquee" : "animate-marqueeReverse"}`
+   >
+     <div class="flex items-center min-w-fit px-2 sm:px-3">
+       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+         {data}
+       </p>
+       <img
+         src={img}
+         alt="logo Soedirman student summit"
+         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+       />
+     </div>
+     <div class="flex items-center min-w-fit px-2 sm:px-3">
+       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+         {data}
+       </p>
+       <img
+         src={img}
+         alt="logo Soedirman student summit"
+         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+       />
+     </div>
+     <div class="flex items-center min-w-fit px-2 sm:px-3">
+       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+         {data}
+       </p>
+       <img
+         src={img}
+         alt="logo Soedirman student summit"
+         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+       />
+     </div>
+     <div class="flex items-center min-w-fit px-2 sm:px-3">
+       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+         {data}
+       </p>
+       <img
+         src={img}
+         alt="logo Soedirman student summit"
+         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+       />
+     </div>
+   </div>
+   <div
+     class=`whitespace-nowrap flex min-w-max ${direction == "left" ? "animate-marquee" : "animate-marqueeReverse"}`
+   >
+     <div class="flex items-center min-w-fit px-2 sm:px-3">
+       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+         {data}
+       </p>
+       <img
+         src={img}
+         alt="logo Soedirman student summit"
+         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+       />
+     </div>
+     <div class="flex items-center min-w-fit px-2 sm:px-3">
+       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+         {data}
+       </p>
+       <img
+         src={img}
+         alt="logo Soedirman student summit"
+         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+       />
+     </div>
+     <div class="flex items-center min-w-fit px-2 sm:px-3">
+       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+         {data}
+       </p>
+       <img
+         src={img}
+         alt="logo Soedirman student summit"
+         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+       />
+     </div>
+     <div class="flex items-center min-w-fit px-2 sm:px-3">
+       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+         {data}
+       </p>
+       <img
+         src={img}
+         alt="logo Soedirman student summit"
+         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+       />
+     </div>
+   </div>
+ </div>

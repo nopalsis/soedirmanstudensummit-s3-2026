@@ -1,0 +1,41 @@
+---
+import LogoCard from "./LogoCard.astro";
+---
+
+<section
+  class="relative w-full bg-gradient-to-b from-[#76A3ED] to-[#5B8FD4] overflow-hidden min-h-screen md:min-h-[150vh] flex flex-col items-center py-12 sm:py-20 md:py-32 lg:py-48 px-4 sm:px-6 md:px-8"
+>
+  <!-- Gradient Kuning di Awal -->
+  <div class="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-yellow-400/60 to-transparent pointer-events-none z-0"></div>
+  <!-- Background Decorative Elements -->
+  <div 
+    class="absolute bottom-0 left-0 right-0 pointer-events-none overflow-hidden scale-130"
+    data-aos="fade-up"
+    data-aos-duration="800"
+    data-aos-delay="300"
+    data-aos-easing="ease-out"
+    data-aos-once="true"
+  >
+    <img
+      src="/images/elements/element-logo.webp"
+      alt="Background Elements"
+      class=""
+    />
+  </div>
+
+  <!-- Title Section -->
+  <div class="relative z-20 flex flex-col items-center mb-8 sm:mb-12 md:mb-16" data-aos="fade-down" data-aos-duration="800" data-aos-once="true">
+          <img src="/images/elements/scroll-above.svg" alt="" class="w-16 sm:w-20 md:w-28" />
+          <h2 class="gradient-text-title text-stroke-gold font-junigarden-swash text-xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_0_rgba(0,40,85,1)] leading-tight text-center mt-4">
+            Filosofi Logo
+          </h2>
+          <img src="/images/elements/scroll-down.svg" alt="" class="w-16 sm:w-20 md:w-28 mt-4" />
+        </div>
+
+  <!-- Logo Card Section - Main Focus -->
+  <div class="relative z-30 w-full px-5 sm:px-8 md:px-12 flex flex-col items-center gap-8 sm:gap-12">
+    <div class="w-full max-w-4xl">
+      <LogoCard />
+    </div>
+  </div>
+</section>

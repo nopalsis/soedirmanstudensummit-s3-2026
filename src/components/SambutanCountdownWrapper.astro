@@ -1,0 +1,23 @@
+---
+import Sambutan from './sambutan/Sambutan.astro';
+import Countdown from './Countdown/Countdown.astro';
+---
+
+<div class="relative bg-[#1B4682] overflow-hidden">
+  <!-- Unified Background Batik -->
+  <div class="absolute inset-0 pointer-events-none z-0">
+    <img
+      src="/images/elements/bgbatik-sambutan.webp"
+      alt=""
+      class="w-full h-full object-cover opacity-10"
+    />
+  </div>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-[#1B4682]/80 pointer-events-none z-[1]"></div>
+  
+  <!-- Content -->
+  <div class="relative z-10">
+    <Sambutan />
+    <Countdown />
+  </div>
+</div>

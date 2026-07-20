@@ -1,0 +1,15 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "-mt-1" } = Astro.props;
+---
+
+<div class={`relative z-50 ${className}`}>
+  <img
+    src="/images/elements/divider.svg"
+    alt=""
+    class="w-full h-auto block"
+  />
+</div>

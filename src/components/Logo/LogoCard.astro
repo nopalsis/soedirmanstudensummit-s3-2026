@@ -1,0 +1,342 @@
+---
+const logos = [
+  {
+    title: "Aksara Jawa",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    img: "/images/logo-parts/aksarajawa.webp",
+  },
+  {
+    title: "Cakar",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    img: "/images/logo-parts/cakar.webp",
+  },
+  {
+    title: "Ekor",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+    img: "/images/logo-parts/ekor.webp",
+  },
+  {
+    title: "Elang Jawa",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+    img: "/images/logo-parts/elangjawa.webp",
+  },
+  {
+    title: "Kepala",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+    img: "/images/logo-parts/kepala.webp",
+  },
+  {
+    title: "Lope",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+    img: "/images/logo-parts/lope.webp",
+  },
+  {
+    title: "Paruh",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut labore et dolore magnam aliquam quaerat voluptatem animi.",
+    img: "/images/logo-parts/paruh.webp",
+  },
+  {
+    title: "S3",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.",
+    img: "/images/logo-parts/s3.webp",
+  },
+  {
+    title: "S3 Lope",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At vero eos et accusamus et iusto odio dignissimos ducimus blanditiis.",
+    img: "/images/logo-parts/s3lope.webp",
+  },
+  {
+    title: "Sayap",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil.",
+    img: "/images/logo-parts/sayap.webp",
+  },
+];
+---
+
+<div class="swiper logo-swiper mb-8 sm:mb-10 md:mb-12 px-4 sm:px-0">
+    <div class="swiper-wrapper">
+      {
+        logos.map((logo, index) => (
+          <div 
+            class="swiper-slide"
+            data-aos="zoom-in"
+            data-aos-duration="700"
+            data-aos-delay={100 + index * 50}
+            data-aos-easing="ease-out-back"
+            data-aos-once="true"
+          >
+            <img
+              src={logo.img}
+              alt={logo.title}
+              class="logo-img"
+            />
+          </div>
+        ))
+      }
+    </div>
+   <div class="swiper-button-next"></div>
+   <div class="swiper-button-prev"></div>
+   <div class="swiper-pagination"></div>
+ </div>
+ <div
+   class="max-w-screen-md m-auto text-center mb-12 sm:mb-20 md:mb-24 lg:mb-32 px-4 sm:px-6 md:px-0"
+   data-aos="fade-up"
+   data-aos-duration="600"
+   data-aos-delay="200"
+   data-aos-easing="ease-out"
+   data-aos-offset="0"
+   data-aos-once="true"
+ >
+  <h3 class="text-primary mb-2 sub-header-font-size logo-title font-heading">
+    Kepala
+  </h3>
+  <p class="logo-description normal-font-size">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam
+    voluptatem quia voluptas sit aspernatur aut odit aut fugit.
+  </p>
+</div>
+
+<style>
+  .swipper {
+    width: 100%;
+    /* padding: 50px 0; */
+  }
+
+  .logo-swiper {
+    overflow: visible;
+  }
+
+  .swiper-slide {
+    position: relative;
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    z-index: 1;
+  }
+
+  .swiper-slide-active {
+    z-index: 10;
+  }
+
+  .swiper-slide-prev,
+  .swiper-slide-next {
+    z-index: 5;
+  }
+
+  @media (min-width: 640px) {
+    .swiper-slide {
+      width: 140px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .swiper-slide {
+      width: 180px;
+    }
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: inherit;
+    user-select: none;
+  }
+
+  .logo-img {
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+  }
+
+  .swiper-slide-active .logo-img {
+    transform: scale(1);
+  }
+
+  @media (min-width: 640px) {
+    .logo-img {
+      transform: scale(1.2);
+    }
+
+    .swiper-slide-active .logo-img {
+      transform: scale(1.5);
+    }
+  }
+
+  /* ===== Panah carousel ===== */
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    width: 40px;
+    height: 20px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    top: 50% !important;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+  :global(.swiper-button-next::after),
+  :global(.swiper-button-prev::after) {
+    display: none !important;
+  }
+
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    font-size: 18px;
+    color: #FFFF;
+  }
+
+  @media (min-width: 640px) {
+    :global(.swiper-button-next),
+    :global(.swiper-button-prev) {
+      font-size: 28px;
+    }
+  }
+
+  :global(.swiper-button-next) {
+    right: 10px;
+  }
+
+  :global(.swiper-button-prev) {
+    left: 10px;
+  }
+
+  :global(.swiper-pagination) {
+    bottom: -10px !important;
+  }
+
+  @media (min-width: 640px) {
+    :global(.swiper-pagination) {
+      bottom: -40px !important;
+    }
+  }
+</style>
+
+<script>
+  import Swiper from "swiper/bundle";
+  // import "swiper/swiper-bundle.css";
+
+  const logos = [
+    {
+      title: "Aksara Jawa",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      img: "/images/logo-parts/aksarajawa.webp",
+    },
+    {
+      title: "Cakar",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+      img: "/images/logo-parts/cakar.webp",
+    },
+    {
+      title: "Ekor",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+      img: "/images/logo-parts/ekor.webp",
+    },
+    {
+      title: "Elang Jawa",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.",
+      img: "/images/logo-parts/elangjawa.webp",
+    },
+    {
+      title: "Kepala",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.",
+      img: "/images/logo-parts/kepala.webp",
+    },
+    {
+      title: "Lope",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+      img: "/images/logo-parts/lope.webp",
+    },
+    {
+      title: "Paruh",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut labore et dolore magnam aliquam quaerat voluptatem animi.",
+      img: "/images/logo-parts/paruh.webp",
+    },
+    {
+      title: "S3",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.",
+      img: "/images/logo-parts/s3.webp",
+    },
+    {
+      title: "S3 Lope",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. At vero eos et accusamus et iusto odio dignissimos ducimus blanditiis.",
+      img: "/images/logo-parts/s3lope.webp",
+    },
+    {
+      title: "Sayap",
+      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil.",
+      img: "/images/logo-parts/sayap.webp",
+    },
+  ];
+
+  const logoSwiper = new Swiper(".logo-swiper", {
+    effect: "creative",
+    grabCursor: true,
+    centeredSlides: true,
+    initialSlide: 3,
+    speed: 600,
+    preventClicks: true,
+    slidesPerView: 1,
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+      },
+      1024: {
+        slidesPerView: 3,
+      },
+    },
+    creativeEffect: {
+      perspective: true,
+      prev: {
+        shadow: false,
+        translate: ["-200px", "20%", -200],
+        origin: "bottom",
+      },
+      next: {
+        shadow: false,
+        translate: ["200px", "20%", -200],
+        origin: "bottom",
+      },
+      limitProgress: 2,
+      progressMultiplier: 2,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      click(params) {
+        logoSwiper.slideTo(params.clickedIndex);
+      },
+      slideChange(params) {
+        // const activeIndex = logoSwiper.realIndex;
+        const activeIndex = params.realIndex;
+        // console.log(activeIndex)
+        const logoTitle =
+          document.querySelector<HTMLHeadingElement>(".logo-title");
+        const logoDescription =
+          document.querySelector<HTMLParagraphElement>(".logo-description");
+        if (logoTitle && logoDescription) {
+          logoTitle.style.display = "block";
+          logoDescription.style.display = "block";
+
+          logoTitle.innerText = logos[activeIndex].title;
+          logoDescription.innerText = logos[activeIndex].desc;
+
+          // Add fade-in animation
+          logoTitle.style.opacity = "1";
+          logoDescription.style.opacity = "1";
+        }
+      },
+    },
+  });
+</script>

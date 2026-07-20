@@ -1,0 +1,230 @@
+---
+const docsImage = [
+  "./images/documentations/documentation-1.webp",
+  "./images/documentations/documentation-2.webp",
+  "./images/documentations/documentation-3.webp",
+  "./images/documentations/documentation-4.webp",
+  "./images/documentations/documentation-5.webp",
+  "./images/documentations/documentation-6.webp",
+  "./images/documentations/documentation-7.webp",
+  "./images/documentations/documentation-8.webp",
+  "./images/documentations/documentation-9.webp",
+  "./images/documentations/documentation-10.webp",
+  "./images/documentations/documentation-11.webp",
+  "./images/documentations/documentation-12.webp",
+];
+
+const slides = docsImage.map((src, i) => ({
+  src,
+  alt: `Dokumentasi kegiatan ${i + 1}`,
+}));
+---
+
+<div class="doc-slider relative w-full max-w-5xl mx-auto select-none" data-total={slides.length}>
+  <div class="stage relative h-[260px] sm:h-[380px] md:h-[460px] flex items-center justify-center overflow-hidden">
+    {slides.map((slide, i) => (
+      <button
+        class="slide absolute rounded-2xl overflow-hidden shadow-2xl cursor-pointer"
+        data-index={i}
+        aria-label={`Lihat ${slide.alt}`}
+      >
+        <img
+          src={slide.src}
+          alt={slide.alt}
+          class="w-full h-full object-cover"
+          draggable="false"
+        />
+        <span class="overlay absolute inset-0 bg-black/30"></span>
+      </button>
+    ))}
+  </div>
+
+  <button
+    class="prev-btn absolute left-0 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-colors"
+    aria-label="Sebelumnya"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-800">
+      <path d="m15 18-6-6 6-6" />
+    </svg>
+  </button>
+  <button
+    class="next-btn absolute right-0 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 hover:bg-white shadow-lg flex items-center justify-center transition-colors"
+    aria-label="Berikutnya"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-neutral-800">
+      <path d="m9 18 6-6-6-6" />
+    </svg>
+  </button>
+
+  <div class="dots flex justify-center gap-2 mt-6">
+    {slides.map((_, i) => (
+      <button
+        class="dot h-1.5 rounded-full transition-all duration-300 bg-neutral-300 hover:bg-neutral-400"
+        data-index={i}
+        aria-label={`Ke slide ${i + 1}`}
+      ></button>
+    ))}
+  </div>
+</div>
+
+<style>
+  .slide {
+    width: 70%;
+    height: 100%;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out, filter 0.5s ease-out;
+  }
+
+  .dot {
+    width: 6px;
+  }
+
+  .dot.is-active {
+    width: 32px;
+    background-color: #262626;
+  }
+</style>
+
+<script>
+  class DocSlider {
+    root: HTMLElement;
+    slides: HTMLElement[];
+    dots: HTMLElement[];
+    total: number;
+    active = 0;
+    timer: ReturnType<typeof setInterval> | null = null;
+    touchStartX: number | null = null;
+
+    constructor(root: HTMLElement) {
+      this.root = root;
+      this.slides = Array.from(root.querySelectorAll(".slide"));
+      this.dots = Array.from(root.querySelectorAll(".dot"));
+      this.total = Number(root.dataset.total) || this.slides.length;
+
+      this.render();
+      this.bindEvents();
+      this.startAutoplay();
+    }
+
+    goTo(i: number) {
+      this.active = ((i % this.total) + this.total) % this.total;
+      this.render();
+    }
+
+    next = () => this.goTo(this.active + 1);
+    prev = () => this.goTo(this.active - 1);
+
+    getOffset(i: number) {
+      let diff = i - this.active;
+      if (diff > this.total / 2) diff -= this.total;
+      if (diff < -this.total / 2) diff += this.total;
+      return diff;
+    }
+
+    render() {
+      this.slides.forEach((slide, i) => {
+        const offset = this.getOffset(i);
+        const isActive = offset === 0;
+        const abs = Math.abs(offset);
+        const overlay = slide.querySelector(".overlay") as HTMLElement;
+
+        if (abs > 2) {
+          slide.style.display = "none";
+          return;
+        }
+        slide.style.display = "block";
+
+        const translateX = offset * 62;
+        const scale = isActive ? 1 : 1 - abs * 0.18;
+        const opacity = isActive ? 1 : abs === 1 ? 0.55 : 0.25;
+        const blur = isActive ? 0 : abs === 1 ? 1 : 2.5;
+        const zIndex = 10 - abs;
+
+        slide.style.transform = `translateX(${translateX}%) scale(${scale})`;
+        slide.style.opacity = String(opacity);
+        slide.style.filter = `blur(${blur}px)`;
+        slide.style.zIndex = String(zIndex);
+
+        if (overlay) overlay.style.opacity = isActive ? "0" : "1";
+      });
+
+      this.dots.forEach((dot, i) => {
+        dot.classList.toggle("is-active", i === this.active);
+      });
+    }
+
+    bindEvents() {
+      this.root.querySelector(".prev-btn")?.addEventListener("click", () => {
+        this.prev();
+        this.restartAutoplay();
+      });
+      this.root.querySelector(".next-btn")?.addEventListener("click", () => {
+        this.next();
+        this.restartAutoplay();
+      });
+
+      this.slides.forEach((slide, i) => {
+        slide.addEventListener("click", () => {
+          this.goTo(i);
+          this.restartAutoplay();
+        });
+      });
+
+      this.dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => {
+          this.goTo(i);
+          this.restartAutoplay();
+        });
+      });
+
+      this.root.addEventListener("mouseenter", () => this.stopAutoplay());
+      this.root.addEventListener("mouseleave", () => this.startAutoplay());
+
+      this.root.addEventListener("touchstart", (e) => {
+        this.touchStartX = (e as TouchEvent).touches[0].clientX;
+      });
+      this.root.addEventListener("touchend", (e) => {
+        if (this.touchStartX === null) return;
+        const dx = (e as TouchEvent).changedTouches[0].clientX - this.touchStartX;
+        if (dx > 50) this.prev();
+        if (dx < -50) this.next();
+        this.touchStartX = null;
+        this.restartAutoplay();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (!this.isInViewport()) return;
+        if (e.key === "ArrowRight") {
+          this.next();
+          this.restartAutoplay();
+        }
+        if (e.key === "ArrowLeft") {
+          this.prev();
+          this.restartAutoplay();
+        }
+      });
+    }
+
+    isInViewport() {
+      const rect = this.root.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    }
+
+    startAutoplay() {
+      this.stopAutoplay();
+      this.timer = setInterval(() => this.next(), 4000);
+    }
+
+    stopAutoplay() {
+      if (this.timer) clearInterval(this.timer);
+      this.timer = null;
+    }
+
+    restartAutoplay() {
+      this.startAutoplay();
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>(".doc-slider").forEach((el) => {
+    new DocSlider(el);
+  });
+</script>
