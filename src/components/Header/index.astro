@@ -138,9 +138,9 @@ console.log("Current Path:", currentPath);
         </span>
       </button>
 
-      <div class="fixed inset-0 overflow-hidden pointer-events-none z-[9999]">
+      <div class="fixed inset-0 pointer-events-none z-[9999]">
         <div
-          class="fixed top-[var(--nav-height)] right-0 mt-0 w-[280px] rounded-3xl transition-transform duration-300 flex flex-col gap-4 px-6 py-6 items-end bg-gradient-to-b from-s3-blue to-s3-blue/95 shadow-[0_10px_30px_rgba(0,0,0,0.35)] translate-x-full pointer-events-auto z-[9999]"
+          class="fixed top-[var(--nav-height)] right-0 mt-0 w-[280px] rounded-3xl transition-transform duration-300 flex flex-col gap-4 px-6 py-6 items-end bg-gradient-to-b from-s3-blue to-s3-blue/95 shadow-[0_10px_30px_rgba(0,0,0,0.35)] translate-x-full pointer-events-auto z-[9999] overflow-hidden"
           id="sidebar"
         >
           <NavLink href="/" active={currentPath === "/"}>Beranda</NavLink>
