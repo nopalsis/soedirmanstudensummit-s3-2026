@@ -54,26 +54,25 @@ const logos = [
 ---
 
 <div class="swiper logo-swiper mb-8 sm:mb-10 md:mb-12 px-4 sm:px-0">
-    <div class="swiper-wrapper">
-      {
-        logos.map((logo, index) => (
-          <div 
-            class="swiper-slide"
-            data-aos="zoom-in"
-            data-aos-duration="700"
-            data-aos-delay={100 + index * 50}
-            data-aos-easing="ease-out-back"
-            data-aos-once="true"
-          >
-            <img
-              src={logo.img}
-              alt={logo.title}
-              class="logo-img"
-            />
-          </div>
-        ))
-      }
-    </div>
+   <div class="swiper-wrapper">
+     {
+       logos.map((logo) => (
+         <div class="swiper-slide">
+           <img
+             src={logo.img}
+             alt={logo.title}
+             class="logo-img"
+             data-aos="fade-up"
+             data-aos-duration="600"
+             data-aos-delay="200"
+             data-aos-easing="ease-out"
+             data-aos-offset="440"
+             data-aos-once="true"
+           />
+         </div>
+       ))
+     }
+   </div>
    <div class="swiper-button-next"></div>
    <div class="swiper-button-prev"></div>
    <div class="swiper-pagination"></div>
@@ -115,16 +114,6 @@ const logos = [
     align-items: center;
     justify-content: center;
     padding: 8px;
-    z-index: 1;
-  }
-
-  .swiper-slide-active {
-    z-index: 10;
-  }
-
-  .swiper-slide-prev,
-  .swiper-slide-next {
-    z-index: 5;
   }
 
   @media (min-width: 640px) {
@@ -219,7 +208,7 @@ const logos = [
 
 <script>
   import Swiper from "swiper/bundle";
-  // import "swiper/swiper-bundle.css";
+  import "swiper/swiper-bundle.css";
 
   const logos = [
     {
@@ -278,7 +267,7 @@ const logos = [
     effect: "creative",
     grabCursor: true,
     centeredSlides: true,
-    initialSlide: 3,
+    initialSlide: 4,
     speed: 600,
     preventClicks: true,
     slidesPerView: 1,
