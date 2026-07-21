@@ -15,25 +15,10 @@ const defaultFakultas = dataFakultas[0];
     <!-- 1. HERO -->
     <section
       id="hero-unsoed"
-      class="relative bg-[url('/images/patung-kuda-halaman-rektor.webp')] bg-cover bg-center bg-no-repeat pt-40 pb-40 md:pt-52 md:pb-56 xl:pt-64 xl:pb-72"
+      class="relative bg-[url('/images/patung-kuda-halaman-rektor.webp')] bg-cover bg-[position:65%_center] bg-no-repeat pt-40 pb-48 md:pt-52 md:pb-64 xl:pt-64 xl:pb-80"
     >
-      <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/85"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(270deg,rgba(129,129,129,0.5)_0%,rgba(70,70,70,0.666)_35.9%,rgba(35,35,35,0.761)_63.6%,rgba(0,0,0,0.86)_100%)]"></div>
 
-      <img
-        src="/images/elements/awan.png"
-        alt=""
-        class="pointer-events-none absolute -top-4 right-0 w-40 opacity-90 md:w-64 xl:w-80"
-        data-aos="fade-left"
-        data-aos-duration="1000"
-      />
-      <img
-        src="/images/elements/awan-1.png"
-        alt=""
-        class="pointer-events-none absolute top-6 left-0 w-32 opacity-90 md:w-52 xl:w-64"
-        data-aos="fade-right"
-        data-aos-duration="1000"
-        data-aos-delay="150"
-      />
       <img
         src="/images/elements/burung.png"
         alt=""
@@ -45,7 +30,7 @@ const defaultFakultas = dataFakultas[0];
 
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <h1
-          class="text-center font-reikna text-[#ffc03f] text-4xl [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-left md:text-6xl xl:text-7xl"
+          class="text-center font-reikna text-[#ffc03f] text-4xl [-webkit-text-stroke:1.25px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-left md:text-6xl xl:text-7xl"
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -53,20 +38,67 @@ const defaultFakultas = dataFakultas[0];
           Universitas Jenderal Soedirman
         </h1>
 
-        <p
-          class="mt-6 max-w-2xl text-justify font-poppins text-sm text-white md:text-base xl:text-lg"
-          data-aos="fade-up"
-          data-aos-duration="800"
-          data-aos-delay="500"
-        >
-          Universitas Jenderal Soedirman (Unsoed) adalah institusi pendidikan unggulan di
-          Purwokerto yang memadukan inovasi teknologi dan komitmen lingkungan dalam setiap aspek
-          pendidikan. Dengan kampus hijau yang modern dan beragam program studi, Unsoed siap
-          mencetak lulusan yang kreatif dan kompetitif di era digital. Temukan peluang akademis
-          dan profesional yang menarik di Unsoed, pusat pendidikan yang berorientasi masa depan!
-        </p>
+        <div class="relative mt-6 max-w-xl md:pr-10">
+          <div
+            class="absolute -inset-4 rounded-[32px] opacity-[0.08]"
+            style="background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(254,237,195,1) 50%, rgba(253,218,135,1) 100%);"
+            aria-hidden="true"
+          ></div>
+          <p
+            class="relative text-justify font-poppins text-sm text-white md:text-base xl:text-lg"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="500"
+          >
+            Universitas Jenderal Soedirman (Unsoed) adalah institusi pendidikan unggulan di
+            Purwokerto yang memadukan inovasi teknologi dan komitmen lingkungan dalam setiap aspek
+            pendidikan. Dengan kampus hijau yang modern dan beragam program studi, Unsoed siap
+            mencetak lulusan yang kreatif dan kompetitif di era digital. Temukan peluang akademis
+            dan profesional yang menarik di Unsoed, pusat pendidikan yang berorientasi masa depan!
+          </p>
+        </div>
       </div>
 
+      <!-- Transisi bawah: awan + awan-hitam + wave -->
+      <img
+        src="/images/elements/awan.png"
+        alt=""
+        class="pointer-events-none absolute bottom-16 right-[8%] w-32 opacity-90 md:bottom-20 md:w-48 xl:w-60"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      />
+      <img
+        src="/images/elements/awan-1.png"
+        alt=""
+        class="pointer-events-none absolute bottom-20 left-[6%] w-28 opacity-90 md:bottom-24 md:w-40 xl:w-52"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-delay="150"
+      />
+      <img
+        src="/images/elements/awan-hitam.png"
+        alt=""
+        class="pointer-events-none absolute bottom-4 right-[28%] hidden w-24 opacity-80 md:block xl:w-32"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="200"
+      />
+      <img
+        src="/images/elements/awan-hitam-1.png"
+        alt=""
+        class="pointer-events-none absolute bottom-6 left-[24%] hidden w-24 opacity-80 md:block xl:w-32"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="250"
+      />
+      <img
+        src="/images/elements/awan-hitam-kecil.png"
+        alt=""
+        class="pointer-events-none absolute -bottom-2 left-1/2 hidden w-20 -translate-x-1/2 opacity-80 lg:block"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="300"
+      />
       <img
         src="/images/elements/wave-kiri.png"
         alt=""
@@ -90,14 +122,14 @@ const defaultFakultas = dataFakultas[0];
       <img
         src="/images/elements/wayang-kiri.png"
         alt=""
-        class="pointer-events-none absolute bottom-0 left-0 hidden w-40 opacity-90 md:block lg:w-56"
+        class="pointer-events-none absolute bottom-0 left-0 z-0 hidden w-48 -scale-x-100 opacity-90 md:block lg:w-64"
         data-aos="fade-right"
         data-aos-duration="1000"
       />
       <img
         src="/images/elements/wayang-kanan.png"
         alt=""
-        class="pointer-events-none absolute bottom-0 right-0 hidden w-40 opacity-90 md:block lg:w-56"
+        class="pointer-events-none absolute bottom-0 right-0 z-0 hidden w-48 opacity-90 md:block lg:w-64"
         data-aos="fade-left"
         data-aos-duration="1000"
       />
@@ -105,7 +137,8 @@ const defaultFakultas = dataFakultas[0];
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="grid grid-cols-1 gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
           <div data-aos="fade-right" data-aos-duration="800">
-            <h2 class="mb-4 text-center font-reikna text-[#142142] text-4xl md:text-5xl xl:text-6xl">Visi</h2>
+            <h2 class="text-center font-reikna text-[#ffc03f] text-4xl [-webkit-text-stroke:1.5px_#142142] md:text-5xl xl:text-6xl">Visi</h2>
+            <img src="/images/elements/group147-visi-ornamen.svg" alt="" class="mx-auto mb-4 w-24 opacity-90" />
             <p class="text-justify font-poppins text-sm text-[#1e1e1e] leading-relaxed md:text-base">
               {visi}
             </p>
@@ -114,11 +147,12 @@ const defaultFakultas = dataFakultas[0];
           <div class="mx-auto hidden w-3 rounded-md bg-[#f3c662] md:block" aria-hidden="true"></div>
 
           <div data-aos="fade-left" data-aos-duration="800">
-            <h2 class="mb-4 text-center font-reikna text-[#142142] text-4xl md:text-5xl xl:text-6xl">Misi</h2>
+            <h2 class="text-center font-reikna text-[#ffc03f] text-4xl [-webkit-text-stroke:1.5px_#142142] md:text-5xl xl:text-6xl">Misi</h2>
+            <img src="/images/elements/group148-misi-ornamen.svg" alt="" class="mx-auto mb-4 w-24 opacity-90" />
             <ol class="space-y-3">
               {misi.map((item, index) => (
                 <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay={index * 100}>
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ffc03f] font-bold text-white shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1e4b82] font-bold text-white shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
                     {index + 1}
                   </span>
                   <span class="pt-1 text-justify font-poppins text-sm text-[#1e1e1e] leading-relaxed md:text-base">
@@ -137,8 +171,9 @@ const defaultFakultas = dataFakultas[0];
       bgColor="bg-[#95a6f2]"
       textColor="text-black"
       fontClass="font-junigarden-swash"
+      shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]"
       direction="left"
-      img="/images/logo.webp"
+      img="/images/elements/logo-runningtext.png"
     />
 
     <!-- 4. FAKULTAS -->
@@ -149,7 +184,7 @@ const defaultFakultas = dataFakultas[0];
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="mb-10 flex flex-col items-center gap-2" data-aos="fade-up" data-aos-duration="800">
           <img src="/images/elements/hiasan-atas.png" alt="" class="w-48 md:w-64" />
-          <h2 class="px-4 text-center font-reikna text-[#142142] text-3xl md:text-5xl xl:text-6xl">
+          <h2 class="px-4 text-center font-reikna text-[#ffc03f] text-3xl [-webkit-text-stroke:1.5px_#142142] md:text-5xl xl:text-6xl">
             Fakultas Unsoed
           </h2>
           <img src="/images/elements/hiasan-bawah.png" alt="" class="w-48 md:w-64" />
@@ -166,7 +201,7 @@ const defaultFakultas = dataFakultas[0];
           <div class="order-2 md:order-1">
             <div class="mb-2 flex items-center gap-3">
               <span id="fakultas-swatch" class:list={['h-4 w-4 shrink-0 rounded-full', defaultFakultas.facultyColor]} aria-hidden="true"></span>
-              <p id="fakultas-title" class="font-reikna text-[#142142] text-3xl md:text-5xl">
+              <p id="fakultas-title" class="font-reikna text-[#ffc03f] text-3xl [-webkit-text-stroke:1.25px_#142142] md:text-5xl">
                 {defaultFakultas.title}
               </p>
             </div>
@@ -178,9 +213,10 @@ const defaultFakultas = dataFakultas[0];
               href={defaultFakultas.link}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-block rounded-full bg-gradient-to-r from-[#ffe086] to-[#ffc03f] px-6 py-2.5 font-medium text-[#1e1e1e] shadow-[0_0_10.6px_rgba(0,0,0,0.25)] transition-transform hover:scale-105"
+              class="relative inline-block overflow-hidden rounded-full px-6 py-2.5 font-medium text-[#1e1e1e] opacity-50 shadow-[0_0_10.6px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90"
             >
-              Lihat Website
+              <span class="absolute inset-0 rounded-full bg-gradient-to-r from-[#ffe086] to-[#ffc03f] shadow-[inset_3px_0px_10px_0px_white,inset_-4px_0px_10px_0px_white] backdrop-blur-[5px]" aria-hidden="true"></span>
+              <span class="relative">Lihat Website</span>
             </a>
           </div>
 
@@ -212,11 +248,29 @@ const defaultFakultas = dataFakultas[0];
     <!-- 5. HYMNE & MARS -->
     <section
       id="hymne-mars-unsoed"
-      class="relative overflow-hidden bg-[#3e6693] bg-[url('/images/elements/batik-1.webp')] bg-repeat py-16 md:py-24"
+      class="relative overflow-hidden bg-white py-24 md:py-32"
     >
+      <div class="absolute inset-0 bg-[url('/images/elements/batik-1.webp')] bg-repeat opacity-10"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,102,147,0)_0%,rgb(62,102,147)_20.2%,rgb(62,102,147)_85.1%,rgba(62,102,147,0)_100%)]"></div>
+
+      <img
+        src="/images/elements/awan-besar-1.png"
+        alt=""
+        class="pointer-events-none absolute top-0 left-0 h-24 w-full object-cover opacity-90 md:h-36"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      />
+      <img
+        src="/images/elements/awan-besar-2.png"
+        alt=""
+        class="pointer-events-none absolute bottom-0 left-0 h-24 w-full rotate-180 object-cover opacity-90 md:h-36"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+      />
+
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <h2
-          class="mb-12 text-center font-reikna text-[#ffd742] text-3xl [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-5xl xl:text-6xl"
+          class="mb-12 text-center font-reikna text-[#ffc03f] text-3xl [-webkit-text-stroke:1.5px_#142142] md:text-5xl xl:text-6xl"
           data-aos="fade-up"
           data-aos-duration="800"
         >
@@ -234,11 +288,12 @@ Budhaya pribadi yang asli murni harumkan wiyata tinggi</p>
             <button
               type="button"
               id="btn-play-hymne"
-              class="audio-toggle inline-flex items-center gap-2 rounded-full bg-[#76a3ed] px-6 py-2.5 font-semibold text-white shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-transform hover:scale-105"
+              class="audio-toggle relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-2.5 font-semibold text-white shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-transform hover:scale-105"
             >
-              <svg class="play-icon h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-              <svg class="pause-icon hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
-              <span class="audio-label">Play</span>
+              <span class="absolute inset-0 rounded-full bg-[#76a3ed] shadow-[inset_-4px_0px_20px_0px_white] backdrop-blur-[5px]" aria-hidden="true"></span>
+              <svg class="play-icon relative h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="pause-icon relative hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+              <span class="audio-label relative">Play</span>
             </button>
             <audio id="hymneAudio" src="/audio/hymne.mp3" preload="metadata"></audio>
           </div>
@@ -264,11 +319,12 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
             <button
               type="button"
               id="btn-play-mars"
-              class="audio-toggle inline-flex items-center gap-2 rounded-full bg-[#76a3ed] px-6 py-2.5 font-semibold text-white shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-transform hover:scale-105"
+              class="audio-toggle relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-2.5 font-semibold text-white shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-transform hover:scale-105"
             >
-              <svg class="play-icon h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
-              <svg class="pause-icon hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
-              <span class="audio-label">Play</span>
+              <span class="absolute inset-0 rounded-full bg-[#76a3ed] shadow-[inset_-4px_0px_20px_0px_white] backdrop-blur-[5px]" aria-hidden="true"></span>
+              <svg class="play-icon relative h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="pause-icon relative hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+              <span class="audio-label relative">Play</span>
             </button>
             <audio id="marsAudio" src="/audio/mars.mp3" preload="metadata"></audio>
           </div>
@@ -278,36 +334,33 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
 
     <!-- 6. PROFIL (VIDEO) -->
     <section id="profile-unsoed" class="relative overflow-hidden bg-white py-16 md:py-24">
-      <img
-        src="/images/elements/kolom-ukm.png"
-        alt=""
-        class="pointer-events-none absolute -right-16 bottom-0 hidden w-72 opacity-90 lg:block xl:w-96"
-        data-aos="fade-left"
-        data-aos-duration="1000"
-      />
-
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="flex flex-col items-center gap-8 text-center md:flex-row-reverse md:gap-12 md:text-left">
           <h2
-            class="font-reikna text-[#ffd742] text-3xl [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-5xl"
+            class="font-reikna text-[#ffc03f] text-3xl [-webkit-text-stroke:1.25px_#142142] md:text-5xl"
             data-aos="fade-left"
             data-aos-duration="800"
           >
             Profil Universitas Jenderal Soedirman
           </h2>
 
-          <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025) -->
-          <iframe
-            class="aspect-video w-full max-w-xl rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
-            src="https://www.youtube.com/embed/3Wuof0OvQOg"
-            title="Profil Universitas Jenderal Soedirman"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-            data-aos="zoom-in"
-            data-aos-duration="800"
-            data-aos-delay="200"
-          ></iframe>
+          <!-- Kolom UKM = frame dekoratif persis di belakang video (bukan aksen pojok, sesuai node 755:308) -->
+          <div class="relative w-full max-w-xl" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+            <img
+              src="/images/elements/kolom-ukm.png"
+              alt=""
+              class="pointer-events-none absolute -inset-x-4 -inset-y-3 h-[calc(100%+1.5rem)] w-[calc(100%+2rem)] max-w-none"
+            />
+            <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025) -->
+            <iframe
+              class="relative aspect-video w-full rounded-xl"
+              src="https://www.youtube.com/embed/3Wuof0OvQOg"
+              title="Profil Universitas Jenderal Soedirman"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>

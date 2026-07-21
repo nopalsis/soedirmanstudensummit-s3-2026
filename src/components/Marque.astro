@@ -7,12 +7,13 @@ interface Props {
   bgColor: string;
   textColor: string;
   fontClass?: string;
+  shadowClass?: string;
 }
 
-const { img, direction, bgColor, textColor, fontClass = "font-love-craft" } = Astro.props;
+const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shadowClass = "" } = Astro.props;
 ---
 
-<div class=`flex overflow-x-hidden ${bgColor} ${textColor} py-3 sm:py-4 md:py-5`>
+<div class=`flex overflow-x-hidden ${bgColor} ${textColor} ${shadowClass} py-3 sm:py-4 md:py-5`>
    <!--  -->
    <div
      class=`whitespace-nowrap flex min-w-max ${direction == "left" ? "animate-marquee" : "animate-marqueeReverse"}`
