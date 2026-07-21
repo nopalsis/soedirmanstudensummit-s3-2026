@@ -15,7 +15,7 @@ const defaultFakultas = dataFakultas[0];
     <!-- 1. HERO -->
     <section
       id="hero-unsoed"
-      class="relative pt-40 pb-48 md:pt-52 md:pb-64 xl:pt-64 xl:pb-80"
+      class="relative pt-40 md:pt-52 xl:pt-64"
     >
       <!-- Crop ratio port dari Figma node 755:48/755:49 (container 2396px / viewport 1920px) -->
       <div class="absolute inset-0 overflow-hidden">
@@ -36,7 +36,7 @@ const defaultFakultas = dataFakultas[0];
         data-aos-delay="300"
       />
 
-      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+      <div class="relative z-10 mx-auto mb-16 max-w-screen-xl section-padding-x md:mb-24 xl:mb-32">
         <h1
           class="text-center font-reikna text-[#ffc03f] text-4xl [-webkit-text-stroke:0.5px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-left md:text-6xl xl:text-7xl"
           data-aos="fade-up"
@@ -64,11 +64,13 @@ const defaultFakultas = dataFakultas[0];
       </div>
 
       <!-- Transisi bawah: flatten tunggal node Figma 827:126 (get_screenshot contentsOnly, 1920x499)
-           — ganti pendekatan lama susun-ulang per-elemen PNG (sumber bug bounding box kelihatan) -->
+           — ganti pendekatan lama susun-ulang per-elemen PNG (sumber bug bounding box kelihatan).
+           In-flow (bukan absolute) supaya tinggi gambar sendiri yg reservasi ruang, gak perlu
+           tebak-tebak pb-* yang gampang meleset di breakpoint tertentu (sumber bug overlap). -->
       <img
         src="/images/elements/transisi-hero.png"
         alt=""
-        class="pointer-events-none absolute -bottom-1 left-0 aspect-[1920/499] w-full"
+        class="pointer-events-none relative block w-full aspect-[1920/499]"
         data-aos="fade-up"
         data-aos-duration="1000"
       />
@@ -94,8 +96,9 @@ const defaultFakultas = dataFakultas[0];
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="grid grid-cols-1 gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
           <div data-aos="fade-right" data-aos-duration="800">
-            <h2 class="text-center font-reikna text-[#142142] text-4xl [-webkit-text-stroke:3px_#ffc03f] md:text-5xl xl:text-6xl">Visi</h2>
-            <img src="/images/elements/group147-visi-ornamen.svg" alt="" class="mx-auto mb-4 w-24 opacity-90" />
+            <!-- Flatten tunggal node Figma 755:86 (judul+ornamen 1 grup) — pisah teks+svg lama
+                 penyebab warna salah & ornamen kebalik -->
+            <img src="/images/elements/visi-title-group.png" alt="Visi" class="mx-auto mb-4 h-auto w-40" />
             <p class="text-justify font-poppins text-sm text-[#1e1e1e] leading-relaxed md:text-base">
               {visi}
             </p>
@@ -104,8 +107,8 @@ const defaultFakultas = dataFakultas[0];
           <div class="mx-auto hidden w-3 rounded-md bg-[#f3c662] md:block" aria-hidden="true"></div>
 
           <div data-aos="fade-left" data-aos-duration="800">
-            <h2 class="text-center font-reikna text-[#142142] text-4xl [-webkit-text-stroke:3px_#ffc03f] md:text-5xl xl:text-6xl">Misi</h2>
-            <img src="/images/elements/group147-visi-ornamen.svg" alt="" class="mx-auto mb-4 w-24 -scale-x-100 opacity-90" />
+            <!-- Flatten tunggal node Figma 755:173 (judul+ornamen 1 grup) -->
+            <img src="/images/elements/misi-title-group.png" alt="Misi" class="mx-auto mb-4 h-auto w-40" />
             <ol class="space-y-3">
               {misi.map((item, index) => (
                 <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay={index * 100}>
@@ -127,10 +130,9 @@ const defaultFakultas = dataFakultas[0];
     <Marque
       bgColor="bg-[#95a6f2]"
       textColor="text-black"
-      fontClass="font-goblin"
       shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]"
       direction="left"
-      img="/images/elements/logo-runningtext.png"
+      unitImg="/images/elements/marquee-unit.png"
     />
 
     <!-- 4. FAKULTAS -->
@@ -208,22 +210,29 @@ const defaultFakultas = dataFakultas[0];
       class="relative overflow-hidden bg-white py-24 md:py-32"
     >
       <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,102,147,0)_0%,rgb(62,102,147)_20.2%,rgb(62,102,147)_85.1%,rgba(62,102,147,0)_100%)]"></div>
-      <!-- Patern harus di atas gradient biru (bukan di bawah) supaya tekstur kelihatan, bukan tertutup -->
-      <div class="absolute inset-0 bg-[url('/images/elements/batik-1.webp')] bg-repeat opacity-10"></div>
+      <!-- Patern harus di atas gradient biru (bukan di bawah) supaya tekstur kelihatan, bukan tertutup.
+           opacity-10 nyaris tak kelihatan — source pattern sendiri udah alpha rendah (line art tipis),
+           dobel-redup jadi invisible di atas biru gelap. 20% masih halus tapi kebaca. -->
+      <div class="absolute inset-0 bg-[url('/images/elements/batik-1.webp')] bg-repeat opacity-20"></div>
 
       <!-- Flatten tunggal node Figma 827:123 (atas) & 827:141 (bawah), di-trim dari 1920x1370
-           mentah (banyak padding transparan) ke 1920x466 pas isi motif -->
+           mentah (banyak padding transparan) ke 1920x466 pas isi motif.
+           aspect-ratio + w-full bikin tinggi = lebar viewport * (466/1920) — TERUS naik seiring
+           lebar (section sendiri tingginya ~konstan, ditentukan konten teks, gak ikut lebar).
+           Di ~1700px+ dua band udah >70% tinggi section, ketemu di tengah. max-w cap gak cukup
+           (bug muncul jauh di bawah itu). Fix: cap tinggi ABSOLUT via h-*, object-cover crop
+           sisi atas/bawah motif biar lebar tetep full tanpa ngikutin viewport lagi. -->
       <img
         src="/images/elements/awan-atas-hymne.png"
         alt=""
-        class="pointer-events-none absolute top-0 left-0 aspect-[1920/466] w-full opacity-90"
+        class="pointer-events-none absolute top-0 left-0 h-40 w-full object-cover object-top opacity-90 md:h-56 xl:h-72"
         data-aos="fade-up"
         data-aos-duration="1000"
       />
       <img
         src="/images/elements/awan-bawah-hymne.png"
         alt=""
-        class="pointer-events-none absolute bottom-0 left-0 aspect-[1920/466] w-full opacity-90"
+        class="pointer-events-none absolute bottom-0 left-0 h-40 w-full object-cover object-bottom opacity-90 md:h-56 xl:h-72"
         data-aos="fade-up"
         data-aos-duration="1000"
       />
@@ -296,17 +305,23 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
     <section id="profile-unsoed" class="relative overflow-hidden bg-white py-16 md:py-24">
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="flex flex-col items-center gap-8 text-center md:flex-row-reverse md:gap-12">
-          <h2
-            class="text-center font-reikna text-4xl text-[#ffd742] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-6xl"
+          <!-- Flatten tunggal node Figma 755:158 (judul 2 baris + shadow) — versi CSS teks sebelumnya
+               udah cocok tapi tetap dilaporkan "belum berubah", flatten jadi gambar biar dijamin
+               identik terlepas dari cache/font-load timing -->
+          <img
+            src="/images/elements/profil-title.png"
+            alt="Profil Universitas Jenderal Soedirman"
+            class="h-auto w-full max-w-md md:max-w-lg"
             data-aos="fade-left"
             data-aos-duration="800"
-          >
-            Profil<br />Universitas Jenderal Soedirman
-          </h2>
+          />
 
           <!-- Kolom UKM = frame dekoratif persis di belakang video (sesuai node 755:308). Wrapper pakai
-               aspect-ratio asli file frame (1566x961) supaya kolom-ukm.png gak distorsi, video di-center
-               di dalamnya ~94%/90% -->
+               aspect-ratio asli file frame (1566x961) supaya kolom-ukm.png gak distorsi.
+               Lubang transparan di PNG-nya TIDAK center — diukur langsung dari pixel (scan alpha):
+               kiri 9.3%, kanan 2.6%, atas 17%, bawah 4.3% dari box 1566x961. inset-0 m-auto 94%/90%
+               lama itu asumsi center, makanya video dulu keliatan "kurang ke kanan" (nutupin border
+               kiri, nyisain gap kanan) — video sekarang pas ngisi lubang beneran. -->
           <div class="relative w-full max-w-xl aspect-[1566/961]" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
             <img
               src="/images/elements/kolom-ukm.png"
@@ -315,7 +330,7 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
             />
             <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025) -->
             <iframe
-              class="absolute inset-0 m-auto aspect-video h-[90%] w-[94%] rounded-xl"
+              class="absolute top-[17%] right-[2.6%] bottom-[4.3%] left-[9.3%] rounded-xl"
               src="https://www.youtube.com/embed/3Wuof0OvQOg"
               title="Profil Universitas Jenderal Soedirman"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

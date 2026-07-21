@@ -2,107 +2,122 @@
 const data = "Soedirman Student Summit";
 
 interface Props {
-  img: string;
+  img?: string;
   direction: "left" | "right";
   bgColor: string;
   textColor: string;
   fontClass?: string;
   shadowClass?: string;
+  // Flatten path: "SOEDIRMAN STUDENT SUMMIT 2026" pakai font Miskan + serif berlisensi
+  // personal-use — Figma MCP gak pernah ekspor file font asli, cuma gambar/vector. Kalau
+  // unitImg diisi, render 1 repeat-unit (teks+logo) sbg gambar berulang, bukan teks live.
+  unitImg?: string;
 }
 
-const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shadowClass = "" } = Astro.props;
-// TODO: Figma node 929:709 pakai font Miskan utk "2026" — belum ada di public/fonts,
-// pakai font-reikna sbg fallback tegas terdekat sampai Miskan ditambahkan.
+const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shadowClass = "", unitImg } = Astro.props;
+const animClass = direction == "left" ? "animate-marquee" : "animate-marqueeReverse";
 ---
 
 <div class=`flex overflow-x-hidden ${bgColor} ${textColor} ${shadowClass} py-3 sm:py-4 md:py-5`>
-   <!--  -->
-   <div
-     class=`whitespace-nowrap flex min-w-max ${direction == "left" ? "animate-marquee" : "animate-marqueeReverse"}`
-   >
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data} <span class="font-reikna">2026</span>
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data} <span class="font-reikna">2026</span>
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data} <span class="font-reikna">2026</span>
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data} <span class="font-reikna">2026</span>
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-   </div>
-   <div
-     class=`whitespace-nowrap flex min-w-max ${direction == "left" ? "animate-marquee" : "animate-marqueeReverse"}`
-   >
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data} <span class="font-reikna">2026</span>
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data} <span class="font-reikna">2026</span>
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data} <span class="font-reikna">2026</span>
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data} <span class="font-reikna">2026</span>
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-   </div>
- </div>
+  {unitImg ? (
+    <>
+      <div class=`whitespace-nowrap flex min-w-max items-center ${animClass}`>
+        {Array.from({ length: 8 }).map(() => (
+          <img src={unitImg} alt="Soedirman Student Summit 2026" class="block h-10 sm:h-12 md:h-14 lg:h-16 w-auto" />
+        ))}
+      </div>
+      <div class=`whitespace-nowrap flex min-w-max items-center ${animClass}`>
+        {Array.from({ length: 8 }).map(() => (
+          <img src={unitImg} alt="" aria-hidden="true" class="block h-10 sm:h-12 md:h-14 lg:h-16 w-auto" />
+        ))}
+      </div>
+    </>
+  ) : (
+    <>
+      <div class=`whitespace-nowrap flex min-w-max ${animClass}`>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} <span class="font-reikna">2026</span>
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} <span class="font-reikna">2026</span>
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} <span class="font-reikna">2026</span>
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} <span class="font-reikna">2026</span>
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+      </div>
+      <div class=`whitespace-nowrap flex min-w-max ${animClass}`>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} <span class="font-reikna">2026</span>
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} <span class="font-reikna">2026</span>
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} <span class="font-reikna">2026</span>
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} <span class="font-reikna">2026</span>
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+      </div>
+    </>
+  )}
+</div>
