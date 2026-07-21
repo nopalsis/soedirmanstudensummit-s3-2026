@@ -66,13 +66,16 @@ const defaultFakultas = dataFakultas[0];
       <!-- Transisi bawah: flatten tunggal node Figma 827:126 (get_screenshot contentsOnly, 1920x499)
            — ganti pendekatan lama susun-ulang per-elemen PNG (sumber bug bounding box kelihatan).
            In-flow (bukan absolute) supaya tinggi gambar sendiri yg reservasi ruang, gak perlu
-           tebak-tebak pb-* yang gampang meleset di breakpoint tertentu (sumber bug overlap). -->
+           tebak-tebak pb-* yang gampang meleset di breakpoint tertentu (sumber bug overlap).
+           TANPA data-aos: AOS's .aos-animate reset kalah specificity vs Tailwind v4 @layer di
+           project ini (dikonfirmasi lewat computed style — transform stuck translateY(100px)
+           permanen), bikin elemen ini kelihatan "gak pernah pindah" padahal posisi flow-nya udah
+           benar. Bug situs-lebar, di luar scope sini — elemen dekoratif statis ini gak butuh
+           reveal animation, jadi skip data-aos aja daripada ngoprek AOS/Tailwind cascade global. -->
       <img
         src="/images/elements/transisi-hero.png"
         alt=""
         class="pointer-events-none relative block w-full aspect-[1920/499]"
-        data-aos="fade-up"
-        data-aos-duration="1000"
       />
     </section>
 
@@ -211,28 +214,26 @@ const defaultFakultas = dataFakultas[0];
     >
       <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,102,147,0)_0%,rgb(62,102,147)_20.2%,rgb(62,102,147)_85.1%,rgba(62,102,147,0)_100%)]"></div>
       <!-- Patern harus di atas gradient biru (bukan di bawah) supaya tekstur kelihatan, bukan tertutup.
-           opacity-10 nyaris tak kelihatan — source pattern sendiri udah alpha rendah (line art tipis),
-           dobel-redup jadi invisible di atas biru gelap. 20% masih halus tapi kebaca. -->
-      <div class="absolute inset-0 bg-[url('/images/elements/batik-1.webp')] bg-repeat opacity-20"></div>
+           opacity-10 lalu opacity-20 masih 2x gagal kelihatan jelas. Ganti pendekatan: pakai
+           teknik section Fakultas Unsoed persis (line 139) — batik-1.webp tanpa opacity utility
+           sama sekali, alpha native webp-nya sendiri yang jadi satu-satunya dampening. -->
+      <div class="absolute inset-0 bg-[url('/images/elements/batik-1.webp')] bg-repeat"></div>
 
       <!-- Flatten tunggal node Figma 827:123 (atas) & 827:141 (bawah), di-trim dari 1920x1370
            mentah (banyak padding transparan) ke 1920x466 pas isi motif.
-           aspect-ratio + w-full bikin tinggi = lebar viewport * (466/1920) — TERUS naik seiring
-           lebar (section sendiri tingginya ~konstan, ditentukan konten teks, gak ikut lebar).
-           Di ~1700px+ dua band udah >70% tinggi section, ketemu di tengah. max-w cap gak cukup
-           (bug muncul jauh di bawah itu). Fix: cap tinggi ABSOLUT via h-*, object-cover crop
-           sisi atas/bawah motif biar lebar tetep full tanpa ngikutin viewport lagi. -->
+           ponytail: revert dari fixed-height/object-cover (round sebelumnya) balik ke
+           aspect-ratio+w-full murni — versi ini yang sudah dikonfirmasi bagus oleh user. -->
       <img
         src="/images/elements/awan-atas-hymne.png"
         alt=""
-        class="pointer-events-none absolute top-0 left-0 h-40 w-full object-cover object-top opacity-90 md:h-56 xl:h-72"
+        class="pointer-events-none absolute top-0 left-0 aspect-[1920/466] w-full opacity-90"
         data-aos="fade-up"
         data-aos-duration="1000"
       />
       <img
         src="/images/elements/awan-bawah-hymne.png"
         alt=""
-        class="pointer-events-none absolute bottom-0 left-0 h-40 w-full object-cover object-bottom opacity-90 md:h-56 xl:h-72"
+        class="pointer-events-none absolute bottom-0 left-0 aspect-[1920/466] w-full opacity-90"
         data-aos="fade-up"
         data-aos-duration="1000"
       />
@@ -321,16 +322,21 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
                Lubang transparan di PNG-nya TIDAK center — diukur langsung dari pixel (scan alpha):
                kiri 9.3%, kanan 2.6%, atas 17%, bawah 4.3% dari box 1566x961. inset-0 m-auto 94%/90%
                lama itu asumsi center, makanya video dulu keliatan "kurang ke kanan" (nutupin border
-               kiri, nyisain gap kanan) — video sekarang pas ngisi lubang beneran. -->
-          <div class="relative w-full max-w-xl aspect-[1566/961]" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+               kiri, nyisain gap kanan) — video sekarang pas ngisi lubang beneran.
+               TANPA data-aos: sama kayak transisi-hero, AOS zoom-in stuck di scale(0.6) permanen
+               (specificity loss vs Tailwind v4 @layer) — dikonfirmasi computed style. Bukan
+               reposisi, cuma stop rendering ketiban stuck-scale bug. -->
+          <div class="relative w-full max-w-xl aspect-[1566/961]">
             <img
               src="/images/elements/kolom-ukm.png"
               alt=""
               class="pointer-events-none absolute inset-0 h-full w-full max-w-none"
             />
-            <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025) -->
+            <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025).
+                 iframe = replaced element: inset-only tanpa width/height eksplisit gak stretch,
+                 jatuh ke default intrinsic 300x150 browser. w-full h-full wajib ada. -->
             <iframe
-              class="absolute top-[17%] right-[2.6%] bottom-[4.3%] left-[9.3%] rounded-xl"
+              class="absolute top-[17%] right-[2.6%] bottom-[4.3%] left-[9.3%] h-full w-full rounded-xl"
               src="https://www.youtube.com/embed/3Wuof0OvQOg"
               title="Profil Universitas Jenderal Soedirman"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
