@@ -23,13 +23,13 @@ function getComingSoonMessage(openedAt?: Date): string {
     'Loading...',
     'Persiapan Akhir',
     'Hampir Siap',
-    'Sedang Dikemas',
+    'Sedang Disiapkan',
     'Tunggu Kejutan',
-    'Dalam Pengembangan',
+    'Segera Hadir',
     'Masih Disiapkan'
   ];
 
-  const messageIndex = Math.abs(openedAt.getTime()) % messages.length;
+  const messageIndex = index % messages.length;
   return messages[messageIndex];
 }
 
@@ -48,7 +48,7 @@ function getMissionPhase(openedAt?: Date): string {
     "🧭 Exploration",
   ];
 
-  const phaseIndex = Math.abs(openedAt.getTime()) % phases.length;
+  const phaseIndex = index % phases.length;
   return phases[phaseIndex];
 }
 
@@ -68,11 +68,24 @@ function formatOpenedDate(openedAt?: Date): string {
   return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long' }).format(openedAt);
 }
 
+function isDeadlinePassed(deadline?: Date): boolean {
+  if (!deadline) return false;
+  const now = new Date();
+  return now >= deadline;
+}
+
+function formatDeadlineDate(deadline?: Date): string {
+  if (!deadline) return '';
+  return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long' }).format(deadline);
+}
+
 const isAvailable = isAssignmentAvailable(assignment.openedAt);
 const comingSoonMessage = getComingSoonMessage(assignment.openedAt);
 const missionPhase = getMissionPhase(assignment.openedAt);
 const progressPercentage = getProgressPercentage(assignment.openedAt);
 const openedDateLabel = formatOpenedDate(assignment.openedAt);
+const deadlinePassed = isDeadlinePassed(assignment.deadline);
+const deadlineLabel = formatDeadlineDate(assignment.deadline);
 
 // File number, dossier style: 001, 002, ...
 const fileNumber = String(index + 1).padStart(3, '0');
@@ -117,8 +130,8 @@ const fileNumber = String(index + 1).padStart(3, '0');
           data-aos-delay={index * 100}
         >
           <div class="rounded-sm border-[3px] border-double border-[#E7C055] px-4 py-2">
-            <p class="font-mono text-sm font-bold tracking-[0.3em] text-[#E7C055]">{comingSoonMessage}</p>
-            <p class="mt-0.5 text-[11px] font-medium text-white/80">{missionPhase}</p>
+            <p class="font-poppins text-sm font-bold tracking-[0.3em] text-[#E7C055]">{comingSoonMessage}</p>
+            <p class="mt-0.5 font-poppins text-[11px] font-medium text-white/80">{missionPhase}</p>
           </div>
 
           <!-- Progress gauge -->
@@ -136,8 +149,8 @@ const fileNumber = String(index + 1).padStart(3, '0');
     )}
 
     <div class="relative z-5 mb-3 md:mb-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay={index * 100}>
-      <h2 class="font-junigarden text-lg font-bold text-white md:text-xl">
-        {!isAvailable ? 'Hayoo Mau Ngapain' : assignment.name}
+      <h2 class="font-poppins text-lg font-bold text-white md:text-xl">
+        {!isAvailable ? 'PENUGASAN' : assignment.name}
       </h2>
       <p class="mt-1 text-xs font-medium text-white/70 md:text-sm">
         {!isAvailable ? 'Berkas ini belum dibuka untuk publik.' : assignment.description}
@@ -230,15 +243,15 @@ const fileNumber = String(index + 1).padStart(3, '0');
           </div>
 
           <span
-            class={`w-fit rounded-full border px-3 py-1 font-mono text-[11px] font-semibold tracking-wide ${
-              isAvailable
+            class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+              deadlinePassed
                 ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
                 : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
             }`}
           >
-            {isAvailable
-              ? openedDateLabel ? `Selesai Pada ${openedDateLabel}` : 'Tersedia Sekarang'
-              : `${comingSoonMessage} · ${missionPhase}`}
+            {deadlinePassed
+              ? '✓ Selesai'
+              : deadlineLabel ? `Selesai pada ${deadlineLabel}` : 'Tersedia Sekarang'}
           </span>
         </div>
       </div>

@@ -1,10 +1,142 @@
 ---
 ---
 
-<section id="hero-assignment" class="section-padding-x relative">
-  <div class="text-center py-12 md:py-16 lg:py-20">
-    <h1 class="text-4xl md:text-5xl lg:text-6xl font-reikna font-bold text-s3-blue" data-aos="fade-up" data-aos-duration="800">
-      <span class="text-[#E7C055]">Penugasan</span> Generasi Soedirman
-    </h1>
+<section id="hero-assignment" class="section-padding-x relative overflow-hidden py-24">
+  <div class="container max-w-screen-xl mx-auto">
+    <div class="flex flex-col items-center justify-center gap-4">
+      <!-- Ornament Top -->
+      <img
+        src="/images/elements/scroll-above.svg"
+        alt=""
+        class="w-20 sm:w-24 md:w-32 lg:w-40"
+        data-aos="zoom-in"
+        data-aos-duration="600"
+        data-aos-delay="0"
+      />
+
+      <!-- Main Title -->
+      <h1 class="gradient-text-title text-stroke-gold font-junigarden-swash px-4 text-center font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+        <span class="text-[#E7C055]">Penugasan</span> Gensoed
+      </h1>
+
+      <!-- Ornament Bottom -->
+      <img
+        src="/images/elements/scroll-down.svg"
+        alt=""
+        class="w-20 sm:w-24 md:w-32 lg:w-40"
+        data-aos="zoom-in"
+        data-aos-duration="600"
+        data-aos-delay="400"
+      />
+    </div>
+  </div>
+
+  <!-- Left Cloud -->
+  <div class="absolute top-16 sm:top-20 md:top-24 lg:top-28 -left-12 sm:-left-20 md:-left-24 lg:-left-32 opacity-80 pointer-events-none z-0" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="600">
+    <img src="/images/elements/awanbiru.webp" alt="" class="cloud-left w-80 sm:w-[24rem] md:w-[30rem] lg:w-[36rem] -scale-x-100" />
+  </div>
+
+  <!-- Right Cloud -->
+  <div class="absolute top-16 sm:top-20 md:top-24 lg:top-28 -right-12 sm:-right-20 md:-right-24 lg:-right-32 opacity-80 pointer-events-none z-0" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="800">
+    <img src="/images/elements/awanbiru.webp" alt="" class="cloud-right w-80 sm:w-[24rem] md:w-[30rem] lg:w-[36rem] scale-x-[-1]" />
+  </div>
+
+  <!-- Small Cloud Left -->
+  <div class="absolute -top-10 left-1/4 -translate-x-1/2 opacity-50 pointer-events-none z-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1000">
+    <img src="/images/elements/awanbiru-kecil.webp" alt="" class="cloud-small-1 w-44 sm:w-48 md:w-56" />
+  </div>
+
+  <!-- Small Cloud Right -->
+  <div class="absolute top-8 right-1/4 opacity-40 pointer-events-none z-0" data-aos="fade-in" data-aos-duration="1000" data-aos-delay="1200">
+    <img src="/images/elements/awanbiru-kecil.webp" alt="" class="cloud-small-2 w-40 sm:w-44 md:w-48 -scale-x-100" />
   </div>
 </section>
+
+<style>
+  .cloud-left {
+    animation: cloud-drift-left 20s ease-in-out infinite;
+  }
+
+  .cloud-right {
+    animation: cloud-drift-right 25s ease-in-out infinite;
+  }
+
+  .cloud-small-1 {
+    animation: cloud-float-1 15s ease-in-out infinite;
+  }
+
+  .cloud-small-2 {
+    animation: cloud-float-2 18s ease-in-out infinite;
+  }
+
+  @keyframes cloud-drift-left {
+    0%, 100% {
+      transform: translateX(0) translateY(0) scaleX(-1);
+    }
+    25% {
+      transform: translateX(-10px) translateY(-5px) scaleX(-1);
+    }
+    50% {
+      transform: translateX(-5px) translateY(-10px) scaleX(-1);
+    }
+    75% {
+      transform: translateX(-15px) translateY(-3px) scaleX(-1);
+    }
+  }
+
+  @keyframes cloud-drift-right {
+    0%, 100% {
+      transform: translateX(0) translateY(0);
+    }
+    30% {
+      transform: translateX(10px) translateY(-8px);
+    }
+    60% {
+      transform: translateX(5px) translateY(-12px);
+    }
+    90% {
+      transform: translateX(12px) translateY(-4px);
+    }
+  }
+
+  @keyframes cloud-float-1 {
+    0%, 100% {
+      transform: translateX(0) translateY(0);
+    }
+    33% {
+      transform: translateX(15px) translateY(-10px);
+    }
+    66% {
+      transform: translateX(-10px) translateY(-5px);
+    }
+  }
+
+  @keyframes cloud-float-2 {
+    0%, 100% {
+      transform: translateX(0) translateY(0) scaleX(-1);
+    }
+    40% {
+      transform: translateX(-12px) translateY(-8px) scaleX(-1);
+    }
+    80% {
+      transform: translateX(8px) translateY(-15px) scaleX(-1);
+    }
+  }
+
+  .gradient-text-title {
+    background: linear-gradient(180deg, #3E5EAA 0%, #001A58 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-stroke-gold {
+    -webkit-text-stroke: 0.1px #DEB65B;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cloud-left, .cloud-right, .cloud-small-1, .cloud-small-2 {
+      animation: none;
+    }
+  }
+</style>
