@@ -6,9 +6,10 @@ interface Props {
   direction: "left" | "right";
   bgColor: string;
   textColor: string;
+  fontClass?: string;
 }
 
-const { img, direction, bgColor, textColor } = Astro.props;
+const { img, direction, bgColor, textColor, fontClass = "font-love-craft" } = Astro.props;
 ---
 
 <div class=`flex overflow-x-hidden ${bgColor} ${textColor} py-3 sm:py-4 md:py-5`>
@@ -17,7 +18,7 @@ const { img, direction, bgColor, textColor } = Astro.props;
      class=`whitespace-nowrap flex min-w-max ${direction == "left" ? "animate-marquee" : "animate-marqueeReverse"}`
    >
      <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
          {data}
        </p>
        <img
@@ -27,7 +28,7 @@ const { img, direction, bgColor, textColor } = Astro.props;
        />
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
          {data}
        </p>
        <img
@@ -37,7 +38,7 @@ const { img, direction, bgColor, textColor } = Astro.props;
        />
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
          {data}
        </p>
        <img
@@ -47,7 +48,7 @@ const { img, direction, bgColor, textColor } = Astro.props;
        />
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
          {data}
        </p>
        <img
@@ -61,7 +62,7 @@ const { img, direction, bgColor, textColor } = Astro.props;
      class=`whitespace-nowrap flex min-w-max ${direction == "left" ? "animate-marquee" : "animate-marqueeReverse"}`
    >
      <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
          {data}
        </p>
        <img
@@ -71,7 +72,7 @@ const { img, direction, bgColor, textColor } = Astro.props;
        />
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
          {data}
        </p>
        <img
@@ -81,7 +82,7 @@ const { img, direction, bgColor, textColor } = Astro.props;
        />
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
          {data}
        </p>
        <img
@@ -91,7 +92,7 @@ const { img, direction, bgColor, textColor } = Astro.props;
        />
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+       <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
          {data}
        </p>
        <img
