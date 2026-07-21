@@ -15,8 +15,16 @@ const defaultFakultas = dataFakultas[0];
     <!-- 1. HERO -->
     <section
       id="hero-unsoed"
-      class="relative bg-[url('/images/patung-kuda-halaman-rektor.webp')] bg-cover bg-[position:85%_center] bg-no-repeat pt-40 pb-48 md:pt-52 md:pb-64 xl:pt-64 xl:pb-80"
+      class="relative pt-40 pb-48 md:pt-52 md:pb-64 xl:pt-64 xl:pb-80"
     >
+      <!-- Crop ratio port dari Figma node 755:48/755:49 (container 2396px / viewport 1920px) -->
+      <div class="absolute inset-0 overflow-hidden">
+        <img
+          src="/images/patung-kuda-halaman-rektor.webp"
+          alt=""
+          class="absolute left-0 top-[-22.77%] h-[156.67%] w-[124.8%] max-w-none object-cover"
+        />
+      </div>
       <div class="absolute inset-0 bg-[linear-gradient(270deg,rgba(129,129,129,0.5)_0%,rgba(70,70,70,0.666)_35.9%,rgba(35,35,35,0.761)_63.6%,rgba(0,0,0,0.86)_100%)]"></div>
 
       <img
@@ -30,7 +38,7 @@ const defaultFakultas = dataFakultas[0];
 
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <h1
-          class="text-center font-reikna text-[#ffc03f] text-4xl [-webkit-text-stroke:0.75px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-left md:text-6xl xl:text-7xl"
+          class="text-center font-reikna text-[#ffc03f] text-4xl [-webkit-text-stroke:0.5px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-left md:text-6xl xl:text-7xl"
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -38,7 +46,8 @@ const defaultFakultas = dataFakultas[0];
           Universitas Jenderal Soedirman
         </h1>
 
-        <div class="relative mt-6 max-w-xl rounded-[32px] border border-white/15 bg-black/25 p-5 backdrop-blur-xl md:mr-10 md:ml-0">
+        <!-- Deviasi dari Figma: alas paragraf dibuat glass lebih kuat demi kontras, atas keputusan eksplisit — jangan dikembalikan ke versi asli Figma -->
+        <div class="relative mt-6 max-w-xl rounded-[32px] border border-white/15 bg-black/35 p-5 backdrop-blur-xl md:mr-10 md:ml-0">
           <p
             class="relative text-justify font-poppins text-sm text-white md:text-base xl:text-lg"
             data-aos="fade-up"
@@ -54,71 +63,14 @@ const defaultFakultas = dataFakultas[0];
         </div>
       </div>
 
-      <!-- Transisi bawah, urutan sesuai layer Figma (base -> atas): wave, awan, awan-hitam, awan-hitam-kecil -->
+      <!-- Transisi bawah: flatten tunggal node Figma 827:126 (get_screenshot contentsOnly, 1920x499)
+           — ganti pendekatan lama susun-ulang per-elemen PNG (sumber bug bounding box kelihatan) -->
       <img
-        src="/images/elements/wave-kiri.png"
+        src="/images/elements/transisi-hero.png"
         alt=""
-        class="pointer-events-none absolute -bottom-1 left-0 w-1/2 md:w-2/5"
+        class="pointer-events-none absolute -bottom-1 left-0 aspect-[1920/499] w-full"
         data-aos="fade-up"
         data-aos-duration="1000"
-        data-aos-delay="400"
-      />
-      <img
-        src="/images/elements/wave-kanan.png"
-        alt=""
-        class="pointer-events-none absolute -bottom-1 right-0 w-1/2 md:w-2/5"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="500"
-      />
-      <!-- Kanan: awan besar + awan-hitam + awan-hitam-kecil -->
-      <img
-        src="/images/elements/awan.png"
-        alt=""
-        class="pointer-events-none absolute bottom-16 right-[6%] w-32 opacity-90 md:bottom-20 md:w-48 xl:w-60"
-        data-aos="fade-left"
-        data-aos-duration="1000"
-      />
-      <!-- Kiri: awan-1 -->
-      <img
-        src="/images/elements/awan-1.png"
-        alt=""
-        class="pointer-events-none absolute bottom-20 left-[4%] w-28 opacity-90 md:bottom-24 md:w-40 xl:w-52"
-        data-aos="fade-right"
-        data-aos-duration="1000"
-        data-aos-delay="150"
-      />
-      <img
-        src="/images/elements/awan-hitam.png"
-        alt=""
-        class="pointer-events-none absolute bottom-4 right-[26%] hidden w-24 opacity-80 md:block xl:w-32"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="200"
-      />
-      <img
-        src="/images/elements/awan-hitam-1.png"
-        alt=""
-        class="pointer-events-none absolute bottom-6 left-[20%] hidden w-24 opacity-80 md:block xl:w-32"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="250"
-      />
-      <img
-        src="/images/elements/awan-hitam-2.png"
-        alt=""
-        class="pointer-events-none absolute bottom-8 left-[32%] hidden w-40 opacity-80 lg:block xl:w-56"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="275"
-      />
-      <img
-        src="/images/elements/awan-hitam-kecil.png"
-        alt=""
-        class="pointer-events-none absolute -bottom-2 right-[4%] hidden w-20 opacity-80 lg:block"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="300"
       />
     </section>
 
@@ -142,7 +94,7 @@ const defaultFakultas = dataFakultas[0];
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="grid grid-cols-1 gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
           <div data-aos="fade-right" data-aos-duration="800">
-            <h2 class="text-center font-reikna text-[#142142] text-4xl [-webkit-text-stroke:1px_#ffc03f] md:text-5xl xl:text-6xl">Visi</h2>
+            <h2 class="text-center font-reikna text-[#142142] text-4xl [-webkit-text-stroke:3px_#ffc03f] md:text-5xl xl:text-6xl">Visi</h2>
             <img src="/images/elements/group147-visi-ornamen.svg" alt="" class="mx-auto mb-4 w-24 opacity-90" />
             <p class="text-justify font-poppins text-sm text-[#1e1e1e] leading-relaxed md:text-base">
               {visi}
@@ -152,8 +104,8 @@ const defaultFakultas = dataFakultas[0];
           <div class="mx-auto hidden w-3 rounded-md bg-[#f3c662] md:block" aria-hidden="true"></div>
 
           <div data-aos="fade-left" data-aos-duration="800">
-            <h2 class="text-center font-reikna text-[#142142] text-4xl [-webkit-text-stroke:1px_#ffc03f] md:text-5xl xl:text-6xl">Misi</h2>
-            <img src="/images/elements/group148-misi-ornamen.svg" alt="" class="mx-auto mb-4 w-24 opacity-90" />
+            <h2 class="text-center font-reikna text-[#142142] text-4xl [-webkit-text-stroke:3px_#ffc03f] md:text-5xl xl:text-6xl">Misi</h2>
+            <img src="/images/elements/group147-visi-ornamen.svg" alt="" class="mx-auto mb-4 w-24 -scale-x-100 opacity-90" />
             <ol class="space-y-3">
               {misi.map((item, index) => (
                 <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay={index * 100}>
@@ -175,7 +127,7 @@ const defaultFakultas = dataFakultas[0];
     <Marque
       bgColor="bg-[#95a6f2]"
       textColor="text-black"
-      fontClass="font-junigarden-swash"
+      fontClass="font-goblin"
       shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]"
       direction="left"
       img="/images/elements/logo-runningtext.png"
@@ -206,7 +158,7 @@ const defaultFakultas = dataFakultas[0];
           <div class="order-2 md:order-1">
             <div class="mb-2 flex items-center gap-3">
               <span id="fakultas-swatch" class:list={['h-4 w-4 shrink-0 rounded-full', defaultFakultas.facultyColor]} aria-hidden="true"></span>
-              <p id="fakultas-title" class="font-reikna text-[#142142] text-3xl [-webkit-text-stroke:1px_#ffc03f] md:text-5xl">
+              <p id="fakultas-title" class="font-reikna text-3xl text-[rgba(255,192,63,0.75)] [-webkit-text-stroke:1.5px_#1e1e1e] md:text-5xl">
                 {defaultFakultas.title}
               </p>
             </div>
@@ -255,20 +207,23 @@ const defaultFakultas = dataFakultas[0];
       id="hymne-mars-unsoed"
       class="relative overflow-hidden bg-white py-24 md:py-32"
     >
-      <div class="absolute inset-0 bg-[url('/images/elements/batik-1.webp')] bg-repeat opacity-10"></div>
       <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,102,147,0)_0%,rgb(62,102,147)_20.2%,rgb(62,102,147)_85.1%,rgba(62,102,147,0)_100%)]"></div>
+      <!-- Patern harus di atas gradient biru (bukan di bawah) supaya tekstur kelihatan, bukan tertutup -->
+      <div class="absolute inset-0 bg-[url('/images/elements/batik-1.webp')] bg-repeat opacity-10"></div>
 
+      <!-- Flatten tunggal node Figma 827:123 (atas) & 827:141 (bawah), di-trim dari 1920x1370
+           mentah (banyak padding transparan) ke 1920x466 pas isi motif -->
       <img
-        src="/images/elements/awan-besar-1.png"
+        src="/images/elements/awan-atas-hymne.png"
         alt=""
-        class="pointer-events-none absolute top-0 left-0 h-24 w-full object-cover opacity-90 md:h-36"
+        class="pointer-events-none absolute top-0 left-0 aspect-[1920/466] w-full opacity-90"
         data-aos="fade-up"
         data-aos-duration="1000"
       />
       <img
-        src="/images/elements/awan-besar-2.png"
+        src="/images/elements/awan-bawah-hymne.png"
         alt=""
-        class="pointer-events-none absolute bottom-0 left-0 h-24 w-full rotate-180 object-cover opacity-90 md:h-36"
+        class="pointer-events-none absolute bottom-0 left-0 aspect-[1920/466] w-full opacity-90"
         data-aos="fade-up"
         data-aos-duration="1000"
       />
@@ -342,23 +297,25 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="flex flex-col items-center gap-8 text-center md:flex-row-reverse md:gap-12">
           <h2
-            class="text-center font-reikna text-[#142142] text-4xl [-webkit-text-stroke:1px_#ffc03f] md:text-6xl"
+            class="text-center font-reikna text-4xl text-[#ffd742] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-6xl"
             data-aos="fade-left"
             data-aos-duration="800"
           >
             Profil<br />Universitas Jenderal Soedirman
           </h2>
 
-          <!-- Kolom UKM = frame dekoratif persis di belakang video (bukan aksen pojok, sesuai node 755:308) -->
-          <div class="relative w-full max-w-xl" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+          <!-- Kolom UKM = frame dekoratif persis di belakang video (sesuai node 755:308). Wrapper pakai
+               aspect-ratio asli file frame (1566x961) supaya kolom-ukm.png gak distorsi, video di-center
+               di dalamnya ~94%/90% -->
+          <div class="relative w-full max-w-xl aspect-[1566/961]" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
             <img
               src="/images/elements/kolom-ukm.png"
               alt=""
-              class="pointer-events-none absolute -inset-x-8 -inset-y-6 h-[calc(100%+3rem)] w-[calc(100%+4rem)] max-w-none"
+              class="pointer-events-none absolute inset-0 h-full w-full max-w-none"
             />
             <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025) -->
             <iframe
-              class="relative aspect-video w-full rounded-xl"
+              class="absolute inset-0 m-auto aspect-video h-[90%] w-[94%] rounded-xl"
               src="https://www.youtube.com/embed/3Wuof0OvQOg"
               title="Profil Universitas Jenderal Soedirman"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

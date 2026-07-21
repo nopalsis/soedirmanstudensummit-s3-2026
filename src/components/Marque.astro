@@ -11,6 +11,8 @@ interface Props {
 }
 
 const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shadowClass = "" } = Astro.props;
+// TODO: Figma node 929:709 pakai font Miskan utk "2026" — belum ada di public/fonts,
+// pakai font-reikna sbg fallback tegas terdekat sampai Miskan ditambahkan.
 ---
 
 <div class=`flex overflow-x-hidden ${bgColor} ${textColor} ${shadowClass} py-3 sm:py-4 md:py-5`>
@@ -20,7 +22,7 @@ const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shado
    >
      <div class="flex items-center min-w-fit px-2 sm:px-3">
        <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data}
+         {data} <span class="font-reikna">2026</span>
        </p>
        <img
          src={img}
@@ -30,7 +32,7 @@ const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shado
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
        <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data}
+         {data} <span class="font-reikna">2026</span>
        </p>
        <img
          src={img}
@@ -40,7 +42,7 @@ const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shado
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
        <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data}
+         {data} <span class="font-reikna">2026</span>
        </p>
        <img
          src={img}
@@ -50,7 +52,7 @@ const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shado
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
        <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data}
+         {data} <span class="font-reikna">2026</span>
        </p>
        <img
          src={img}
@@ -64,7 +66,7 @@ const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shado
    >
      <div class="flex items-center min-w-fit px-2 sm:px-3">
        <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data}
+         {data} <span class="font-reikna">2026</span>
        </p>
        <img
          src={img}
@@ -74,7 +76,7 @@ const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shado
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
        <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data}
+         {data} <span class="font-reikna">2026</span>
        </p>
        <img
          src={img}
@@ -84,7 +86,7 @@ const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shado
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
        <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data}
+         {data} <span class="font-reikna">2026</span>
        </p>
        <img
          src={img}
@@ -94,7 +96,7 @@ const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shado
      </div>
      <div class="flex items-center min-w-fit px-2 sm:px-3">
        <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-         {data}
+         {data} <span class="font-reikna">2026</span>
        </p>
        <img
          src={img}
