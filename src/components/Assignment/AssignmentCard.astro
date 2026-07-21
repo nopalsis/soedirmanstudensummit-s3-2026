@@ -23,7 +23,7 @@ function getComingSoonMessage(openedAt?: Date): string {
     'Loading...',
     'Persiapan Akhir',
     'Hampir Siap',
-    'Sedang Disiapkan',
+    'Masih Proses',
     'Tunggu Kejutan',
     'Segera Hadir',
     'Masih Disiapkan'
@@ -129,20 +129,20 @@ const fileNumber = String(index + 1).padStart(3, '0');
           data-aos-duration="500"
           data-aos-delay={index * 100}
         >
-          <div class="rounded-sm border-[3px] border-double border-[#E7C055] px-4 py-2">
-            <p class="font-poppins text-sm font-bold tracking-[0.3em] text-[#E7C055]">{comingSoonMessage}</p>
-            <p class="mt-0.5 font-poppins text-[11px] font-medium text-white/80">{missionPhase}</p>
+          <div class="rounded-sm border-2 sm:border-[3px] border-double border-[#E7C055] px-2 sm:px-4 py-1 sm:py-2">
+            <p class="font-poppins text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#E7C055]">{comingSoonMessage}</p>
+            <p class="mt-0.5 font-poppins text-[9px] sm:text-[11px] font-medium text-white/80">{missionPhase}</p>
           </div>
 
           <!-- Progress gauge -->
-          <div class="w-2/3">
+          <div class="w-1/2 sm:w-2/3">
             <div
-              class="h-1 w-full overflow-hidden rounded-full bg-white/10"
+              class="h-0.5 sm:h-1 w-full overflow-hidden rounded-full bg-white/10"
               style={`--progress: ${progressPercentage}%`}
             >
               <div class="h-full w-[var(--progress)] rounded-full bg-[#E7C055] transition-all duration-1000"></div>
             </div>
-            <p class="mt-1 font-mono text-[10px] text-white/50">Processing...{progressPercentage}%</p>
+            <p class="mt-1 font-mono text-[8px] sm:text-[10px] text-white/50">Processing...{progressPercentage}%</p>
           </div>
         </div>
       </>
