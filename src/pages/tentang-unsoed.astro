@@ -1,15 +1,390 @@
 ---
 import Layout from '../layouts/Layout.astro';
-return Astro.redirect('/');
+import Marque from '../components/Marque.astro';
+import { visi, misi } from '../data/visi-misi';
+import dataFakultas from '../data/faculties';
+
+const defaultFakultas = dataFakultas[0];
 ---
 
-<Layout>
-	<main class="min-h-screen flex flex-col items-center justify-center pt-24 px-6 bg-[--color-dark-base]">
-		<h1 class="text-4xl md:text-5xl font-space-grotesk font-bold text-center text-[--color-text-primary] mb-6">
-			Halaman <span class="text-gradient capitalize">tentang-unsoed</span>
-		</h1>
-		<p class="text-[--color-text-secondary] font-plus-jakarta-sans text-center max-w-xl">
-			Halaman ini sudah terhubung dengan rute dan navigasi, namun kontennya masih dalam tahap pengembangan.
-		</p>
-	</main>
+<Layout
+  title="Tentang Unsoed | Soedirman Student Summit 2026"
+  description="Profil Universitas Jenderal Soedirman: visi misi, fakultas, hymne & mars, dan profil kampus."
+>
+  <main class="overflow-x-hidden bg-white">
+    <!-- 1. HERO -->
+    <section
+      id="hero-unsoed"
+      class="relative bg-[url('/images/patung-kuda-halaman-rektor.webp')] bg-cover bg-center bg-no-repeat pt-40 pb-40 md:pt-52 md:pb-56 xl:pt-64 xl:pb-72"
+    >
+      <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/50 to-black/85"></div>
+
+      <img
+        src="/images/elements/awan.png"
+        alt=""
+        class="pointer-events-none absolute -top-4 right-0 w-40 opacity-90 md:w-64 xl:w-80"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      />
+      <img
+        src="/images/elements/awan-1.png"
+        alt=""
+        class="pointer-events-none absolute top-6 left-0 w-32 opacity-90 md:w-52 xl:w-64"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        data-aos-delay="150"
+      />
+      <img
+        src="/images/elements/burung.png"
+        alt=""
+        class="pointer-events-none absolute top-24 right-[18%] w-10 md:w-16 xl:w-20"
+        data-aos="fade-down"
+        data-aos-duration="800"
+        data-aos-delay="300"
+      />
+
+      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+        <h1
+          class="text-center font-reikna text-[#ffc03f] text-4xl [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-left md:text-6xl xl:text-7xl"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
+          Universitas Jenderal Soedirman
+        </h1>
+
+        <p
+          class="mt-6 max-w-2xl text-justify font-poppins text-sm text-white md:text-base xl:text-lg"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="500"
+        >
+          Universitas Jenderal Soedirman (Unsoed) adalah institusi pendidikan unggulan di
+          Purwokerto yang memadukan inovasi teknologi dan komitmen lingkungan dalam setiap aspek
+          pendidikan. Dengan kampus hijau yang modern dan beragam program studi, Unsoed siap
+          mencetak lulusan yang kreatif dan kompetitif di era digital. Temukan peluang akademis
+          dan profesional yang menarik di Unsoed, pusat pendidikan yang berorientasi masa depan!
+        </p>
+      </div>
+
+      <img
+        src="/images/elements/wave-kiri.png"
+        alt=""
+        class="pointer-events-none absolute -bottom-1 left-0 w-1/2 md:w-2/5"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="400"
+      />
+      <img
+        src="/images/elements/wave-kanan.png"
+        alt=""
+        class="pointer-events-none absolute -bottom-1 right-0 w-1/2 md:w-2/5"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="500"
+      />
+    </section>
+
+    <!-- 2. VISI & MISI -->
+    <section id="visi-misi-unsoed" class="relative overflow-hidden bg-white pt-16 pb-20 md:pt-24 md:pb-28">
+      <img
+        src="/images/elements/wayang-kiri.png"
+        alt=""
+        class="pointer-events-none absolute bottom-0 left-0 hidden w-40 opacity-90 md:block lg:w-56"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      />
+      <img
+        src="/images/elements/wayang-kanan.png"
+        alt=""
+        class="pointer-events-none absolute bottom-0 right-0 hidden w-40 opacity-90 md:block lg:w-56"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      />
+
+      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
+          <div data-aos="fade-right" data-aos-duration="800">
+            <h2 class="mb-4 text-center font-reikna text-[#142142] text-4xl md:text-5xl xl:text-6xl">Visi</h2>
+            <p class="text-justify font-poppins text-sm text-[#1e1e1e] leading-relaxed md:text-base">
+              {visi}
+            </p>
+          </div>
+
+          <div class="mx-auto hidden w-3 rounded-md bg-[#f3c662] md:block" aria-hidden="true"></div>
+
+          <div data-aos="fade-left" data-aos-duration="800">
+            <h2 class="mb-4 text-center font-reikna text-[#142142] text-4xl md:text-5xl xl:text-6xl">Misi</h2>
+            <ol class="space-y-3">
+              {misi.map((item, index) => (
+                <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay={index * 100}>
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#ffc03f] font-bold text-white shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
+                    {index + 1}
+                  </span>
+                  <span class="pt-1 text-justify font-poppins text-sm text-[#1e1e1e] leading-relaxed md:text-base">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. RUNNING TEXT -->
+    <Marque
+      bgColor="bg-[#95a6f2]"
+      textColor="text-black"
+      fontClass="font-junigarden-swash"
+      direction="left"
+      img="/images/logo.webp"
+    />
+
+    <!-- 4. FAKULTAS -->
+    <section
+      id="fakultas-unsoed"
+      class="relative overflow-hidden bg-[#F9F7EB] bg-[url('/images/elements/batik-1.webp')] bg-repeat pt-16 pb-20 md:pt-24 md:pb-28"
+    >
+      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+        <div class="mb-10 flex flex-col items-center gap-2" data-aos="fade-up" data-aos-duration="800">
+          <img src="/images/elements/hiasan-atas.png" alt="" class="w-48 md:w-64" />
+          <h2 class="px-4 text-center font-reikna text-[#142142] text-3xl md:text-5xl xl:text-6xl">
+            Fakultas Unsoed
+          </h2>
+          <img src="/images/elements/hiasan-bawah.png" alt="" class="w-48 md:w-64" />
+        </div>
+
+        <div
+          id="fakultas-wrapper"
+          class="grid grid-cols-1 gap-6 md:grid-cols-[1fr_360px] md:gap-10"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="200"
+        >
+          <!-- Detail panel -->
+          <div class="order-2 md:order-1">
+            <div class="mb-2 flex items-center gap-3">
+              <span id="fakultas-swatch" class:list={['h-4 w-4 shrink-0 rounded-full', defaultFakultas.facultyColor]} aria-hidden="true"></span>
+              <p id="fakultas-title" class="font-reikna text-[#142142] text-3xl md:text-5xl">
+                {defaultFakultas.title}
+              </p>
+            </div>
+            <p id="fakultas-desc" class="mb-6 text-justify font-poppins text-sm text-black leading-relaxed md:text-base">
+              {defaultFakultas.desc}
+            </p>
+            <a
+              id="fakultas-link"
+              href={defaultFakultas.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-block rounded-full bg-gradient-to-r from-[#ffe086] to-[#ffc03f] px-6 py-2.5 font-medium text-[#1e1e1e] shadow-[0_0_10.6px_rgba(0,0,0,0.25)] transition-transform hover:scale-105"
+            >
+              Lihat Website
+            </a>
+          </div>
+
+          <!-- Gold list -->
+          <div class="order-1 max-h-96 overflow-y-auto rounded-md bg-gradient-to-r from-[#ffe086] to-[#ffc03f] p-4 shadow-[-1px_4px_10px_rgba(0,0,0,0.35)] md:order-2 md:max-h-[420px]">
+            <ul class="divide-y divide-black/10">
+              {dataFakultas.map((fakultas, index) => (
+                <li>
+                  <button
+                    type="button"
+                    class="fakultas-item flex w-full items-center gap-2 py-2.5 text-left font-poppins text-sm text-[#1e1e1e] transition-colors hover:font-semibold md:text-base"
+                    data-active={index === 0 ? 'true' : 'false'}
+                    data-title={fakultas.title}
+                    data-desc={fakultas.desc}
+                    data-link={fakultas.link}
+                    data-color={fakultas.facultyColor}
+                  >
+                    <span class:list={['h-3 w-3 shrink-0 rounded-full', fakultas.facultyColor]} aria-hidden="true"></span>
+                    {fakultas.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. HYMNE & MARS -->
+    <section
+      id="hymne-mars-unsoed"
+      class="relative overflow-hidden bg-[#3e6693] bg-[url('/images/elements/batik-1.webp')] bg-repeat py-16 md:py-24"
+    >
+      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+        <h2
+          class="mb-12 text-center font-reikna text-[#ffd742] text-3xl [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-5xl xl:text-6xl"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          Hymne & Mars Universitas Jenderal Soedirman
+        </h2>
+
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
+          <div data-aos="fade-right" data-aos-duration="800">
+            <p class="font-poppins text-sm italic text-white/80">Hymne Unsoed</p>
+            <h3 class="mb-4 font-reikna text-xl text-white md:text-2xl">Harumkan Wiyata Tinggi</h3>
+            <p class="mb-6 whitespace-pre-line font-poppins text-sm text-white leading-loose md:text-base">Karyamu cendekia didambakan negara
+Dharmamu sepenuhnya sumbangkan membangun nusa
+Membina sarana karya raksasa menuju bangsa sejahtera
+Budhaya pribadi yang asli murni harumkan wiyata tinggi</p>
+            <button
+              type="button"
+              id="btn-play-hymne"
+              class="audio-toggle inline-flex items-center gap-2 rounded-full bg-[#76a3ed] px-6 py-2.5 font-semibold text-white shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-transform hover:scale-105"
+            >
+              <svg class="play-icon h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="pause-icon hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+              <span class="audio-label">Play</span>
+            </button>
+            <audio id="hymneAudio" src="/audio/hymne.mp3" preload="metadata"></audio>
+          </div>
+
+          <div data-aos="fade-left" data-aos-duration="800">
+            <p class="font-poppins text-sm italic text-white/80">Mars Unsoed</p>
+            <h3 class="mb-4 font-reikna text-xl text-white md:text-2xl">Tingkatkan Martabat Bangsa</h3>
+            <p class="mb-6 whitespace-pre-line font-poppins text-sm text-white leading-loose md:text-base">Kami Mahasiswa Unsoed bertekun dalam wiyata
+Jiwa Panglima besar Kita cerminkan hasrat membaja
+Memupuk rasa persatuan berdasarkan Pancasila
+Memimpin rakyat kesejahtera serta pribadi bangsa
+
+UNIVERSITAS NEGERI JENDERAL SOEDIRMAN maju terus pantang mundur
+UNIVERSITAS NEGERI JENDERAL SOEDIRMAN bercita-cita luhur
+
+Kami Mahasiswa Unsoed siap mengabdikan karya
+Masa Hari-hari datang kita hadapi bersama
+Seluruh rakyat Indonesia rasakan dharma sarjana
+Mencapai cita mengabdi Bangsa Indonesia yang jaya
+
+UNIVERSITAS NEGERI JENDERAL SOEDIRMAN isyaf akan tugas mulia
+UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
+            <button
+              type="button"
+              id="btn-play-mars"
+              class="audio-toggle inline-flex items-center gap-2 rounded-full bg-[#76a3ed] px-6 py-2.5 font-semibold text-white shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-transform hover:scale-105"
+            >
+              <svg class="play-icon h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="pause-icon hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+              <span class="audio-label">Play</span>
+            </button>
+            <audio id="marsAudio" src="/audio/mars.mp3" preload="metadata"></audio>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PROFIL (VIDEO) -->
+    <section id="profile-unsoed" class="relative overflow-hidden bg-white py-16 md:py-24">
+      <img
+        src="/images/elements/kolom-ukm.png"
+        alt=""
+        class="pointer-events-none absolute -right-16 bottom-0 hidden w-72 opacity-90 lg:block xl:w-96"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      />
+
+      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+        <div class="flex flex-col items-center gap-8 text-center md:flex-row-reverse md:gap-12 md:text-left">
+          <h2
+            class="font-reikna text-[#ffd742] text-3xl [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-5xl"
+            data-aos="fade-left"
+            data-aos-duration="800"
+          >
+            Profil Universitas Jenderal Soedirman
+          </h2>
+
+          <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025) -->
+          <iframe
+            class="aspect-video w-full max-w-xl rounded-xl shadow-[0_8px_25px_rgba(0,0,0,0.2)]"
+            src="https://www.youtube.com/embed/3Wuof0OvQOg"
+            title="Profil Universitas Jenderal Soedirman"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+            data-aos="zoom-in"
+            data-aos-duration="800"
+            data-aos-delay="200"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const items = document.querySelectorAll<HTMLButtonElement>('.fakultas-item');
+    const titleEl = document.getElementById('fakultas-title');
+    const descEl = document.getElementById('fakultas-desc');
+    const linkEl = document.getElementById('fakultas-link') as HTMLAnchorElement | null;
+    const swatchEl = document.getElementById('fakultas-swatch');
+
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        items.forEach((i) => {
+          i.dataset.active = 'false';
+          i.classList.remove('font-semibold', 'underline');
+        });
+        item.dataset.active = 'true';
+        item.classList.add('font-semibold', 'underline');
+
+        if (titleEl) titleEl.textContent = item.dataset.title ?? '';
+        if (descEl) descEl.textContent = item.dataset.desc ?? '';
+        if (linkEl && item.dataset.link) linkEl.href = item.dataset.link;
+        if (swatchEl && item.dataset.color) {
+          swatchEl.className = `h-4 w-4 shrink-0 rounded-full ${item.dataset.color}`;
+        }
+      });
+    });
+
+    const activeItem = document.querySelector<HTMLButtonElement>('.fakultas-item[data-active="true"]');
+    activeItem?.classList.add('font-semibold', 'underline');
+  </script>
+
+  <script>
+    const hymneAudio = document.getElementById('hymneAudio') as HTMLAudioElement | null;
+    const marsAudio = document.getElementById('marsAudio') as HTMLAudioElement | null;
+    const bgAudio = document.getElementById('bgMusic') as HTMLAudioElement | null;
+    const bgToggleBtn = document.getElementById('btn-play-music');
+
+    function setButtonState(btn: HTMLElement, playing: boolean) {
+      btn.querySelector('.play-icon')?.classList.toggle('hidden', playing);
+      btn.querySelector('.pause-icon')?.classList.toggle('hidden', !playing);
+      const label = btn.querySelector('.audio-label');
+      if (label) label.textContent = playing ? 'Pause' : 'Play';
+    }
+
+    function bindToggle(
+      btn: HTMLElement | null,
+      audio: HTMLAudioElement | null,
+      other: HTMLAudioElement | null,
+      otherBtn: HTMLElement | null
+    ) {
+      if (!btn || !audio) return;
+
+      btn.addEventListener('click', () => {
+        if (audio.paused) {
+          if (other && !other.paused) other.pause();
+          if (bgAudio && !bgAudio.paused) bgToggleBtn?.click();
+          audio.play().catch((err) => console.log('Audio play failed:', err));
+        } else {
+          audio.pause();
+        }
+      });
+
+      audio.addEventListener('play', () => {
+        setButtonState(btn, true);
+        if (otherBtn) setButtonState(otherBtn, false);
+      });
+      audio.addEventListener('pause', () => setButtonState(btn, false));
+      audio.addEventListener('ended', () => setButtonState(btn, false));
+    }
+
+    const hymneBtn = document.getElementById('btn-play-hymne');
+    const marsBtn = document.getElementById('btn-play-mars');
+
+    bindToggle(hymneBtn, hymneAudio, marsAudio, marsBtn);
+    bindToggle(marsBtn, marsAudio, hymneAudio, hymneBtn);
+  </script>
 </Layout>
