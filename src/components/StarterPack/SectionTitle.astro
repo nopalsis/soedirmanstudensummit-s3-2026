@@ -1,0 +1,18 @@
+---
+// Judul section Starter Pack, sumber Figma node 796:40 (847:169 / 847:182 wrapper).
+// Do's & Don'ts section GAK pakai ornament ini di Figma (langsung judul emas polos).
+interface Props {
+	title: string;
+	variant?: 'a' | 'b';
+}
+
+const { title, variant = 'a' } = Astro.props;
+const cloudLeft = variant === 'a' ? '/images/starterpack/cloud-left-a.svg' : '/images/starterpack/cloud-left-b.svg';
+const cloudRight = variant === 'a' ? '/images/starterpack/cloud-right-a.svg' : '/images/starterpack/cloud-right-b.svg';
+---
+
+<div class="mb-8 flex items-center justify-center gap-2 sm:gap-4 md:gap-8" data-aos="fade-up">
+	<img src={cloudLeft} alt="" class="h-auto w-14 shrink-0 sm:w-20 md:w-28" />
+	<h2 class="font-reikna text-[#142142] text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-center">{title}</h2>
+	<img src={cloudRight} alt="" class="h-auto w-14 shrink-0 sm:w-20 md:w-28" />
+</div>

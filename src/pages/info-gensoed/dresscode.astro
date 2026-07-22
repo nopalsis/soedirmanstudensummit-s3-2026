@@ -1,14 +1,94 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Marque from '../../components/Marque.astro';
+import HeroChrome from '../../components/StarterPack/HeroChrome.astro';
+import SectionTitle from '../../components/StarterPack/SectionTitle.astro';
+import dresscodeData from '../../data/dresscode';
+
+const days = ['gladi', 'day1', 'day2'] as const;
+const genders = ['laki-laki', 'perempuan'] as const;
 ---
 
-<Layout>
-	<main class="min-h-screen flex flex-col items-center justify-center pt-24 px-6 bg-[--color-dark-base]">
-		<h1 class="text-4xl md:text-5xl font-space-grotesk font-bold text-center text-[--color-text-primary] mb-6">
-			Halaman <span class="text-gradient capitalize">info-gensoed/dresscode</span>
-		</h1>
-		<p class="text-[--color-text-secondary] font-plus-jakarta-sans text-center max-w-xl">
-			Halaman ini sudah terhubung dengan rute dan navigasi, namun kontennya masih dalam tahap pengembangan.
-		</p>
-	</main>
+<Layout title="Dress Code | Starter Pack — Soedirman Student Summit 2026">
+	<HeroChrome active="dresscode" />
+
+	<Marque bgColor="bg-[#95a6f2]" textColor="text-black" shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]" direction="left" unitImg="/images/elements/marquee-unit.png" />
+
+	<section class="bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
+		<div class="mx-auto max-w-screen-xl">
+			<SectionTitle title="Dress Code" variant="a" />
+
+			<div id="dresscode-app" class="mx-auto max-w-5xl">
+				<div class="mb-6 flex justify-center gap-2 sm:gap-4" role="tablist" aria-label="Pilih hari">
+					{days.map((day, i) => (
+						<button
+							type="button"
+							class="day-tab font-reikna rounded-[10px] bg-[#1b4682] px-4 py-3 text-base text-white transition-colors sm:px-8 sm:text-xl data-[active=true]:bg-[#1d3464]"
+							data-day={day}
+							data-active={i === 0 ? 'true' : 'false'}
+							role="tab"
+						>
+							{dresscodeData[day].label}
+						</button>
+					))}
+				</div>
+
+				<div class="mb-8 flex justify-center gap-2 sm:gap-4">
+					{genders.map((gender, i) => (
+						<button
+							type="button"
+							class="gender-tab rounded-full bg-[#1d3464]/60 px-6 py-2 text-sm text-white capitalize transition-colors sm:text-base data-[active=true]:bg-[#1d3464]"
+							data-gender={gender}
+							data-active={i === 0 ? 'true' : 'false'}
+						>
+							{gender}
+						</button>
+					))}
+				</div>
+
+				<div class="grid gap-6 rounded-[30px] bg-[#1d3464] p-6 md:grid-cols-2 md:p-10" data-aos="fade-up">
+					<div>
+						<h3 class="font-reikna mb-4 text-2xl text-[#ffc03f]">Ketentuan</h3>
+						<ul id="dresscode-rules" class="space-y-3 font-plus-jakarta-sans text-sm text-white sm:text-base"></ul>
+					</div>
+					<div class="flex items-center justify-center">
+						<img id="dresscode-photo" src="" alt="" class="w-full max-w-xs rounded-lg shadow-lg" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script define:vars={{ dresscodeData }}>
+		const rulesEl = document.getElementById('dresscode-rules');
+		const photoEl = document.getElementById('dresscode-photo');
+		const dayTabs = document.querySelectorAll('.day-tab');
+		const genderTabs = document.querySelectorAll('.gender-tab');
+
+		function render() {
+			const day = document.querySelector('.day-tab[data-active="true"]').dataset.day;
+			const gender = document.querySelector('.gender-tab[data-active="true"]').dataset.gender;
+			const entry = dresscodeData[day][gender];
+
+			rulesEl.innerHTML = entry.rules
+				.map((rule) => `<li class="flex items-start gap-2"><span class="mt-1 text-[#ffc03f]">&#9679;</span><span>${rule}</span></li>`)
+				.join('');
+			photoEl.src = entry.image;
+			photoEl.alt = `Contoh dresscode ${gender} — ${day}`;
+		}
+
+		function bindGroup(tabs) {
+			tabs.forEach((tab) => {
+				tab.addEventListener('click', () => {
+					tabs.forEach((t) => (t.dataset.active = 'false'));
+					tab.dataset.active = 'true';
+					render();
+				});
+			});
+		}
+
+		bindGroup(dayTabs);
+		bindGroup(genderTabs);
+		render();
+	</script>
 </Layout>
