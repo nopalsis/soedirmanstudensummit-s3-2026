@@ -1,14 +1,68 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Marque from '../../components/Marque.astro';
+import HeroChrome from '../../components/StarterPack/HeroChrome.astro';
+import SectionTitle from '../../components/StarterPack/SectionTitle.astro';
+import barangBawaan from '../../data/barang-bawaan';
 ---
 
-<Layout>
-	<main class="min-h-screen flex flex-col items-center justify-center pt-24 px-6 bg-[--color-dark-base]">
-		<h1 class="text-4xl md:text-5xl font-space-grotesk font-bold text-center text-[--color-text-primary] mb-6">
-			Halaman <span class="text-gradient capitalize">info-gensoed/peralatan</span>
-		</h1>
-		<p class="text-[--color-text-secondary] font-plus-jakarta-sans text-center max-w-xl">
-			Halaman ini sudah terhubung dengan rute dan navigasi, namun kontennya masih dalam tahap pengembangan.
-		</p>
-	</main>
+<Layout title="Barang Bawaan | Starter Pack — Soedirman Student Summit 2026">
+	<HeroChrome active="peralatan" />
+
+	<Marque bgColor="bg-[#95a6f2]" textColor="text-black" shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]" direction="left" unitImg="/images/elements/marquee-unit.png" />
+
+	<section class="bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
+		<div class="mx-auto max-w-screen-xl">
+			<SectionTitle title="Barang Bawaan" variant="b" />
+
+			<div class="swiper barang-swiper mx-auto max-w-5xl" data-aos="fade-up">
+				<div class="swiper-wrapper items-stretch pb-12">
+					{barangBawaan.map((barang) => (
+						<div class="swiper-slide flex h-auto max-w-[260px] flex-col overflow-hidden rounded-[20px] bg-[#1b4682] shadow-lg">
+							<div class="relative flex h-40 items-center justify-center bg-[#1d3464]">
+								<img src={barang.image} alt={barang.name} class="max-h-28 object-contain" loading="lazy" />
+								<span
+									class:list={[
+										'absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-bold text-white',
+										barang.required ? 'bg-red-500' : 'bg-[#ffc03f] text-[#142142]',
+									]}
+								>
+									{barang.required ? 'Wajib' : 'Opsional'}
+								</span>
+							</div>
+							<div class="flex flex-1 flex-col gap-2 p-5 text-center text-white">
+								<h3 class="font-reikna text-xl text-[#ffc03f]">{barang.name}</h3>
+								<p class="font-plus-jakarta-sans text-sm">{barang.desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		import Swiper from 'swiper/bundle';
+		import 'swiper/css/bundle';
+
+		new Swiper('.barang-swiper', {
+			slidesPerView: 1,
+			spaceBetween: 20,
+			centeredSlides: true,
+			loop: true,
+			autoplay: { delay: 3000, disableOnInteraction: false },
+			effect: 'coverflow',
+			coverflowEffect: { rotate: 20, stretch: 0, depth: 100, modifier: 1, slideShadows: true },
+			pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true },
+			navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+			breakpoints: {
+				640: { slidesPerView: 2 },
+				768: { slidesPerView: 3 },
+				1024: { slidesPerView: 4 },
+			},
+		});
+	</script>
 </Layout>
