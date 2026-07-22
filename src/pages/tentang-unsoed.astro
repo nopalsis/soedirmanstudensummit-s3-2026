@@ -211,6 +211,16 @@ const defaultFakultas = dataFakultas[0];
       </div>
     </section>
 
+    <!-- Pengganti awan besar atas Hymne&Mars: gambar berkali-kali salah ukuran/posisi/regresi.
+         Reuse template Marque yang sama persis dengan running text Visi-Misi↔Fakultas. -->
+    <Marque
+      bgColor="bg-[#95a6f2]"
+      textColor="text-black"
+      shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]"
+      direction="left"
+      unitImg="/images/elements/marquee-unit.png"
+    />
+
     <!-- 5. HYMNE & MARS -->
     <section
       id="hymne-mars-unsoed"
@@ -222,25 +232,6 @@ const defaultFakultas = dataFakultas[0];
            teknik section Fakultas Unsoed persis (line 139) — batik-1.webp tanpa opacity utility
            sama sekali, alpha native webp-nya sendiri yang jadi satu-satunya dampening. -->
       <div class="absolute inset-0 bg-[url('/images/elements/batik-1.webp')] bg-repeat"></div>
-
-      <!-- Flatten tunggal node Figma 827:123 (atas) & 827:141 (bawah), di-trim dari 1920x1370
-           mentah (banyak padding transparan) ke 1920x466 pas isi motif.
-           ponytail: revert dari fixed-height/object-cover (round sebelumnya) balik ke
-           aspect-ratio+w-full murni — versi ini yang sudah dikonfirmasi bagus oleh user. -->
-      <img
-        src="/images/elements/awan-atas-hymne.png"
-        alt=""
-        class="pointer-events-none absolute top-0 left-0 aspect-[1920/466] w-full opacity-90"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      />
-      <img
-        src="/images/elements/awan-bawah-hymne.png"
-        alt=""
-        class="pointer-events-none absolute bottom-0 left-0 aspect-[1920/466] w-full opacity-90"
-        data-aos="fade-up"
-        data-aos-duration="1000"
-      />
 
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <h2
@@ -306,6 +297,15 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
       </div>
     </section>
 
+    <!-- Pengganti awan besar bawah Hymne&Mars — instance kedua, sama persis. -->
+    <Marque
+      bgColor="bg-[#95a6f2]"
+      textColor="text-black"
+      shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]"
+      direction="left"
+      unitImg="/images/elements/marquee-unit.png"
+    />
+
     <!-- 6. PROFIL (VIDEO) -->
     <section id="profile-unsoed" class="relative overflow-hidden bg-white py-16 md:py-24">
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
@@ -321,29 +321,12 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
             data-aos-duration="800"
           />
 
-          <!-- Kolom UKM = frame dekoratif persis di belakang video (sesuai node 755:308). Wrapper pakai
-               aspect-ratio asli file frame (1566x961) supaya kolom-ukm.png gak distorsi.
-               Lubang transparan di PNG-nya TIDAK center — diukur langsung dari pixel (scan alpha):
-               kiri 9.3%, kanan 2.6%, atas 17%, bawah 4.3% dari box 1566x961. inset-0 m-auto 94%/90%
-               lama itu asumsi center, makanya video dulu keliatan "kurang ke kanan" (nutupin border
-               kiri, nyisain gap kanan) — video sekarang pas ngisi lubang beneran.
-               TANPA data-aos: sama kayak transisi-hero, AOS zoom-in stuck di scale(0.6) permanen
-               (specificity loss vs Tailwind v4 @layer) — dikonfirmasi computed style. Bukan
-               reposisi, cuma stop rendering ketiban stuck-scale bug. -->
-          <div class="relative w-full max-w-xl aspect-[1566/961]">
-            <img
-              src="/images/elements/kolom-ukm.png"
-              alt=""
-              class="pointer-events-none absolute inset-0 h-full w-full max-w-none"
-            />
-            <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025).
-                 iframe = replaced element: top+right+bottom+left SEKALIGUS dengan w-full h-full itu
-                 over-constrained — w-full/h-full menang buat ukuran (100%x100%, lebih besar dari
-                 lubang), right/bottom keinsetnya keabaikan, videonya meluber kanan-bawah nyisain
-                 biru keliatan kiri-atas. Pakai w/h eksplisit dari hasil ukur (88.1%/78.7%) + cuma
-                 top+left buat posisi, right+bottom gak perlu lagi (udah implisit dari w/h). -->
+          <!-- Bingkai Kolom UKM dihapus (keputusan user, daripada terus nyesuaikan ukuran) —
+               video langsung tanpa frame tambahan. -->
+          <div class="w-full max-w-xl">
+            <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025) -->
             <iframe
-              class="absolute top-[17%] left-[9.3%] h-[78.7%] w-[88.1%] rounded-xl"
+              class="aspect-video w-full rounded-xl"
               src="https://www.youtube.com/embed/3Wuof0OvQOg"
               title="Profil Universitas Jenderal Soedirman"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
