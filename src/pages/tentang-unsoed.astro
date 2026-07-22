@@ -71,16 +71,20 @@ const defaultFakultas = dataFakultas[0];
            project ini (dikonfirmasi lewat computed style — transform stuck translateY(100px)
            permanen), bikin elemen ini kelihatan "gak pernah pindah" padahal posisi flow-nya udah
            benar. Bug situs-lebar, di luar scope sini — elemen dekoratif statis ini gak butuh
-           reveal animation, jadi skip data-aos aja daripada ngoprek AOS/Tailwind cascade global. -->
+           reveal animation, jadi skip data-aos aja daripada ngoprek AOS/Tailwind cascade global.
+           Asset asli 1920x499 punya padding transparan 49px atas + 64px bawah (raw Figma export,
+           belum di-trim) — motif wave keliatan cuma ngisi tengah, nyisain foto hero keliatan di
+           bawahnya sebelum section putih mulai. Di-trim ke 1920x386 biar motif pas nempel di
+           garis batas bawah section, gak ada gap foto lagi. -->
       <img
         src="/images/elements/transisi-hero.png"
         alt=""
-        class="pointer-events-none relative block w-full aspect-[1920/499]"
+        class="pointer-events-none relative block w-full aspect-[1920/386]"
       />
     </section>
 
     <!-- 2. VISI & MISI -->
-    <section id="visi-misi-unsoed" class="relative overflow-hidden bg-white pt-16 pb-20 md:pt-24 md:pb-28">
+    <section id="visi-misi-unsoed" class="relative overflow-hidden bg-white pt-24 pb-20 md:pt-32 md:pb-28">
       <img
         src="/images/elements/wayang-kiri.png"
         alt=""
@@ -333,10 +337,13 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
               class="pointer-events-none absolute inset-0 h-full w-full max-w-none"
             />
             <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025).
-                 iframe = replaced element: inset-only tanpa width/height eksplisit gak stretch,
-                 jatuh ke default intrinsic 300x150 browser. w-full h-full wajib ada. -->
+                 iframe = replaced element: top+right+bottom+left SEKALIGUS dengan w-full h-full itu
+                 over-constrained — w-full/h-full menang buat ukuran (100%x100%, lebih besar dari
+                 lubang), right/bottom keinsetnya keabaikan, videonya meluber kanan-bawah nyisain
+                 biru keliatan kiri-atas. Pakai w/h eksplisit dari hasil ukur (88.1%/78.7%) + cuma
+                 top+left buat posisi, right+bottom gak perlu lagi (udah implisit dari w/h). -->
             <iframe
-              class="absolute top-[17%] right-[2.6%] bottom-[4.3%] left-[9.3%] h-full w-full rounded-xl"
+              class="absolute top-[17%] left-[9.3%] h-[78.7%] w-[88.1%] rounded-xl"
               src="https://www.youtube.com/embed/3Wuof0OvQOg"
               title="Profil Universitas Jenderal Soedirman"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
