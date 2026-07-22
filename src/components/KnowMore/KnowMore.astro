@@ -2,13 +2,25 @@
 import DocumentationCard from "./DocumentationCard.astro";
 
 const events: { name: string; img: string }[] = [
+  { name: "Sidang Senat", img: "/images/events/sidangsenat.webp" },
+  { name: "Kuliah Umum", img: "/images/events/kuliahumum.webp" },
+  { name: "Talkshow oleh Joivial Da Lopez", img: "/images/events/talkshowjovi.webp" },
+  { name: "Talkshow oleh Fathia Fairuza", img: "" },
+  { name: "Penampilan Kenthongan dan Lengger", img: "/images/events/kenthongan.webp" },
+  { name: "Parade Panitia", img: "/images/events/paradepanitia.webp" },
+  { name: "Sambutan Project Officer", img: "/images/events/sambutanpo.webp" },
+  { name: "Sambutan Presiden BEM Unsoed 2025", img: "/images/events/sambutanpresbem.webp" },
+  { name: "Sambutan Special Bupati Banyumas", img: "" },
+  { name: "Parade BEM Unsoed", img: "/images/events/paradebem.webp" },
+  { name: "Parade Fakultas", img: "" },
+  { name: "Parade Paguyuban", img: "" },
+  { name: "Parade UKM", img: "/images/events/paradeukm.webp" },
   { name: "Expo", img: "/images/events/expo.webp" },
-  { name: "Parade", img: "/images/events/parade.webp" },
-  { name: "FGD", img: "/images/events/fgd.jpg" },
-  { name: "Art Performance", img: "/images/events/artperformance.webp" },
-  { name: "Closing", img: "/images/events/closing.webp" },
-  { name: "Expo", img: "/images/events/expo.jpg" },
-  { name: "Parade", img: "/images/events/parade.jpg" },
+  { name: "Penampilan Teatrikal Politik Pergerakan", img: "/images/events/teatrikal.webp" },
+  { name: "Resonansi", img: "" },
+  { name: "Closing Ceremony & Guest Star (Dj Lala Land)", img: "/images/events/lalaland.webp" },
+  { name: "Closing Ceremony & Guest Star (Feby Putri)", img: "/images/events/feby.webp" },
+  { name: "Closing Ceremony & Guest Star (Lomba Sihir)", img: "/images/events/lombasihir.webp" },
 ];
 ---
 
@@ -32,35 +44,35 @@ const events: { name: string; img: string }[] = [
         <img src="/images/elements/awan-kuning.svg" alt="" class="w-[100px] sm:w-[150px] md:w-[250px] lg:w-[350px] h-auto -scale-x-100 animate-float-cloud" />
       </div>
 
-       <div
-         class="w-[75%] xs:w-[65%] sm:max-w-[220px] md:max-w-[600px] animate-float-up-down"
-         data-aos="fade-right"
-         data-aos-duration="1000"
-         data-aos-easing="ease-in-out"
-         data-aos-offset="300"
-         data-aos-once="true"
-       >
-         <img
-           src="/images/mascots/maskot-cowo.svg"
-           alt="Perkenalan Chibi Maskot S3 Cowok"
-           class="w-full h-auto"
-         />
-       </div>
+        <div
+          class="w-[75%] xs:w-[65%] sm:max-w-[220px] md:max-w-[600px] animate-float-up-down"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          data-aos-offset="300"
+          data-aos-once="true"
+        >
+          <img
+            src="/images/mascots/maskot-cowo.svg"
+            alt="Perkenalan Chibi Maskot S3 Cowok"
+            class="w-full h-auto"
+          />
+        </div>
 
-       <div
-         class="w-[75%] xs:w-[65%] sm:max-w-[220px] md:max-w-[600px] animate-float-up-down"
-         data-aos="fade-left"
-         data-aos-duration="1000"
-         data-aos-easing="ease-in-out"
-         data-aos-offset="300"
-         data-aos-once="true"
-       >
-         <img
-           src="/images/mascots/maskot-cewe.svg"
-           alt="Perkenalan Chibi Maskot S3 Cewek"
-           class="w-full h-auto"
-         />
-       </div>
+        <div
+          class="w-[75%] xs:w-[65%] sm:max-w-[220px] md:max-w-[600px] animate-float-up-down-delayed"
+          data-aos="fade-left"
+          data-aos-duration="1000"
+          data-aos-easing="ease-in-out"
+          data-aos-offset="300"
+          data-aos-once="true"
+        >
+          <img
+            src="/images/mascots/maskot-cewe.svg"
+            alt="Perkenalan Chibi Maskot S3 Cewek"
+            class="w-full h-auto"
+          />
+        </div>
 
       <!-- Wrapper for Chibi Maskot + Text and Gapura -->
       <div class="relative w-full z-10 flex flex-col items-center py-4">
@@ -80,7 +92,7 @@ const events: { name: string; img: string }[] = [
                <h2 class="gradient-text-title  font-reikna text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-7xl drop-shadow-[0_2px_0_rgba(0,0,0,0.2)] mb-4 sm:mb-6 leading-tight text-stroke-gold" data-aos="fade-up" data-aos-duration="600" data-aos-easing="ease-in-out" data-aos-offset="200" data-aos-once="true">
                  Mengenal lebih dekat Soedirman Student Summit
                </h2>
-              <p class="text-[10px] xs:text-xs sm:text-xs md:text-sm lg:text-base text-center text-s3-blue leading-snug font-medium max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-in-out" data-aos-offset="50" data-aos-once="true">
+              <p class="text-[10px] xs:text-xs sm:text-xs md:text-sm lg:text-base text-center font-plus-jakarta-sans text-s3-blue leading-snug font-medium max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-in-out" data-aos-offset="50" data-aos-once="true">
                 Soedirman Student Summit (S3) merupakan kegiatan tahunan yang diselenggarakan sebagai wadah untuk pengenalan kehidupan perkuliahan dan untuk menyambut mahasiswa baru Universitas Jenderal Soedirman. Rangkaian kegiatan S3 bertujuan sebagai gerbang awal mahasiswa baru untuk mengenal dirinya sendiri dengan mengimplementasikan nilai-nilai yang akan dibawakan, serta mengenal lebih jauh tentang Universitas Jenderal Soedirman.
               </p>
            </div>
@@ -247,9 +259,13 @@ const events: { name: string; img: string }[] = [
        }
      }
 
-     .animate-float-up-down {
-       animation: floatUpDown 4s ease-in-out infinite;
-     }
+      .animate-float-up-down {
+        animation: floatUpDown 4s ease-in-out infinite;
+      }
+
+      .animate-float-up-down-delayed {
+        animation: floatUpDown 4s ease-in-out infinite 2s;
+      }
 
      .know-more-title {
        color: #DEB65B;
