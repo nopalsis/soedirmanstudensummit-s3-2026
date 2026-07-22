@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Marque from '../../components/Marque.astro';
+import HeroChrome from '../../components/StarterPack/HeroChrome.astro';
+
+// Sumber: Google Doc "Aset Webs" 2026, section "Do's & Don'ts" — dipakai apa
+// adanya (kebetulan identik teks generic 2025, memang itu yang resmi tertulis).
+const dos = [
+	'Datang tepat waktu sesuai jadwal',
+	'Mengikuti dresscode yang telah ditentukan',
+	'Membawa perlengkapan yang diperlukan',
+	'Menjaga sikap dan sopan santun',
+	'Aktif berpartisipasi dalam kegiatan',
+	'Menjaga kebersihan lingkungan',
+	'Mengikuti protokol kesehatan',
+	'Berinteraksi dengan peserta lain',
+	'Dokumentasi kegiatan dengan bijak',
+	'Mematuhi aturan yang berlaku',
+];
+
+const donts = [
+	'Terlambat atau tidak hadir tanpa kabar',
+	'Memakai pakaian yang tidak sesuai dresscode',
+	'Membawa barang-barang berbahaya',
+	'Bersikap tidak sopan atau kasar',
+	'Mengganggu jalannya acara',
+	'Membuang sampah sembarangan',
+	'Mengabaikan protokol kesehatan',
+	'Menyendiri atau tidak bersosialisasi',
+	'Mengambil foto/video tanpa izin',
+	'Melanggar peraturan yang telah ditetapkan',
+];
+---
+
+<Layout title="Do's & Don'ts | Starter Pack — Soedirman Student Summit 2026">
+	<HeroChrome active="dos-donts" />
+
+	<Marque bgColor="bg-[#95a6f2]" textColor="text-black" shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]" direction="left" unitImg="/images/elements/marquee-unit.png" />
+
+	<section class="bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
+		<div class="mx-auto grid max-w-5xl divide-y divide-white/20 overflow-hidden rounded-[30px] bg-[#1b4682] md:grid-cols-2 md:divide-x md:divide-y-0" data-aos="fade-up">
+			<div class="p-6 md:p-10">
+				<h2 class="font-reikna mb-6 text-center text-4xl text-[#ffc03f] md:text-5xl">Do's</h2>
+				<ul class="space-y-3 font-plus-jakarta-sans text-sm text-white sm:text-base">
+					{dos.map((item) => (
+						<li class="flex items-start gap-2">
+							<span class="mt-1 text-green-400">✓</span>
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+			<div class="p-6 md:p-10">
+				<h2 class="font-reikna mb-6 text-center text-4xl text-[#ffc03f] md:text-5xl">Don'ts</h2>
+				<ul class="space-y-3 font-plus-jakarta-sans text-sm text-white sm:text-base">
+					{donts.map((item) => (
+						<li class="flex items-start gap-2">
+							<span class="mt-1 text-red-400">✕</span>
+							<span>{item}</span>
+						</li>
+					))}
+				</ul>
+			</div>
+		</div>
+	</section>
+</Layout>
