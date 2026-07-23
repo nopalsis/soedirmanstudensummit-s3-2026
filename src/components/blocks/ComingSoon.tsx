@@ -432,10 +432,12 @@ const ComingSoon = () => {
               {/* Sosmed */}
               <div className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#002395]/30 shadow-lg order-1 md:order-2">
                 <a
-                  href="https://www.instagram.com/soedirmanstudentsummit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                  title="Instagram"
-                  className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
-                >
+                   href="https://www.instagram.com/soedirmanstudentsummit?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                   title="Instagram"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
+                 >
                   <svg
                     className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                     fill="currentColor"
@@ -445,10 +447,12 @@ const ComingSoon = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://www.tiktok.com/@soedirmanstudentsummit?is_from_webapp=1&sender_device=pc"
-                  title="TikTok"
-                  className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
-                >
+                   href="https://www.tiktok.com/@soedirmanstudentsummit?is_from_webapp=1&sender_device=pc"
+                   title="TikTok"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
+                 >
                   <svg
                     className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                     fill="currentColor"
@@ -458,10 +462,12 @@ const ComingSoon = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://www.youtube.com/channel/UCruSR4_IaHdP23WbbykYT1w"
-                  title="YouTube"
-                  className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
-                >
+                   href="https://www.youtube.com/channel/UCruSR4_IaHdP23WbbykYT1w"
+                   title="YouTube"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
+                 >
                   <svg
                     className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                     fill="currentColor"
@@ -471,10 +477,12 @@ const ComingSoon = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://whatsapp.com/channel/0029Vb7LYoy3bbV6zgIGfN3S"
-                  title="WhatsApp"
-                  className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
-                >
+                   href="https://whatsapp.com/channel/0029Vb7LYoy3bbV6zgIGfN3S"
+                   title="WhatsApp"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
+                 >
                   <svg
                     className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                     fill="currentColor"
@@ -484,10 +492,12 @@ const ComingSoon = () => {
                   </svg>
                 </a>
                 <a
-                  href="https://open.spotify.com/user/317jtugbgtp3gi5jnrnj6pys265q?si=YaDJSEF9R6-e0GNzd-glQw"
-                  title="Spotify"
-                  className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
-                >
+                   href="https://open.spotify.com/user/317jtugbgtp3gi5jnrnj6pys265q?si=YaDJSEF9R6-e0GNzd-glQw"
+                   title="Spotify"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
+                 >
                   <svg
                     className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                     fill="currentColor"
@@ -497,10 +507,12 @@ const ComingSoon = () => {
                   </svg>
                 </a>
                 <a
-                  href="mailto:contact@summit2026.unsoed.ac.id"
-                  title="Email"
-                  className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
-                >
+                   href="mailto:contact@summit2026.unsoed.ac.id"
+                   title="Email"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   className="w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/5 border border-white/10 text-white transition-all duration-200 hover:bg-s3-gold hover:text-s3-blue hover:scale-110"
+                 >
                   <svg
                     className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                     fill="none"
