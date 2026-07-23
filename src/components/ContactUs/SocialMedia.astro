@@ -64,15 +64,15 @@ const socialMedia = [
       <!-- Ornament -->
       <div class="flex flex-col items-center justify-center pt-8 md:gap-2" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
         <img
-          src="/images/elements/ornamen-1.webp"
-          alt="Ornamen Atas"
+          src="/images/elements/hiasan-atas.svg"
+          alt="Hiasan Atas"
           class="w-36 md:w-40 lg:w-54"
           data-aos="fade-down"
           data-aos-duration="600"
           data-aos-delay="100"
         />
         <h2
-          class="font-reikna gradient-text-title text-stroke-gold px-4 text-center text-2xl font-bold md:text-3xl lg:text-4xl xl:text-5xl"
+          class="contact-title font-reikna px-4 text-center text-2xl font-bold md:text-3xl lg:text-4xl xl:text-5xl"
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="300"
@@ -80,9 +80,9 @@ const socialMedia = [
           Ikuti Kami di Media Sosial
         </h2>
         <img
-          src="/images/elements/ornamen-1.webp"
-          alt="Ornamen Bawah"
-          class="w-36 scale-y-[-1] transform md:w-40 lg:w-54"
+          src="/images/elements/hiasan-bawah.svg"
+          alt="Hiasan Bawah"
+          class="w-36 md:w-40 lg:w-54"
           data-aos="fade-down"
           data-aos-duration="600"
           data-aos-delay="400"
@@ -160,6 +160,15 @@ const socialMedia = [
 </section>
 
 <style>
+  /* ponytail: gold #ffd37a is a fallback — Figma node 3056:640 shows a gold text
+     stroke in the screenshot but exposes no explicit stroke color via design
+     context or metadata. ffd37a matches the existing navbar gold-text convention. */
+  .contact-title {
+    color: #142142;
+    -webkit-text-stroke: 2px #ffd37a;
+    paint-order: stroke fill;
+  }
+
   /* Accessibility */
   @media (prefers-reduced-motion: reduce) {
     .group {

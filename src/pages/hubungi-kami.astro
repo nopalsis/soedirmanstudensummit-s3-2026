@@ -4,7 +4,14 @@ import SocialMedia from '../components/ContactUs/SocialMedia.astro';
 ---
 
 <Layout title="Contact Us | Soedirman Student Summit (S3) 2026">
-	<div class="bg-[--color-dark-base] bg-[url('/images/elements/bgbatik-sambutan.webp')] bg-repeat">
-		<SocialMedia />
+	<div class="relative bg-[#76a3ed]">
+		<img
+			src="/images/elements/bgbatik-sambutan.webp"
+			alt=""
+			class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-10"
+		/>
+		<div class="relative z-10">
+			<SocialMedia />
+		</div>
 	</div>
 </Layout>
