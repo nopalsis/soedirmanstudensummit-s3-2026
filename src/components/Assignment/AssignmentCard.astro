@@ -75,8 +75,13 @@ function isDeadlinePassed(deadline?: Date): boolean {
 }
 
 function formatDeadlineDate(deadline?: Date): string {
-  if (!deadline) return '';
-  return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long' }).format(deadline);
+   if (!deadline) return '';
+   return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long' }).format(deadline);
+}
+
+function formatDeadlineFull(deadline?: Date): string {
+   if (!deadline) return '';
+   return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long' }).format(deadline);
 }
 
 const isAvailable = isAssignmentAvailable(assignment.openedAt);
@@ -92,17 +97,24 @@ const deadlinePassed = assignment.deadlines
 const deadlineLabel = assignment.deadline ? formatDeadlineDate(assignment.deadline) : '';
 const hasMultipleDeadlines = !!assignment.deadlines;
 const snbpSnbtDeadlineLabel = assignment.deadlines?.['SNBP-SNBT'] 
-  ? formatDeadlineDate(assignment.deadlines['SNBP-SNBT'])
-  : '';
+   ? formatDeadlineDate(assignment.deadlines['SNBP-SNBT'])
+   : '';
 const mandiriDeadlineLabel = assignment.deadlines?.['Mandiri']
-  ? formatDeadlineDate(assignment.deadlines['Mandiri'])
-  : '';
+   ? formatDeadlineDate(assignment.deadlines['Mandiri'])
+   : '';
+const snbpSnbtDeadlineFull = assignment.deadlines?.['SNBP-SNBT'] 
+   ? formatDeadlineFull(assignment.deadlines['SNBP-SNBT'])
+   : '';
+const mandiriDeadlineFull = assignment.deadlines?.['Mandiri']
+   ? formatDeadlineFull(assignment.deadlines['Mandiri'])
+   : '';
 const snbpSnbtPassed = assignment.deadlines?.['SNBP-SNBT'] 
-  ? isDeadlinePassed(assignment.deadlines['SNBP-SNBT'])
-  : false;
+   ? isDeadlinePassed(assignment.deadlines['SNBP-SNBT'])
+   : false;
 const mandiriPassed = assignment.deadlines?.['Mandiri']
-  ? isDeadlinePassed(assignment.deadlines['Mandiri'])
-  : false;
+   ? isDeadlinePassed(assignment.deadlines['Mandiri'])
+   : false;
+const deadlineFullLabel = assignment.deadline ? formatDeadlineFull(assignment.deadline) : '';
 
 // File number, dossier style: 001, 002, ...
 const fileNumber = String(index + 1).padStart(3, '0');
@@ -261,41 +273,41 @@ const fileNumber = String(index + 1).padStart(3, '0');
 
            {hasMultipleDeadlines ? (
              <div class="flex flex-col gap-2">
-               <span
-                 class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
-                   snbpSnbtPassed
-                     ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
-                     : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
-                 }`}
-               >
-                 {snbpSnbtPassed
-                   ? '✓ SNBP-SNBT Selesai'
-                   : snbpSnbtDeadlineLabel ? `SNBP-SNBT: Selesai pada ${snbpSnbtDeadlineLabel}` : 'SNBP-SNBT'}
-               </span>
-               <span
-                 class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
-                   mandiriPassed
-                     ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
-                     : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
-                 }`}
-               >
-                 {mandiriPassed
-                   ? '✓ Mandiri Selesai'
-                   : mandiriDeadlineLabel ? `Mandiri: Selesai pada ${mandiriDeadlineLabel}` : 'Mandiri'}
-               </span>
+                <span
+                  class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+                    snbpSnbtPassed
+                      ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+                      : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
+                  }`}
+                >
+                  {snbpSnbtPassed
+                    ? '✓ SNBP-SNBT Selesai'
+                    : snbpSnbtDeadlineFull ? `SNBP-SNBT: ${snbpSnbtDeadlineFull}` : 'SNBP-SNBT'}
+                </span>
+                <span
+                  class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+                    mandiriPassed
+                      ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+                      : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
+                  }`}
+                >
+                  {mandiriPassed
+                    ? '✓ Mandiri Selesai'
+                    : mandiriDeadlineFull ? `Mandiri: ${mandiriDeadlineFull}` : 'Mandiri'}
+                </span>
              </div>
            ) : (
-             <span
-               class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
-                 deadlinePassed
-                   ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
-                   : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
-               }`}
-             >
-               {deadlinePassed
-                 ? '✓ Selesai'
-                 : deadlineLabel ? `Selesai pada ${deadlineLabel}` : 'Tersedia Sekarang'}
-             </span>
+              <span
+                class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+                  deadlinePassed
+                    ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+                    : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
+                }`}
+              >
+                {deadlinePassed
+                  ? '✓ Selesai'
+                  : deadlineFullLabel ? `${deadlineFullLabel}` : 'Tersedia Sekarang'}
+              </span>
            )}
          </div>
       </div>

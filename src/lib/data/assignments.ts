@@ -10,6 +10,11 @@ export interface Assignment {
   };
 }
 
+function createDeadlineDate(daysFromNow: number): Date {
+  const now = new Date();
+  return new Date(now.getFullYear(), now.getMonth(), now.getDate() + daysFromNow, 23, 59, 59);
+}
+
 export const assignments: Assignment[] = [
   {
     name: "Borang FGD",
@@ -26,7 +31,7 @@ export const assignments: Assignment[] = [
       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
       deadlines: {
         "SNBP-SNBT": new Date(Date.now() + -3 * 24 * 60 * 60 * 1000),
-        "Mandiri": new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
+        "Mandiri": createDeadlineDate(16),
       },
     },
     {
@@ -37,7 +42,7 @@ export const assignments: Assignment[] = [
       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
        deadlines: {
         "SNBP-SNBT": new Date(Date.now() + -3 * 24 * 60 * 60 * 1000),
-        "Mandiri": new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
+        "Mandiri": createDeadlineDate(16),
       },
     },
     {
@@ -54,7 +59,7 @@ export const assignments: Assignment[] = [
       longDescription:
         "Talkshow branding bertujuan memperkenalkan fakultas dan UKM di Universitas Jenderal Soedirman agar mahasiswa baru mengenal lingkungan kampus dan memilih UKM sesuai minat serta bakat.",
       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
+      deadline: createDeadlineDate(0),
     },
     {
       name: "LinkedIn",
@@ -62,7 +67,7 @@ export const assignments: Assignment[] = [
       longDescription:
         "Mahasiswa baru diharapkan memahami pemanfaatan LinkedIn sebagai sarana pengembangan diri, memperluas jejaring profesional, melatih komunikasi formal, serta mendokumentasikan pengalaman secara terstruktur.",
       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 11 * 24 * 60 * 60 * 1000),
+      deadline: createDeadlineDate(5),
     },
     {
       name: "Feel The Vibes",
@@ -70,7 +75,7 @@ export const assignments: Assignment[] = [
       longDescription:
         "Flashmob menjadi media ekspresi kolektif yang membangun kebersamaan, kekompakan, dan semangat mahasiswa baru sebagai Soedirman Muda.",
       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 6 * 24 * 60 * 60 * 1000),
+      deadline: createDeadlineDate(5),
     },
     {
       name: "Luminous Boundaries",
@@ -78,7 +83,7 @@ export const assignments: Assignment[] = [
       longDescription:
         "Bertujuan meningkatkan kesadaran mahasiswa baru mengenai pentingnya memahami dan menghormati batasan diri maupun orang lain sebagai upaya pencegahan kekerasan dan kekerasan seksual.",
       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 11 * 24 * 60 * 60 * 1000),
+      deadline: createDeadlineDate(10),
     },
     {
       name: "Mind Sync Session",
@@ -86,15 +91,15 @@ export const assignments: Assignment[] = [
       longDescription:
         "Podcast yang membantu mahasiswa baru mengembangkan growth mindset, mengenali potensi diri, serta meningkatkan kemampuan beradaptasi secara akademik, emosional, dan sosial.",
       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
+      deadline: createDeadlineDate(14),
     },
     {
       name: "Twibbon",
       description: "Unggah Twibbon resmi.",
       longDescription:
         "Twibbon menjadi media perkenalan yang membantu mahasiswa baru mengekspresikan identitas diri, membangun rasa bangga dan solidaritas, serta memanfaatkan media sosial secara bijak.",
-      openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
+      openedAt: createDeadlineDate(16),
+      deadline: createDeadlineDate(16),
     },
     {
       name: "From A Beginning to A New Chapter (Life Mapping | Add Yours)",
@@ -102,7 +107,7 @@ export const assignments: Assignment[] = [
       longDescription:
         "Mahasiswa baru diajak merefleksikan perjalanan hidup, memahami proses yang membentuk diri, serta menggambarkan harapan dan tujuan yang ingin dicapai selama menjalani kehidupan kampus.",
       openedAt: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
+      deadline: createDeadlineDate(16),
     },
     {
       name: "SOLO (School of Leadership Organization)",
@@ -110,7 +115,7 @@ export const assignments: Assignment[] = [
       longDescription:
         "Program pengembangan kepemimpinan yang mendorong mahasiswa baru mengenali potensi diri, merefleksikan perjalanan kepemimpinan, serta membangun jiwa kepemimpinan sebagai bekal menjadi pemimpin yang berdampak.",
       openedAt: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
+      deadline: createDeadlineDate(16),
     },
     {
       name: "Yel-Yel Kelompok",
@@ -118,7 +123,7 @@ export const assignments: Assignment[] = [
       longDescription:
         "Membuat yel-yel kelompok sebagai media memperkenalkan identitas kelompok sekaligus membangun kekompakan antaranggota.",
       openedAt: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 19 * 24 * 60 * 60 * 1000),
+      deadline: createDeadlineDate(18),
     },
     {
       name: "Papan Kelompok",
@@ -126,6 +131,6 @@ export const assignments: Assignment[] = [
       longDescription:
         "Membuat papan informasi secara kreatif yang merepresentasikan identitas kelompok mahasiswa baru.",
       openedAt: new Date(Date.now() + 19 * 24 * 60 * 60 * 1000),
-      deadline: new Date(Date.now() + 19 * 24 * 60 * 60 * 1000),
+      deadline: createDeadlineDate(18),
     },
 ];
