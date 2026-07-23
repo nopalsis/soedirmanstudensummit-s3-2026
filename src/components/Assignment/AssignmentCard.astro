@@ -84,8 +84,25 @@ const comingSoonMessage = getComingSoonMessage(assignment.openedAt);
 const missionPhase = getMissionPhase(assignment.openedAt);
 const progressPercentage = getProgressPercentage(assignment.openedAt);
 const openedDateLabel = formatOpenedDate(assignment.openedAt);
-const deadlinePassed = isDeadlinePassed(assignment.deadline);
-const deadlineLabel = formatDeadlineDate(assignment.deadline);
+
+// Handle both single deadline and multiple deadlines
+const deadlinePassed = assignment.deadlines 
+  ? Object.values(assignment.deadlines).every(d => isDeadlinePassed(d))
+  : isDeadlinePassed(assignment.deadline);
+const deadlineLabel = assignment.deadline ? formatDeadlineDate(assignment.deadline) : '';
+const hasMultipleDeadlines = !!assignment.deadlines;
+const snbpSnbtDeadlineLabel = assignment.deadlines?.['SNBP-SNBT'] 
+  ? formatDeadlineDate(assignment.deadlines['SNBP-SNBT'])
+  : '';
+const mandiriDeadlineLabel = assignment.deadlines?.['Mandiri']
+  ? formatDeadlineDate(assignment.deadlines['Mandiri'])
+  : '';
+const snbpSnbtPassed = assignment.deadlines?.['SNBP-SNBT'] 
+  ? isDeadlinePassed(assignment.deadlines['SNBP-SNBT'])
+  : false;
+const mandiriPassed = assignment.deadlines?.['Mandiri']
+  ? isDeadlinePassed(assignment.deadlines['Mandiri'])
+  : false;
 
 // File number, dossier style: 001, 002, ...
 const fileNumber = String(index + 1).padStart(3, '0');
@@ -233,27 +250,54 @@ const fileNumber = String(index + 1).padStart(3, '0');
           </div>
         </div>
 
-        <!-- Status Section -->
-        <div class="flex flex-col gap-3 border-t border-[#E7C055]/20 pt-5 sm:flex-row sm:items-center sm:justify-between">
-          <div class="flex items-center gap-2">
-            <span
-              class={`h-2 w-2 rounded-full ${isAvailable ? 'bg-emerald-400' : 'bg-[#E7C055]'}`}
-            ></span>
-            <h3 class="font-junigarden text-base font-bold text-white">Status</h3>
-          </div>
+         <!-- Status Section -->
+         <div class="flex flex-col gap-3 border-t border-[#E7C055]/20 pt-5">
+           <div class="flex items-center gap-2">
+             <span
+               class={`h-2 w-2 rounded-full ${isAvailable ? 'bg-emerald-400' : 'bg-[#E7C055]'}`}
+             ></span>
+             <h3 class="font-junigarden text-base font-bold text-white">Status</h3>
+           </div>
 
-          <span
-            class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
-              deadlinePassed
-                ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
-                : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
-            }`}
-          >
-            {deadlinePassed
-              ? '✓ Selesai'
-              : deadlineLabel ? `Selesai pada ${deadlineLabel}` : 'Tersedia Sekarang'}
-          </span>
-        </div>
+           {hasMultipleDeadlines ? (
+             <div class="flex flex-col gap-2">
+               <span
+                 class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+                   snbpSnbtPassed
+                     ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+                     : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
+                 }`}
+               >
+                 {snbpSnbtPassed
+                   ? '✓ SNBP-SNBT Selesai'
+                   : snbpSnbtDeadlineLabel ? `SNBP-SNBT: Selesai pada ${snbpSnbtDeadlineLabel}` : 'SNBP-SNBT'}
+               </span>
+               <span
+                 class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+                   mandiriPassed
+                     ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+                     : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
+                 }`}
+               >
+                 {mandiriPassed
+                   ? '✓ Mandiri Selesai'
+                   : mandiriDeadlineLabel ? `Mandiri: Selesai pada ${mandiriDeadlineLabel}` : 'Mandiri'}
+               </span>
+             </div>
+           ) : (
+             <span
+               class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+                 deadlinePassed
+                   ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+                   : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
+               }`}
+             >
+               {deadlinePassed
+                 ? '✓ Selesai'
+                 : deadlineLabel ? `Selesai pada ${deadlineLabel}` : 'Tersedia Sekarang'}
+             </span>
+           )}
+         </div>
       </div>
     </div>
   </div>
