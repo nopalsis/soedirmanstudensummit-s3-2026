@@ -1,0 +1,71 @@
+---
+import { assignments } from '../../lib/data/assignments';
+import AssignmentCard from './AssignmentCard.astro';
+---
+
+<section id="list-assignment" class="section-padding-x pt-5 pb-30 relative z-10">
+  <div class="container max-w-screen-xl mx-auto">
+    <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:gap-8">
+      {assignments.map((assignment, index) => (
+        <AssignmentCard assignment={assignment} index={index} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import AOS from 'aos';
+  import 'aos/dist/aos.css';
+
+  if (typeof window !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out-cubic',
+      once: true,
+      offset: 50,
+      delay: 0
+    });
+
+    AOS.refresh();
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const modalTriggers = document.querySelectorAll('[data-modal-trigger]');
+      const modals = document.querySelectorAll('[data-modal]');
+      const closeButtons = document.querySelectorAll('[data-modal-close]');
+
+      function closeAllModals() {
+        modals.forEach(modal => {
+          modal.classList.add('hidden');
+        });
+      }
+
+      modalTriggers.forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          const modalId = trigger.getAttribute('data-modal-trigger');
+          const modal = document.querySelector(`[data-modal="${modalId}"]`);
+          if (modal) {
+            modal.classList.remove('hidden');
+          }
+        });
+      });
+
+      closeButtons.forEach(button => {
+        button.addEventListener('click', closeAllModals);
+      });
+
+      modals.forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            closeAllModals();
+          }
+        });
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeAllModals();
+        }
+      });
+    });
+  }
+</script>
