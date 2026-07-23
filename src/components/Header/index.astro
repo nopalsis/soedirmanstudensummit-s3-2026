@@ -23,95 +23,95 @@ console.log("Current Path:", currentPath);
          />
       </a>
 
-      <div class="flex items-center justify-center gap-8 ml-18">
-         <NavLink href="/" active={currentPath === "/" || currentPath === ""}>Beranda</NavLink>
+       <div class="flex items-center justify-center gap-8 ml-18">
+          <NavLink href="/" active={currentPath === "/" || currentPath === ""}>Beranda</NavLink>
 
-         <div class="relative inline-block text-left">
-           <div class="group">
-             <button
-               id="dropdownButton"
-               type="button"
-               class="inline-flex justify-center items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-fit cursor-pointer relative h-6 flex items-center after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
-             >
-               Jelajahi Unsoed
-               <svg
-                 class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
-                 xmlns="http://www.w3.org/2000/svg"
-                 viewBox="0 0 20 20"
-                 fill="currentColor"
-               >
-                 <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
-               </svg>
-             </button>
-             <div
-               id="dropdownMenu"
-               class="absolute left-0 w-44 mt-2 origin-top-left bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm"
-             >
-               <div class="py-2">
-                 <a
-                   href="/tentang-unsoed"
-                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                   >Tentang Unsoed</a
-                 >
-                 <a
-                   href="/ukm"
-                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                   >UKM</a
-                 >
-                 <a
-                   href="/paguyuban"
-                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                   >Paguyuban</a
-                 >
-               </div>
-             </div>
-           </div>
-         </div>
+          <div class="relative inline-block text-left">
+            <div class="group">
+              <button
+                id="gensodDropdownButton"
+                type="button"
+                class="inline-flex justify-center items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-fit cursor-pointer relative h-6 flex items-center after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+              >
+                Gensoed Guide
+                <svg
+                  class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+                </svg>
+              </button>
+              <div
+                id="gensodDropdownMenu"
+                class="absolute left-0 w-44 mt-2 origin-top-left bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm"
+              >
+                <div class="py-2">
+                   <a
+                     href="/assignment"
+                     class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                     >Assignment</a
+                   >
+                  <a
+                    href="/info-gensoed"
+                    class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                    >Starterpack</a
+                  >
+                  <a
+                    href="/info-gensoed/twibbon"
+                    class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                    >Twibbon</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
 
-         <div class="relative inline-block text-left">
-           <div class="group">
-             <button
-               id="gensodDropdownButton"
-               type="button"
-               class="inline-flex justify-center items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-fit cursor-pointer relative h-6 flex items-center after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
-             >
-               Gensoed Guide
-               <svg
-                 class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
-                 xmlns="http://www.w3.org/2000/svg"
-                 viewBox="0 0 20 20"
-                 fill="currentColor"
-               >
-                 <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
-               </svg>
-             </button>
-             <div
-               id="gensodDropdownMenu"
-               class="absolute left-0 w-44 mt-2 origin-top-left bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm"
-             >
-               <div class="py-2">
-                 <a
-                   href="/info-gensoed"
-                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                   >Assignment</a
-                 >
-                 <a
-                   href="/info-gensoed"
-                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                   >Starterpack</a
-                 >
-                 <a
-                   href="/info-gensoed/twibbon"
-                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                   >Twibbon</a
-                 >
-               </div>
-             </div>
-           </div>
-         </div>
+          <div class="relative inline-block text-left">
+            <div class="group">
+              <button
+                id="dropdownButton"
+                type="button"
+                class="inline-flex justify-center items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-fit cursor-pointer relative h-6 flex items-center after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+              >
+                Jelajahi Unsoed
+                <svg
+                  class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+                </svg>
+              </button>
+              <div
+                id="dropdownMenu"
+                class="absolute left-0 w-44 mt-2 origin-top-left bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm"
+              >
+                <div class="py-2">
+                  <a
+                    href="/tentang-unsoed"
+                    class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                    >Tentang Unsoed</a
+                  >
+                  <a
+                    href="/ukm"
+                    class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                    >UKM</a
+                  >
+                  <a
+                    href="/paguyuban"
+                    class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                    >Paguyuban</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
 
-         <NavLink href="/committee" active={currentPath.startsWith("/committee")}>Committee</NavLink>
-       </div>
+          <NavLink href="/committee" active={currentPath.startsWith("/committee")}>Committee</NavLink>
+        </div>
 
        <a
          href="/hubungi-kami"
@@ -145,85 +145,85 @@ console.log("Current Path:", currentPath);
         >
           <NavLink href="/" active={currentPath === "/"}>Beranda</NavLink>
 
-          <div class="relative inline-block text-left w-full">
-            <button
-              type="button"
-              id="toggleButton"
-              class="flex items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-full justify-end cursor-pointer relative h-6 after:absolute after:bottom-[-4px] after:right-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
-            >
-              Jelajahi Unsoed
-              <svg
-                class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
-              </svg>
-            </button>
-            <div
-              id="contentArea"
-              class="absolute right-0 w-44 mt-2 origin-top-right bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm z-50"
-            >
-              <div class="py-2">
-                <a
-                  href="/tentang-unsoed"
-                  class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                  >Tentang Unsoed</a
-                >
-                <a
-                  href="/ukm"
-                  class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                  >UKM</a
-                >
-                <a
-                  href="/paguyuban"
-                  class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                  >Paguyuban</a
-                >
-              </div>
-            </div>
-          </div>
+           <div class="relative inline-block text-left w-full">
+             <button
+               id="mobileGensodDropdownButton"
+               type="button"
+               class="flex items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-full justify-end cursor-pointer relative h-6 after:absolute after:bottom-[-4px] after:right-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+             >
+               Gensoed Guide
+               <svg
+                 class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor"
+               >
+                 <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+               </svg>
+             </button>
+             <div
+               id="mobileGensodDropdownMenu"
+               class="absolute right-0 w-44 mt-2 origin-top-right bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm z-50"
+             >
+               <div class="py-2">
+                 <a
+                    href="/assignment"
+                    class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                    >Assignment</a
+                  >
+                 <a
+                   href="/info-gensoed"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >Starterpack</a
+                 >
+                 <a
+                   href="/info-gensoed/twibbon"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >Twibbon</a
+                 >
+               </div>
+             </div>
+           </div>
 
-          <div class="relative inline-block text-left w-full">
-            <button
-              id="mobileGensodDropdownButton"
-              type="button"
-              class="flex items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-full justify-end cursor-pointer relative h-6 after:absolute after:bottom-[-4px] after:right-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
-            >
-              Gensoed Guide
-              <svg
-                class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
-              </svg>
-            </button>
-            <div
-              id="mobileGensodDropdownMenu"
-              class="absolute right-0 w-44 mt-2 origin-top-right bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm z-50"
-            >
-              <div class="py-2">
-                <a
-                  href="/info-gensoed"
-                  class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                  >Assignment</a
-                >
-                <a
-                  href="/info-gensoed"
-                  class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                  >Starterpack</a
-                >
-                <a
-                  href="/info-gensoed/twibbon"
-                  class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
-                  >Twibbon</a
-                >
-              </div>
-            </div>
-          </div>
+           <div class="relative inline-block text-left w-full">
+             <button
+               type="button"
+               id="toggleButton"
+               class="flex items-center text-s3-gold/90 hover:text-s3-gold text-base font-plus-jakarta-sans font-medium transition-all duration-300 w-full justify-end cursor-pointer relative h-6 after:absolute after:bottom-[-4px] after:right-0 after:h-0.5 after:bg-s3-gold after:transition-all after:duration-300 after:w-0 hover:after:w-full"
+             >
+               Jelajahi Unsoed
+               <svg
+                 class="w-4 h-4 ml-1 rotate-90 transition-all duration-200"
+                 xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor"
+               >
+                 <path fill-rule="evenodd" d="M10 12l-5-5h10l-5 5z"></path>
+               </svg>
+             </button>
+             <div
+               id="contentArea"
+               class="absolute right-0 w-44 mt-2 origin-top-right bg-gradient-to-br from-white to-gray-50 divide-y divide-gray-200 rounded-2xl shadow-xl opacity-0 invisible transition duration-300 overflow-hidden backdrop-blur-sm z-50"
+             >
+               <div class="py-2">
+                 <a
+                   href="/tentang-unsoed"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >Tentang Unsoed</a
+                 >
+                 <a
+                   href="/ukm"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >UKM</a
+                 >
+                 <a
+                   href="/paguyuban"
+                   class="block px-4 py-3 text-s3-blue text-sm font-plus-jakarta-sans font-medium hover:bg-s3-gold/15 hover:text-s3-blue transition-all duration-200"
+                   >Paguyuban</a
+                 >
+               </div>
+             </div>
+           </div>
 
            <NavLink href="/committee" active={currentPath.startsWith("/committee")}>Committee</NavLink>
            <a
