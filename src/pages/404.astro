@@ -1,15 +1,128 @@
 ---
-return Astro.redirect('/maintenance');
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout>
-	<main class="min-h-screen flex flex-col items-center justify-center pt-24 px-6 bg-[--color-dark-base]">
-		<h1 class="text-4xl md:text-5xl font-space-grotesk font-bold text-center text-[--color-text-primary] mb-6">
-			Halaman <span class="text-gradient capitalize">404</span>
-		</h1>
-		<p class="text-[--color-text-secondary] font-plus-jakarta-sans text-center max-w-xl">
-			Halaman ini sudah terhubung dengan rute dan navigasi, namun kontennya masih dalam tahap pengembangan.
-		</p>
-	</main>
+<Layout title="404 - Halaman Tidak Ditemukan">
+  <!-- Desktop Version -->
+  <main
+    class="hidden lg:flex relative w-full min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#1E4B82] to-[#0F1F52] px-6"
+  >
+    <div
+      class="absolute inset-0 opacity-20"
+      style="background-image: url('/images/elements/bgbatik-sambutan.webp'); background-size: cover; background-position: top; background-repeat: no-repeat;"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1E4B82]/80 to-[#0F1F52]/80"></div>
+
+    <div class="relative z-10 flex flex-col items-center text-center max-w-2xl -mt-16">
+      <!-- Icon magnifying glass -->
+      <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full flex items-center justify-center mb-6 bg-[radial-gradient(circle_at_center,#FFDC96_0%,#FFC34C_100%)] shadow-[0_0_47.2px_6px_rgba(253,200,92,0.6)] animate-pulse-slow">
+        <svg
+          class="w-11 h-11 sm:w-12 sm:h-12 text-s3-blue"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="s3-glass rounded-3xl px-6 py-8 sm:px-10 sm:py-10 md:px-12 md:py-12 backdrop-blur-md">
+        <h1
+          class="text-s3-gold font-goblin text-3xl sm:text-4xl md:text-5xl leading-tight mb-4"
+        >
+          404 Not Found
+        </h1>
+
+        <p
+          class="text-white/90 text-sm sm:text-base md:text-lg font-plus-jakarta-sans leading-relaxed mb-8"
+        >
+          Ups! Halaman yang kamu cari tidak ditemukan.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <a
+            href="/"
+            class="bg-s3-gold text-s3-blue text-sm sm:text-base font-plus-jakarta-sans font-semibold px-6 py-3 rounded-full hover:brightness-95 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-s3-gold/50 hover:-translate-y-1"
+          >
+            Kembali ke Beranda
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile & Tablet Version -->
+  <main
+    class="lg:hidden relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#1E4B82] to-[#0F1F52] px-4 pt-5 pb-8"
+  >
+    <div
+      class="absolute inset-0 opacity-20"
+      style="background-image: url('/images/elements/bgbatik-sambutan.webp'); background-size: cover; background-position: top; background-repeat: no-repeat;"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1E4B82]/80 to-[#0F1F52]/80"></div>
+
+    <div class="relative z-10 flex flex-col items-center text-center max-w-md">
+      <!-- Icon magnifying glass -->
+      <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 bg-[radial-gradient(circle_at_center,#FFDC96_0%,#FFC34C_100%)] shadow-[0_0_47.2px_6px_rgba(253,200,92,0.6)] animate-pulse-slow">
+        <svg
+          class="w-10 h-10 text-s3-blue"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="s3-glass rounded-2xl px-4 py-6 backdrop-blur-md">
+        <h1
+          class="text-s3-gold font-goblin text-xl sm:text-2xl leading-tight mb-3"
+        >
+          404 Not Found
+        </h1>
+
+        <p
+          class="text-white/90 text-xs sm:text-sm font-plus-jakarta-sans leading-relaxed mb-6"
+        >
+          Maaf, halaman yang Anda cari tidak tersedia.
+        </p>
+
+        <div class="flex flex-col gap-2">
+          <a
+            href="/"
+            class="bg-s3-gold text-s3-blue text-xs sm:text-sm font-plus-jakarta-sans font-semibold px-5 py-2.5 rounded-full hover:brightness-95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-s3-gold/50 hover:-translate-y-1"
+          >
+            Kembali ke Beranda
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  @keyframes pulseSlow {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.06);
+      opacity: 0.9;
+    }
+  }
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+</style>
