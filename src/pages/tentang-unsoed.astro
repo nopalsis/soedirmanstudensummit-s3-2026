@@ -15,7 +15,7 @@ const defaultFakultas = dataFakultas[0];
     <!-- 1. HERO -->
     <section
       id="hero-unsoed"
-      class="relative pt-40 md:pt-52 xl:pt-64"
+      class="relative pt-40 pb-[20.1%] md:pt-52 xl:pt-64"
     >
       <!-- Crop ratio port dari Figma node 755:48/755:49 (container 2396px / viewport 1920px) -->
       <div class="absolute inset-0 overflow-hidden">
@@ -37,8 +37,37 @@ const defaultFakultas = dataFakultas[0];
       />
 
       <div class="relative z-10 mx-auto mb-16 max-w-screen-xl section-padding-x md:mb-24 xl:mb-32">
+        <!-- Box paragraf harus SELEBAR title, bukan max-w-xl tetap 576px yg lebih sempit dari title.
+             Dua percobaan CSS-murni GAGAL, dua-duanya kena sirkularitas "lebar box A = lebar box B":
+             1) w-fit wrapper + child w-full → Chromium jatuh ke available width penuh (box JADI lebih
+                lebar dari title, bukan sama).
+             2) grid grid-cols-[max-content] → ternyata BUKAN cuma h1 yg dihitung: paragraf (teks
+                panjang, width:100% "dianggap auto" oleh spec grid pas ngukur intrinsic size) ikut
+                nyumbang max-content-nya SENDIRI ke track, dan itu = lebar teks paragraf TANPA wrap
+                sama sekali (jauh lebih lebar dari title) — track ke-lock ke situ, akibatnya paragraf
+                gak wrap (available width = kebutuhan penuh) dan box tembus keluar viewport.
+             CSS gak punya cara declarative buat "samain lebar box ke box lain" tanpa salah satu ikut
+             kena hitungan intrinsic size box satunya. Fix: ukur h1 via JS (getBoundingClientRect),
+             terapkan sbg max-width EKSPLISIT (px) ke box paragraf — bukan intrinsic sizing sama sekali,
+             jadi paragraf tetap wrap normal & box tetap ke-constrain. max-w-xl di bawah cuma fallback
+             sebelum script jalan (cegah flash lebar-penuh). Re-ukur pas resize (breakpoint ganti lebar
+             h1) & pas font Reikna selesai load (document.fonts.ready — kalau diukur sebelum font
+             kepasang, lebar h1 masih pake fallback font, salah).
+
+             Percobaan JS pertama TETEP salah: h1 di bawah gak punya width constraint sendiri (block
+             polos, isi PENUH parent-nya) — text-center/text-left cuma geser teks DI DALAM box itu,
+             gak nyusutin box-nya. getBoundingClientRect() jadinya ngukur lebar CONTAINER (~lebar
+             max-w-screen-xl dikurangi padding), bukan lebar asli teks "Universitas Jenderal Soedirman".
+             Makanya box paragraf ketarik jauh lebih lebar dari yg keliatan di title.
+             Fix: w-fit di h1 SENDIRI (bukan dibagi ke wrapper bareng paragraf lagi — h1 sendirian
+             gak ada saingan intrinsic-size, jadi w-fit di sini aman, gak kena bug sirkularitas kayak
+             2 percobaan sebelumnya). Sekarang h1 shrink-wrap ke teks aslinya, getBoundingClientRect
+             ngukur lebar teks beneran. mx-auto md:mx-0 gantiin text-center/md:text-left buat
+             posisi (center di mobile, rata-kiri di desktop) — text-align jadi gak relevan lagi karena
+             box-nya udah pas ngepas teks, gak ada sisa ruang buat di-align. -->
         <h1
-          class="text-center font-reikna text-[#ffc03f] text-4xl [-webkit-text-stroke:0.5px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:text-left md:text-6xl xl:text-7xl"
+          id="hero-title"
+          class="mx-auto w-fit font-reikna text-[#ffc03f] text-4xl [-webkit-text-stroke:0.5px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:mx-0 md:text-6xl xl:text-7xl"
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -47,14 +76,14 @@ const defaultFakultas = dataFakultas[0];
         </h1>
 
         <!-- Deviasi dari Figma: alas paragraf dibuat glass lebih kuat demi kontras, atas keputusan eksplisit — jangan dikembalikan ke versi asli Figma -->
-        <div class="relative mt-6 max-w-xl rounded-[32px] border border-white/15 bg-black/35 p-5 backdrop-blur-xl md:mr-10 md:ml-0">
+        <div id="hero-paragraph-box" class="relative mx-auto mt-6 max-w-xl rounded-[32px] border border-white/15 bg-black/35 p-5 backdrop-blur-xl md:mx-0">
           <p
             class="relative text-justify font-poppins text-sm text-white md:text-base xl:text-lg"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="500"
           >
-            Universitas Jenderal Soedirman (Unsoed) adalah institusi pendidikan unggulan di
+            Universitas Jenderal Soedirman (Unsoed) adalah institusi&nbsp;pendidikan unggulan di
             Purwokerto yang memadukan inovasi teknologi dan komitmen lingkungan dalam setiap aspek
             pendidikan. Dengan kampus hijau yang modern dan beragam program studi, Unsoed siap
             mencetak lulusan yang kreatif dan kompetitif di era digital. Temukan peluang akademis
@@ -63,25 +92,52 @@ const defaultFakultas = dataFakultas[0];
         </div>
       </div>
 
-      <!-- Transisi bawah: flatten tunggal node Figma 827:126 (get_screenshot contentsOnly, 1920x499)
-           — ganti pendekatan lama susun-ulang per-elemen PNG (sumber bug bounding box kelihatan).
-           In-flow (bukan absolute) supaya tinggi gambar sendiri yg reservasi ruang, gak perlu
-           tebak-tebak pb-* yang gampang meleset di breakpoint tertentu (sumber bug overlap).
-           TANPA data-aos: AOS's .aos-animate reset kalah specificity vs Tailwind v4 @layer di
-           project ini (dikonfirmasi lewat computed style — transform stuck translateY(100px)
-           permanen), bikin elemen ini kelihatan "gak pernah pindah" padahal posisi flow-nya udah
-           benar. Bug situs-lebar, di luar scope sini — elemen dekoratif statis ini gak butuh
-           reveal animation, jadi skip data-aos aja daripada ngoprek AOS/Tailwind cascade global.
-           Asset asli 1920x499 punya padding transparan 49px atas + 64px bawah (raw Figma export,
-           belum di-trim) — motif wave keliatan cuma ngisi tengah, nyisain foto hero keliatan di
-           bawahnya sebelum section putih mulai. Di-trim ke 1920x386 biar motif pas nempel di
-           garis batas bawah section, gak ada gap foto lagi. -->
+      <!-- pb-[20.1%]: dulu ada <img transisi-hero.png> in-flow di sini yg reservasi tinggi section ini
+           (386/1920 dari lebar) — dicabut, sekarang jadi elemen standalone di ANTARA section ini &
+           #visi-misi-unsoed (lihat setelah </section> ini). Foto hero di atas (h-[156.67%] w-[124.8%])
+           dikalibrasi ke TINGGI SECTION INI, jadi pb ini gantiin tinggi yg hilang biar rasio crop foto
+           gak berubah — 20.1% = 386/1920, SATU nilai kontinu (bukan step per-breakpoint kayak pb-48
+           md:pb-64 xl:pb-80 versi lama commit 98844b4, itu akar bug: padding step-function gak ikutin
+           tinggi elemen yg scaling kontinu, jadi ketiban/overlap di viewport antar-breakpoint). -->
+    </section>
+
+    <!-- SABUK transisi Hero->Visi-Misi: standalone, BUKAN child dari salah satu section — sengaja
+         nimpa foto Hero DI ATAS garis ini DAN nimpa putih Visi-Misi DI BAWAH garis ini sekaligus.
+         Keputusan desain: overlap ini SENGAJA lebih besar dari apa yg ada di Figma source (diukur
+         pixel-precise: render Figma 827:139 gak ada wave yg bleed ke Visi-Misi sama sekali, cuma
+         gap putih polos ~126px dari wave tengah ke judul Visi/Misi) — override ini eksplisit disetujui,
+         JANGAN dikembalikan ke proporsi Figma asli.
+
+         Wrapper h-0 relative: reservasi tinggi NOL di flow (gak dorong konten manapun), tapi jadi
+         containing-block buat img absolute di dalamnya. top:0 wrapper ini persis di garis sambung
+         kedua section (karena h-0 & posisinya persis setelah </section> Hero, sebelum <section>
+         Visi-Misi).
+
+         img: position:absolute, top-0 (nempel garis sambung), -translate-y-[55%] narik naik —
+         PAKAI transform bukan margin/top persentase, karena persentase margin/top itu relatif ke
+         LEBAR containing block (atau ke tinggi containing block yg di sini 0 — gak guna), sedangkan
+         translateY persen itu relatif ke TINGGI ELEMEN SENDIRI, otomatis kontinu ngikutin aspect-ratio
+         gambar sendiri, gak perlu step-function apapun.
+
+         max-w-[1920px] mx-auto (dgn left-0 right-0 buat auto-margin center jalan di elemen absolute):
+         di atas viewport 1920px, sabuk BERHENTI membesar (frozen di ukuran 1920px, di-center) —
+         gambar aslinya cuma didesain buat lebar referensi 1920, dibiarkan w-full tanpa cap bikin dia
+         terus membesar linear ngikut lebar viewport sementara foto Hero di atasnya kaga (proporsional
+         teredam oleh pt-*/konten teks yg gak ikut lebar), jadi sabuk "kegedean" dibanding foto Hero
+         di layar ultra-lebar. Cap ini nyelesain itu tanpa nyentuh sizing foto Hero (di luar scope,
+         resiko regresi kalau diutak-atik — lihat histori kepotong sebelumnya).
+
+         z-[5]: Hero & Visi-Misi section cuma `relative` TANPA z-index eksplisit → TIDAK bikin stacking
+         context baru (beda dari z-index:0!) → children mereka (wayang z-0, konten teks z-10) langsung
+         head-to-head sama sabuk di context yg sama. z-[5] (di antara 0 & 10) otomatis kesisip pas:
+         di atas background/wayang, di bawah teks Visi/Misi & judul Hero. -->
+    <div class="relative h-0" aria-hidden="true">
       <img
         src="/images/elements/transisi-hero.png"
         alt=""
-        class="pointer-events-none relative block w-full aspect-[1920/386]"
+        class="pointer-events-none absolute top-0 left-0 right-0 z-[5] mx-auto w-full max-w-[1920px] -translate-y-[55%] aspect-[1920/386]"
       />
-    </section>
+    </div>
 
     <!-- 2. VISI & MISI -->
     <section id="visi-misi-unsoed" class="relative overflow-hidden bg-white pt-24 pb-20 md:pt-32 md:pb-28">
@@ -103,9 +159,18 @@ const defaultFakultas = dataFakultas[0];
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="grid grid-cols-1 gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
           <div data-aos="fade-right" data-aos-duration="800">
-            <!-- Flatten tunggal node Figma 755:86 (judul+ornamen 1 grup) — pisah teks+svg lama
-                 penyebab warna salah & ornamen kebalik -->
-            <img src="/images/elements/visi-title-group.png" alt="Visi" class="mx-auto mb-4 h-auto w-40" />
+            <!-- Judul "Visi" balik jadi live text (node 755:87) — sebelumnya di-flatten ke PNG
+                 (visi-title-group.png) krn teks+SVG terpisah bikin warna salah/ornamen kebalik;
+                 sekarang itu bukan masalah lagi karena ornamen dipisah jadi asset sendiri
+                 (ornamen-only, figma node 3068:1162, flatten tunggal — bukan direkonstruksi manual)
+                 dan teksnya cukup CSS langsung, gak perlu gabung ke gambar.
+                 Stroke 1px (bukan 4px) — samain ke pola fill/stroke #142142+#ffc03f yg SUDAH dipakai
+                 section Fakultas Unsoed (line ~194) & Hymne&Mars (line ~279) di page yg sama, biar
+                 konsisten se-page (4px kemarin ketebalan, makan lekukan huruf V/s/M).
+                 -mt-8 di ornamen: motong jarak kosong dari line-height:normal font 120px (line-box-nya
+                 jauh lebih tinggi dari tinggi glyph asli), biar ornamen nempel deket ke title. -->
+            <h2 class="text-center font-reikna text-[120px] font-normal leading-[normal] text-[#142142] [-webkit-text-stroke:2px_#FFC03F]">Visi</h2>
+            <img src="/images/elements/visi-misi-ornamen.png" alt="" class="mx-auto -mt-8 mb-4 h-auto w-40" />
             <p class="text-justify font-poppins text-sm text-[#1e1e1e] leading-relaxed md:text-base">
               {visi}
             </p>
@@ -114,8 +179,12 @@ const defaultFakultas = dataFakultas[0];
           <div class="mx-auto hidden w-3 rounded-md bg-[#f3c662] md:block" aria-hidden="true"></div>
 
           <div data-aos="fade-left" data-aos-duration="800">
-            <!-- Flatten tunggal node Figma 755:173 (judul+ornamen 1 grup) -->
-            <img src="/images/elements/misi-title-group.png" alt="Misi" class="mx-auto mb-4 h-auto w-40" />
+            <!-- Judul "Misi" balik jadi live text (node 755:174) — sama alasannya kayak Visi di atas.
+                 Ornamen sama persis dgn punya Visi (figma node 3068:1154 & 3068:1162 identik pixel-per-
+                 pixel, dicek via cmp) — satu asset shared, gak perlu versi mirror terpisah.
+                 Stroke 1px & -mt-8 ornamen: sama alasannya kayak Visi, lihat komentar di situ. -->
+            <h2 class="text-center font-reikna text-[120px] font-normal leading-[normal] text-[#142142] [-webkit-text-stroke:2px_#FFC03F]">Misi</h2>
+            <img src="/images/elements/visi-misi-ornamen.png" alt="" class="mx-auto -mt-8 mb-4 h-auto w-40" />
             <ol class="space-y-3">
               {misi.map((item, index) => (
                 <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay={index * 100}>
@@ -338,6 +407,24 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
       </div>
     </section>
   </main>
+
+  <script>
+    // Samain lebar box paragraf Hero ke lebar rendered title (lihat komentar di markup-nya buat
+    // kenapa ini gak bisa CSS-murni). Re-ukur pas resize (breakpoint ganti lebar h1) & pas font
+    // Reikna kelar load (kalau diukur sebelum itu, lebar h1 masih pake fallback font, salah).
+    function syncHeroParagraphWidth() {
+      const title = document.getElementById('hero-title');
+      const box = document.getElementById('hero-paragraph-box');
+      if (!title || !box) return;
+
+      const titleRect = title.getBoundingClientRect();
+      if (titleRect.width > 0) box.style.maxWidth = `${titleRect.width}px`;
+    }
+
+    syncHeroParagraphWidth();
+    window.addEventListener('resize', syncHeroParagraphWidth);
+    document.fonts?.ready.then(syncHeroParagraphWidth);
+  </script>
 
   <script>
     const items = document.querySelectorAll<HTMLButtonElement>('.fakultas-item');
