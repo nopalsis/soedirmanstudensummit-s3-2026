@@ -12,9 +12,13 @@ interface Props {
   // personal-use — Figma MCP gak pernah ekspor file font asli, cuma gambar/vector. Kalau
   // unitImg diisi, render 1 repeat-unit (teks+logo) sbg gambar berulang, bukan teks live.
   unitImg?: string;
+  // Default true = perilaku lama semua caller lain gak berubah. index.astro (Beranda) pass
+  // false — versi deploy rekan tim gak ada "2026"-nya di marquee kuning ini; Profile/Starterpack
+  // pakai unitImg (branch beda total, gambar marquee-unit.png), gak kesentuh prop ini sama sekali.
+  showYear?: boolean;
 }
 
-const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shadowClass = "", unitImg } = Astro.props;
+const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shadowClass = "", unitImg, showYear = true } = Astro.props;
 const animClass = direction == "left" ? "animate-marquee" : "animate-marqueeReverse";
 // py-3 sm:py-4 md:py-5 (mode teks live, dipakai index.astro) SENGAJA gak disentuh — regresi ini
 // scoped ke mode unitImg aja (Figma node 929:709: logo 66px nyaris mentok di container 84px,
@@ -42,7 +46,7 @@ const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
       <div class=`whitespace-nowrap flex min-w-max ${animClass}`>
         <div class="flex items-center min-w-fit px-2 sm:px-3">
           <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-            {data} <span class="font-reikna">2026</span>
+            {data} {showYear && <span class="font-reikna">2026</span>}
           </p>
           <img
             src={img}
@@ -52,7 +56,7 @@ const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
         </div>
         <div class="flex items-center min-w-fit px-2 sm:px-3">
           <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-            {data} <span class="font-reikna">2026</span>
+            {data} {showYear && <span class="font-reikna">2026</span>}
           </p>
           <img
             src={img}
@@ -62,7 +66,7 @@ const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
         </div>
         <div class="flex items-center min-w-fit px-2 sm:px-3">
           <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-            {data} <span class="font-reikna">2026</span>
+            {data} {showYear && <span class="font-reikna">2026</span>}
           </p>
           <img
             src={img}
@@ -72,7 +76,7 @@ const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
         </div>
         <div class="flex items-center min-w-fit px-2 sm:px-3">
           <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-            {data} <span class="font-reikna">2026</span>
+            {data} {showYear && <span class="font-reikna">2026</span>}
           </p>
           <img
             src={img}
@@ -84,7 +88,7 @@ const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
       <div class=`whitespace-nowrap flex min-w-max ${animClass}`>
         <div class="flex items-center min-w-fit px-2 sm:px-3">
           <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-            {data} <span class="font-reikna">2026</span>
+            {data} {showYear && <span class="font-reikna">2026</span>}
           </p>
           <img
             src={img}
@@ -94,7 +98,7 @@ const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
         </div>
         <div class="flex items-center min-w-fit px-2 sm:px-3">
           <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-            {data} <span class="font-reikna">2026</span>
+            {data} {showYear && <span class="font-reikna">2026</span>}
           </p>
           <img
             src={img}
@@ -104,7 +108,7 @@ const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
         </div>
         <div class="flex items-center min-w-fit px-2 sm:px-3">
           <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-            {data} <span class="font-reikna">2026</span>
+            {data} {showYear && <span class="font-reikna">2026</span>}
           </p>
           <img
             src={img}
@@ -114,7 +118,7 @@ const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
         </div>
         <div class="flex items-center min-w-fit px-2 sm:px-3">
           <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
-            {data} <span class="font-reikna">2026</span>
+            {data} {showYear && <span class="font-reikna">2026</span>}
           </p>
           <img
             src={img}
