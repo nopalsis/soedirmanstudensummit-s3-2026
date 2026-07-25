@@ -31,9 +31,9 @@ const genders = ['laki-laki', 'perempuan'] as const;
 							{day === 'gladi' ? (
 								dresscodeData[day].label
 							) : (
-								<Fragment>
-									Hari <span class="font-miskan text-sm sm:text-base">{day === 'day1' ? '1' : '2'}</span>
-								</Fragment>
+								<span class="inline-flex items-baseline">
+									Hari&nbsp;<span class="font-miskan text-[9px] leading-none align-middle sm:text-[11px]">{day === 'day1' ? '1' : '2'}</span>
+								</span>
 							)}
 						</button>
 					))}
