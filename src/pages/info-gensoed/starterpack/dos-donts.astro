@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import HeroChrome from '../../../components/StarterPack/HeroChrome.astro';
+import BatikOverlay from '../../../components/StarterPack/BatikOverlay.astro';
 
 // Sumber: Google Doc "Aset Webs" 2026, section "Do's & Don'ts" — dipakai apa
 // adanya (kebetulan identik teks generic 2025, memang itu yang resmi tertulis).
@@ -35,9 +36,7 @@ const donts = [
 	<HeroChrome active="dos-donts" />
 
 	<section class="relative overflow-hidden bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
-		<div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-			<img src="/images/elements/bgbatik.svg" alt="" class="h-full w-full object-cover opacity-10" />
-		</div>
+		<BatikOverlay />
 
 		<div class="relative z-10 mx-auto grid max-w-5xl divide-y divide-white/20 overflow-hidden rounded-[30px] bg-[#1b4682] md:grid-cols-2 md:divide-x md:divide-y-0" data-aos="fade-up">
 			<div class="p-6 md:p-10">

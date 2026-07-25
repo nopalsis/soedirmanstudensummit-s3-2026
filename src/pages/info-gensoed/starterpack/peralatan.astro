@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import HeroChrome from '../../../components/StarterPack/HeroChrome.astro';
+import BatikOverlay from '../../../components/StarterPack/BatikOverlay.astro';
 import SectionTitle from '../../../components/StarterPack/SectionTitle.astro';
 import barangBawaan from '../../../data/barang-bawaan';
 ---
@@ -9,9 +10,7 @@ import barangBawaan from '../../../data/barang-bawaan';
 	<HeroChrome active="peralatan" />
 
 	<section class="relative overflow-hidden bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
-		<div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-			<img src="/images/elements/bgbatik.svg" alt="" class="h-full w-full object-cover opacity-10" />
-		</div>
+		<BatikOverlay />
 
 		<div class="relative z-10 mx-auto max-w-screen-xl">
 			<SectionTitle title="Barang Bawaan" />

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import HeroChrome from '../../../components/StarterPack/HeroChrome.astro';
+import BatikOverlay from '../../../components/StarterPack/BatikOverlay.astro';
 import SectionTitle from '../../../components/StarterPack/SectionTitle.astro';
 import dresscodeData from '../../../data/dresscode';
 
@@ -12,9 +13,7 @@ const genders = ['laki-laki', 'perempuan'] as const;
 	<HeroChrome active="dresscode" />
 
 	<section class="relative overflow-hidden bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
-		<div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-			<img src="/images/elements/bgbatik.svg" alt="" class="h-full w-full object-cover opacity-10" />
-		</div>
+		<BatikOverlay />
 
 		<div class="relative z-10 mx-auto max-w-screen-xl">
 			<SectionTitle title="Dress Code" />
@@ -40,15 +39,15 @@ const genders = ['laki-laki', 'perempuan'] as const;
 					))}
 				</div>
 
-				<div class="mb-8 flex justify-center gap-2 sm:gap-4">
+				<div class="mb-8 flex justify-center gap-3 sm:gap-4">
 					{genders.map((gender, i) => (
 						<button
 							type="button"
-							class="gender-tab rounded-full bg-[#1d3464]/60 px-6 py-2 text-sm text-white capitalize transition-colors sm:text-base data-[active=true]:bg-[#1d3464]"
+							class="gender-tab font-reikna flex h-14 w-[150px] items-center justify-center rounded-[10px] bg-[rgba(255,255,255,0.25)] px-2 text-xl whitespace-nowrap text-[#1b4682] transition-shadow sm:h-16 sm:w-[219px] sm:text-3xl md:text-[40px] data-[active=true]:ring-4 data-[active=true]:ring-[#1b4682]"
 							data-gender={gender}
 							data-active={i === 0 ? 'true' : 'false'}
 						>
-							{gender}
+							{gender === 'laki-laki' ? 'Laki - laki' : 'Perempuan'}
 						</button>
 					))}
 				</div>

@@ -1,6 +1,7 @@
 ---
 // Chrome bersama 3 halaman Starter Pack, sumber Figma node 796:40.
 import SectionTitle from './SectionTitle.astro';
+import BatikOverlay from './BatikOverlay.astro';
 
 interface Props {
 	active: 'dresscode' | 'peralatan' | 'dos-donts';
@@ -16,19 +17,17 @@ const tabs = [
 ---
 
 <section class="relative overflow-hidden bg-[#76a3ed] pt-16 pb-10 md:pt-24">
-	<div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-		<img src="/images/elements/bgbatik.svg" alt="" class="h-full w-full object-cover opacity-10" />
-	</div>
+	<BatikOverlay />
 
 	<img
-		src="/images/elements/awan-biru.svg"
+		src="/images/elements/awan-starterpack.png"
 		alt=""
-		class="pointer-events-none absolute top-24 left-0 z-0 hidden w-40 md:block lg:w-56"
+		class="pointer-events-none absolute top-1/2 left-0 z-0 hidden w-56 -translate-y-1/2 md:block lg:w-72"
 	/>
 	<img
-		src="/images/elements/awan-biru.svg"
+		src="/images/elements/awan-starterpack.png"
 		alt=""
-		class="pointer-events-none absolute top-24 right-0 z-0 hidden w-40 -scale-x-100 md:block lg:w-56"
+		class="pointer-events-none absolute top-1/2 right-0 z-0 hidden w-56 -translate-y-1/2 -scale-x-100 md:block lg:w-72"
 	/>
 
 	<div class="relative z-10 mx-auto flex max-w-screen-xl flex-col items-center px-4 text-center">
@@ -51,6 +50,7 @@ const tabs = [
 						'font-reikna flex w-full max-w-[316px] items-center justify-center rounded-[10px] px-4 py-3 text-center text-lg whitespace-nowrap text-[#ffc03f] transition-colors sm:w-auto sm:flex-1 sm:text-2xl md:text-[48px]',
 						active === tab.key ? 'bg-[#1d3464]' : 'bg-[rgba(255,255,255,0.25)] hover:bg-[rgba(255,255,255,0.4)]',
 					]}
+					style="-webkit-text-stroke: 1px #1d3464; paint-order: stroke fill;"
 					aria-current={active === tab.key ? 'page' : undefined}
 				>
 					{tab.label}
