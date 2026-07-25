@@ -119,23 +119,33 @@ const defaultFakultas = dataFakultas[0];
          translateY persen itu relatif ke TINGGI ELEMEN SENDIRI, otomatis kontinu ngikutin aspect-ratio
          gambar sendiri, gak perlu step-function apapun.
 
-         max-w-[1920px] mx-auto (dgn left-0 right-0 buat auto-margin center jalan di elemen absolute):
-         di atas viewport 1920px, sabuk BERHENTI membesar (frozen di ukuran 1920px, di-center) —
-         gambar aslinya cuma didesain buat lebar referensi 1920, dibiarkan w-full tanpa cap bikin dia
-         terus membesar linear ngikut lebar viewport sementara foto Hero di atasnya kaga (proporsional
-         teredam oleh pt-*/konten teks yg gak ikut lebar), jadi sabuk "kegedean" dibanding foto Hero
-         di layar ultra-lebar. Cap ini nyelesain itu tanpa nyentuh sizing foto Hero (di luar scope,
-         resiko regresi kalau diutak-atik — lihat histori kepotong sebelumnya).
-
          z-[5]: Hero & Visi-Misi section cuma `relative` TANPA z-index eksplisit → TIDAK bikin stacking
          context baru (beda dari z-index:0!) → children mereka (wayang z-0, konten teks z-10) langsung
          head-to-head sama sabuk di context yg sama. z-[5] (di antara 0 & 10) otomatis kesisip pas:
-         di atas background/wayang, di bawah teks Visi/Misi & judul Hero. -->
+         di atas background/wayang, di bawah teks Visi/Misi & judul Hero.
+
+         DUA gambar (kiri: node 827:151, kanan: node 827:150), bukan 1 lagi — 1 gambar w-full
+         max-w-[1920px] dulu (versi awal) kepotong/jelek pas di-zoom out krn dipaksa ngisi lebar
+         viewport penuh dari 1 sumber. Sekarang tiap sisi anchor ke tepinya sendiri (left-0 / right-0)
+         pakai w-[65%] TANPA max-width cap — sengaja gak di-cap: kalau di-cap (kayak percobaan
+         w-full max-w-[1920px] yg lama), di viewport sangat lebar (>2×cap) dua sisi berhenti
+         membesar sementara jarak antara mereka terus melebar, ujungnya CELAH nganga di tengah
+         (wave putus). w-[65%] tanpa cap di kedua sisi = overlap 30% (65+65-100) GARANSI MATEMATIS
+         di lebar viewport BERAPAPUN karena keduanya scale proporsional bareng, gak ada titik gagal.
+         Trade-off: di viewport ekstrem lebar gambar bisa keliatan agak lembut/blur (upscale PNG
+         di atas resolusi native) — diterima, sabuk cuma dekorasi, mending gitu daripada ada celah.
+         Urutan DOM: kiri dulu baru kanan, jadi di zona overlap tengah kanan otomatis nimpa kiri
+         (z-index sama-sama z-[5], seri diputus urutan DOM, yg belakangan menang). -->
     <div class="relative h-0" aria-hidden="true">
       <img
-        src="/images/elements/transisi-hero.png"
+        src="/images/elements/wave-kiri-belt.png"
         alt=""
-        class="pointer-events-none absolute top-0 left-0 right-0 z-[5] mx-auto w-full max-w-[1920px] -translate-y-[55%] aspect-[1920/386]"
+        class="pointer-events-none absolute top-0 left-0 z-[5] w-[65%] -translate-y-[55%] aspect-[1493/367]"
+      />
+      <img
+        src="/images/elements/wave-kanan-belt.png"
+        alt=""
+        class="pointer-events-none absolute top-0 right-0 z-[5] w-[65%] -translate-y-[55%] aspect-[1619/454]"
       />
     </div>
 
@@ -212,9 +222,11 @@ const defaultFakultas = dataFakultas[0];
     />
 
     <!-- 4. FAKULTAS -->
+    <!-- Ornamen atas/bawah (node 3068:1168, 3068:1169) & pattern (node 827:83) diganti — pattern
+         base tetap #F9F7EB (gak diubah, cuma motif overlay-nya yg ganti dari batik-1.webp lama). -->
     <section
       id="fakultas-unsoed"
-      class="relative overflow-hidden bg-[#F9F7EB] bg-[url('/images/elements/batik-1.webp')] bg-repeat pt-16 pb-20 md:pt-24 md:pb-28"
+      class="relative overflow-hidden bg-[#F9F7EB] bg-[url('/images/elements/pattern-fakultas.png')] bg-repeat pt-16 pb-20 md:pt-24 md:pb-28"
     >
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="mb-10 flex flex-col items-center gap-2" data-aos="fade-up" data-aos-duration="800">
@@ -291,16 +303,16 @@ const defaultFakultas = dataFakultas[0];
     />
 
     <!-- 5. HYMNE & MARS -->
+    <!-- Background biru: dulu linear-gradient fade-out di kedua ujung (transparan di 0%/100%,
+         solid cuma di tengah 20.2%-85.1%) — diganti solid #3E6693 penuh dari batas atas section
+         sampai batas bawah (pas ketemu marquee di atas & bawah), gak ada fade lagi. Motif: pattern
+         node 755:306, teknik sama kayak Fakultas Unsoed (line ~227) — alpha native asset sendiri
+         yg jadi dampening, tanpa opacity utility. -->
     <section
       id="hymne-mars-unsoed"
-      class="relative overflow-hidden bg-white py-24 md:py-32"
+      class="relative overflow-hidden bg-[#3E6693] py-24 md:py-32"
     >
-      <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(62,102,147,0)_0%,rgb(62,102,147)_20.2%,rgb(62,102,147)_85.1%,rgba(62,102,147,0)_100%)]"></div>
-      <!-- Patern harus di atas gradient biru (bukan di bawah) supaya tekstur kelihatan, bukan tertutup.
-           opacity-10 lalu opacity-20 masih 2x gagal kelihatan jelas. Ganti pendekatan: pakai
-           teknik section Fakultas Unsoed persis (line 139) — batik-1.webp tanpa opacity utility
-           sama sekali, alpha native webp-nya sendiri yang jadi satu-satunya dampening. -->
-      <div class="absolute inset-0 bg-[url('/images/elements/batik-1.webp')] bg-repeat"></div>
+      <div class="absolute inset-0 bg-[url('/images/elements/pattern-hymne-mars.png')] bg-repeat"></div>
 
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <h2
@@ -376,7 +388,10 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
     />
 
     <!-- 6. PROFIL (VIDEO) -->
+    <!-- bg-white base gak diubah (per instruksi) — cuma nambah motif node 3063:1088 di atasnya,
+         teknik sama kayak Fakultas/Hymne&Mars (alpha native asset, tanpa opacity utility). -->
     <section id="profile-unsoed" class="relative overflow-hidden bg-white py-16 md:py-24">
+      <div class="absolute inset-0 bg-[url('/images/elements/pattern-profil.png')] bg-repeat"></div>
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="flex flex-col items-center gap-8 text-center md:flex-row-reverse md:gap-12">
           <!-- Flatten tunggal node Figma 755:158 (judul 2 baris + shadow) — versi CSS teks sebelumnya

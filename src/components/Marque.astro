@@ -16,9 +16,14 @@ interface Props {
 
 const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shadowClass = "", unitImg } = Astro.props;
 const animClass = direction == "left" ? "animate-marquee" : "animate-marqueeReverse";
+// py-3 sm:py-4 md:py-5 (mode teks live, dipakai index.astro) SENGAJA gak disentuh — regresi ini
+// scoped ke mode unitImg aja (Figma node 929:709: logo 66px nyaris mentok di container 84px,
+// rasio ~78.6%; py-3..5 lama bikin rasio cuma ~58-62%, kegedean). py-1.5/py-2 di bawah bikin
+// rasio ~77-83% match h-10/12/14/16 tanpa ubah tinggi img-nya sendiri.
+const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
 ---
 
-<div class=`flex overflow-x-hidden ${bgColor} ${textColor} ${shadowClass} py-3 sm:py-4 md:py-5`>
+<div class=`flex overflow-x-hidden ${bgColor} ${textColor} ${shadowClass} ${paddingClass}`>
   {unitImg ? (
     <>
       <div class=`whitespace-nowrap flex min-w-max items-center ${animClass}`>
