@@ -1,7 +1,7 @@
 ---
 // Chrome bersama 3 halaman Starter Pack, sumber Figma node 796:40.
-// Tab-pill di sini yang jadi satu-satunya nav antar-3-route (Figma juga
-// punya pill kecil terpisah dekat hero, di-skip biar gak dobel nav).
+import SectionTitle from './SectionTitle.astro';
+
 interface Props {
 	active: 'dresscode' | 'peralatan' | 'dos-donts';
 }
@@ -16,20 +16,31 @@ const tabs = [
 ---
 
 <section class="relative overflow-hidden bg-[#76a3ed] pt-16 pb-10 md:pt-24">
+	<div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+		<img src="/images/elements/bgbatik.svg" alt="" class="h-full w-full object-cover opacity-10" />
+	</div>
+
+	<img
+		src="/images/elements/awan-biru.svg"
+		alt=""
+		class="pointer-events-none absolute top-24 left-0 z-0 hidden w-40 md:block lg:w-56"
+	/>
+	<img
+		src="/images/elements/awan-biru.svg"
+		alt=""
+		class="pointer-events-none absolute top-24 right-0 z-0 hidden w-40 -scale-x-100 md:block lg:w-56"
+	/>
+
 	<div class="relative z-10 mx-auto flex max-w-screen-xl flex-col items-center px-4 text-center">
-		<div class="mb-4 flex items-center justify-center gap-2 sm:gap-4 md:gap-8" data-aos="fade-up">
-			<img src="/images/starterpack/cloud-left-a.svg" alt="" class="h-auto w-16 shrink-0 sm:w-24 md:w-32" />
-			<h1 class="font-reikna text-[#142142] text-4xl sm:text-6xl md:text-7xl lg:text-8xl">Starter Pack</h1>
-			<img src="/images/starterpack/cloud-right-a.svg" alt="" class="h-auto w-16 shrink-0 sm:w-24 md:w-32" />
-		</div>
+		<SectionTitle title="Starter Pack" as="h1" />
 
 		<p class="font-reikna text-white text-lg sm:text-2xl md:text-3xl max-w-3xl" data-aos="fade-up" data-aos-delay="100">
-			Panduan lengkap untuk mempersiapkan diri mengikuti Soedirman Student Summit <span class="text-sm sm:text-base md:text-lg">2026</span>
+			Panduan lengkap untuk mempersiapkan diri mengikuti Soedirman Student Summit <span class="font-miskan text-sm sm:text-base md:text-lg">2026</span>
 		</p>
 
 		<nav
 			aria-label="Navigasi Starter Pack"
-			class="mt-8 flex w-full max-w-4xl flex-wrap justify-center gap-2 rounded-full bg-[rgba(217,217,217,0.2)] p-2 sm:gap-3"
+			class="mt-8 flex w-full max-w-4xl flex-wrap justify-center gap-3"
 			data-aos="fade-up"
 			data-aos-delay="200"
 		>
@@ -37,8 +48,8 @@ const tabs = [
 				<a
 					href={tab.href}
 					class:list={[
-						'font-reikna rounded-full px-4 py-2 text-sm text-[#ffc03f] transition-colors sm:px-8 sm:py-3 sm:text-lg md:text-xl',
-						{ 'bg-[#1d3464]': active === tab.key, 'hover:bg-[#1d3464]/50': active !== tab.key },
+						'font-reikna flex w-full max-w-[316px] items-center justify-center rounded-[10px] px-4 py-3 text-center text-lg whitespace-nowrap text-[#ffc03f] transition-colors sm:w-auto sm:flex-1 sm:text-2xl md:text-[48px]',
+						active === tab.key ? 'bg-[#1d3464]' : 'bg-[rgba(255,255,255,0.25)] hover:bg-[rgba(255,255,255,0.4)]',
 					]}
 					aria-current={active === tab.key ? 'page' : undefined}
 				>

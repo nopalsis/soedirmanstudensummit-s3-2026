@@ -1,6 +1,5 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import Marque from '../../../components/Marque.astro';
 import HeroChrome from '../../../components/StarterPack/HeroChrome.astro';
 import SectionTitle from '../../../components/StarterPack/SectionTitle.astro';
 import barangBawaan from '../../../data/barang-bawaan';
@@ -9,11 +8,13 @@ import barangBawaan from '../../../data/barang-bawaan';
 <Layout title="Barang Bawaan | Starter Pack — Soedirman Student Summit 2026">
 	<HeroChrome active="peralatan" />
 
-	<Marque bgColor="bg-[#95a6f2]" textColor="text-black" shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]" direction="left" unitImg="/images/elements/marquee-unit.png" />
+	<section class="relative overflow-hidden bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
+		<div class="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+			<img src="/images/elements/bgbatik.svg" alt="" class="h-full w-full object-cover opacity-10" />
+		</div>
 
-	<section class="bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
-		<div class="mx-auto max-w-screen-xl">
-			<SectionTitle title="Barang Bawaan" variant="b" />
+		<div class="relative z-10 mx-auto max-w-screen-xl">
+			<SectionTitle title="Barang Bawaan" />
 
 			<div class="swiper barang-swiper mx-auto max-w-5xl" data-aos="fade-up">
 				<div class="swiper-wrapper items-stretch pb-12">

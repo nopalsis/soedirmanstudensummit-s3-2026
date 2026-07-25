@@ -1,18 +1,17 @@
 ---
-// Judul section Starter Pack, sumber Figma node 796:40 (847:169 / 847:182 wrapper).
-// Do's & Don'ts section GAK pakai ornament ini di Figma (langsung judul emas polos).
+// Judul reusable Starter Pack (hero "Starter Pack" & section "Dress Code" pakai
+// komponen + aset yang SAMA PERSIS — figma node 847:157 / 847:170).
+// Do's & Don'ts GAK pakai ornament ini (langsung judul emas polos, lihat dos-donts.astro).
 interface Props {
 	title: string;
-	variant?: 'a' | 'b';
+	as?: 'h1' | 'h2';
 }
 
-const { title, variant = 'a' } = Astro.props;
-const cloudLeft = variant === 'a' ? '/images/starterpack/cloud-left-a.svg' : '/images/starterpack/cloud-left-b.svg';
-const cloudRight = variant === 'a' ? '/images/starterpack/cloud-right-a.svg' : '/images/starterpack/cloud-right-b.svg';
+const { title, as: Tag = 'h2' } = Astro.props;
 ---
 
-<div class="mb-8 flex items-center justify-center gap-2 sm:gap-4 md:gap-8" data-aos="fade-up">
-	<img src={cloudLeft} alt="" class="h-auto w-14 shrink-0 sm:w-20 md:w-28" />
-	<h2 class="font-reikna text-[#142142] text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-center">{title}</h2>
-	<img src={cloudRight} alt="" class="h-auto w-14 shrink-0 sm:w-20 md:w-28" />
+<div class="mb-8 flex flex-col items-center gap-2" data-aos="fade-up">
+	<img src="/images/elements/scroll-above.svg" alt="" class="h-auto w-32 sm:w-44 md:w-56" />
+	<Tag class="font-reikna text-[#142142] text-center text-4xl sm:text-6xl md:text-7xl lg:text-[100px]">{title}</Tag>
+	<img src="/images/elements/scroll-down.svg" alt="" class="h-auto w-32 sm:w-44 md:w-56" />
 </div>

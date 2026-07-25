@@ -7,6 +7,7 @@
 type GenderRules = {
 	rules: string[];
 	image: string;
+	imageNonHijab?: string;
 };
 
 type DayRules = {
@@ -38,7 +39,8 @@ const dresscodeData: Record<'gladi' | 'day1' | 'day2', DayRules> = {
 				'Bagi yang menggunakan ikat pinggang wajib berwarna hitam.',
 				'Bagi Perempuan menggunakan bawahan berupa rok hitam panjang (dilarang span).'
 			],
-			image: '/images/dresscodes/gladi-cewek-hijab.webp'
+			image: '/images/dresscodes/gladi-cewek-hijab.webp',
+			imageNonHijab: '/images/dresscodes/gladi-cewek-non-hijab.webp'
 		}
 	},
 	day1: {
@@ -65,7 +67,8 @@ const dresscodeData: Record<'gladi' | 'day1' | 'day2', DayRules> = {
 				'Bagi yang menggunakan ikat pinggang wajib berwarna hitam.',
 				'Bagi Perempuan menggunakan bawahan hitam panjang.'
 			],
-			image: '/images/dresscodes/day1-cewek-hijab.webp'
+			image: '/images/dresscodes/day1-cewek-hijab.webp',
+			imageNonHijab: '/images/dresscodes/day1-cewek-non-hijab.webp'
 		}
 	},
 	day2: {
@@ -90,7 +93,8 @@ const dresscodeData: Record<'gladi' | 'day1' | 'day2', DayRules> = {
 				'Bagi yang menggunakan ikat pinggang wajib berwarna hitam.',
 				'Bagi Perempuan menggunakan bawahan hitam panjang.'
 			],
-			image: '/images/dresscodes/day2-cewek-hijab.webp'
+			image: '/images/dresscodes/day2-cewek-hijab.webp',
+			imageNonHijab: '/images/dresscodes/day2-cewek-non-hijab.webp'
 		}
 	}
 };
