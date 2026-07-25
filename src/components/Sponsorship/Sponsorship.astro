@@ -1,15 +1,15 @@
 ---
 const sponsors = [
-  { name: "Almamaters", img: "/images/sponsors/almamaters.PNG" },
-  { name: "Arasta", img: "/images/sponsors/arasta.png" },
-  { name: "Artivity", img: "/images/sponsors/artivity.PNG" },
-  { name: "Bisadya", img: "/images/sponsors/bisadya.png" },
-  { name: "BTN", img: "/images/sponsors/btn.jpeg" },
-  { name: "Hydroplus", img: "/images/sponsors/hydroplus.png" },
-  { name: "Mandiri", img: "/images/sponsors/mandiri.jpeg" },
-  { name: "Payuung", img: "/images/sponsors/Payuung.png" },
-  { name: "Pringsewu", img: "/images/sponsors/pringsewu.jpg" },
-  { name: "Sari Roti", img: "/images/sponsors/sari-roti.png" },
+  { name: "Mandiri", img: "/images/sponsors/mandiri.webp", size: "large" },
+  { name: "Pringsewu", img: "/images/sponsors/pringsewu.webp", size: "large" },
+  { name: "BTN", img: "/images/sponsors/btn.webp", size: "large" },
+  { name: "Sari Roti", img: "/images/sponsors/sariroti.webp", size: "small" },
+  { name: "Bisadaya", img: "/images/sponsors/bisadaya.webp", size: "small" },
+  { name: "Artivity", img: "/images/sponsors/artivity.webp", size: "small" },
+  { name: "Arasta", img: "/images/sponsors/arasta.webp", size: "small" },
+  { name: "Payuung", img: "/images/sponsors/payuung.webp", size: "small" },
+  { name: "Almamaters", img: "/images/sponsors/alamamaters.webp", size: "small" },
+  { name: "Hydroplus", img: "/images/sponsors/hydroplus.webp", size: "small" },
 ];
 ---
 
@@ -17,7 +17,7 @@ const sponsors = [
   <div class="container max-w-screen-xl mx-auto">
     <div class="flex flex-col justify-center items-center">
       <div class="flex flex-col items-center mb-12">
-        <img src="/images/elements/scroll-above.svg" alt="" class="w-16 sm:w-20 md:w-28" />
+        <img src="/images/elements/scroll-above.svg" alt="" class="w-16 sm:w-20 md:w-28" data-aos="fade-down" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-out" data-aos-offset="200" data-aos-once="true" />
          <h2
            class="gradient-text-title text-stroke-gold font-junigarden-swash text-xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_0_rgba(0,40,85,1)] leading-tight text-center mt-4"
            data-aos="fade-down"
@@ -29,25 +29,29 @@ const sponsors = [
          >
            Sponsorship
          </h2>
-        <img src="/images/elements/scroll-down.svg" alt="" class="w-16 sm:w-20 md:w-28 mt-4" />
+         <img src="/images/elements/scroll-down.svg" alt="" class="w-16 sm:w-20 md:w-28 mt-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-easing="ease-out" data-aos-offset="200" data-aos-once="true" />
       </div>
-      <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 max-w-sm sm:max-w-xl md:max-w-3xl">
-        {
-          sponsors.map((sponsor) => (
-            <span
-              class="max-w-28 sm:max-w-32 md:max-w-36 lg:max-w-40 flex justify-center items-center"
-              data-aos="zoom-in"
-              data-aos-duration="600"
-              data-aos-delay="200"
-              data-aos-easing="ease-out"
-              data-aos-offset="50"
-              data-aos-once="true"
-            >
-              <img src={sponsor.img} alt={sponsor.name} class="w-full h-auto object-contain" />
-            </span>
-          ))
-        }
-      </div>
+       <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 max-w-sm sm:max-w-xl md:max-w-3xl">
+         {
+           sponsors.map((sponsor) => (
+             <span
+                class={`flex justify-center items-center ${
+                  sponsor.size === "large"
+                    ? "max-w-40 sm:max-w-52 md:max-w-64 lg:max-w-72"
+                    : "max-w-28 sm:max-w-32 md:max-w-36 lg:max-w-40"
+                }`}
+               data-aos="zoom-in"
+               data-aos-duration="600"
+               data-aos-delay="200"
+               data-aos-easing="ease-out"
+               data-aos-offset="50"
+               data-aos-once="true"
+             >
+               <img src={sponsor.img} alt={sponsor.name} class="w-full h-auto object-contain" />
+             </span>
+           ))
+         }
+       </div>
     </div>
   </div>
 </section>
