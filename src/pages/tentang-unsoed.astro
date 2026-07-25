@@ -223,10 +223,16 @@ const defaultFakultas = dataFakultas[0];
 
     <!-- 4. FAKULTAS -->
     <!-- Ornamen atas/bawah (node 3068:1168, 3068:1169) & pattern (node 827:83) diganti — pattern
-         base tetap #F9F7EB (gak diubah, cuma motif overlay-nya yg ganti dari batik-1.webp lama). -->
+         base tetap #F9F7EB (gak diubah, cuma motif overlay-nya yg ganti dari batik-1.webp lama).
+         bg-cover bg-no-repeat, BUKAN bg-repeat: node 827:83 di Figma ukurannya 1931x1191, nyaris
+         persis sama kayak section-nya sendiri (2041x1235) — ini FULL-SECTION fill sekali render,
+         bukan small tileable unit. Salah pasang bg-repeat bikin garis SEAM keliatan di titik
+         sambungan tile (kebukti di section Profil sebelah, edge kiri asset-nya beda pixel-per-pixel
+         sama edge kanan — dicek: 583/584 baris beda) — sama-sama diperbaiki di sini preventif
+         walau belum keliatan seam-nya di viewport yg udah dites (root cause-nya identik). -->
     <section
       id="fakultas-unsoed"
-      class="relative overflow-hidden bg-[#F9F7EB] bg-[url('/images/elements/pattern-fakultas.png')] bg-repeat pt-16 pb-20 md:pt-24 md:pb-28"
+      class="relative overflow-hidden bg-[#F9F7EB] bg-[url('/images/elements/pattern-fakultas.png')] bg-cover bg-center bg-no-repeat pt-16 pb-20 md:pt-24 md:pb-28"
     >
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="mb-10 flex flex-col items-center gap-2" data-aos="fade-up" data-aos-duration="800">
@@ -307,12 +313,14 @@ const defaultFakultas = dataFakultas[0];
          solid cuma di tengah 20.2%-85.1%) — diganti solid #3E6693 penuh dari batas atas section
          sampai batas bawah (pas ketemu marquee di atas & bawah), gak ada fade lagi. Motif: pattern
          node 755:306, teknik sama kayak Fakultas Unsoed (line ~227) — alpha native asset sendiri
-         yg jadi dampening, tanpa opacity utility. -->
+         yg jadi dampening, tanpa opacity utility. bg-cover bg-no-repeat, sama alasannya kayak
+         Fakultas: node 755:306 ukurannya 1921x1288 = full-section fill (section-nya 1994x1378),
+         bukan tileable unit. -->
     <section
       id="hymne-mars-unsoed"
       class="relative overflow-hidden bg-[#3E6693] py-24 md:py-32"
     >
-      <div class="absolute inset-0 bg-[url('/images/elements/pattern-hymne-mars.png')] bg-repeat"></div>
+      <div class="absolute inset-0 bg-[url('/images/elements/pattern-hymne-mars.png')] bg-cover bg-center bg-no-repeat"></div>
 
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <h2
@@ -389,9 +397,15 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
 
     <!-- 6. PROFIL (VIDEO) -->
     <!-- bg-white base gak diubah (per instruksi) — cuma nambah motif node 3063:1088 di atasnya,
-         teknik sama kayak Fakultas/Hymne&Mars (alpha native asset, tanpa opacity utility). -->
+         teknik sama kayak Fakultas/Hymne&Mars (alpha native asset, tanpa opacity utility).
+         bg-cover bg-no-repeat, BUKAN bg-repeat — ROOT CAUSE garis vertikal yg dilaporkan: node
+         3063:1088 ukurannya 1920x933, PERSIS sama kayak tinggi section ini (827:204 juga 933px) —
+         full-section fill sekali render, bukan tileable unit. Kebukti pixel: kolom kiri (x=0) vs
+         kolom kanan (x=1199) asset PNG-nya beda di 583 dari 584 baris (kiri ada garis dekoratif
+         solid, kanan mostly transparent) — pas di-tile via bg-repeat, sambungan antar-tile itu
+         yg keliatan sbg garis vertikal tiap 1200px. -->
     <section id="profile-unsoed" class="relative overflow-hidden bg-white py-16 md:py-24">
-      <div class="absolute inset-0 bg-[url('/images/elements/pattern-profil.png')] bg-repeat"></div>
+      <div class="absolute inset-0 bg-[url('/images/elements/pattern-profil.png')] bg-cover bg-center bg-no-repeat"></div>
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="flex flex-col items-center gap-8 text-center md:flex-row-reverse md:gap-12">
           <!-- Flatten tunggal node Figma 755:158 (judul 2 baris + shadow) — versi CSS teks sebelumnya
