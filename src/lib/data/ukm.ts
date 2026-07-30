@@ -11,10 +11,6 @@ const ukm: {
 		title: string;
 		description: string;
 	}[];
-	gallery: {
-		title: string;
-		image: string;
-	}[];
 	contact: {
 		name: string;
 		link: string;
@@ -77,20 +73,6 @@ const ukm: {
 					'Merupakan bagian dari program Incoming Global Exchange yang menjadi jembatan bagi para peserta untuk merasakan pertukaran budaya langsung dengan para exchange participant dari berbagai negara.'
 			}
 		],
-		gallery: [
-			{
-				title: 'AIESEC Member Program',
-				image: '/img/student-organizations/ukm/AIESEC/AIESEC Member.webp'
-			},
-			{
-				title: 'AIESEC Future Leaders',
-				image: '/img/student-organizations/ukm/AIESEC/AIESEC Future Leaders.webp'
-			},
-			{
-				title: 'Global Volunteer Program',
-				image: '/img/student-organizations/ukm/AIESEC/Global Volunteer.webp'
-			}
-		],
 		contact: {
 			name: '@strivewithunsoed',
 			link: 'https://instagram.com/strivewithunsoed'
@@ -129,25 +111,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Kejurda BKC Jawa Tengah',
-				image: '/img/student-organizations/ukm/BKC/Kejurdo BKC Jawa Tengah.webp'
-			},
-			{
-				title: 'Kejurprov BKC Jawa Tengah',
-				image: '/img/student-organizations/ukm/BKC/Kejurprov BKC Jawa Tengah.webp'
-			},
-			{
-				title: 'Kejurprov FORKI Jateng',
-				image: '/img/student-organizations/ukm/BKC/Kejurprov FORKI Jateng.webp'
-			},
-			{
-				title: 'Rektor Cup UIN Walisongo',
-				image:
-					'/img/student-organizations/ukm/BKC/REKTOR CUP UIN WALISONGO, INTERNASIONAL OPEN KARATE CHAMPIONSHIP_.webp'
-			}
-		],
 		contact: {
 			name: '@ukmbkcunsoed',
 			link: 'https://instagram.com/ukmbkcunsoed'
@@ -168,20 +131,6 @@ const ukm: {
 				title: 'Unsoed Badminton Championship (UBC)',
 				description:
 					'Salah satu program unggulan UKM ini adalah penyelenggaraan Unsoed Badminton Championship (UBC), sebuah turnamen yang melibatkan peserta dari berbagai fakultas di Unsoed serta universitas lain di wilayah Barlingmascakeb (Banjarnegara, Purbalingga, Banyumas, Cilacap, dan Kebumen). Turnamen ini bertujuan untuk memperluas jaringan dan meningkatkan kompetensi atlet melalui kompetisi yang sehat.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Dokumentasi UKM Bulu Tangkis',
-				image: '/img/student-organizations/ukm/Bulu Tangkis/Picture1.webp'
-			},
-			{
-				title: 'Dokumentasi UKM Bulu Tangkis',
-				image: '/img/student-organizations/ukm/Bulu Tangkis/Picture2.webp'
-			},
-			{
-				title: 'Dokumentasi UKM Bulu Tangkis',
-				image: '/img/student-organizations/ukm/Bulu Tangkis/Picture5.webp'
 			}
 		],
 		contact: {
@@ -231,32 +180,6 @@ const ukm: {
 					'Makrab merupakan Kegiatan yang dirangkai untuk menumbuhkan rasa solidaritas, menciptakan keakraban dan kekompakan para pengurus serta anggota UKM Catur Unsoed yang bertujuan untuk meningkatkan keakraban dan solidaritas pengurus serta anggota UKM Catur Unsoed dan menjaga silaturahmi dan mempererat hubungan antar pengurus UKM Catur Unsoed.'
 			}
 		],
-		gallery: [
-			{
-				title: 'MAKRAB UKM Catur',
-				image: '/img/student-organizations/ukm/Catur/MAKRAB.webp'
-			},
-			{
-				title: 'SOCT Competition',
-				image: '/img/student-organizations/ukm/Catur/SOCT.webp'
-			},
-			{
-				title: 'Sparing Session',
-				image: '/img/student-organizations/ukm/Catur/SPARING.webp'
-			},
-			{
-				title: 'Tentoring Activities',
-				image: '/img/student-organizations/ukm/Catur/TENTORING.webp'
-			},
-			{
-				title: 'Upgrading Program',
-				image: '/img/student-organizations/ukm/Catur/UPGRADING.webp'
-			},
-			{
-				title: 'Welcoming Party',
-				image: '/img/student-organizations/ukm/Catur/WELCOMING PARTY_.webp'
-			}
-		],
 		contact: {
 			name: '@ukm.catur.unsoed',
 			link: 'https://instagram.com/ukm.catur.unsoed'
@@ -282,20 +205,6 @@ const ukm: {
 				title: 'IWD',
 				description:
 					'International Women’s Day (IWD) diperingati di seluruh dunia pada tanggal 8 Maret, termasuk di Indonesia. Setiap tahunnya, SCORA dan SCORP mengadakan perayaan IWD sebagai bentuk dukungan terhadap berbagai isu seperti gender equality, reproductive rights, dan violance against women. Tema yang diambil pada perayaan IWD tahun ini adalah WAVE (Women Against Violence Everywhere) yang mengangkat isu kekerasan seksual pada wanita. Kegiatan yang diadakan meliputi pelatihan bahasa isyarat, pemberian materi kepada siswa/siswi SMP berkebutuhan khusus, dan ground campaign di GOR Satria.'
-			}
-		],
-		gallery: [
-			{
-				title: 'GAP Exchange Program',
-				image: '/img/student-organizations/ukm/Cimsa/GAP%20EXCHANGE.webp'
-			},
-			{
-				title: "International Women's Day",
-				image: '/img/student-organizations/ukm/Cimsa/International-Womens-Day.webp'
-			},
-			{
-				title: 'Officials CIMSA Unsoed 2024/2025',
-				image: '/img/student-organizations/ukm/Cimsa/Officials%20CIMSA%20Unsoed%202024_2025.webp'
 			}
 		],
 		contact: {
@@ -328,22 +237,6 @@ const ukm: {
 				title: 'Embassy Visitation',
 				description:
 					'Embassy Visitation adalah inisiatif kunjungan resmi dari Departemen External Affairs Foreign Policy Community of Indonesia (FPCI) Chapter Universitas Jenderal Soedirman (Unsoed) ke kantor-kantor kedutaan besar dan organisasi internasional yang ada di Indonesia. Program ini bertujuan untuk memperdalam pemahaman mahasiswa mengenai diplomasi internasional dan peran kedutaan dalam hubungan antarnegara. Melalui kunjungan ini, peserta diharapkan dapat menjalin dialog terbuka, meningkatkan apresiasi budaya, mendorong kolaborasi antarbangsa, dan mendapatkan wawasan langsung secara eksklusif dari para praktisi tentang praktik diplomasi dan kebijakan luar negeri.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Diplomacy Camp FPCI CHAPTER UNSOED',
-				image: '/img/student-organizations/ukm/FPCI/DOCUMENTATION 1 (DC_24).webp'
-			},
-			{
-				title: 'Climate Agenda FPCI CHAPTER UNSOED',
-				image:
-					'/img/student-organizations/ukm/FPCI/DOCUMENTATION 2 (CA_24)_ FPCI CHAPTER UNSOED.webp'
-			},
-			{
-				title: 'Embassy Visitation FPCI CHAPTER UNSOED',
-				image:
-					'/img/student-organizations/ukm/FPCI/DOCUMENTATION 3 (EV_24)_FPCI CHAPTER UNSOED.webp'
 			}
 		],
 		contact: {
@@ -387,20 +280,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi Karate Gokasi #1',
-				image: '/img/student-organizations/ukm/Gokasi/Dokumentasi-Karate-Gokasi-1.webp'
-			},
-			{
-				title: 'Dokumentasi Karate Gokasi #2',
-				image: '/img/student-organizations/ukm/Gokasi/Dokumentasi-Karate-Gokasi-2.webp'
-			},
-			{
-				title: 'Dokumentasi Karate Gokasi #3',
-				image: '/img/student-organizations/ukm/Gokasi/Dokumentasi-Karate-Gokasi-3.webp'
-			}
-		],
 		contact: {
 			name: '@karateunsoed',
 			link: 'https://instagram.com/karateunsoed'
@@ -438,20 +317,6 @@ const ukm: {
 					'Merupakan kegiatan seminar inspiratif dengan menghadirkan pembicara yang pakar di bidangnya dengan topik pengembangan motivasi diri untuk mahasiswa KIP-K universitas Jenderal Soedirman'
 			}
 		],
-		gallery: [
-			{
-				title: 'Bakti Masyarakat',
-				image: '/img/student-organizations/ukm/Himabisi/bm.webp'
-			},
-			{
-				title: 'Fun Gathering',
-				image: '/img/student-organizations/ukm/Himabisi/fungath.webp'
-			},
-			{
-				title: 'Kegiatan Visitasi Himabisi KIP-K',
-				image: '/img/student-organizations/ukm/Himabisi/IMG-20240520-WA0038.webp'
-			}
-		],
 		contact: {
 			name: '@himabisi_kipk_unsoed',
 			link: 'https://instagram.com/himabisi_kipk_unsoed'
@@ -481,24 +346,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Kegiatan Komunitas Kazoku',
-				image: '/img/student-organizations/ukm/Kazoku/DSC08625 (2).webp'
-			},
-			{
-				title: 'Gathering Januari 2025',
-				image: '/img/student-organizations/ukm/Kazoku/IMG_20250126_154023.webp'
-			},
-			{
-				title: 'Kegiatan Februari 2025',
-				image: '/img/student-organizations/ukm/Kazoku/IMG_20250202_164346.webp'
-			},
-			{
-				title: 'Event Kazoku',
-				image: '/img/student-organizations/ukm/Kazoku/IMG_2456.webp'
-			}
-		],
 		contact: {
 			name: '@kazoku.unsoed',
 			link: 'https://instagram.com/kazoku.unsoed'
@@ -524,24 +371,6 @@ const ukm: {
 				title: 'Latihan Bersama Antar Dojo',
 				description:
 					'Yang menjadi ajang silaturahmi sekaligus peningkatan kemampuan teknik para Kenshi. Kegiatan ini melibatkan dojo-dojo dari berbagai universitas maupun daerah, sehingga menciptakan atmosfer latihan yang kompetitif namun tetap bersahabat.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Kompetisi Kempo',
-				image: '/img/student-organizations/ukm/Kempo/Foto-2.webp'
-			},
-			{
-				title: 'Kompetisi Kempo',
-				image: '/img/student-organizations/ukm/Kempo/Foto-3.webp'
-			},
-			{
-				title: 'Kompetisi Kempo',
-				image: '/img/student-organizations/ukm/Kempo/Foto-5.webp'
-			},
-			{
-				title: 'Kompetisi Kempo',
-				image: '/img/student-organizations/ukm/Kempo/Foto-6.webp'
 			}
 		],
 		contact: {
@@ -593,20 +422,6 @@ const ukm: {
 				description: 'lomba eksternal untuk KSR dan PMR'
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi KSR PMI Unit Unsoed',
-				image: '/img/student-organizations/ukm/KSR PMI/Dokumentasi-KSR-PMI-1.webp'
-			},
-			{
-				title: 'Kegiatan KSR PMI Unit Unsoed',
-				image: '/img/student-organizations/ukm/KSR PMI/Dokumentasi-KSR-PMI-2.webp'
-			},
-			{
-				title: 'Aktivitas KSR PMI Unit Unsoed',
-				image: '/img/student-organizations/ukm/KSR PMI/Dokumentasi-KSR-PMI-3.webp'
-			}
-		],
 		contact: {
 			name: '@ksrpmiunsoed ',
 			link: 'https://instagram.com/ksrpmiunsoed '
@@ -644,20 +459,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Diskusi Publik LPM Sketsa',
-				image: '/img/student-organizations/ukm/Lpm Sketsa/Diskusi-Publik.webp'
-			},
-			{
-				title: 'Pelantikan Pengurus LPM Sketsa',
-				image: '/img/student-organizations/ukm/Lpm Sketsa/Pelantikan.webp'
-			},
-			{
-				title: 'Pelatihan Rutin LPM Sketsa',
-				image: '/img/student-organizations/ukm/Lpm Sketsa/Pelatihan-Rutin.webp'
-			}
-		],
 		contact: {
 			name: '@beritaunsoed',
 			link: 'https://instagram.com/beritaunsoed'
@@ -685,52 +486,6 @@ const ukm: {
 			{
 				title: 'Grand Event',
 				description: ''
-			}
-		],
-		gallery: [
-			{
-				title: 'Grand Event MB BPS 2024',
-				image: '/img/student-organizations/ukm/MB BPS/Grand-Event-2024-1.webp'
-			},
-			{
-				title: 'Grand Event MB BPS 2024',
-				image: '/img/student-organizations/ukm/MB BPS/Grand-Event-2024-2.webp'
-			},
-			{
-				title: 'Grand Event MB BPS 2024',
-				image: '/img/student-organizations/ukm/MB BPS/Grand-Event-2024-3.webp'
-			},
-			{
-				title: 'Latihan Bersama',
-				image: '/img/student-organizations/ukm/MB BPS/Latihan-1.webp'
-			},
-			{
-				title: 'Latihan Bersama',
-				image: '/img/student-organizations/ukm/MB BPS/Latihan-2.webp'
-			},
-			{
-				title: 'Latihan Bersama',
-				image: '/img/student-organizations/ukm/MB BPS/Latihan-3.webp'
-			},
-			{
-				title: 'Latihan Bersama',
-				image: '/img/student-organizations/ukm/MB BPS/Latihan-4.webp'
-			},
-			{
-				title: 'Latihan Bersama',
-				image: '/img/student-organizations/ukm/MB BPS/Latihan-5.webp'
-			},
-			{
-				title: 'Latihan Bersama',
-				image: '/img/student-organizations/ukm/MB BPS/Latihan-6.webp'
-			},
-			{
-				title: 'Latihan Bersama',
-				image: '/img/student-organizations/ukm/MB BPS/Latihan-7.webp'
-			},
-			{
-				title: 'Latihan Bersama',
-				image: '/img/student-organizations/ukm/MB BPS/Latihan-Malam.webp'
 			}
 		],
 		contact: {
@@ -806,20 +561,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi Menwa',
-				image: '/img/student-organizations/ukm/Menwa/Dokumentasi_Menwa.webp'
-			},
-			{
-				title: 'Kegiatan Menwa 1',
-				image: '/img/student-organizations/ukm/Menwa/Dokumentasi_Menwa(1).webp'
-			},
-			{
-				title: 'Kegiatan Menwa 2',
-				image: '/img/student-organizations/ukm/Menwa/Dokumentasi_Menwa(2).webp'
-			}
-		],
 		contact: {
 			name: '@menwa_unsoed',
 			link: 'https://instagram.com/menwa_unsoed'
@@ -853,24 +594,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Kegiatan Mei 2024',
-				image: '/img/student-organizations/ukm/Merpati Putih/IMG-20240505-WA0192.webp'
-			},
-			{
-				title: 'Kegiatan Agustus 2024',
-				image: '/img/student-organizations/ukm/Merpati Putih/IMG-20240805-WA0048.webp'
-			},
-			{
-				title: 'Kegiatan Agustus 2024',
-				image: '/img/student-organizations/ukm/Merpati Putih/IMG-20240813-WA0034.webp'
-			},
-			{
-				title: 'Kegiatan November 2024',
-				image: '/img/student-organizations/ukm/Merpati Putih/IMG-20241118-WA0062.webp'
-			}
-		],
 		contact: {
 			name: '@merpatiputihunsoed',
 			link: 'https://instagram.com/merpatiputihunsoed'
@@ -892,20 +615,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi Kegiatan',
-				image: '/img/student-organizations/ukm/Muda Bersinar/documentation-1.webp'
-			},
-			{
-				title: 'Dokumentasi Kegiatan',
-				image: '/img/student-organizations/ukm/Muda Bersinar/documentation-2.webp'
-			},
-			{
-				title: 'Dokumentasi Kegiatan',
-				image: '/img/student-organizations/ukm/Muda Bersinar/documentation-3.webp'
-			}
-		],
 		contact: {
 			name: '@muda_bersinar_unsoed',
 			link: 'https://instagram.com/muda_bersinar_unsoed'
@@ -925,16 +634,6 @@ const ukm: {
 			{
 				title: 'Latihan Panjat Tebing',
 				description: 'Latihan teknik panjat tebing secara rutin'
-			}
-		],
-		gallery: [
-			{
-				title: 'Kegiatan-1',
-				image: '/img/student-organizations/ukm/Panjat Tebing/Kegiatan-1.webp'
-			},
-			{
-				title: 'Kegiatan-2',
-				image: '/img/student-organizations/ukm/Panjat Tebing/Kegiatan-2.webp'
 			}
 		],
 		contact: {
@@ -982,20 +681,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Latihan Bela Diri PSHT',
-				image: '/img/student-organizations/ukm/Psht/Latihan-PSHT.webp'
-			},
-			{
-				title: 'Dokumentasi Kegiatan PSHT',
-				image: '/img/student-organizations/ukm/Psht/Dokumentasi-PSHT.webp'
-			},
-			{
-				title: 'Soedirman National Terate Championship (SNTC)',
-				image: '/img/student-organizations/ukm/Psht/SNTC-PSHT.webp'
-			}
-		],
 		contact: {
 			name: '@psht_unsoed',
 			link: 'https://instagram.com/psht_unsoed'
@@ -1034,20 +719,6 @@ const ukm: {
 			{
 				title: 'Medali Emas - Bali International Choir Festival 2018',
 				description: ''
-			}
-		],
-		gallery: [
-			{
-				title: 'Dokumentasi PSM GBS',
-				image: '/img/student-organizations/ukm/PSM GBS/DOKUMENTASI-PSM-GBS.webp'
-			},
-			{
-				title: 'Dokumentasi PSM GBS 1',
-				image: '/img/student-organizations/ukm/PSM GBS/DOKUMENTASI-PSM-GBS-1.webp'
-			},
-			{
-				title: 'Dokumentasi PSM GBS 2',
-				image: '/img/student-organizations/ukm/PSM GBS/DOKUMENTASI-PSM-GBS-2.webp'
 			}
 		],
 		contact: {
@@ -1095,20 +766,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi Racana',
-				image: '/img/student-organizations/ukm/Racana/DOKUMENTASI_RACANA.webp'
-			},
-			{
-				title: 'Dokumentasi Racana 2',
-				image: '/img/student-organizations/ukm/Racana/DOKUMENTASI 2_RACANA.webp'
-			},
-			{
-				title: 'Dokumentasi Racana 3',
-				image: '/img/student-organizations/ukm/Racana/DOKUMENTASI 3_RACANA.webp'
-			}
-		],
 		contact: {
 			name: '@racanasoedirman_unsoed',
 			link: 'https://instagram.com/racanasoedirman_unsoed'
@@ -1146,20 +803,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'SEF Goes to Village (SGV)',
-				image: '/img/student-organizations/ukm/SEF/SEF-Goes-to-Village.webp'
-			},
-			{
-				title: 'National Universities Debating Championship',
-				image: '/img/student-organizations/ukm/SEF/Debate-NUDC.webp'
-			},
-			{
-				title: 'SGSC Membership Program',
-				image: '/img/student-organizations/ukm/SEF/Membership-SGSC.webp'
-			}
-		],
 		contact: {
 			name: '@sef.unsoed',
 			link: 'https://instagram.com/sef.unsoed'
@@ -1184,20 +827,6 @@ const ukm: {
 				title: 'Penyetaraan SKS bagi peserta dan juara Kontes Robot Nasional',
 				description:
 					'Apabila lolos Kontes Robot Nasional maka akan mendapatkan penyetaraan SKS sebesar 5-7sks. Apabila juara pada Kontes Robot Nasional maka jumlah sks yang didapat akan semakin tinggi.'
-			}
-		],
-		gallery: [
-			{
-				title: 'KRTMI',
-				image: '/img/student-organizations/ukm/Soedirman Robotic/KRTMI.webp'
-			},
-			{
-				title: 'KRTI',
-				image: '/img/student-organizations/ukm/Soedirman Robotic/KRTI.webp'
-			},
-			{
-				title: '',
-				image: '/img/student-organizations/ukm/Soedirman Robotic/UMS14625.webp'
 			}
 		],
 		contact: {
@@ -1237,20 +866,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Latihan Taekwondo',
-				image: '/img/student-organizations/ukm/Taekwondo/Dokumentasi-1.webp'
-			},
-			{
-				title: 'Kompetisi Taekwondo',
-				image: '/img/student-organizations/ukm/Taekwondo/Dokumentasi-2.webp'
-			},
-			{
-				title: 'Pelatihan Teknik Taekwondo',
-				image: '/img/student-organizations/ukm/Taekwondo/Dokumentasi-3.webp'
-			}
-		],
 		contact: {
 			name: '@taekwondounsoed',
 			link: 'https://instagram.com/taekwondounsoed'
@@ -1271,20 +886,6 @@ const ukm: {
 				title: 'Latihan Rutin Tenis Meja',
 				description:
 					'Latihan teknik dasar, strategi permainan, dan kondisi fisik secara rutin dan terstruktur'
-			}
-		],
-		gallery: [
-			{
-				title: 'Latihan Rutin Tenis Meja',
-				image: '/img/student-organizations/ukm/Tenis Meja/documentation-1.webp'
-			},
-			{
-				title: 'Kompetisi Internal UKM',
-				image: '/img/student-organizations/ukm/Tenis Meja/documentation-2.webp'
-			},
-			{
-				title: 'Kompetisi Internal UKM',
-				image: '/img/student-organizations/ukm/Tenis Meja/documentation-3.webp'
 			}
 		],
 		contact: {
@@ -1348,20 +949,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Festival Sepak Bola Usia Dini',
-				image: '/img/student-organizations/ukm/UFC/Festival-Sepak-Bola-Usia-Dini.webp'
-			},
-			{
-				title: 'Tim Unsoed Football Club',
-				image: '/img/student-organizations/ukm/UFC/Tim-UFC.webp'
-			},
-			{
-				title: 'Kegiatan UFC',
-				image: '/img/student-organizations/ukm/UFC/Kegiatan.webp'
-			}
-		],
 		contact: {
 			name: '@official_unsoedfc',
 			link: 'https://instagram.com/official_unsoedfc'
@@ -1382,20 +969,6 @@ const ukm: {
 				title: 'Rektor Cup',
 				description:
 					'Rektor Cup adalah turnamen olahraga futsal antar fakultas di Universitas Jenderal Soedirman yang diselenggarakan setiap dua tahun sekali. Kegiatan ini berada di bawah naungan UKM Futsal Unsoed dan merupakan salah satu ajang olahraga bergengsi di lingkungan kampus. Tujuan utama dari Rektor Cup adalah untuk mempererat hubungan antar fakultas, menumbuhkan semangat kompetisi yang sehat, serta meningkatkan prestasi mahasiswa di bidang olahraga, khususnya futsal. Sebelum dimulainya Rektor Cup, telah dilakukan pertemuan antar perwakilan fakultas untuk membahas kelanjutan Dekan Cup, sebuah turnamen yang sebelumnya rutin diadakan sebelum pandemi COVID-19. Namun, karena belum ada fakultas yang memulai kembali Dekan Cup, maka Rektor Cup menjadi langkah awal untuk menghidupkan kembali tradisi kompetisi antar fakultas.'
-			}
-		],
-		gallery: [
-			{
-				title: '',
-				image: '/img/student-organizations/ukm/UFU/DOKUMENTASI.webp'
-			},
-			{
-				title: '',
-				image: '/img/student-organizations/ukm/UFU/dokumentasi-1.webp'
-			},
-			{
-				title: '',
-				image: '/img/student-organizations/ukm/UFU/dokumentasi-2.webp'
 			}
 		],
 		contact: {
@@ -1431,20 +1004,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi Kegiatan',
-				image: '/img/student-organizations/ukm/UKKI/dokumentasi-1.webp'
-			},
-			{
-				title: 'UKKI Unsoed',
-				image: '/img/student-organizations/ukm/UKKI/ukki-unsoed-1.webp'
-			},
-			{
-				title: 'UKKI Unsoed',
-				image: '/img/student-organizations/ukm/UKKI/ukki-unsoed-2.webp'
-			}
-		],
 		contact: {
 			name: '@ukkiunsoed',
 			link: 'https://instagram.com/ukkiunsoed'
@@ -1467,16 +1026,6 @@ const ukm: {
 			{
 				title: 'Turnamen',
 				description: 'Turnamen bola tangan antar fakultas'
-			}
-		],
-		gallery: [
-			{
-				title: 'Latihan 2024',
-				image: '/img/placeholder.png'
-			},
-			{
-				title: 'Turnamen',
-				image: '/img/placeholder.png'
 			}
 		],
 		contact: {
@@ -1532,20 +1081,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Soedirman Science Competition',
-				image: '/img/student-organizations/ukm/UKM PR/SSC.webp'
-			},
-			{
-				title: 'Abdidaya Ormawa',
-				image: '/img/student-organizations/ukm/UKM PR/abdidaya-ormawa.webp'
-			},
-			{
-				title: 'Galeri Kegiatan',
-				image: '/img/student-organizations/ukm/UKM PR/foto-galeri.webp'
-			}
-		],
 		contact: {
 			name: '@ukmprunsoed',
 			link: 'https://instagram.com/ukmprunsoed'
@@ -1576,20 +1111,6 @@ const ukm: {
 				title: 'WP (Welcoming Party)',
 				description:
 					'Welcoming Party ini dipergunakan sebagai wadah penyambutan mahasiswa baru di UMAKA, memperkenalkan lebih dalam apa itu UMAKA. Program kerja ini bersifat non-formal dan ada pula beberapa kegiatan di dalamnya seperti bermain games, lalu makan dan juga berdoa bersama.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Dokumentasi UMAKA',
-				image: '/img/student-organizations/ukm/Umaka/dokumentasi-umaka-1.webp'
-			},
-			{
-				title: 'Dokumentasi UMAKA',
-				image: '/img/student-organizations/ukm/Umaka/dokumentasi-umaka-2.webp'
-			},
-			{
-				title: 'Dokumentasi UMAKA',
-				image: '/img/student-organizations/ukm/Umaka/dokumentasi-umaka-3.webp'
 			}
 		],
 		contact: {
@@ -1641,20 +1162,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi Kegiatan',
-				image: '/img/student-organizations/ukm/UPL MPA/dokumentasi-1.webp'
-			},
-			{
-				title: 'Dokumentasi Kegiatan',
-				image: '/img/student-organizations/ukm/UPL MPA/dokumentasi-2.webp'
-			},
-			{
-				title: 'Dokumentasi Kegiatan',
-				image: '/img/student-organizations/ukm/UPL MPA/dokumentasi-3.webp'
-			}
-		],
 		contact: {
 			name: '@uplmpaunsoed',
 			link: 'https://instagram.com/uplmpaunsoed'
@@ -1692,20 +1199,6 @@ const ukm: {
 				description: ''
 			}
 		],
-		gallery: [
-			{
-				title: 'Diklat USMAN',
-				image: '/img/student-organizations/ukm/Usman/diklat-usman.webp'
-			},
-			{
-				title: 'Penampilan Branding UKM S3',
-				image: '/img/student-organizations/ukm/Usman/penampilan-branding-ukm-s3.webp'
-			},
-			{
-				title: 'Unsoed Bersholawat',
-				image: '/img/student-organizations/ukm/Usman/unsoed-bersholawat.webp'
-			}
-		],
 		contact: {
 			name: '@usmanunsoed',
 			link: 'https://instagram.com/usmanunsoed'
@@ -1725,20 +1218,6 @@ const ukm: {
 			{
 				title: 'Latihan Voli',
 				description: 'Latihan bola voli secara rutin'
-			}
-		],
-		gallery: [
-			{
-				title: 'Latihan Voli',
-				image: '/img/student-organizations/ukm/Voli/24c4287d-2bde-49c9-ab09-e3c50d46662a.webp'
-			},
-			{
-				title: 'Turnamen Voli',
-				image: '/img/student-organizations/ukm/Voli/d6d3608e-ae88-4c12-a05b-49ea5dd6a291.webp'
-			},
-			{
-				title: 'Kompetisi Voli',
-				image: '/img/student-organizations/ukm/Voli/e2836922-a707-44c9-ba4a-b1ee3cb0494a.webp'
 			}
 		],
 		contact: {

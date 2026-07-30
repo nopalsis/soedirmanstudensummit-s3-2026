@@ -10,10 +10,6 @@ const paguyuban: {
 		title: string;
 		description: string;
 	}[];
-	gallery: {
-		title: string;
-		image: string;
-	}[];
 	contact: {
 		name: string;
 		link: string;
@@ -65,20 +61,6 @@ const paguyuban: {
 					'Sebagai sedulur satu paguyuban maka diperlukan acara untuk memberikan selamat dan perpisahan kepada wisudawan dan wisudawati putra-putri daerah Wonogiri di Purwokerto.'
 			}
 		],
-		gallery: [
-			{
-				title: 'Bazar Buku',
-				image: '/img/student-organizations/paguyuban/gaplek-asri/bazar-buku.webp'
-			},
-			{
-				title: 'Kumpul Bulanan',
-				image: '/img/student-organizations/paguyuban/gaplek-asri/kumpul-bulanan.webp'
-			},
-			{
-				title: 'Pelepasan Wisuda',
-				image: '/img/student-organizations/paguyuban/gaplek-asri/pelepasan-wisuda.webp'
-			}
-		],
 		contact: {
 			name: '@gaplekasri.pwt',
 			link: 'https://instagram.com/gaplekasri.pwt'
@@ -115,24 +97,6 @@ const paguyuban: {
 					'Kegiatan sosial yang dikolaborasikan dengan pertunjukan seni khas Jawa Barat, sebagai bentuk kepedulian terhadap masyarakat dan pelestarian budaya lokal.'
 			}
 		],
-		gallery: [
-			{
-				title: 'Himadiwa Goes to School',
-				image: '/img/student-organizations/paguyuban/himadiwa/gts.webp'
-			},
-			{
-				title: 'Makrab Himadiwa',
-				image: '/img/student-organizations/paguyuban/himadiwa/makrab.webp'
-			},
-			{
-				title: 'First Meet Himadiwa',
-				image: '/img/student-organizations/paguyuban/himadiwa/first-meet.webp'
-			},
-			{
-				title: 'Himadiwa Care',
-				image: '/img/student-organizations/paguyuban/himadiwa/care.webp'
-			}
-		],
 		contact: {
 			name: '@himadiwa_kng',
 			link: 'https://instagram.com/himadiwa_kng'
@@ -162,20 +126,6 @@ const paguyuban: {
 				title: 'Himaka Mengajar',
 				description:
 					'Program pengabdian masyarakat melalui kegiatan mengajar di sekolah-sekolah sekitar. Bertujuan menumbuhkan semangat belajar dan memberikan inspirasi kepada siswa-siswi di daerah setempat.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Goes to School',
-				image: '/img/student-organizations/paguyuban/himaka/gts.webp'
-			},
-			{
-				title: 'Diesnatalis HIMAKA',
-				image: '/img/student-organizations/paguyuban/himaka/diesnat.webp'
-			},
-			{
-				title: 'Himaka Mengajar',
-				image: '/img/student-organizations/paguyuban/himaka/mengajar.webp'
 			}
 		],
 		contact: {
@@ -229,20 +179,6 @@ const paguyuban: {
 					'Kegiatan jalan-jalan bersama untuk menjelajahi tempat-tempat menarik sambil mempererat hubungan antar anggota. Menggabungkan petualangan, kebersamaan, dan pengalaman baru dalam satu perjalanan seru.'
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi HIMAKASI 1',
-				image: '/img/student-organizations/paguyuban/himakasi/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi HIMAKASI 2',
-				image: '/img/student-organizations/paguyuban/himakasi/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi HIMAKASI 3',
-				image: '/img/student-organizations/paguyuban/himakasi/doc-3.webp'
-			}
-		],
 		contact: {
 			name: '@himakasi.unsoed',
 			link: 'https://instagram.com/himakasi.unsoed'
@@ -272,16 +208,6 @@ const paguyuban: {
 				title: 'Sang Bumi (Semangat Angkat Nilai dan Gagasan Budaya Lampung Inspiratif)',
 				description:
 					'Forum kreatif yang mengangkat nilai-nilai luhur dan gagasan inspiratif dari budaya Lampung. Menggabungkan diskusi, karya seni, dan refleksi budaya untuk membangun identitas dan semangat berkarya di kalangan generasi muda.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Dokumentasi HIMALA 1',
-				image: '/img/student-organizations/paguyuban/himala/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi HIMALA 2',
-				image: '/img/student-organizations/paguyuban/himala/doc-1.webp'
 			}
 		],
 		contact: {
@@ -325,20 +251,6 @@ const paguyuban: {
 					'Sesi latihan rutin untuk melestarikan dan menampilkan tarian tradisional Papua. Selain sebagai bentuk ekspresi budaya, kegiatan ini juga memperkuat identitas dan kebanggaan sebagai anak Papua.'
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi HIMAPPA 1',
-				image: '/img/student-organizations/paguyuban/himappa/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi HIMAPPA 2',
-				image: '/img/student-organizations/paguyuban/himappa/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi HIMAPPA 3',
-				image: '/img/student-organizations/paguyuban/himappa/doc-3.webp'
-			}
-		],
 		contact: {
 			name: '@himappa.purwokerto',
 			link: 'https://instagram.com/himappa.purwokerto'
@@ -368,20 +280,6 @@ const paguyuban: {
 				title: 'BINDES (Bina Desa Cilacap)',
 				description:
 					'Program pengabdian masyarakat yang berfokus pada pemberdayaan desa di wilayah Cilacap. Melibatkan mahasiswa dalam kegiatan edukatif, sosial, dan pembangunan berbasis Tridharma Perguruan Tinggi.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Dokumentasi HMC 1',
-				image: '/img/student-organizations/paguyuban/hmc/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi HMC 2',
-				image: '/img/student-organizations/paguyuban/hmc/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi HMC 3',
-				image: '/img/student-organizations/paguyuban/hmc/doc-3.webp'
 			}
 		],
 		contact: {
@@ -415,20 +313,6 @@ const paguyuban: {
 					'Wadah pelestarian seni tari Minangkabau yang menjadi ruang ekspresi budaya dan kreativitas. Melalui latihan rutin dan pertunjukan, anggota diajak untuk menjaga dan memperkenalkan kekayaan budaya daerah.'
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi IKAMMI 1',
-				image: '/img/student-organizations/paguyuban/ikammi/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi IKAMMI 2',
-				image: '/img/student-organizations/paguyuban/ikammi/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi IKAMMI 3',
-				image: '/img/student-organizations/paguyuban/ikammi/doc-3.webp'
-			}
-		],
 		contact: {
 			name: '@ikammi_unsoed',
 			link: 'https://instagram.com/ikammi_unsoed'
@@ -453,20 +337,6 @@ const paguyuban: {
 				title: 'Rangkaian IMAKABA Dolan ke Sekolah (IDKS)',
 				description:
 					'Program kunjungan ke sekolah-sekolah di wilayah Pekalongan dan Batang untuk berbagi pengalaman kuliah dan memotivasi siswa. IDKS menjadi jembatan inspirasi antara mahasiswa dan generasi penerus daerah.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Dokumentasi IMAKABA 1',
-				image: '/img/student-organizations/paguyuban/imakaba/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi IMAKABA 2',
-				image: '/img/student-organizations/paguyuban/imakaba/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi IMAKABA 3',
-				image: '/img/student-organizations/paguyuban/imakaba/doc-3.webp'
 			}
 		],
 		contact: {
@@ -500,12 +370,6 @@ const paguyuban: {
 					'Kegiatan pengabdian masyarakat yang melibatkan mahasiswa dalam aksi sosial dan pemberdayaan di wilayah Banjarnegara. Mengusung semangat gotong royong dan kepedulian terhadap sesama.'
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi IMBARA 1',
-				image: '/img/student-organizations/paguyuban/imbara/doc-1.webp'
-			}
-		],
 		contact: {
 			name: '@imbara_unsoed',
 			link: 'https://instagram.com/imbara_unsoed'
@@ -520,12 +384,6 @@ const paguyuban: {
 		longDescription:
 			'Ikatan Mahasiswa Pemalang (IMP) Unsoed adalah organisasi paguyuban perkumpulan mahasiswa Pemalang yang bergerak di bidang sosial yang sedang melanjutkan studinya di Universitas Jenderal Soedirman Purwokerto. Hadirnya IMP Unsoed memiliki tujuan untuk membentuk rasa persaudaraan mahasiswa Pemalang yang berada di Unsoed, menampung aspirasi dan kreativitas mahasiswa Pemalang dalam mengaktualisasikan dirinya, memberdayakan seluruh potensi yang dimiliki mahasiswa pemalang di Unsoed serta sebagai media untuk menjalin hubungan yang baik dengan Paguyuban lain. Ikatan Mahasiswa Pemalang Unsoed adalah wadah dari, oleh, dan untuk mahasiswa Pemalang yang berada di Unsoed yang bersifat sukarela, kekeluargaan, demokratis dan kritis. Paguyuban ini didasari oleh amanat mahasiswa dengan memegang teguh prinsip Ketuhanan Yang Maha Esa, kolektivitas, kreativitas, dan intelektualitas.',
 		image: '/img/student-organizations/paguyuban/imp/logo.webp',
-		gallery: [
-			{
-				title: 'Dokumentasi IMP 1',
-				image: '/img/student-organizations/paguyuban/imp/doc-1.webp'
-			}
-		],
 		contact: {
 			name: '@impunsoed_',
 			link: 'https://instagram.com/impunsoed_'
@@ -540,20 +398,6 @@ const paguyuban: {
 		longDescription:
 			'IPMC ( Ikatan Pelajar dan Mahasiswa Cirebon ) ialah wadah untuk seluruh mahasiswa dan mahasiswi yang berasal dari cirebon jawa barat, Sebagai keluarga besar cirebon yang berada di purwokerto. IPMC menjadi salah satu penghubung antara mahasiswa dan mahasiswi yang berada di purwokerto dengan pemerintah daerah.',
 		image: '/img/student-organizations/paguyuban/ipmc/logo.webp',
-		gallery: [
-			{
-				title: 'Dokumentasi IPMC 1',
-				image: '/img/student-organizations/paguyuban/ipmc/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi IPMC 2',
-				image: '/img/student-organizations/paguyuban/ipmc/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi IPMC 3',
-				image: '/img/student-organizations/paguyuban/ipmc/doc-3.webp'
-			}
-		],
 		contact: {
 			name: '@ipmc_purwokerto',
 			link: 'https://instagram.com/ipmc_purwokerto'
@@ -590,20 +434,6 @@ const paguyuban: {
 					'Kompetisi olahraga dan permainan antar paguyuban sebagai ajang silaturahmi dan sportivitas. Menumbuhkan semangat kompetitif sekaligus mempererat hubungan lintas daerah.'
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi Jakmer 1',
-				image: '/img/student-organizations/paguyuban/jakmer/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi Jakmer 2',
-				image: '/img/student-organizations/paguyuban/jakmer/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi Jakmer 3',
-				image: '/img/student-organizations/paguyuban/jakmer/doc-3.webp'
-			}
-		],
 		contact: {
 			name: '@jakarta_merdeka',
 			link: 'https://instagram.com/jakarta_merdeka'
@@ -618,20 +448,6 @@ const paguyuban: {
 		longDescription:
 			'KM PARASOED (Keluarga Mahasiswa Jepara Unsoed) adalah paguyuban mahasiswa yang menaungi mahasiswa asal Kabupaten Jepara yang sedang menempuh studi di Universitas Jenderal Soedirman. Didirikan pada tahun 2019, KM PARASOED hadir sebagai wadah untuk mempererat tali persaudaraan antar mahasiswa Jepara, melestarikan budaya daerah, dan berkontribusi positif bagi kampus serta masyarakat Jepara. Dengan semangat kekeluargaan, KM PARASOED berkomitmen untuk menjadi rumah bagi mahasiswa Jepara di Purwokerto, mendukung pengembangan diri, dan menjaga identitas kedaerahan.',
 		image: '/img/student-organizations/paguyuban/km-parasoed/logo.webp',
-		gallery: [
-			{
-				title: 'Dokumentasi KM PARASOED 1',
-				image: '/img/student-organizations/paguyuban/km-parasoed/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi KM PARASOED 2',
-				image: '/img/student-organizations/paguyuban/km-parasoed/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi KM PARASOED 3',
-				image: '/img/student-organizations/paguyuban/km-parasoed/doc-3.webp'
-			}
-		],
 		contact: {
 			name: '@km_parasoed',
 			link: 'https://instagram.com/km_parasoed'
@@ -651,20 +467,6 @@ const paguyuban: {
 				title: 'Society (Socialization Jenderal Soedirman University)',
 				description:
 					'Kegiatan sosialisasi kampus kepada pelajar Ciamis yang bertujuan memperkenalkan kehidupan perkuliahan di Universitas Jenderal Soedirman. Acara ini menjadi sarana berbagi pengalaman, motivasi, dan informasi seputar dunia mahasiswa.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Dokumentasi KGMP 1',
-				image: '/img/student-organizations/paguyuban/kgmp/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi KGMP 2',
-				image: '/img/student-organizations/paguyuban/kgmp/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi KGMP 3',
-				image: '/img/student-organizations/paguyuban/kgmp/doc-3.webp'
 			}
 		],
 		contact: {
@@ -693,20 +495,6 @@ const paguyuban: {
 					'Program berbagi ini berisi kegiatan sosial seperti santunan, penggalangan dana, dan pembagian sembako yang bertujuan untuk menumbuhkan kepedulian antar sesama.'
 			}
 		],
-		gallery: [
-			{
-				title: 'Dokumentasi KMPP 1',
-				image: '/img/student-organizations/paguyuban/kmpp/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi KMPP 2',
-				image: '/img/student-organizations/paguyuban/kmpp/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi KMPP 3',
-				image: '/img/student-organizations/paguyuban/kmpp/doc-3.webp'
-			}
-		],
 		contact: {
 			name: '@kmppunsoed',
 			link: 'https://instagram.com/kmppunsoed'
@@ -731,20 +519,6 @@ const paguyuban: {
 				title: 'SOEPER Sosialisasi',
 				description:
 					'Program sosialisasi kampus kepada pelajar Purbalingga yang bertujuan memberikan informasi seputar kehidupan perkuliahan di Unsoed. Kegiatan ini juga menjadi sarana berbagi pengalaman dan motivasi dari mahasiswa kepada calon mahasiswa.'
-			}
-		],
-		gallery: [
-			{
-				title: 'Dokumentasi SOEPER 1',
-				image: '/img/student-organizations/paguyuban/soeper/doc-1.webp'
-			},
-			{
-				title: 'Dokumentasi SOEPER 2',
-				image: '/img/student-organizations/paguyuban/soeper/doc-2.webp'
-			},
-			{
-				title: 'Dokumentasi SOEPER 3',
-				image: '/img/student-organizations/paguyuban/soeper/doc-3.webp'
 			}
 		],
 		contact: {
