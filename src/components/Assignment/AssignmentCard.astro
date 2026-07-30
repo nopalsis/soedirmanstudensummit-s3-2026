@@ -1,0 +1,379 @@
+---
+import type { Assignment } from '../../lib/data/assignments';
+
+interface Props {
+  assignment: Assignment;
+  index: number;
+}
+
+const { assignment, index } = Astro.props;
+
+function isAssignmentAvailable(openedAt?: Date): boolean {
+  if (!openedAt) return true;
+  const now = new Date();
+  return now >= openedAt;
+}
+
+function getComingSoonMessage(openedAt?: Date): string {
+  if (!openedAt) return 'Segera!';
+
+  const messages = [
+    'Dalam Proses',
+    'Stay Tuned',
+    'Loading...',
+    'Persiapan Akhir',
+    'Hampir Siap',
+    'Masih Proses',
+    'Tunggu Kejutan',
+    'Segera Hadir',
+    'Masih Disiapkan'
+  ];
+
+  const messageIndex = index % messages.length;
+  return messages[messageIndex];
+}
+
+function getMissionPhase(openedAt?: Date): string {
+  if (!openedAt) return 'Ready';
+
+  const phases = [
+    "⏳ Awaiting Release",
+    "🚀 Final Launch",
+    "🎯 Mission Ready",
+    "🛠️ Development",
+    "⚙️ Preparation",
+    "🧩 Analysis",
+    "🔍 Investigation",
+    "🗺️ Discovery",
+    "🧭 Exploration",
+  ];
+
+  const phaseIndex = index % phases.length;
+  return phases[phaseIndex];
+}
+
+function getProgressPercentage(openedAt?: Date): number {
+  if (!openedAt) return 100;
+
+  const now = new Date();
+  const timeDiff = openedAt.getTime() - now.getTime();
+  const totalTime = 30 * 24 * 60 * 60 * 1000;
+
+  const progress = Math.max(10, Math.min(95, 100 - (timeDiff / totalTime) * 100));
+  return Math.round(progress);
+}
+
+function formatOpenedDate(openedAt?: Date): string {
+  if (!openedAt) return '';
+  return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long' }).format(openedAt);
+}
+
+function isDeadlinePassed(deadline?: Date): boolean {
+  if (!deadline) return false;
+  const now = new Date();
+  return now >= deadline;
+}
+
+function formatDeadlineDate(deadline?: Date): string {
+   if (!deadline) return '';
+   return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long' }).format(deadline);
+}
+
+function formatDeadlineFull(deadline?: Date): string {
+   if (!deadline) return '';
+   return new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'long' }).format(deadline);
+}
+
+const isAvailable = isAssignmentAvailable(assignment.openedAt);
+const comingSoonMessage = getComingSoonMessage(assignment.openedAt);
+const missionPhase = getMissionPhase(assignment.openedAt);
+const progressPercentage = getProgressPercentage(assignment.openedAt);
+const openedDateLabel = formatOpenedDate(assignment.openedAt);
+
+// Handle both single deadline and multiple deadlines
+const deadlinePassed = assignment.deadlines 
+  ? Object.values(assignment.deadlines).every(d => isDeadlinePassed(d))
+  : isDeadlinePassed(assignment.deadline);
+const deadlineLabel = assignment.deadline ? formatDeadlineDate(assignment.deadline) : '';
+const hasMultipleDeadlines = !!assignment.deadlines;
+const snbpSnbtDeadlineLabel = assignment.deadlines?.['SNBP-SNBT'] 
+   ? formatDeadlineDate(assignment.deadlines['SNBP-SNBT'])
+   : '';
+const mandiriDeadlineLabel = assignment.deadlines?.['Mandiri']
+   ? formatDeadlineDate(assignment.deadlines['Mandiri'])
+   : '';
+const snbpSnbtDeadlineFull = assignment.deadlines?.['SNBP-SNBT'] 
+   ? formatDeadlineFull(assignment.deadlines['SNBP-SNBT'])
+   : '';
+const mandiriDeadlineFull = assignment.deadlines?.['Mandiri']
+   ? formatDeadlineFull(assignment.deadlines['Mandiri'])
+   : '';
+const snbpSnbtPassed = assignment.deadlines?.['SNBP-SNBT'] 
+   ? isDeadlinePassed(assignment.deadlines['SNBP-SNBT'])
+   : false;
+const mandiriPassed = assignment.deadlines?.['Mandiri']
+   ? isDeadlinePassed(assignment.deadlines['Mandiri'])
+   : false;
+const deadlineFullLabel = assignment.deadline ? formatDeadlineFull(assignment.deadline) : '';
+
+// File number, dossier style: 001, 002, ...
+const fileNumber = String(index + 1).padStart(3, '0');
+---
+
+<div
+  class="dossier-card relative flex flex-col items-stretch transition-transform duration-300 hover:scale-105 hover:-translate-y-2"
+  data-aos="fade-up"
+  data-aos-duration="600"
+  data-aos-delay={index * 100}
+>
+  <!-- Folder tab -->
+  <div
+    class="relative z-10 -mb-px ml-4 flex w-fit items-center gap-2 rounded-t-md border border-b-0 border-[#E7C055]/50 bg-s3-blue px-3 py-1.5"
+    data-aos="fade-down"
+    data-aos-duration="400"
+    data-aos-delay={index * 100}
+  >
+    
+    <span class="font-mono text-xs font-bold tracking-widest text-[#E7C055]">No. {fileNumber}</span>
+  </div>
+
+  <div
+    class="dossier-body relative flex w-full flex-col justify-between overflow-hidden rounded-b-xl rounded-tr-xl border border-[#E7C055]/30 bg-s3-blue p-4 transition-all duration-300 group-hover:shadow-xl md:p-5 lg:p-6"
+  >
+    <!-- Paper grain / grid texture -->
+    <div class="pointer-events-none absolute inset-0 opacity-[0.07] [background-image:linear-gradient(#E7C055_1px,transparent_1px),linear-gradient(90deg,#E7C055_1px,transparent_1px)] [background-size:18px_18px]"></div>
+
+    <!-- Corner fold -->
+    <div class="pointer-events-none absolute -right-6 -top-6 h-14 w-14 rotate-45 bg-[#E7C055]/10"></div>
+
+    {!isAvailable && (
+      <>
+        <!-- Sealed overlay -->
+        <div class="absolute inset-0 z-10 bg-s3-blue/70 backdrop-blur-[3px]"></div>
+
+        <!-- Wax-seal stamp -->
+        <div
+          class="stamp-wobble absolute inset-0 z-20 flex flex-col items-center justify-center gap-3 text-center"
+          data-aos="zoom-in"
+          data-aos-duration="500"
+          data-aos-delay={index * 100}
+        >
+          <div class="rounded-sm border-2 sm:border-[3px] border-double border-[#E7C055] px-2 sm:px-4 py-1 sm:py-2">
+            <p class="font-poppins text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.3em] text-[#E7C055]">{comingSoonMessage}</p>
+            <p class="mt-0.5 font-poppins text-[9px] sm:text-[11px] font-medium text-white/80">{missionPhase}</p>
+          </div>
+
+          <!-- Progress gauge -->
+          <div class="w-1/2 sm:w-2/3">
+            <div
+              class="h-0.5 sm:h-1 w-full overflow-hidden rounded-full bg-white/10"
+              style={`--progress: ${progressPercentage}%`}
+            >
+              <div class="h-full w-[var(--progress)] rounded-full bg-[#E7C055] transition-all duration-1000"></div>
+            </div>
+            <p class="mt-1 font-mono text-[8px] sm:text-[10px] text-white/50">Processing...{progressPercentage}%</p>
+          </div>
+        </div>
+      </>
+    )}
+
+    <div class="relative z-5 mb-3 md:mb-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay={index * 100}>
+      <h2 class="font-poppins text-lg font-bold text-white md:text-xl">
+        {!isAvailable ? 'PENUGASAN' : assignment.name}
+      </h2>
+      <p class="mt-1 text-xs font-medium text-white/70 md:text-sm">
+        {!isAvailable ? 'Berkas ini belum dibuka untuk publik.' : assignment.description}
+      </p>
+    </div>
+
+    <button
+      data-modal-trigger={`assignment-${index}`}
+      class={`relative z-5 self-end rounded-md border px-3 py-2 font-mono text-xs font-semibold tracking-wide transition-all duration-200 ease-in-out md:text-sm ${
+        isAvailable
+          ? 'cursor-pointer border-[#E7C055] bg-[#E7C055] text-s3-blue hover:bg-transparent hover:text-[#E7C055]'
+          : 'cursor-not-allowed border-white/20 bg-transparent text-white/40'
+      }`}
+      disabled={!isAvailable}
+      data-aos="fade-up"
+      data-aos-duration="500"
+      data-aos-delay={index * 100}
+    >
+      {isAvailable ? 'BUKA BERKAS →' : 'TERSEGEL'}
+    </button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  data-modal={`assignment-${index}`}
+  class="hidden fixed inset-0 z-[999] flex items-center justify-center overflow-y-auto bg-black/70 backdrop-blur-sm p-4"
+>
+  <div
+    class="modal-panel relative w-full max-w-2xl overflow-hidden rounded-2xl shadow-2xl"
+    onclick="event.stopPropagation()"
+  >
+    <!-- Modal Header - Gold -->
+    <div class="relative overflow-hidden bg-[#E7C055] px-6 py-5 md:px-8 md:py-6">
+      <!-- subtle texture on header -->
+      <div class="pointer-events-none absolute inset-0 opacity-[0.15] [background-image:linear-gradient(#0B1E3D_1px,transparent_1px),linear-gradient(90deg,#0B1E3D_1px,transparent_1px)] [background-size:16px_16px]"></div>
+
+      <div class="relative flex items-start justify-between gap-4">
+        <div>
+          <p class="font-mono text-[11px] font-bold tracking-[0.25em] text-s3-blue/60">No. {fileNumber}</p>
+          <h2 class="font-junigarden mt-1 text-2xl font-bold leading-tight text-s3-blue md:text-3xl">
+            {assignment.name}
+          </h2>
+        </div>
+        <button
+          data-modal-close
+          class="shrink-0 rounded-full bg-white p-2 text-s3-blue shadow-md transition-transform duration-200 hover:scale-110 hover:bg-white/90"
+          aria-label="Close modal"
+        >
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2.5"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal Body - Blue -->
+    <div class="max-h-[75vh] overflow-y-auto bg-s3-blue p-6 md:p-8">
+      <div class="space-y-6">
+        <!-- Description -->
+        <p class="text-sm leading-relaxed text-white/80 md:text-base">
+          {assignment.description}
+        </p>
+
+        <!-- Detail Penugasan Section -->
+        <div>
+          <div class="mb-3 flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-[#E7C055]"></span>
+            <h3 class="font-junigarden text-lg font-bold text-white md:text-xl">Detail Penugasan</h3>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <p class="text-sm leading-relaxed text-white/85 md:text-base">
+              {assignment.longDescription}
+            </p>
+          </div>
+        </div>
+
+         <!-- Status Section -->
+         <div class="flex flex-col gap-3 border-t border-[#E7C055]/20 pt-5">
+           <div class="flex items-center gap-2">
+             <span
+               class={`h-2 w-2 rounded-full ${isAvailable ? 'bg-emerald-400' : 'bg-[#E7C055]'}`}
+             ></span>
+             <h3 class="font-junigarden text-base font-bold text-white">Status</h3>
+           </div>
+
+           {hasMultipleDeadlines ? (
+             <div class="flex flex-col gap-2">
+                <span
+                  class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+                    snbpSnbtPassed
+                      ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+                      : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
+                  }`}
+                >
+                  {snbpSnbtPassed
+                    ? '✓ SNBP-SNBT Selesai'
+                    : snbpSnbtDeadlineFull ? `SNBP-SNBT: ${snbpSnbtDeadlineFull}` : 'SNBP-SNBT'}
+                </span>
+                <span
+                  class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+                    mandiriPassed
+                      ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+                      : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
+                  }`}
+                >
+                  {mandiriPassed
+                    ? '✓ Mandiri Selesai'
+                    : mandiriDeadlineFull ? `Mandiri: ${mandiriDeadlineFull}` : 'Mandiri'}
+                </span>
+             </div>
+           ) : (
+              <span
+                class={`w-fit rounded-full border px-3 py-1 font-poppins text-[11px] font-semibold tracking-wide ${
+                  deadlinePassed
+                    ? 'border-emerald-400/40 bg-emerald-400/10 text-emerald-300'
+                    : 'border-[#E7C055]/40 bg-[#E7C055]/10 text-[#E7C055]'
+                }`}
+              >
+                {deadlinePassed
+                  ? '✓ Selesai'
+                  : deadlineFullLabel ? `${deadlineFullLabel}` : 'Tersedia Sekarang'}
+              </span>
+           )}
+         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .overflow-y-auto::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .overflow-y-auto::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .overflow-y-auto::-webkit-scrollbar-thumb {
+    background: rgba(231, 192, 85, 0.35);
+    border-radius: 3px;
+  }
+
+  .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+    background: rgba(231, 192, 85, 0.55);
+  }
+
+  @keyframes stamp-wobble {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .stamp-wobble {
+    animation: stamp-wobble 4s ease-in-out infinite;
+  }
+
+  @keyframes modal-pop {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .modal-panel {
+    animation: modal-pop 0.25s ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .stamp-wobble,
+    .modal-panel {
+      animation: none;
+    }
+  }
+
+  .dossier-card:hover .dossier-body {
+    box-shadow: 0 8px 24px -8px rgba(231, 192, 85, 0.25);
+  }
+
+  .dossier-body {
+    transition: box-shadow 0.3s ease;
+  }
+</style>

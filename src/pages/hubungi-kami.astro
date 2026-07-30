@@ -1,15 +1,17 @@
 ---
-return Astro.redirect('/');
 import Layout from '../layouts/Layout.astro';
+import SocialMedia from '../components/ContactUs/SocialMedia.astro';
 ---
 
-<Layout>
-	<main class="min-h-screen flex flex-col items-center justify-center pt-24 px-6 bg-[--color-dark-base]">
-		<h1 class="text-4xl md:text-5xl font-space-grotesk font-bold text-center text-[--color-text-primary] mb-6">
-			Halaman <span class="text-gradient capitalize">hubungi-kami</span>
-		</h1>
-		<p class="text-[--color-text-secondary] font-plus-jakarta-sans text-center max-w-xl">
-			Halaman ini sudah terhubung dengan rute dan navigasi, namun kontennya masih dalam tahap pengembangan.
-		</p>
-	</main>
+<Layout title="Contact Us | Soedirman Student Summit (S3) 2026">
+	<div class="relative bg-[#76a3ed]">
+		<img
+			src="/images/elements/bgbatik-sambutan.webp"
+			alt=""
+			class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-10"
+		/>
+		<div class="relative z-10">
+			<SocialMedia />
+		</div>
+	</div>
 </Layout>

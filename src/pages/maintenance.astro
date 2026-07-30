@@ -1,0 +1,143 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sedang Dalam Pemeliharaan">
+  <!-- Desktop Version -->
+  <main
+    class="hidden lg:flex relative w-full min-h-screen flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#1E4B82] to-[#0F1F52] px-6"
+  >
+    <div
+      class="absolute inset-0 opacity-20"
+      style="background-image: url('/images/elements/bgbatik-sambutan.webp'); background-size: cover; background-position: top; background-repeat: no-repeat;"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1E4B82]/80 to-[#0F1F52]/80"></div>
+
+    <div class="relative z-10 flex flex-col items-center text-center max-w-2xl -mt-16">
+      <!-- Ikon maintenance -->
+      <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full flex items-center justify-center mb-6 bg-[radial-gradient(circle_at_center,#FFDC96_0%,#FFC34C_100%)] shadow-[0_0_47.2px_6px_rgba(253,200,92,0.6)] animate-pulse-slow">
+        <svg
+          class="w-11 h-11 sm:w-12 sm:h-12 text-s3-blue"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="s3-glass rounded-3xl px-6 py-8 sm:px-10 sm:py-10 md:px-12 md:py-12 backdrop-blur-md">
+        <h1
+          class="text-s3-gold font-reikna text-3xl sm:text-4xl md:text-5xl leading-tight mb-4"
+        >
+          Sedang Dalam Pemeliharaan
+        </h1>
+
+        <p
+          class="text-white/90 text-sm sm:text-base md:text-lg font-plus-jakarta-sans leading-relaxed mb-8"
+        >
+          Kami sedang melakukan pembaruan untuk memberikan pengalaman yang
+          lebih baik. Mohon tunggu sebentar, halaman ini akan segera kembali
+          normal.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+          <a
+            href="/"
+            class="bg-s3-gold text-s3-blue text-sm sm:text-base font-plus-jakarta-sans font-semibold px-6 py-3 rounded-full hover:brightness-95 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-s3-gold/50 hover:-translate-y-1"
+          >
+            Kembali ke Beranda
+          </a>
+          <a
+            href="/assignment"
+            class="border-2 border-s3-gold text-s3-gold text-sm sm:text-base font-plus-jakarta-sans font-semibold px-6 py-3 rounded-full hover:bg-s3-gold/10 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-s3-gold/30 hover:-translate-y-1"
+          >
+            Lihat Penugasan
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile & Tablet Version -->
+  <main
+    class="lg:hidden relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-[#1E4B82] to-[#0F1F52] px-4 pt-5 pb-8"
+  >
+    <div
+      class="absolute inset-0 opacity-20"
+      style="background-image: url('/images/elements/bgbatik-sambutan.webp'); background-size: cover; background-position: top; background-repeat: no-repeat;"
+    ></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1E4B82]/80 to-[#0F1F52]/80"></div>
+
+    <div class="relative z-10 flex flex-col items-center text-center max-w-md">
+      <!-- Ikon maintenance -->
+      <div class="w-20 h-20 rounded-full flex items-center justify-center mb-4 bg-[radial-gradient(circle_at_center,#FFDC96_0%,#FFC34C_100%)] shadow-[0_0_47.2px_6px_rgba(253,200,92,0.6)] animate-pulse-slow">
+        <svg
+          class="w-10 h-10 text-s3-blue"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="s3-glass rounded-2xl px-4 py-6 backdrop-blur-md">
+        <h1
+          class="text-s3-gold font-reikna text-2xl sm:text-3xl leading-tight mb-3"
+        >
+          Sedang Dalam Pemeliharaan
+        </h1>
+
+        <p
+          class="text-white/90 text-xs sm:text-sm font-plus-jakarta-sans leading-relaxed mb-6"
+        >
+          Kami sedang melakukan pembaruan untuk memberikan pengalaman yang
+          lebih baik. Mohon tunggu sebentar.
+        </p>
+
+        <div class="flex flex-col gap-2">
+          <a
+            href="/"
+            class="bg-s3-gold text-s3-blue text-xs sm:text-sm font-plus-jakarta-sans font-semibold px-5 py-2.5 rounded-full hover:brightness-95 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-s3-gold/50 hover:-translate-y-1"
+          >
+            Kembali ke Beranda
+          </a>
+          <a
+            href="/assignment"
+            class="border-2 border-s3-gold text-s3-gold text-xs sm:text-sm font-plus-jakarta-sans font-semibold px-5 py-2.5 rounded-full hover:bg-s3-gold/10 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-s3-gold/30 hover:-translate-y-1"
+          >
+            Lihat Penugasan
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  @keyframes pulseSlow {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.06);
+      opacity: 0.9;
+    }
+  }
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+</style>
