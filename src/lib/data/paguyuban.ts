@@ -23,7 +23,7 @@ const paguyuban: {
 			'Organisasi Generasi Penerus Intelektual Asal Wonogiri-Indonesia Purwokerto yang bertujuan mewujudkan persatuan generasi asal Wonogiri. Wadah untuk menciptakan generasi yang bertaqwa, cerdas, inovatif, kreatif, berintergritas dan bertanggung jawab. Turut berpartisipasi dalam pembangunan dan pengembangan daerah Wonogiri.',
 		longDescription:
 			'Pendidikan memiliki peran sangat penting dalam kehidupan manusia dan suatu hal wajib yang harus didapatkan seluruh generasi yang lahir di Dunia. Pendidikan sebagai langkah awal untuk meneruskan dan membangun peradaban yang lebih baik. Indonesia merupakan Negara Kesatuan Republik Indonesia yang memiliki pedoman Pancasila dan UUD 1945 sebagai dasar serta pemersatu bangsa Indonesia. Bahkan dalam Pembukaan UUD 1945 Alinea ke-4 salah satu tujuan bangsa Indonesia adalah Mencerdaskan Kehidupan Bangsa, sebagaimana tujuan proses pembelajaran dalam Pendidikan. Adanya pendidikan diharapkan mampu menciptakan dan mewujudkan generasi yang baik, cerdas, inovatif, kreatif, dinamis, kritis dan solutif agar mampu menjadi genersi penerus intelektual yang memiliki intergritas tinggi. Oleh karena itu dibentuk suatu wadah organisasi Generasi Penerus Intelektual Asal Wonogiri-Indonesia Purwokerto "GAPLEK ASRI-INDONESIA PURWOKERTO" yang bertujuan terciptanya persatuan dan kesatuan generasi asal Wonogiri yang bertaqwa, cerdas, inovatif, kreatif, berintergritas dan bertanggung jawab berlandaskan intelektual demi terwujudnya generasi penerus intelektual untuk meneruskan dan membangun Wonogiri. Organisasi GAPLEK ASRI-INDONESIA PURWOKERTO yang dibentuk untuk generasi penerus intelektual daerah se-Kabupaten Wonogiri di berbagai daerah di Indonesia, memiliki tanggung jawab yang sama dalam penyelenggaraan, pembinaan dan pengembangan generasi penerus untuk mewujudkan generasi yang berkualitas dan berintegritas yang baik serta turut berpartisipasi dan berkontribusi nyata dalam meneruskan dan membangun demi tercapainya masa depan yang lebih baik di Wonogiri. Dengan adanya wadah yang dibentuk agar lebih peka dan tanggap terhadap kondisi sosial, ekonomi, politik, hukum, budaya, maupun ilmu pengetahuan dan teknologi di Wonogiri. GAPLEK ASRI-INDONESIA PURWOKERTO berasaskan kekeluargaan serta berpedoman pada Pancasila dan UUD 1945.',
-		image: '/img/student-organizations/paguyuban/gaplek-asri/logo.webp',
+		image: '/images/student-orgs/paguyuban/gaplek-asri/logo.webp',
 		events: [
 			{
 				title: 'Kumpul Bulanan',
@@ -74,7 +74,7 @@ const paguyuban: {
 			'Himpunan mahasiswa asal Kabupaten Kuningan yang menjadi wadah bagi mahasiswa untuk bertanggung jawab atas nilai-nilai Adipati Ewangga: keberanian, keadilan, kewibawaan, kebijaksanaan, kepedulian sosial, dan integritas.',
 		longDescription:
 			'Himpunan Mahasiswa Adipati Ewangga (Himadiwa) Kuningan, didirikan pada tanggal 12 Mei 2016, merupakan himpunan yang menaungi mahasiswa asal Kabupaten Kuningan yang sedang menjalankan studi di Universitas Jenderal Soedirman, Banyumas, Jawa Tengah. Himadiwa Kuningan berasaskan Pancasila dan bersifat kekeluargaan serta bertujuan menjadi wadah bagi mahasiswa Kuningan di Purwokerto yang mampu bertanggung jawab atas nilai-nilai yang terdapat dalam diri Adipati Ewangga, yakni keberanian, keadilan, kewibawaan, kebijaksanaan, kepedulian sosial, dan integritas. Lambang Himadiwa Kuningan merupakan simbol identitas dan semangat organisasi. Di bagian tengah terdapat gambar kepala kuda, yang merupakan kuda tunggangan Adipati Ewangga. Kepala kuda ini dikelilingi oleh rantai yang saling terhubung membentuk lingkaran; rantai tersebut mencerminkan kesolidan antaranggota Himadiwa. Dua bintang di sisi kiri dan kanan lambang melambangkan keseimbangan dalam paguyuban, yaitu bahwa setiap anggota memiliki hak yang sama dalam organisasi Himadiwa. Warna biru dalam lambang mencerminkan loyalitas dan kesetiaan anggota Himadiwa, sedangkan warna hitam melambangkan keberanian serta ketegasan paguyuban dalam menyikapi berbagai hal. Secara keseluruhan, bentuk lingkaran dalam lambang melambangkan kesatuan antaranggota Himadiwa. Setiap anggota diharapkan dapat bersatu dalam membentuk paguyuban Himadiwa yang utuh.',
-		image: '/img/student-organizations/paguyuban/himadiwa/logo.webp',
+		image: '/images/student-orgs/paguyuban/himadiwa/logo.webp',
 		events: [
 			{
 				title: 'HGTS (Himadiwa Goes to School): Merayakan Budaya Lewat Seni',
@@ -110,7 +110,7 @@ const paguyuban: {
 			'HIMAKA Purwokerto adalah paguyuban mahasiswa asal Majalengka yang menempuh studi di wilayah Purwokerto. Organisasi ini menjadi wadah kebersamaan untuk mempererat persaudaraan, menumbuhkan semangat kekeluargaan, dan mendorong kontribusi aktif bagi kemajuan daerah.',
 		longDescription:
 			'Himpunan Mahasiswa Majalengka (HIMAKA) Purwokerto merupakan organisasi paguyuban yang menaungi mahasiswa asal Kabupaten Majalengka yang melanjutkan studi di perguruan tinggi wilayah Purwokerto dan sekitarnya. HIMAKA hadir sebagai wadah kebersamaan untuk mempererat tali persaudaraan antar mahasiswa se-daerah serta menumbuhkan semangat kekeluargaan, solidaritas, dan identitas kedaerahan di tengah kehidupan akademik. Tujuan utama HIMAKA Purwokerto adalah memupuk rasa persatuan dan kesatuan berbasis nilai kekeluargaan, sekaligus mendorong anggotanya untuk berperan aktif dalam pembangunan nasional. Hal ini diwujudkan melalui pembinaan mahasiswa yang berintegritas, yakni mereka yang cakap secara intelektual, berbudi luhur, berkepribadian baik, serta memiliki rasa tanggung jawab sosial, khususnya dalam mendukung kemajuan Kabupaten Majalengka. Dalam menjalankan perannya, HIMAKA Purwokerto berlandaskan pada sejumlah asas fundamental yang menjadi pijakan dalam setiap kegiatan organisasi. Asas-asas tersebut meliputi:ketaqwaan, keilmuan, kebersamaan, kebebasan, manfaat, musyawarah, keterpaduan, keadilan, otonomi, dan pengkaderan. Asas pengkaderan menjadi elemen penting dalam menjaga eksistensi HIMAKA secara berkelanjutan. Melalui proses kaderisasi dan pembentukan struktur kepengurusan yang dinamis, HIMAKA terus bertransformasi menjadi organisasi yang adaptif, produktif, dan relevan dengan kebutuhan zaman, baik di lingkup internal maupun eksternal.',
-		image: '/img/student-organizations/paguyuban/himaka/logo.webp',
+		image: '/images/student-orgs/paguyuban/himaka/logo.webp',
 		events: [
 			{
 				title: 'Goes to School (GTS)',
@@ -141,7 +141,7 @@ const paguyuban: {
 			'Paguyuban yang menghimpun mahasiswa dari berbagai daerah di Pulau Sumatra untuk melestarikan budaya Melayu.',
 		longDescription:
 			'Himpunan Mahasiswa Bekasi Unsoed didirikan pada tanggal 29 Juni 2016 merupakan Himpunan Mahasiswa Bekasi Unsoed yang studi di Banyumas. Merupakan satu-satunya organisasi mahasiswa Bekasi di Purwokerto dan berstatus koordinatif Himpunan Mahasiswa Bekasi (HIMAKASI). Himakasi Unsoed berasaskan Pancasila dan bersifat kekeluargaan serta gotong royong. Himakasi Unsoed bertujuan untuk membentuk mahasiswa asal Bekasi di Purwokerto yang bertaqwa, berakhlak mulia, cakap dan mampu berkarya serta bertanggung jawab atas terwujudnya masyarakat adil dan makmur yang diridhoi Allah SWT, dan menjaga nama baik Bekasi.',
-		image: '/img/student-organizations/paguyuban/himakasi/logo.webp',
+		image: '/images/student-orgs/paguyuban/himakasi/logo.webp',
 		events: [
 			{
 				title: 'ABATA (Anak Bekasi Berbagi Takjil)',
@@ -192,7 +192,7 @@ const paguyuban: {
 			'HIMALA (Himpunan Mahasiswa Lampung) adalah paguyuban mahasiswa asal Lampung di Universitas Jenderal Soedirman. Didirikan sejak 2019, HIMALA menjadi wadah untuk mempererat solidaritas, melestarikan budaya daerah, dan berkontribusi positif bagi kampus maupun tanah kelahiran.',
 		longDescription:
 			'Paguyuban ini bernama Himpunan Mahasiswa Lampung yang kemudian disingkat menjadi HIMALA. Paguyuban ini awal mulanya dibentuk pada sekitar tahun 2019 oleh para mahasiswa/i rantau asal Provinsi Lampung untuk dapat berkumpul dan membangun solidaritas bersama, yang kemudian terus berlanjut hingga kini dan telah resmi mendapat SK Rektor Universitas Jenderal Soedirman Nomor 3045/UN23/KM.04.00/2024. Pada awalnya, Himpunan Mahasiswa Lampung dibentuk semata-mata menjadi wadah bagi para mahasiswa asal Lampung untuk dapat berhimpun bersama, bersenang-senang, dan mempererat solidaritas di antara sesama mahasiswa/i yang berkuliah di Universitas Jenderal Soedirman. Dengan tujuan awal untuk membangun ikatan dan mempererat hubungan antar anggota. Saat ini, Himala tidak sekedar perkumpulan yang bersifat non formal, melainkan wadah paguyuban bagi mahasiswa/i Lampung yang berkuliah di Universitas Jenderal Soedirman. Paguyaban Himala membentuk menjadi sebuah organisasi yang berusaha untuk data memberikan dampak kepada Unsoed, Lampung, dan kedua citra tersebut tentunya.',
-		image: '/img/student-organizations/paguyuban/himala/logo.webp',
+		image: '/images/student-orgs/paguyuban/himala/logo.webp',
 		events: [
 			{
 				title: 'Team Building & Leadership Training',
@@ -223,7 +223,7 @@ const paguyuban: {
 			'HIMAPPA (Himpunan Mahasiswa dan Pelajar Afirmasi Non Afirmasi Papua di Purwokerto) adalah paguyuban resmi yang menjadi rumah bagi pelajar dan mahasiswa Papua di Purwokerto. Didirikan sejak 2016, HIMAPPA hadir sebagai wadah kebersamaan, pengembangan diri, dan solidaritas antar anak Papua dalam menempuh pendidikan.',
 		longDescription:
 			'Himappa adalah singkatan dari Himpunan Mahasiswa dan Pelajar Afirmasi Non Afirmasi Papua di Purwokerto. Afirmasi adalah salah satu Beasiswa dari kementrian Pendidikan dan kebudayaan yang diberikan kepada Pelajar dan Mahasiswa Papua berprestasi. Himappa didirikan pada tanggal 14 agustus 2016 oleh kaka-kaka mahasiswa afirmasi Papua angakatan pertama di Universitas Jenderal Soedirman dengan jumalh anggota 13 Orang. Awal mulanya Himappa dibentuk dengan tujuan untuk mempermudah masalah administrasi di Universitas Jenderal Soedirman selama 3 tahun namun dengan berjalannya waktu melalui banyak diskusi akhirnya pada tahun 2019 Himappa resmi menjadi Paguyuban yang merangkul seluruh anak Papua yang ada di Purwokerto mulai dari Pelajar hingga Mahasiswa sampai sekarang. Himappa berperan sebagai wadah bagi seluruh anggota himappa untuk belajar berorganisasi, saling merangkul antar anak-anak Papua dan sebagai rumah bagi kami anak-anak Papua. Jumlah Anggota Himappa adalah 129 Anggota terhitung mulai dari Pelajar-Mahasiswa, anggota Himappa adalah Pelajar dan Mahasiswa Papua yang menimba ilmu di Kota study purwokerto. Himappa menjadi Paguyuban yang resmi terdaftar di BEM Universitas Jenderal Soedirman pada tahun 2022.',
-		image: '/img/student-organizations/paguyuban/himappa/logo.webp',
+		image: '/images/student-orgs/paguyuban/himappa/logo.webp',
 		events: [
 			{
 				title: 'HUT HIMAPPA',
@@ -264,7 +264,7 @@ const paguyuban: {
 			'HMC UNSOED (Himpunan Mahasiswa Cilacap) adalah paguyuban mahasiswa asal Kabupaten Cilacap yang menjadi wadah silaturahmi, pengembangan diri, dan pengabdian kepada masyarakat. Melalui semangat kekeluargaan dan musyawarah, HMC menyusun program kerja yang berdampak positif bagi anggota maupun masyarakat Cilacap.',
 		longDescription:
 			'HMC UNSOED ( Himpunan Mahasiswa Cilacap) merupakan organisasi berbasis paguyuban kedaerahan yang menjadi wadah silaturahmi dalam rangka menjalin komunikasi antar mahasiswa Unsoed yang berasal dari Kabupaten Cilacap. Tidak hanya menjadi wadah silaturahmi, HMC Unsoed juga dapat menjadi ruang berproses bagi anggota dalam bidang keorganisasian melalui serangkaian program kerja yang disusun berdasarkan musyawarah mufakat. Dalam penyusunannya setidaknya terdapat satu program kerja yang berdampak positif terhadap elemen masyarakat Kabupaten Cilacap. Dengan adanya hal tersebut maka baik secara langsung maupun tidak langsung masyarakat Kabupaten Cilacap dapat merasakan manfaat dari adanya HMC Unsoed ini. Adapun program kerja yang dilaksanakan adalah program kerja yang berbasis pada Tridharma Perguruan Tinggi dengan tidak mengesampingkan rasa kekeluargaan antar anggota. Untuk itu para anggota sangat diharapkan dapat berkontribusi secara aktif, serta mampu memberikan saran dan kritik guna kebaikan organisasi.',
-		image: '/img/student-organizations/paguyuban/hmc/logo.webp',
+		image: '/images/student-orgs/paguyuban/hmc/logo.webp',
 		events: [
 			{
 				title: 'UDC (Unsoed Day Cilacap)',
@@ -295,7 +295,7 @@ const paguyuban: {
 			'IKAMMI adalah paguyuban mahasiswa asal Sumatera Barat dan keturunan Minang di Universitas Jenderal Soedirman. Menjadi rumah bagi mahasiswa Minang di Purwokerto, IKAMMI mempererat persaudaraan dan melestarikan budaya Minangkabau dalam suasana kekeluargaan.',
 		longDescription:
 			'IKAMMI adalah sebuah paguyuban mahasiswa yang berasal dari Sumatera Barat. Paguyuban ini menjadi wadah untuk mempererat hubungan antar mahasiswa Sumatera Barat serta mahasiswa keturunan urang awak (Minang) yang sedang menempuh pendidikan di Universitas Jenderal Soedirman. IKAMMI hadir sebagai rumah bagi mahasiswa Minang di Purwokerto, dengan berlandaskan pada adat dan budaya Minangkabau.',
-		image: '/img/student-organizations/paguyuban/ikammi/logo.webp',
+		image: '/images/student-orgs/paguyuban/ikammi/logo.webp',
 		events: [
 			{
 				title: 'First Meet & Bonding',
@@ -326,7 +326,7 @@ const paguyuban: {
 			'IMAKABA Purwokerto adalah paguyuban mahasiswa asal Kota/Kabupaten Pekalongan dan Kabupaten Batang yang menempuh studi di Purwokerto. Sejak 2004, IMAKABA menjadi ruang kebersamaan dan persaudaraan yang membersamai perjalanan mahasiswa di tanah rantau.',
 		longDescription:
 			'IMAKABA Purwokerto adalah organisasi paguyuban yang menaungi mahasiswa/i asal Kota Pekalongan, Kabupaten Pekalongan, dan Kabupaten Batang yang sedang menempuh studi di Purwokerto. IMAKABA berdiri sejak 21 Mei 2004, IMAKABA telah menjadi ruang kebersamaan, kekeluargaan, dan persaudaraan bagi para anggotanya selama lebih dari 22 tahun. IMAKABA hadir bukan hanya untuk menemani perkuliahan, tapi juga untuk membersamai setiap langkah dan cerita para mahasiswanya selama di perantauan.',
-		image: '/img/student-organizations/paguyuban/imakaba/logo.webp',
+		image: '/images/student-orgs/paguyuban/imakaba/logo.webp',
 		events: [
 			{
 				title: 'Pengabdian Masyarakat',
@@ -352,7 +352,7 @@ const paguyuban: {
 			'IMBARA UNSOED (Ikatan Mahasiswa Banjarnegara) adalah paguyuban mahasiswa asal Banjarnegara di Universitas Jenderal Soedirman. Didirikan pada 9 Januari 2012, IMBARA menjadi ruang silaturahmi, pelestarian identitas daerah, dan wadah kontribusi sosial-budaya di lingkungan kampus dan masyarakat.',
 		longDescription:
 			'IMBARA UNSOED (Ikatan Mahasiswa Banjarnegara Universitas Jenderal Soedirman) adalah paguyuban mahasiswa yang menaungi mahasiswa asal Kabupaten Banjarnegara yang sedang menempuh studi di Universitas Jenderal Soedirman. Didirikan pada tahun 2019, IMBARA hadir sebagai wadah untuk mempererat tali persaudaraan antar mahasiswa Banjarnegara, melestarikan budaya daerah, dan berkontribusi positif bagi kampus serta masyarakat Banjarnegara. Dengan semangat kekeluargaan, IMBARA UNSOED berkomitmen untuk menjadi rumah bagi mahasiswa Banjarnegara di Purwokerto, mendukung pengembangan diri, dan menjaga identitas kedaerahan.',
-		image: '/img/student-organizations/paguyuban/imbara/logo.webp',
+		image: '/images/student-orgs/paguyuban/imbara/logo.webp',
 		events: [
 			{
 				title: 'Temu Perdana IMBARA',
@@ -383,7 +383,7 @@ const paguyuban: {
 			'Ikatan Mahasiswa Pemalang (IMP) Unsoed adalah organisasi paguyuban mahasiswa Pemalang yang bergerak di bidang sosial. IMP Unsoed bertujuan untuk membentuk rasa persaudaraan, menampung aspirasi, dan memberdayakan potensi mahasiswa Pemalang di Unsoed.',
 		longDescription:
 			'Ikatan Mahasiswa Pemalang (IMP) Unsoed adalah organisasi paguyuban perkumpulan mahasiswa Pemalang yang bergerak di bidang sosial yang sedang melanjutkan studinya di Universitas Jenderal Soedirman Purwokerto. Hadirnya IMP Unsoed memiliki tujuan untuk membentuk rasa persaudaraan mahasiswa Pemalang yang berada di Unsoed, menampung aspirasi dan kreativitas mahasiswa Pemalang dalam mengaktualisasikan dirinya, memberdayakan seluruh potensi yang dimiliki mahasiswa pemalang di Unsoed serta sebagai media untuk menjalin hubungan yang baik dengan Paguyuban lain. Ikatan Mahasiswa Pemalang Unsoed adalah wadah dari, oleh, dan untuk mahasiswa Pemalang yang berada di Unsoed yang bersifat sukarela, kekeluargaan, demokratis dan kritis. Paguyuban ini didasari oleh amanat mahasiswa dengan memegang teguh prinsip Ketuhanan Yang Maha Esa, kolektivitas, kreativitas, dan intelektualitas.',
-		image: '/img/student-organizations/paguyuban/imp/logo.webp',
+		image: '/images/student-orgs/paguyuban/imp/logo.webp',
 		contact: {
 			name: '@impunsoed_',
 			link: 'https://instagram.com/impunsoed_'
@@ -397,7 +397,7 @@ const paguyuban: {
 			'IPMC (Ikatan Pelajar dan Mahasiswa Cirebon) adalah paguyuban mahasiswa asal Cirebon yang menempuh studi di Purwokerto. IPMC berperan sebagai jembatan antara mahasiswa Cirebon di Purwokerto dengan pemerintah daerah, serta menjadi wadah kebersamaan dan pelestarian budaya Cirebon.',
 		longDescription:
 			'IPMC ( Ikatan Pelajar dan Mahasiswa Cirebon ) ialah wadah untuk seluruh mahasiswa dan mahasiswi yang berasal dari cirebon jawa barat, Sebagai keluarga besar cirebon yang berada di purwokerto. IPMC menjadi salah satu penghubung antara mahasiswa dan mahasiswi yang berada di purwokerto dengan pemerintah daerah.',
-		image: '/img/student-organizations/paguyuban/ipmc/logo.webp',
+		image: '/images/student-orgs/paguyuban/ipmc/logo.webp',
 		contact: {
 			name: '@ipmc_purwokerto',
 			link: 'https://instagram.com/ipmc_purwokerto'
@@ -411,7 +411,7 @@ const paguyuban: {
 			'Jakmer (Paguyuban Jakarta Merdeka) adalah wadah bagi mahasiswa Unsoed yang berasal dari DKI Jakarta, Depok, dan sekitarnya. Sebagai organisasi non-akademik, Jakmer hadir untuk mempererat kekeluargaan, berbagi informasi kampus, dan membangun solidaritas antar anggota.',
 		longDescription:
 			'Paguyuban Jakarta Merdeka Universitas Jenderal Soedirman, yang kemudian disebut dengan “Jakmer” merupakan salah satu Paguyuban sebagai organisasi non-akademik yang telah berdiri sejak beberapa tahun silam. Organisasi atau himpunan ini menjadi wadah kumpulan Mahasiswa/i asal domisili DKI Jakarta, Depok, dan sekitarnya. Terbentuknya paguyuban ini ditujukan agar mahasiswa/i Unsoed yang berasal dari Jakarta dan sekitarnya dapat dengan mudah mendapatkan informasi seputar kehidupan kampus berdasarkan lingkupnya untuk menonjolkan keakraban dan kekeluargaan yang solid.',
-		image: '/img/student-organizations/paguyuban/jakmer/logo.webp',
+		image: '/images/student-orgs/paguyuban/jakmer/logo.webp',
 		events: [
 			{
 				title: 'Bakti Sosial',
@@ -447,7 +447,7 @@ const paguyuban: {
 			'KM PARASOED (Keluarga Mahasiswa Jepara Unsoed) adalah paguyuban mahasiswa asal Jepara yang menempuh studi di Universitas Jenderal Soedirman. Didirikan pada 2019, KM PARASOED menjadi wadah kebersamaan, pelestarian budaya Jepara, dan kontribusi sosial di lingkungan kampus.',
 		longDescription:
 			'KM PARASOED (Keluarga Mahasiswa Jepara Unsoed) adalah paguyuban mahasiswa yang menaungi mahasiswa asal Kabupaten Jepara yang sedang menempuh studi di Universitas Jenderal Soedirman. Didirikan pada tahun 2019, KM PARASOED hadir sebagai wadah untuk mempererat tali persaudaraan antar mahasiswa Jepara, melestarikan budaya daerah, dan berkontribusi positif bagi kampus serta masyarakat Jepara. Dengan semangat kekeluargaan, KM PARASOED berkomitmen untuk menjadi rumah bagi mahasiswa Jepara di Purwokerto, mendukung pengembangan diri, dan menjaga identitas kedaerahan.',
-		image: '/img/student-organizations/paguyuban/km-parasoed/logo.webp',
+		image: '/images/student-orgs/paguyuban/km-parasoed/logo.webp',
 		contact: {
 			name: '@km_parasoed',
 			link: 'https://instagram.com/km_parasoed'
@@ -461,7 +461,7 @@ const paguyuban: {
 			'KPMGP (Keluarga Pelajar Mahasiswa Galuh Pamitran) adalah paguyuban mahasiswa asal Kabupaten Ciamis yang menempuh pendidikan di Purwokerto. KPMGP menjadi ruang silaturahmi, kekeluargaan, dan pengembangan diri bagi anggotanya dalam menghadapi kehidupan perantauan.',
 		longDescription:
 			'KGMP (Keluarga Pelajar Mahasiswa Galuh Pamitran) adalah paguyuban mahasiswa yang menaungi mahasiswa asal Galuh Pamitran yang sedang menempuh studi di Universitas Jenderal Soedirman. Didirikan pada tahun 2020, KGMP hadir sebagai wadah untuk mempererat tali persaudaraan antar mahasiswa Galuh Pamitran, melestarikan budaya daerah, dan berkontribusi positif bagi kampus serta masyarakat Galuh Pamitran. Dengan semangat kekeluargaan, KGMP berkomitmen untuk menjadi rumah bagi mahasiswa Galuh Pamitran di Purwokerto, mendukung pengembangan diri, dan menjaga identitas kedaerahan.',
-		image: '/img/student-organizations/paguyuban/kgmp/logo.webp',
+		image: '/images/student-orgs/paguyuban/kgmp/logo.webp',
 		events: [
 			{
 				title: 'Society (Socialization Jenderal Soedirman University)',
@@ -482,7 +482,7 @@ const paguyuban: {
 			'KMPP (Keluarga Mahasiswa Purworejo-Purwokerto) adalah paguyuban mahasiswa asal Kabupaten Purworejo yang menempuh studi di Universitas Jenderal Soedirman. KMPP berperan sebagai wadah silaturahmi, pengembangan diri, dan kontribusi sosial bagi mahasiswa Purworejo yang merantau.',
 		longDescription:
 			'Keluarga Mahasiswa Purworejo-Purwokerto (KMPP) adalah sebuah paguyuban mahasiswa yang berasal dari Kabupaten Purworejo dan sedang menempuh pendidikan tinggi di wilayah Banyumas, khususnya Universitas Jenderal Soedirman. KMPP hadir sebagai wadah untuk mempererat tali persaudaraan, memperluas jaringan pertemanan, serta menjadi ruang silaturahmi bagi mahasiswa Purworejo yang merantau untuk menimba ilmu. Dengan semangat kebersamaan, KMPP berkomitmen untuk membangun komunitas yang suportif dan berdaya guna.',
-		image: '/img/student-organizations/paguyuban/kmpp/logo.webp',
+		image: '/images/student-orgs/paguyuban/kmpp/logo.webp',
 		events: [
 			{
 				title: 'Sosialisasi SMA/SMK Se Purworejo',
@@ -508,7 +508,7 @@ const paguyuban: {
 			'SOEPER (Soedirman Perwira) adalah paguyuban mahasiswa Universitas Jenderal Soedirman asal Kabupaten Purbalingga. Dikenal aktif dan inovatif, SOEPER menjadi wadah kekeluargaan, pengembangan diri, serta pelestarian budaya melalui berbagai kegiatan sosial dan kreatif.',
 		longDescription:
 			'SOEPER (Soedirman Perwira) adalah organisasi yang mewadahi mahasiswa/i Universitas Jenderal Soedirman yang berasal dari Kabupaten Purbalingga. SOEPER dikenal sebagai paguyuban yang aktif dengan berbagai kegiatannya seperti Makrab, Sosialisasi, Soeper Mengajar, dan masih banyak lagi. Tahun ini SOEPER membawa gebrakan baru dengan agenda terbesarnya yaitu SOEPERATION yang merupakan acara untuk memperingati hari jadi dari SOEPER dengan berbagai rangkaian kegiatan yang seru dan menarik seperti perlombaan esport, seni musik, dan seni tari.',
-		image: '/img/student-organizations/paguyuban/soeper/logo.webp',
+		image: '/images/student-orgs/paguyuban/soeper/logo.webp',
 		events: [
 			{
 				title: 'SOEPERATION',
