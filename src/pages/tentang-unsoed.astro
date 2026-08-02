@@ -51,7 +51,7 @@ const defaultFakultas = dataFakultas[0];
              terapkan sbg max-width EKSPLISIT (px) ke box paragraf — bukan intrinsic sizing sama sekali,
              jadi paragraf tetap wrap normal & box tetap ke-constrain. max-w-xl di bawah cuma fallback
              sebelum script jalan (cegah flash lebar-penuh). Re-ukur pas resize (breakpoint ganti lebar
-             h1) & pas font Reikna selesai load (document.fonts.ready — kalau diukur sebelum font
+             h1) & pas font Junigarden selesai load (document.fonts.ready — kalau diukur sebelum font
              kepasang, lebar h1 masih pake fallback font, salah).
 
              Percobaan JS pertama TETEP salah: h1 di bawah gak punya width constraint sendiri (block
@@ -67,7 +67,7 @@ const defaultFakultas = dataFakultas[0];
              box-nya udah pas ngepas teks, gak ada sisa ruang buat di-align. -->
         <h1
           id="hero-title"
-          class="mx-auto w-fit font-reikna text-[#ffc03f] text-4xl [-webkit-text-stroke:0.5px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:mx-0 md:text-6xl xl:text-7xl"
+          class="mx-auto w-fit font-junigarden-swash text-[#ffc03f] text-4xl [-webkit-text-stroke:0.5px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:mx-0 md:text-6xl xl:text-7xl"
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -78,7 +78,7 @@ const defaultFakultas = dataFakultas[0];
         <!-- Deviasi dari Figma: alas paragraf dibuat glass lebih kuat demi kontras, atas keputusan eksplisit — jangan dikembalikan ke versi asli Figma -->
         <div id="hero-paragraph-box" class="relative mx-auto mt-6 max-w-xl rounded-[32px] border border-white/15 bg-black/35 p-5 backdrop-blur-xl md:mx-0">
           <p
-            class="relative text-justify font-poppins text-sm text-white md:text-base xl:text-lg"
+            class="relative text-justify font-plus-jakarta-sans text-sm text-white md:text-base xl:text-lg"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="500"
@@ -179,9 +179,9 @@ const defaultFakultas = dataFakultas[0];
                  konsisten se-page (4px kemarin ketebalan, makan lekukan huruf V/s/M).
                  -mt-8 di ornamen: motong jarak kosong dari line-height:normal font 120px (line-box-nya
                  jauh lebih tinggi dari tinggi glyph asli), biar ornamen nempel deket ke title. -->
-            <h2 class="text-center font-reikna text-[120px] font-normal leading-[normal] text-[#142142] [-webkit-text-stroke:2px_#FFC03F]">Visi</h2>
+            <h2 class="text-center font-junigarden-swash text-[120px] font-normal leading-[normal] text-[#142142] [-webkit-text-stroke:2px_#FFC03F]">Visi</h2>
             <img src="/images/elements/visi-misi-ornamen.png" alt="" class="mx-auto -mt-8 mb-4 h-auto w-40" />
-            <p class="text-justify font-poppins text-sm text-[#1e1e1e] leading-relaxed md:text-base">
+            <p class="text-justify font-plus-jakarta-sans text-sm text-[#1e1e1e] leading-relaxed md:text-base">
               {visi}
             </p>
           </div>
@@ -193,7 +193,7 @@ const defaultFakultas = dataFakultas[0];
                  Ornamen sama persis dgn punya Visi (figma node 3068:1154 & 3068:1162 identik pixel-per-
                  pixel, dicek via cmp) — satu asset shared, gak perlu versi mirror terpisah.
                  Stroke 1px & -mt-8 ornamen: sama alasannya kayak Visi, lihat komentar di situ. -->
-            <h2 class="text-center font-reikna text-[120px] font-normal leading-[normal] text-[#142142] [-webkit-text-stroke:2px_#FFC03F]">Misi</h2>
+            <h2 class="text-center font-junigarden-swash text-[120px] font-normal leading-[normal] text-[#142142] [-webkit-text-stroke:2px_#FFC03F]">Misi</h2>
             <img src="/images/elements/visi-misi-ornamen.png" alt="" class="mx-auto -mt-8 mb-4 h-auto w-40" />
             <ol class="space-y-3">
               {misi.map((item, index) => (
@@ -201,7 +201,7 @@ const defaultFakultas = dataFakultas[0];
                   <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1e4b82] font-bold text-white shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
                     {index + 1}
                   </span>
-                  <span class="pt-1 text-justify font-poppins text-sm text-[#1e1e1e] leading-relaxed md:text-base">
+                  <span class="pt-1 text-justify font-plus-jakarta-sans text-sm text-[#1e1e1e] leading-relaxed md:text-base">
                     {item}
                   </span>
                 </li>
@@ -237,7 +237,7 @@ const defaultFakultas = dataFakultas[0];
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="mb-10 flex flex-col items-center gap-2" data-aos="fade-up" data-aos-duration="800">
           <img src="/images/elements/hiasan-atas.png" alt="" class="w-48 md:w-64" />
-          <h2 class="px-4 text-center font-reikna text-[#142142] text-3xl [-webkit-text-stroke:1px_#ffc03f] md:text-5xl xl:text-6xl">
+          <h2 class="px-4 text-center font-junigarden-swash text-[#142142] text-3xl [-webkit-text-stroke:1px_#ffc03f] md:text-5xl xl:text-6xl">
             Fakultas Unsoed
           </h2>
           <img src="/images/elements/hiasan-bawah.png" alt="" class="w-48 md:w-64" />
@@ -254,11 +254,11 @@ const defaultFakultas = dataFakultas[0];
           <div class="order-2 md:order-1">
             <div class="mb-2 flex items-center gap-3">
               <span id="fakultas-swatch" class:list={['h-4 w-4 shrink-0 rounded-full', defaultFakultas.facultyColor]} aria-hidden="true"></span>
-              <p id="fakultas-title" class="font-reikna text-3xl text-[rgba(255,192,63,0.75)] [-webkit-text-stroke:1.5px_#1e1e1e] md:text-5xl">
+              <p id="fakultas-title" class="font-junigarden-swash text-3xl text-[rgba(255,192,63,0.75)] [-webkit-text-stroke:1.5px_#1e1e1e] md:text-5xl">
                 {defaultFakultas.title}
               </p>
             </div>
-            <p id="fakultas-desc" class="mb-6 text-justify font-poppins text-sm text-black leading-relaxed md:text-base">
+            <p id="fakultas-desc" class="mb-6 text-justify font-plus-jakarta-sans text-sm text-black leading-relaxed md:text-base">
               {defaultFakultas.desc}
             </p>
             <a
@@ -280,7 +280,7 @@ const defaultFakultas = dataFakultas[0];
                 <li>
                   <button
                     type="button"
-                    class="fakultas-item flex w-full items-center gap-2 py-2.5 text-left font-poppins text-sm text-[#1e1e1e] transition-colors hover:font-semibold md:text-base"
+                    class="fakultas-item flex w-full items-center gap-2 py-2.5 text-left font-plus-jakarta-sans text-sm text-[#1e1e1e] transition-colors hover:font-semibold md:text-base"
                     data-active={index === 0 ? 'true' : 'false'}
                     data-title={fakultas.title}
                     data-desc={fakultas.desc}
@@ -324,7 +324,7 @@ const defaultFakultas = dataFakultas[0];
 
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <h2
-          class="mb-12 text-center font-reikna text-[#142142] text-3xl [-webkit-text-stroke:1px_#ffc03f] md:text-5xl xl:text-6xl"
+          class="mb-12 text-center font-junigarden-swash text-[#142142] text-3xl [-webkit-text-stroke:1px_#ffc03f] md:text-5xl xl:text-6xl"
           data-aos="fade-up"
           data-aos-duration="800"
         >
@@ -333,9 +333,9 @@ const defaultFakultas = dataFakultas[0];
 
         <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
           <div data-aos="fade-right" data-aos-duration="800">
-            <p class="font-poppins text-sm italic text-white/80">Hymne Unsoed</p>
-            <h3 class="mb-4 font-reikna text-3xl text-white md:text-4xl">Harumkan Wiyata Tinggi</h3>
-            <p class="mb-6 whitespace-pre-line font-poppins text-sm text-white leading-loose md:text-base">Karyamu cendekia didambakan negara
+            <p class="font-plus-jakarta-sans text-sm italic text-white/80">Hymne Unsoed</p>
+            <h3 class="mb-4 font-junigarden-swash text-3xl text-white md:text-4xl">Harumkan Wiyata Tinggi</h3>
+            <p class="mb-6 whitespace-pre-line font-plus-jakarta-sans text-sm text-white leading-loose md:text-base">Karyamu cendekia didambakan negara
 Dharmamu sepenuhnya sumbangkan membangun nusa
 Membina sarana karya raksasa menuju bangsa sejahtera
 Budhaya pribadi yang asli murni harumkan wiyata tinggi</p>
@@ -353,9 +353,9 @@ Budhaya pribadi yang asli murni harumkan wiyata tinggi</p>
           </div>
 
           <div data-aos="fade-left" data-aos-duration="800">
-            <p class="font-poppins text-sm italic text-white/80">Mars Unsoed</p>
-            <h3 class="mb-4 font-reikna text-3xl text-white md:text-4xl">Tingkatkan Martabat Bangsa</h3>
-            <p class="mb-6 whitespace-pre-line font-poppins text-sm text-white leading-loose md:text-base">Kami Mahasiswa Unsoed bertekun dalam wiyata
+            <p class="font-plus-jakarta-sans text-sm italic text-white/80">Mars Unsoed</p>
+            <h3 class="mb-4 font-junigarden-swash text-3xl text-white md:text-4xl">Tingkatkan Martabat Bangsa</h3>
+            <p class="mb-6 whitespace-pre-line font-plus-jakarta-sans text-sm text-white leading-loose md:text-base">Kami Mahasiswa Unsoed bertekun dalam wiyata
 Jiwa Panglima besar Kita cerminkan hasrat membaja
 Memupuk rasa persatuan berdasarkan Pancasila
 Memimpin rakyat kesejahtera serta pribadi bangsa
@@ -440,7 +440,7 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
   <script>
     // Samain lebar box paragraf Hero ke lebar rendered title (lihat komentar di markup-nya buat
     // kenapa ini gak bisa CSS-murni). Re-ukur pas resize (breakpoint ganti lebar h1) & pas font
-    // Reikna kelar load (kalau diukur sebelum itu, lebar h1 masih pake fallback font, salah).
+    // Junigarden kelar load (kalau diukur sebelum itu, lebar h1 masih pake fallback font, salah).
     function syncHeroParagraphWidth() {
       const title = document.getElementById('hero-title');
       const box = document.getElementById('hero-paragraph-box');
