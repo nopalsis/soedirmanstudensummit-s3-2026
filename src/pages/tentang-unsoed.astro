@@ -36,7 +36,7 @@ const defaultFakultas = dataFakultas[0];
         data-aos-delay="300"
       />
 
-      <div class="relative z-10 mx-auto mb-16 max-w-screen-xl section-padding-x md:mb-24 xl:mb-32">
+      <div class="relative z-10 mx-auto mb-16 max-w-screen-xl section-padding-x md:mx-0 md:mb-24 xl:mb-32">
         <!-- Box paragraf harus SELEBAR title, bukan max-w-xl tetap 576px yg lebih sempit dari title.
              Dua percobaan CSS-murni GAGAL, dua-duanya kena sirkularitas "lebar box A = lebar box B":
              1) w-fit wrapper + child w-full → Chromium jatuh ke available width penuh (box JADI lebih
@@ -67,7 +67,7 @@ const defaultFakultas = dataFakultas[0];
              box-nya udah pas ngepas teks, gak ada sisa ruang buat di-align. -->
         <h1
           id="hero-title"
-          class="mx-auto w-fit font-junigarden-swash text-[#ffc03f] text-4xl [-webkit-text-stroke:0.5px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:mx-0 md:text-6xl xl:text-7xl"
+          class="mx-auto w-fit font-junigarden-swash text-[#ffc03f] text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl [-webkit-text-stroke:0.1px_black] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:mx-0"
           data-aos="fade-up"
           data-aos-duration="1000"
           data-aos-delay="200"
@@ -76,9 +76,9 @@ const defaultFakultas = dataFakultas[0];
         </h1>
 
         <!-- Deviasi dari Figma: alas paragraf dibuat glass lebih kuat demi kontras, atas keputusan eksplisit — jangan dikembalikan ke versi asli Figma -->
-        <div id="hero-paragraph-box" class="relative mx-auto mt-6 max-w-xl rounded-[32px] border border-white/15 bg-black/35 p-5 backdrop-blur-xl md:mx-0">
+        <div id="hero-paragraph-box" class="relative mx-auto mt-4 max-w-xl rounded-[32px] border border-white/15 bg-black/35 p-4 backdrop-blur-xl md:mx-0">
           <p
-            class="relative text-justify font-plus-jakarta-sans text-sm text-white md:text-base xl:text-lg"
+            class="relative text-justify font-plus-jakarta-sans text-xs leading-snug text-white sm:text-sm md:text-base"
             data-aos="fade-up"
             data-aos-duration="800"
             data-aos-delay="500"
