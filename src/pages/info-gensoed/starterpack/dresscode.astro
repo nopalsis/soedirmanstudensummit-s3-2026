@@ -23,7 +23,7 @@ const genders = ['laki-laki', 'perempuan'] as const;
 					{days.map((day, i) => (
 						<button
 							type="button"
-							class="day-tab font-reikna rounded-[10px] bg-[#1b4682] px-4 py-3 text-base text-white transition-colors sm:px-8 sm:text-xl data-[active=true]:bg-[#1d3464]"
+							class="day-tab font-junigarden-swash rounded-[10px] bg-[#1b4682] px-4 py-3 text-base text-white transition-colors sm:px-8 sm:text-xl data-[active=true]:bg-[#1d3464]"
 							data-day={day}
 							data-active={i === 0 ? 'true' : 'false'}
 							role="tab"
@@ -32,7 +32,7 @@ const genders = ['laki-laki', 'perempuan'] as const;
 								dresscodeData[day].label
 							) : (
 								<span class="inline-flex items-baseline">
-									Hari&nbsp;<span class="font-miskan text-[9px] leading-none align-middle sm:text-[11px]">{day === 'day1' ? '1' : '2'}</span>
+									Hari&nbsp;<span class="font-love-craft text-[9px] leading-none align-middle sm:text-[11px]">{day === 'day1' ? '1' : '2'}</span>
 								</span>
 							)}
 						</button>
@@ -43,7 +43,7 @@ const genders = ['laki-laki', 'perempuan'] as const;
 					{genders.map((gender, i) => (
 						<button
 							type="button"
-							class="gender-tab font-reikna flex h-14 w-[150px] items-center justify-center rounded-[10px] bg-[rgba(255,255,255,0.25)] px-2 text-xl whitespace-nowrap text-[#1b4682] transition-shadow sm:h-16 sm:w-[219px] sm:text-3xl md:text-[40px] data-[active=true]:ring-4 data-[active=true]:ring-[#1b4682]"
+							class="gender-tab font-junigarden-swash flex h-14 w-[150px] items-center justify-center rounded-[10px] bg-[rgba(255,255,255,0.25)] px-2 text-xl whitespace-nowrap text-[#1b4682] transition-shadow sm:h-16 sm:w-[219px] sm:text-3xl md:text-[40px] data-[active=true]:ring-4 data-[active=true]:ring-[#1b4682]"
 							data-gender={gender}
 							data-active={i === 0 ? 'true' : 'false'}
 						>
@@ -54,7 +54,7 @@ const genders = ['laki-laki', 'perempuan'] as const;
 
 				<div class="grid gap-6 rounded-[30px] bg-[#1d3464] p-6 md:grid-cols-2 md:p-10" data-aos="fade-up">
 					<div>
-						<h3 class="font-reikna mb-4 text-2xl text-[#ffc03f]">Ketentuan</h3>
+						<h3 class="font-junigarden-swash mb-4 text-2xl text-[#ffc03f]">Ketentuan</h3>
 						<ul id="dresscode-rules" class="space-y-3 font-plus-jakarta-sans text-sm text-white sm:text-base"></ul>
 					</div>
 					<div class="flex flex-col items-center gap-8">
