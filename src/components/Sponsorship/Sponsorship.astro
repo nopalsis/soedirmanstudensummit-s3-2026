@@ -1,58 +1,146 @@
 ---
+const educationalPartners = [
+  { name: "BankIndo", img: "/images/sponsors/BankIndo.webp", size: "xl" },
+  { name: "Pekan QRIS", img: "/images/sponsors/pekanQRIS.webp", size: "xl" },
+];
+
 const sponsors = [
-  { name: "Mandiri", img: "/images/sponsors/mandiri.webp", size: "large" },
-  { name: "Pringsewu", img: "/images/sponsors/pringsewu.webp", size: "large" },
-  { name: "BTN", img: "/images/sponsors/btn.webp", size: "large" },
-  { name: "grab", img: "/images/sponsors/grab.webp", size: "large" },
-  { name: "Sari Roti", img: "/images/sponsors/sariroti.webp", size: "small" },
-  { name: "Bisadaya", img: "/images/sponsors/bisadaya.webp", size: "small" },
-  { name: "Artivity", img: "/images/sponsors/artivity.webp", size: "small" },
-  { name: "Arasta", img: "/images/sponsors/arasta.webp", size: "small" },
-  { name: "Payuung", img: "/images/sponsors/payuung.webp", size: "small" },
-  { name: "Almamaters", img: "/images/sponsors/alamamaters.webp", size: "small" },
-  { name: "Hydroplus", img: "/images/sponsors/hydroplus.webp", size: "small" },
+  // XL
+  { name: "Mandiri", img: "/images/sponsors/mandiri.webp", size: "xl" },
+  // L
+  { name: "Almamaters", img: "/images/sponsors/alamamaters.webp", size: "l" },
+  { name: "BTN", img: "/images/sponsors/btn.webp", size: "l" },
+  { name: "Kai", img: "/images/sponsors/kai.webp", size: "l" },
+  // M
+  { name: "Grab", img: "/images/sponsors/grab.webp", size: "m" },
+  { name: "Pringsewu", img: "/images/sponsors/pringsewu.webp", size: "m" },
+  { name: "Hydroplus", img: "/images/sponsors/hydroplus.webp", size: "m" },
+  { name: "Sari Roti", img: "/images/sponsors/sariroti.webp", size: "m" },
+  { name: "Paragon Corp", img: "/images/sponsors/paragon.webp", size: "m" },
+  { name: "Wardah", img: "/images/sponsors/wardah.webp", size: "m" },
+  { name: "Emina", img: "/images/sponsors/emina.webp", size: "m" },
+  { name: "Kahf", img: "/images/sponsors/kahf.webp", size: "m" },
+  { name: "Light Pluss", img: "/images/sponsors/light-pluss.webp", size: "m" },
+  { name: "Pegadaian", img: "/images/sponsors/pegadaian.webp", size: "m" },
+  // S
+  { name: "Arasta", img: "/images/sponsors/arasta.webp", size: "s" },
+  { name: "Artivity", img: "/images/sponsors/artivity.webp", size: "s" },
+  { name: "Payung Pribadi", img: "/images/sponsors/payuung.webp", size: "s" },
+  { name: "Vica", img: "/images/sponsors/vica.webp", size: "s" },
+  { name: "Bisadaya", img: "/images/sponsors/bisadaya.webp", size: "s" },
+  // XS
+  { name: "Barberich", img: "/images/sponsors/barberich.webp", size: "xs" },
+  { name: "Boersa Kampus", img: "/images/sponsors/boersa-kampus.webp", size: "xs" },
+  { name: "Koi 5", img: "/images/sponsors/koi5.webp", size: "xs" },
+  { name: "Flowerbar", img: "/images/sponsors/flowerbar.webp", size: "xs" },
+  { name: "Gemilang", img: "/images/sponsors/gemilang.webp", size: "xs" },
+  { name: "Inul Vizta", img: "/images/sponsors/inul-vizta.webp", size: "xs" },
+  { name: "Oronamin C", img: "/images/sponsors/oronamin.webp", size: "xs" },
+  { name: "Advo", img: "/images/sponsors/advo-cafe.webp", size: "xs" },
+  { name: "Bento", img: "/images/sponsors/bento-kopi.webp", size: "xs" },
+  { name: "Hangout", img: "/images/sponsors/hangout.webp", size: "xs" },
+  { name: "Srawung", img: "/images/sponsors/srawung.webp", size: "xs" },
+  { name: "Teras Kita", img: "/images/sponsors/teras.webp", size: "xs" },
+  { name: "Meatboss", img: "/images/sponsors/meatboss.webp", size: "xs" },
+  { name: "Sekala", img: "/images/sponsors/sekala.webp", size: "xs" },
+  { name: "Serasa", img: "/images/sponsors/serasa.webp", size: "xs" },
+  { name: "Sumringah", img: "/images/sponsors/sumringah.webp", size: "xs" },
+  { name: "Taman Kopi", img: "/images/sponsors/taman-coffe.webp", size: "xs" },
+  { name: "Ora Umum", img: "/images/sponsors/waroenk.webp", size: "xs" },
+  { name: "Wosly", img: "/images/sponsors/wosly.webp", size: "xs" },
 ];
 ---
 
 <section class="section-padding-x py-16 sm:py-20 md:py-24 text-white-base">
   <div class="container max-w-screen-xl mx-auto">
     <div class="flex flex-col justify-center items-center">
-      <div class="flex flex-col items-center mb-12">
-        <img src="/images/elements/scroll-above.svg" alt="" class="w-16 sm:w-20 md:w-28" data-aos="fade-down" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-out" data-aos-offset="200" data-aos-once="true" />
-         <h2
-           class="gradient-text-title text-stroke-gold font-junigarden-swash text-xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_0_rgba(0,40,85,1)] leading-tight text-center mt-4"
-           data-aos="fade-down"
-           data-aos-duration="600"
-           data-aos-delay="200"
-           data-aos-easing="ease-out"
-           data-aos-offset="200"
-           data-aos-once="true"
-         >
-           Sponsorship
-         </h2>
-         <img src="/images/elements/scroll-down.svg" alt="" class="w-16 sm:w-20 md:w-28 mt-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-easing="ease-out" data-aos-offset="200" data-aos-once="true" />
+      <!-- Educational Partner Section -->
+      <div class="flex flex-col justify-center items-center mb-16 sm:mb-20 md:mb-24">
+        <div class="flex flex-col items-center mb-12">
+          <img src="/images/elements/scroll-above.svg" alt="" class="w-16 sm:w-20 md:w-28" data-aos="fade-down" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-out" data-aos-offset="200" data-aos-once="true" />
+           <h2
+             class="gradient-text-title text-stroke-gold font-junigarden-swash text-xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_0_rgba(0,40,85,1)] leading-tight text-center mt-4"
+             data-aos="fade-down"
+             data-aos-duration="600"
+             data-aos-delay="200"
+             data-aos-easing="ease-out"
+             data-aos-offset="200"
+             data-aos-once="true"
+           >
+             Educational Partner
+           </h2>
+           <img src="/images/elements/scroll-down.svg" alt="" class="w-16 sm:w-20 md:w-28 mt-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-easing="ease-out" data-aos-offset="200" data-aos-once="true" />
+        </div>
+         <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+           {
+             educationalPartners.map((partner) => (
+                 <span
+                    class="flex justify-center items-center max-w-64 sm:max-w-80 md:max-w-96 lg:max-w-[28rem]"
+                    data-aos="zoom-in"
+                    data-aos-duration="600"
+                    data-aos-delay="200"
+                    data-aos-easing="ease-out"
+                    data-aos-offset="50"
+                    data-aos-once="true"
+                  >
+                    <img src={partner.img} alt={partner.name} class="w-full h-auto object-contain" />
+                  </span>
+                ))
+              }
+           </div>
       </div>
-       <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 max-w-sm sm:max-w-xl md:max-w-3xl">
-         {
-           sponsors.map((sponsor) => (
-             <span
-                class={`flex justify-center items-center ${
-                  sponsor.size === "large"
-                    ? "max-w-40 sm:max-w-52 md:max-w-64 lg:max-w-72"
-                    : "max-w-28 sm:max-w-32 md:max-w-36 lg:max-w-40"
-                }`}
-               data-aos="zoom-in"
-               data-aos-duration="600"
-               data-aos-delay="200"
-               data-aos-easing="ease-out"
-               data-aos-offset="50"
-               data-aos-once="true"
-             >
-               <img src={sponsor.img} alt={sponsor.name} class="w-full h-auto object-contain" />
-             </span>
-           ))
-         }
-       </div>
+
+      <!-- Sponsorship Section -->
+      <div class="flex flex-col justify-center items-center">
+        <div class="flex flex-col items-center mb-12">
+          <img src="/images/elements/scroll-above.svg" alt="" class="w-16 sm:w-20 md:w-28" data-aos="fade-down" data-aos-duration="600" data-aos-delay="100" data-aos-easing="ease-out" data-aos-offset="200" data-aos-once="true" />
+           <h2
+             class="gradient-text-title text-stroke-gold font-junigarden-swash text-xl sm:text-3xl md:text-4xl drop-shadow-[0_2px_0_rgba(0,40,85,1)] leading-tight text-center mt-4"
+             data-aos="fade-down"
+             data-aos-duration="600"
+             data-aos-delay="200"
+             data-aos-easing="ease-out"
+             data-aos-offset="200"
+             data-aos-once="true"
+           >
+             Sponsorship
+           </h2>
+           <img src="/images/elements/scroll-down.svg" alt="" class="w-16 sm:w-20 md:w-28 mt-4" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-easing="ease-out" data-aos-offset="200" data-aos-once="true" />
+        </div>
+         <div class="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
+           {
+             sponsors.map((sponsor) => (
+                  <span
+                     class={`flex justify-center items-center ${
+                       sponsor.name === "Mandiri"
+                         ? "max-w-96 sm:max-w-[28rem] md:max-w-[32rem] lg:max-w-[40rem]"
+                         : sponsor.name === "Almamaters"
+                         ? "max-w-40 sm:max-w-48 md:max-w-56 lg:max-w-64"
+                         : sponsor.name === "Kai"
+                         ? "w-1/3 px-1 sm:px-2 md:px-3 lg:px-4 max-w-48 sm:max-w-56 md:max-w-64 lg:max-w-72"
+                         : sponsor.size === "xl"
+                         ? "w-1/3 px-1 sm:px-2 md:px-3 lg:px-4"
+                         : sponsor.size === "l"
+                         ? "w-1/3 px-1 sm:px-2 md:px-2 lg:px-3 max-w-40 sm:max-w-48 md:max-w-56"
+                         : sponsor.size === "m"
+                         ? "max-w-32 sm:max-w-40 md:max-w-48 lg:max-w-56"
+                         : sponsor.size === "s"
+                         ? "max-w-24 sm:max-w-28 md:max-w-32 lg:max-w-36"
+                         : "max-w-16 sm:max-w-20 md:max-w-24 lg:max-w-28"
+                      }`}
+                 data-aos="zoom-in"
+                 data-aos-duration="600"
+                 data-aos-delay="200"
+                 data-aos-easing="ease-out"
+                 data-aos-offset="50"
+                 data-aos-once="true"
+               >
+                 <img src={sponsor.img} alt={sponsor.name} class="w-full h-auto object-contain" />
+               </span>
+             ))
+           }
+         </div>
+      </div>
     </div>
   </div>
 </section>
