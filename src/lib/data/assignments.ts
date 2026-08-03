@@ -31,7 +31,7 @@ export const assignments: Assignment[] = [
       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
         deadlines: {
          "SNBP-SNBT": new Date(Date.now() + -3 * 24 * 60 * 60 * 1000),
-         "Mandiri": createDeadlineDate(15),
+         "Mandiri": createDeadlineDate(5),
        },
     },
     {
@@ -42,7 +42,7 @@ export const assignments: Assignment[] = [
       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
        deadlines: {
          "SNBP-SNBT": new Date(Date.now() + -3 * 24 * 60 * 60 * 1000),
-         "Mandiri": createDeadlineDate(15),
+         "Mandiri": createDeadlineDate(5),
        },
     },
     {
@@ -67,15 +67,15 @@ export const assignments: Assignment[] = [
       longDescription:
         "Mahasiswa baru diharapkan memahami pemanfaatan LinkedIn sebagai sarana pengembangan diri, memperluas jejaring profesional, melatih komunikasi formal, serta mendokumentasikan pengalaman secara terstruktur.",
        openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
-       deadline: createDeadlineDate(4),
+       deadline: createDeadlineDate(-6),
      },
      {
        name: "Feel The Vibes",
       description: "Ikuti kegiatan flashmob.",
       longDescription:
         "Flashmob menjadi media ekspresi kolektif yang membangun kebersamaan, kekompakan, dan semangat mahasiswa baru sebagai Soedirman Muda.",
-       openedAt: new Date(Date.now() + 0 * 24 * 60 * 59 * 1000),
-       deadline: createDeadlineDate(4),
+       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
+       deadline: createDeadlineDate(-6),
      },
      {
        name: "Luminous Boundaries",
@@ -83,7 +83,7 @@ export const assignments: Assignment[] = [
       longDescription:
         "Bertujuan meningkatkan kesadaran mahasiswa baru mengenai pentingnya memahami dan menghormati batasan diri maupun orang lain sebagai upaya pencegahan kekerasan dan kekerasan seksual.",
        openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
-       deadline: createDeadlineDate(9),
+       deadline: createDeadlineDate(-1),
      },
      {
        name: "Mind Sync Session",
@@ -91,46 +91,46 @@ export const assignments: Assignment[] = [
       longDescription:
         "Podcast yang membantu mahasiswa baru mengembangkan growth mindset, mengenali potensi diri, serta meningkatkan kemampuan beradaptasi secara akademik, emosional, dan sosial.",
        openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
-       deadline: createDeadlineDate(13),
-     },
-     {
-       name: "Twibbon",
-      description: "Unggah Twibbon resmi.",
-      longDescription:
-        "Twibbon menjadi media perkenalan yang membantu mahasiswa baru mengekspresikan identitas diri, membangun rasa bangga dan solidaritas, serta memanfaatkan media sosial secara bijak.",
-       openedAt: createDeadlineDate(16),
-       deadline: createDeadlineDate(15),
-     },
-     {
-       name: "From A Beginning to A New Chapter (Life Mapping | Add Yours)",
-      description: "Buat Life Mapping.",
-      longDescription:
-        "Mahasiswa baru diajak merefleksikan perjalanan hidup, memahami proses yang membentuk diri, serta menggambarkan harapan dan tujuan yang ingin dicapai selama menjalani kehidupan kampus.",
-       openedAt: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
-       deadline: createDeadlineDate(15),
-     },
-     {
-       name: "SOLO (School of Leadership Organization)",
-      description: "Ikuti program pengembangan kepemimpinan.",
-      longDescription:
-        "Program pengembangan kepemimpinan yang mendorong mahasiswa baru mengenali potensi diri, merefleksikan perjalanan kepemimpinan, serta membangun jiwa kepemimpinan sebagai bekal menjadi pemimpin yang berdampak.",
-       openedAt: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
-       deadline: createDeadlineDate(15),
+       deadline: createDeadlineDate(3),
      },
      {
        name: "Yel-Yel Kelompok",
       description: "Buat yel-yel kelompok.",
       longDescription:
         "Membuat yel-yel kelompok sebagai media memperkenalkan identitas kelompok sekaligus membangun kekompakan antaranggota.",
-       openedAt: new Date(Date.now() + 17 * 24 * 60 * 60 * 1000),
-       deadline: createDeadlineDate(17),
+       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
+       deadline: createDeadlineDate(7),
      },
      {
        name: "Papan Kelompok",
       description: "Buat papan informasi kelompok.",
       longDescription:
         "Membuat papan informasi secara kreatif yang merepresentasikan identitas kelompok mahasiswa baru.",
-       openedAt: new Date(Date.now() + 19 * 24 * 60 * 60 * 1000),
-       deadline: createDeadlineDate(17),
+       openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
+       deadline: createDeadlineDate(7),
+     },
+     {
+       name: "Twibbon",
+      description: "Unggah Twibbon resmi.",
+      longDescription:
+        "Twibbon menjadi media perkenalan yang membantu mahasiswa baru mengekspresikan identitas diri, membangun rasa bangga dan solidaritas, serta memanfaatkan media sosial secara bijak.",
+       openedAt: createDeadlineDate(5),
+       deadline: createDeadlineDate(5),
+     },
+     {
+       name: "From A Beginning to A New Chapter (Life Mapping | Add Yours)",
+      description: "Buat Life Mapping.",
+      longDescription:
+        "Mahasiswa baru diajak merefleksikan perjalanan hidup, memahami proses yang membentuk diri, serta menggambarkan harapan dan tujuan yang ingin dicapai selama menjalani kehidupan kampus.",
+       openedAt: createDeadlineDate(5),
+       deadline: createDeadlineDate(5),
+     },
+     {
+       name: "SOLO (School of Leadership Organization)",
+      description: "Ikuti program pengembangan kepemimpinan.",
+      longDescription:
+        "Program pengembangan kepemimpinan yang mendorong mahasiswa baru mengenali potensi diri, merefleksikan perjalanan kepemimpinan, serta membangun jiwa kepemimpinan sebagai bekal menjadi pemimpin yang berdampak.",
+       openedAt: createDeadlineDate(5),
+       deadline: createDeadlineDate(5),
      },
 ];
