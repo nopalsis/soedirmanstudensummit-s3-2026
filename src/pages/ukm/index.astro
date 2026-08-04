@@ -101,9 +101,6 @@ const categories = Array.from(new Set(ukmData.map(org => org.slug))).sort();
 						data-description={org.description}
 						data-slug={org.slug}
 						class="ukm-card-wrapper"
-						data-aos="fade-up"
-						data-aos-duration="600"
-						data-aos-delay={100 + (index % 4) * 100}
 					>
 						<UkmCard
 							image={org.image}

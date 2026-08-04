@@ -102,9 +102,6 @@ const categories = Array.from(new Set(paguyubanData.map(org => org.location))).s
 						data-description={org.description}
 						data-location={org.location}
 						class="paguyuban-card-wrapper"
-						data-aos="fade-up"
-						data-aos-duration="600"
-						data-aos-delay={100 + (index % 4) * 100}
 					>
 					<PaguyubanCard
 						image={org.image}

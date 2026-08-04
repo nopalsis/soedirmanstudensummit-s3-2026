@@ -525,6 +525,76 @@ const paguyuban: {
 			name: '@soedirmanperwira',
 			link: 'https://instagram.com/soedirmanperwira'
 		}
+	},
+	{
+		name: 'FORUM MAHASISWA INDRAMAYU (FORMASI)',
+		location: 'Jawa Barat',
+		slug: 'indramayu',
+		description:
+			'FORMASI (Forum mahasiswa Indramayu) merupakan sebuah paguyuban mahasiswa atau sebuah organisasi yang mewadahi mahasiswa asal Indramayu dari berbagai perguruan tinggi yang ada di daerah Purwokerto dan sekitarnya.',
+		longDescription:
+			'FORMASI (Forum mahasiswa Indramayu) merupakan sebuah paguyuban mahasiswa atau sebuah organisasi yang mewadahi mahasiswa asal Indramayu dari berbagai perguruan tinggi yang ada di daerah Purwokerto dan sekitarnya. FORMASI hadir sebagai sarana untuk mempererat kebersamaan, menumbuhkan solidaritas, serta membangun kerja sama dalam mencapai tujuan Bersama.',
+		image: '/images/student-orgs/paguyuban/FORMASI/logo.png',
+		contact: {
+			name: '@formasipwt',
+			link: 'https://instagram.com/formasipwt'
+		}
+	},
+	{
+		name: 'Himpunan Mahasiswa Kebumen (HMK)',
+		location: 'Jawa Tengah',
+		slug: 'kebumen',
+		description:
+			'Himpunan Mahasiswa Kebumen Universitas Jenderal Soedirman (HMK Unsoed) merupakan organisasi kedaerahan yang menjadi rumah bagi mahasiswa asal Kebumen di lingkungan Universitas Jenderal Soedirman.',
+		longDescription:
+			'Himpunan Mahasiswa Kebumen Universitas Jenderal Soedirman (HMK Unsoed) merupakan organisasi kedaerahan yang menjadi rumah bagi mahasiswa asal Kebumen di lingkungan Universitas Jenderal Soedirman. Berdiri sejak 15 Maret 2010, HMK Unsoed hadir bukan hanya sebagai wadah silaturahmi, tetapi juga sebagai ruang untuk berkembang, berproses, dan membangun jejaring yang bermanfaat selama masa perkuliahan. Melalui berbagai kegiatan sosial, edukatif, budaya, dan pengembangan diri, HMK menjadi tempat bagi mahasiswa Kebumen untuk saling mengenal, berbagi pengalaman, serta mendukung satu sama lain dalam menghadapi dinamika kehidupan kampus. Dengan semangat kebersamaan dan kekeluargaan yang kuat, HMK Unsoed berkomitmen menciptakan lingkungan yang hangat, inklusif, dan inspiratif bagi setiap anggotanya. HMK bukan sekadar organisasi, melainkan keluarga kedua di tanah perantauan tempat untuk menemukan teman, mengembangkan potensi, memperluas wawasan, serta berkontribusi dalam membawa nama baik Kebumen dan Universitas Jenderal Soedirman. Bersama HMK, mari tumbuh, berkarya, dan menginspirasi.',
+		image: '/images/student-orgs/paguyuban/HMK/logo.png',
+		contact: {
+			name: '@hmk_unsoed',
+			link: 'https://instagram.com/hmk_unsoed'
+		}
+	},
+	{
+		name: 'Himpunan Mahasiswa Sulawesi (HIMAS)',
+		location: 'Luar Jawa',
+		slug: 'sulawesi',
+		description:
+			'HIMAS (Himpunan Mahasiswa Sulawesi) berdiri sejak 22 September 2017 dan didirikan oleh mahasiswa yang berasal dari enam provinsi di Pulau Sulawesi.',
+		longDescription:
+			'HIMAS (Himpunan Mahasiswa Sulawesi) berdiri sejak 22 September 2017 dan didirikan oleh mahasiswa yang berasal dari enam provinsi di Pulau Sulawesi. HIMAS menjadi rumah, tempat kembali, serta ruang kebersamaan bagi siapa pun yang memiliki keturunan atau darah Sulawesi, berdomisili, maupun pernah menetap di tanah Sulawesi.',
+		image: '/images/student-orgs/paguyuban/HIMAS/logo.png',
+		contact: {
+			name: '@himas_unsoed',
+			link: 'https://instagram.com/himas_unsoed'
+		}
+	},
+	{
+		name: 'Keluarga Mahasiswa Bandung (KMB)',
+		location: 'Jawa Barat',
+		slug: 'bandung',
+		description:
+			'KMBDG (Keluarga Mahasiswa Bandung) merupakan wadah bagi mahasiswa asal Bandung yang berada di Universitas Jenderal Soedirman.',
+		longDescription:
+			'KMBDG (Keluarga Mahasiswa Bandung) merupakan wadah bagi mahasiswa asal Bandung yang berada di Universitas Jenderal Soedirman. KMBDG dijadikan sebagai rumah kedua bagi mahasiswa melalui berbagai kegiatan sosial, diskusi santai, serta program kebersamaan yang diselenggarakan untuk mempererat hubungan kekeluargaan antar mahasiswa asal Tanah Pasundan di Purwokerto. Selain itu, nilai-nilai kebersamaan, solidaritas, dan rasa saling memiliki terus ditumbuhkan sehingga lingkungan yang nyaman, harmonis, dan suportif dapat dirasakan oleh seluruh anggota.',
+		image: '/images/student-orgs/paguyuban/KMB/logo.png',
+		contact: {
+			name: '@kmb_unsoed',
+			link: 'https://instagram.com/kmb_unsoed'
+		}
+	},
+	{
+		name: 'Keluarga Pelajar Mahasiswa Daerah Brebes (KPMDB)',
+		location: 'Jawa Tengah',
+		slug: 'brebes',
+		description:
+			'Keluarga Pelajar Mahasiswa Daerah Brebes (KPMDB) merupakan organisasi kedaerahan yang lahir dari semangat kebersamaan para pelajar dan mahasiswa asal Brebes yang menempuh pendidikan di luar daerah.',
+		longDescription:
+			'Keluarga Pelajar Mahasiswa Daerah Brebes (KPMDB) merupakan organisasi kedaerahan yang lahir dari semangat kebersamaan para pelajar dan mahasiswa asal Brebes yang menempuh pendidikan di luar daerah. Organisasi ini berdiri pada tanggal 19 Desember 1964 di Yogyakarta sebagai wadah untuk mempererat tali persaudaraan sekaligus mengembangkan potensi intelektual generasi muda Brebes. Sejak awal berdirinya, KPMDB berkomitmen menjadi organisasi yang tidak hanya berfokus pada pengembangan anggotanya, tetapi juga memiliki kepedulian terhadap kemajuan daerah Brebes.',
+		image: '/images/student-orgs/paguyuban/KPMDB/logo.png',
+		contact: {
+			name: '@kpmdb.unsoed',
+			link: 'https://instagram.com/kpmdb.unsoed'
+		}
 	}
 ];
 
