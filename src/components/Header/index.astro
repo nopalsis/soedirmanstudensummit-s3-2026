@@ -138,11 +138,11 @@ console.log("Current Path:", currentPath);
         </span>
       </button>
 
-       <div class="fixed inset-0 pointer-events-none z-[9999]">
-         <div
-           class="fixed top-[var(--nav-height)] right-0 mt-0 w-[280px] rounded-3xl transition-transform duration-300 flex flex-col gap-4 px-6 py-6 items-end bg-gradient-to-b from-s3-blue to-s3-blue/95 shadow-[0_10px_30px_rgba(0,0,0,0.35)] translate-x-full pointer-events-auto z-[9999] overflow-hidden hidden"
-           id="sidebar"
-         >
+        <div class="fixed inset-0 pointer-events-none z-[9999] overflow-visible">
+          <div
+            class="fixed top-[var(--nav-height)] right-0 mt-0 w-[280px] rounded-3xl transition-transform duration-300 flex flex-col gap-4 px-6 py-6 items-end bg-gradient-to-b from-s3-blue to-s3-blue/95 shadow-[0_10px_30px_rgba(0,0,0,0.35)] translate-x-full pointer-events-auto z-[9999] overflow-visible hidden"
+            id="sidebar"
+          >
            <NavLink href="/" active={currentPath === "/"}>Home</NavLink>
 
             <div class="relative inline-block text-left w-full">
@@ -438,6 +438,15 @@ console.log("Current Path:", currentPath);
     toggleButton.addEventListener("click", function (event: MouseEvent) {
       const isVisible = contentArea.classList.contains("opacity-100");
       if (!isVisible) {
+        // Tutup mobileGensodMenu saat membuka contentArea
+        const mobileGensodMenu = document.getElementById("mobileGensodDropdownMenu") as HTMLElement | null;
+        if (mobileGensodMenu) {
+          mobileGensodMenu.classList.remove("opacity-100", "visible");
+          mobileGensodMenu.classList.add("opacity-0", "invisible");
+          const mobileGensodIcon = document.getElementById("mobileGensodDropdownButton")?.querySelector("svg") as SVGElement;
+          if (mobileGensodIcon) mobileGensodIcon.style.transform = "rotate(90deg)";
+        }
+        
         contentArea.classList.remove("opacity-0", "invisible");
         contentArea.classList.add("opacity-100", "visible");
         svgIcon.style.transform = "rotate(0deg)";
@@ -470,6 +479,15 @@ console.log("Current Path:", currentPath);
     mobileGensodButton.addEventListener("click", function (event: MouseEvent) {
       const isVisible = mobileGensodMenu.classList.contains("opacity-100");
       if (!isVisible) {
+        // Tutup contentArea saat membuka mobileGensodMenu
+        const contentArea = document.getElementById("contentArea") as HTMLElement | null;
+        if (contentArea) {
+          contentArea.classList.remove("opacity-100", "visible");
+          contentArea.classList.add("opacity-0", "invisible");
+          const toggleIcon = document.getElementById("toggleButton")?.querySelector("svg") as SVGElement;
+          if (toggleIcon) toggleIcon.style.transform = "rotate(90deg)";
+        }
+        
         mobileGensodMenu.classList.remove("opacity-0", "invisible");
         mobileGensodMenu.classList.add("opacity-100", "visible");
         mobileGensodSvgIcon.style.transform = "rotate(0deg)";
