@@ -522,8 +522,8 @@ const paguyuban: {
 			}
 		],
 		contact: {
-			name: '@soeper_unsoed',
-			link: 'https://instagram.com/soeper_unsoed'
+			name: '@soedirmanperwira',
+			link: 'https://instagram.com/soedirmanperwira'
 		}
 	}
 ];
