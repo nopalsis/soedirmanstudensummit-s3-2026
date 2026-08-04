@@ -214,4 +214,14 @@
 	.text-stroke-gold {
 	  -webkit-text-stroke: 0.1px #F9E7A9;
 	}
+
+	/* Hide scrollbar */
+	.scroll-bar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scroll-bar-hide::-webkit-scrollbar {
+		display: none;
+	}
 }

@@ -22,53 +22,53 @@ const categories = Array.from(new Set(ukmData.map(org => org.slug))).sort();
 						</p>
 					</div>
 
-					<!-- Search & Filter Bar -->
-					<div class="flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto">
-					<!-- Search Bar -->
-					<div class="flex-1">
-						<div class="relative">
-							<svg
-								class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2"
-									d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-								></path>
-							</svg>
-							<input
-								id="searchInput"
-								type="text"
-								placeholder="Cari UKM yang kamu minati..."
-								class="w-full pl-12 pr-4 py-3 rounded-lg border border-s3-gold/20 bg-white text-gray-400 placeholder-gray-400 focus:outline-none focus:border-s3-gold transition-colors"
-							/>
-						</div>
+				<!-- Search & Filter Bar -->
+				<div class="flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto">
+				<!-- Search Bar -->
+				<div class="flex-1">
+					<div class="relative">
+						<svg
+							class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+							></path>
+						</svg>
+						<input
+							id="searchInput"
+							type="text"
+							placeholder="Cari UKM yang kamu minati..."
+							class="w-full pl-12 pr-4 py-3 rounded-lg border border-s3-gold/20 bg-white text-black placeholder-gray-400 focus:outline-none focus:border-s3-gold transition-colors"
+						/>
 					</div>
+				</div>
 
-					<!-- Filter Dropdown -->
-					<div class="relative z-[9999]">
+				<!-- Filter Dropdown -->
+				<div class="relative z-[9999] w-full sm:w-auto">
 						<button
 							id="filterBtn"
-							class="w-full sm:w-auto px-6 py-3 rounded-lg border border-s3-gold/20 bg-white text-black font-medium hover:border-s3-gold transition-colors flex items-center justify-center gap-2"
+							class="w-full sm:w-50 px-6 py-3 rounded-lg border border-s3-gold/20 bg-white text-black font-medium hover:border-s3-gold transition-colors flex items-center justify-center gap-2"
 						>
 							Semua Kategori
-							<svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 9l6 6 6-6"></path>
+							<svg class="w-5 h-5 text-black filter-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+								<polyline points="6 9 12 15 18 9"></polyline>
 							</svg>
 						</button>
 
-						<!-- Dropdown Menu -->
+					<!-- Dropdown Menu -->
 						<div
 							id="filterMenu"
-							class="hidden absolute right-0 mt-2 w-56 rounded-lg border border-s3-gold/20 bg-gradient-to-br from-s3-blue/90 to-s3-deep-blue/90 backdrop-blur-sm shadow-xl z-[9999]"
+							class="hidden absolute right-0 mt-2 w-full sm:w-50 rounded-lg border border-s3-gold/20 bg-gradient-to-br from-s3-blue/90 to-s3-deep-blue/90 backdrop-blur-sm shadow-xl z-[9999]"
 						>
 							<button
 								data-filter="all"
-								class="filter-option w-full text-left px-6 py-3 text-s3-gold hover:bg-s3-gold/10 transition-colors first:rounded-t-lg font-medium"
+								class="filter-option w-full text-left px-6 py-3 text-white hover:bg-s3-gold/10 transition-colors first:rounded-t-lg font-medium"
 							>
 								Semua Kategori
 							</button>
@@ -89,12 +89,12 @@ const categories = Array.from(new Set(ukmData.map(org => org.slug))).sort();
 		<!-- Content Section -->
 		<section class="py-20 pb-20 bg-cover bg-center relative z-0 overflow-visible" style="background-color: #76A3ED; background-image: url('/images/elements/bgbatik.webp');">
 			<img src="/images/elements/awanbirukuning.png" alt="Awan" class="absolute top-2 left-0 right-0 w-1/2 object-cover object-bottom pointer-events-none z-30" style="transform: translateY(-50%);" />
-			<img src="/images/elements/ornament1.png" alt="Ornament" class="absolute top-15 left-1/2 -translate-x-1/2 pointer-events-none z-10" style="transform: translateY(-60%) scale(0.9);" />
+			<img src="/images/elements/ornament1.png" alt="Ornament" class="absolute top-3 left-1/2 -translate-x-1/2 pointer-events-none z-10" style="transform: translateY(-60%) scale(0.9);" />
 			<img src="/images/elements/awanbirukuning.png" alt="Awan" class="absolute top-2 left-0 right-0 w-1/2 object-cover object-bottom pointer-events-none z-30 ml-auto" style="transform: translateY(-50%) scaleX(-1);" />
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-40">
 
 			<!-- Grid -->
-			<div id="ukmGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-40">
+			<div id="ukmGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-40 justify-items-center md:justify-items-start">
 				{ukmData.map((org) => (
 					<div
 						data-name={org.name}
@@ -126,6 +126,14 @@ const categories = Array.from(new Set(ukmData.map(org => org.slug))).sort();
 	main {
 		background-attachment: fixed;
 	}
+
+	.filter-svg {
+		transition: transform 0.3s ease;
+	}
+
+	.filter-svg.open {
+		transform: rotate(180deg);
+	}
 </style>
 
 <script>
@@ -133,8 +141,7 @@ const categories = Array.from(new Set(ukmData.map(org => org.slug))).sort();
 	const filterBtn = document.getElementById('filterBtn') as HTMLButtonElement;
 	const filterMenu = document.getElementById('filterMenu') as HTMLElement;
 	const filterOptions = document.querySelectorAll('.filter-option');
-	const ukmCards = document.querySelectorAll('.ukm-card');
-	const resultsCount = document.getElementById('resultsCount');
+	const ukmCardWrappers = document.querySelectorAll('.ukm-card-wrapper');
 	const emptyState = document.getElementById('emptyState');
 	const ukmGrid = document.getElementById('ukmGrid');
 
@@ -142,11 +149,19 @@ const categories = Array.from(new Set(ukmData.map(org => org.slug))).sort();
 
 	filterBtn.addEventListener('click', () => {
 		filterMenu.classList.toggle('hidden');
+		const svg = filterBtn.querySelector('svg');
+		if (svg) {
+			svg.classList.toggle('open');
+		}
 	});
 
 	document.addEventListener('click', (e) => {
 		if (!filterBtn.contains(e.target as Node) && !filterMenu.contains(e.target as Node)) {
 			filterMenu.classList.add('hidden');
+			const svg = filterBtn.querySelector('svg');
+			if (svg) {
+				svg.classList.remove('open');
+			}
 		}
 	});
 
@@ -154,20 +169,20 @@ const categories = Array.from(new Set(ukmData.map(org => org.slug))).sort();
 		const searchTerm = searchInput.value.toLowerCase();
 		let visibleCount = 0;
 
-		ukmCards.forEach(card => {
-			const name = card.getAttribute('data-name')?.toLowerCase() || '';
-			const description = card.getAttribute('data-description')?.toLowerCase() || '';
-			const slug = card.getAttribute('data-slug') || '';
+		ukmCardWrappers.forEach(wrapper => {
+			const name = wrapper.getAttribute('data-name')?.toLowerCase() || '';
+			const description = wrapper.getAttribute('data-description')?.toLowerCase() || '';
+			const slug = wrapper.getAttribute('data-slug') || '';
 
 			const matchesSearch = name.includes(searchTerm) || description.includes(searchTerm);
 			const matchesFilter = currentFilter === 'all' || slug === currentFilter;
 			const shouldShow = matchesSearch && matchesFilter;
 
 			if (shouldShow) {
-				card.classList.remove('hidden');
+				wrapper.classList.remove('hidden');
 				visibleCount++;
 			} else {
-				card.classList.add('hidden');
+				wrapper.classList.add('hidden');
 			}
 		});
 
@@ -178,8 +193,6 @@ const categories = Array.from(new Set(ukmData.map(org => org.slug))).sort();
 			ukmGrid!.classList.remove('hidden');
 			emptyState!.classList.add('hidden');
 		}
-
-		resultsCount!.textContent = `Menampilkan ${visibleCount} dari ${ukmCards.length} UKM`;
 	}
 
 	searchInput.addEventListener('input', filterUKM);
@@ -189,16 +202,24 @@ const categories = Array.from(new Set(ukmData.map(org => org.slug))).sort();
 			const filter = option.getAttribute('data-filter') || 'all';
 			const label = option.textContent || 'Semua Kategori';
 			
-			filterBtn.textContent = label.trim();
+			const capitalizedLabel = label.trim().charAt(0).toUpperCase() + label.trim().slice(1).toLowerCase();
 			
-			const svg = document.createElement('svg');
-			svg.className = 'w-4 h-4';
-			svg.setAttribute('fill', 'none');
-			svg.setAttribute('stroke', 'currentColor');
-			svg.setAttribute('viewBox', '0 0 24 24');
-			svg.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>';
+			// Remove active class from all options
+			filterOptions.forEach(opt => {
+				opt.classList.remove('bg-s3-gold/20', 'text-s3-gold');
+			});
 			
-			filterBtn.appendChild(svg);
+			// Add active class to selected option
+			option.classList.add('bg-s3-gold/20', 'text-s3-gold');
+			
+			// Update text tanpa menghapus SVG
+			const textNode = filterBtn.childNodes[0];
+			if (textNode && textNode.nodeType === Node.TEXT_NODE) {
+				textNode.textContent = capitalizedLabel + ' ';
+			} else {
+				filterBtn.insertBefore(document.createTextNode(capitalizedLabel + ' '), filterBtn.firstChild);
+			}
+			
 			filterMenu.classList.add('hidden');
 			currentFilter = filter;
 			filterUKM();

@@ -187,7 +187,7 @@ const ukm: {
 	},
 	{
 		name: 'Cimsa',
-		slug: 'kesenian',
+		slug: 'organisasi',
 		id: 'cimsa',
 		description:
 			'CIMSA Universitas Jenderal Soedirman (Unsoed) disahkan sebagai lokal CIMSA pada May Meeting 2019 di Semarang. Saat awal didirikan, CIMSA Unsoed hanya memiliki dua standing committee, yaitu Standing Committee on Public Health (SCOPH) dan SCORA (Standing Committee on Sexual & Reproductive Health and Rights including HIV/AIDS. CIMSA Unsoed terus berkembang dan saat ini CIMSA Unsoed telah memiliki 4 standing committees yaitu SCOPH, SCORA, SCORP (Standing Committee on Human Right and Peace), dan SCORE (Standing Committee on Research Exchange).',
@@ -287,7 +287,7 @@ const ukm: {
 	},
 	{
 		name: 'Himabisi KIP-K',
-		slug: 'kesenian',
+		slug: 'akademik',
 		id: 'himabisi',
 		description:
 			'Himpunan Mahasiswa Bidikmisi & KIP-K (Himabisi KIP-K) Unsoed adalah organisasi atau himpunan yang mengemban misi meningkatkan pemahaman dan rasa saling memiliki terhadap organisasi dan sesama mahasiswa penerima beasiswa Bidikmisi dan Kartu Indonesia Pintar Kuliah Universitas Jenderal Soedirman, membangun solidaritas antar mahasiswa Bidikmisi dan Kartu Indonesia Pintar Kuliah Universitas Jenderal Soedirman, membentuk mahasiswa Bidikmisi dan Kartu Indonesia Pintar Kuliah yang kreatif, inovatif, dan kontributif serta menumbuhkan rasa kepedulian dengan berbasis pengabdian masyarakat.',
@@ -429,7 +429,7 @@ const ukm: {
 	},
 	{
 		name: 'LPM Sketsa',
-		slug: 'bahasa',
+		slug: 'organisasi',
 		id: 'lpm-sketsa',
 		description:
 			'Unit Kegiatan Mahasiswa Lembaga Pers Mahasiswa Sketsa, atau disingkat LPM Sketsa, merupakan organisasi kemahasiswaan yang bergerak di bidang jurnalistik.',
@@ -466,7 +466,7 @@ const ukm: {
 	},
 	{
 		name: 'Marching Band Bahana Putra Soedirman',
-		slug: 'Kesenian',
+		slug: 'kesenian',
 		id: 'mb-bps',
 		description:
 			'Marching Band Bahana Putra Soedirman (MB BPS) adalah Unit Kegiatan Mahasiswa Universitas Jenderal Soedirman (Unsoed), Purwokerto, yang bergerak di bidang seni musik, khususnya marching band. Berdiri sejak tahun 1973, MB BPS menjadi wadah bagi mahasiswa untuk menyalurkan minat dan bakat dalam musik dan tari, sekaligus mengembangkan potensi diri melalui pembinaan dan pelatihan yang terstruktur. Tidak hanya fokus pada pengembangan keterampilan artistik, MB BPS juga menanamkan nilai kekompakan, kedisiplinan, semangat juang (espirit de corps), kemampuan sosial, serta keterampilan manajerial dan organisasi.',
