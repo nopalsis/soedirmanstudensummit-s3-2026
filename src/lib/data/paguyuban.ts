@@ -67,13 +67,13 @@ const paguyuban: {
 		}
 	},
 	{
-		name: 'HIMPUNAN MAHASISWA ADIPATI EWANGGA (HIMADIWA) KUNINGAN',
+		name: 'Himpunan Mahasiswa Adipati Ewangga (HIMADIWA) Kuningan',
 		location: 'Jawa Barat',
 		slug: 'jawa-barat',
 		description:
 			'Himpunan mahasiswa asal Kabupaten Kuningan yang menjadi wadah bagi mahasiswa untuk bertanggung jawab atas nilai-nilai Adipati Ewangga: keberanian, keadilan, kewibawaan, kebijaksanaan, kepedulian sosial, dan integritas.',
 		longDescription:
-			'Himpunan Mahasiswa Adipati Ewangga (Himadiwa) Kuningan, didirikan pada tanggal 12 Mei 2016, merupakan himpunan yang menaungi mahasiswa asal Kabupaten Kuningan yang sedang menjalankan studi di Universitas Jenderal Soedirman, Banyumas, Jawa Tengah. Himadiwa Kuningan berasaskan Pancasila dan bersifat kekeluargaan serta bertujuan menjadi wadah bagi mahasiswa Kuningan di Purwokerto yang mampu bertanggung jawab atas nilai-nilai yang terdapat dalam diri Adipati Ewangga, yakni keberanian, keadilan, kewibawaan, kebijaksanaan, kepedulian sosial, dan integritas. Lambang Himadiwa Kuningan merupakan simbol identitas dan semangat organisasi. Di bagian tengah terdapat gambar kepala kuda, yang merupakan kuda tunggangan Adipati Ewangga. Kepala kuda ini dikelilingi oleh rantai yang saling terhubung membentuk lingkaran; rantai tersebut mencerminkan kesolidan antaranggota Himadiwa. Dua bintang di sisi kiri dan kanan lambang melambangkan keseimbangan dalam paguyuban, yaitu bahwa setiap anggota memiliki hak yang sama dalam organisasi Himadiwa. Warna biru dalam lambang mencerminkan loyalitas dan kesetiaan anggota Himadiwa, sedangkan warna hitam melambangkan keberanian serta ketegasan paguyuban dalam menyikapi berbagai hal. Secara keseluruhan, bentuk lingkaran dalam lambang melambangkan kesatuan antaranggota Himadiwa. Setiap anggota diharapkan dapat bersatu dalam membentuk paguyuban Himadiwa yang utuh.',
+			'Himpunan Mahasiswa Adipati Ewangga (HIMADIWA) Kuningan, didirikan pada tanggal 12 Mei 2016, merupakan himpunan yang menaungi mahasiswa asal Kabupaten Kuningan yang sedang menjalankan studi di Universitas Jenderal Soedirman, Banyumas, Jawa Tengah. HIMADIWA Kuningan berasaskan Pancasila dan bersifat kekeluargaan serta bertujuan menjadi wadah bagi mahasiswa Kuningan di Purwokerto yang mampu bertanggung jawab atas nilai-nilai yang terdapat dalam diri Adipati Ewangga, yakni keberanian, keadilan, kewibawaan, kebijaksanaan, kepedulian sosial, dan integritas. Lambang HIMADIWA Kuningan merupakan simbol identitas dan semangat organisasi. Di bagian tengah terdapat gambar kepala kuda, yang merupakan kuda tunggangan Adipati Ewangga. Kepala kuda ini dikelilingi oleh rantai yang saling terhubung membentuk lingkaran; rantai tersebut mencerminkan kesolidan antaranggota HIMADIWA. Dua bintang di sisi kiri dan kanan lambang melambangkan keseimbangan dalam paguyuban, yaitu bahwa setiap anggota memiliki hak yang sama dalam organisasi HIMADIWA. Warna biru dalam lambang mencerminkan loyalitas dan kesetiaan anggota HIMADIWA, sedangkan warna hitam melambangkan keberanian serta ketegasan paguyuban dalam menyikapi berbagai hal. Secara keseluruhan, bentuk lingkaran dalam lambang melambangkan kesatuan antaranggota HIMADIWA. Setiap anggota diharapkan dapat bersatu dalam membentuk paguyuban HIMADIWA yang utuh.',
 		image: '/images/student-orgs/paguyuban/himadiwa/logo.webp',
 		events: [
 			{
@@ -103,7 +103,7 @@ const paguyuban: {
 		}
 	},
 	{
-		name: 'HIMAKA PURWOKERTO',
+		name: 'HIMAKA Purwokerto',
 		location: 'Jawa Tengah',
 		slug: 'jakarta',
 		description:
@@ -138,9 +138,9 @@ const paguyuban: {
 		location: 'Jawa Barat',
 		slug: 'sumatra',
 		description:
-			'Paguyuban yang menghimpun mahasiswa dari berbagai daerah di Pulau Sumatra untuk melestarikan budaya Melayu.',
+			'Himpunan Mahasiswa Bekasi Unsoed didirikan pada tanggal 29 Juni 2016 merupakan Himpunan Mahasiswa Bekasi Unsoed yang studi di Banyumas. Merupakan satu-satunya organisasi mahasiswa Bekasi di Purwokerto dan berstatus koordinatif Himpunan Mahasiswa Bekasi (HIMAKASI). HIMAKASI Unsoed berasaskan Pancasila dan bersifat kekeluargaan serta gotong royong. HIMAKASI Unsoed bertujuan untuk membentuk mahasiswa asal Bekasi di Purwokerto yang bertaqwa, berakhlak mulia, cakap dan mampu berkarya serta bertanggung jawab atas terwujudnya masyarakat adil dan makmur yang diridhoi Allah SWT, dan menjaga nama baik Bekasi.',
 		longDescription:
-			'Himpunan Mahasiswa Bekasi Unsoed didirikan pada tanggal 29 Juni 2016 merupakan Himpunan Mahasiswa Bekasi Unsoed yang studi di Banyumas. Merupakan satu-satunya organisasi mahasiswa Bekasi di Purwokerto dan berstatus koordinatif Himpunan Mahasiswa Bekasi (HIMAKASI). Himakasi Unsoed berasaskan Pancasila dan bersifat kekeluargaan serta gotong royong. Himakasi Unsoed bertujuan untuk membentuk mahasiswa asal Bekasi di Purwokerto yang bertaqwa, berakhlak mulia, cakap dan mampu berkarya serta bertanggung jawab atas terwujudnya masyarakat adil dan makmur yang diridhoi Allah SWT, dan menjaga nama baik Bekasi.',
+			'Himpunan Mahasiswa Bekasi Unsoed didirikan pada tanggal 29 Juni 2016 merupakan Himpunan Mahasiswa Bekasi Unsoed yang studi di Banyumas. Merupakan satu-satunya organisasi mahasiswa Bekasi di Purwokerto dan berstatus koordinatif Himpunan Mahasiswa Bekasi (HIMAKASI). HIMAKASI Unsoed berasaskan Pancasila dan bersifat kekeluargaan serta gotong royong. HIMAKASI Unsoed bertujuan untuk membentuk mahasiswa asal Bekasi di Purwokerto yang bertaqwa, berakhlak mulia, cakap dan mampu berkarya serta bertanggung jawab atas terwujudnya masyarakat adil dan makmur yang diridhoi Allah SWT, dan menjaga nama baik Bekasi.',
 		image: '/images/student-orgs/paguyuban/himakasi/logo.webp',
 		events: [
 			{
@@ -191,7 +191,7 @@ const paguyuban: {
 		description:
 			'HIMALA (Himpunan Mahasiswa Lampung) adalah paguyuban mahasiswa asal Lampung di Universitas Jenderal Soedirman. Didirikan sejak 2019, HIMALA menjadi wadah untuk mempererat solidaritas, melestarikan budaya daerah, dan berkontribusi positif bagi kampus maupun tanah kelahiran.',
 		longDescription:
-			'Paguyuban ini bernama Himpunan Mahasiswa Lampung yang kemudian disingkat menjadi HIMALA. Paguyuban ini awal mulanya dibentuk pada sekitar tahun 2019 oleh para mahasiswa/i rantau asal Provinsi Lampung untuk dapat berkumpul dan membangun solidaritas bersama, yang kemudian terus berlanjut hingga kini dan telah resmi mendapat SK Rektor Universitas Jenderal Soedirman Nomor 3045/UN23/KM.04.00/2024. Pada awalnya, Himpunan Mahasiswa Lampung dibentuk semata-mata menjadi wadah bagi para mahasiswa asal Lampung untuk dapat berhimpun bersama, bersenang-senang, dan mempererat solidaritas di antara sesama mahasiswa/i yang berkuliah di Universitas Jenderal Soedirman. Dengan tujuan awal untuk membangun ikatan dan mempererat hubungan antar anggota. Saat ini, Himala tidak sekedar perkumpulan yang bersifat non formal, melainkan wadah paguyuban bagi mahasiswa/i Lampung yang berkuliah di Universitas Jenderal Soedirman. Paguyaban Himala membentuk menjadi sebuah organisasi yang berusaha untuk data memberikan dampak kepada Unsoed, Lampung, dan kedua citra tersebut tentunya.',
+			'Paguyuban ini bernama Himpunan Mahasiswa Lampung yang kemudian disingkat menjadi HIMALA. Paguyuban ini awal mulanya dibentuk pada sekitar tahun 2019 oleh para mahasiswa/i rantau asal Provinsi Lampung untuk dapat berkumpul dan membangun solidaritas bersama, yang kemudian terus berlanjut hingga kini dan telah resmi mendapat SK Rektor Universitas Jenderal Soedirman Nomor 3045/UN23/KM.04.00/2024. Pada awalnya, Himpunan Mahasiswa Lampung dibentuk semata-mata menjadi wadah bagi para mahasiswa asal Lampung untuk dapat berhimpun bersama, bersenang-senang, dan mempererat solidaritas di antara sesama mahasiswa/i yang berkuliah di Universitas Jenderal Soedirman. Dengan tujuan awal untuk membangun ikatan dan mempererat hubungan antar anggota. Saat ini, HIMALA tidak sekedar perkumpulan yang bersifat non formal, melainkan wadah paguyuban bagi mahasiswa/i Lampung yang berkuliah di Universitas Jenderal Soedirman. Paguyaban HIMALA membentuk menjadi sebuah organisasi yang berusaha untuk data memberikan dampak kepada Unsoed, Lampung, dan kedua citra tersebut tentunya.',
 		image: '/images/student-orgs/paguyuban/himala/logo.webp',
 		events: [
 			{
@@ -222,7 +222,7 @@ const paguyuban: {
 		description:
 			'HIMAPPA (Himpunan Mahasiswa dan Pelajar Afirmasi Non Afirmasi Papua di Purwokerto) adalah paguyuban resmi yang menjadi rumah bagi pelajar dan mahasiswa Papua di Purwokerto. Didirikan sejak 2016, HIMAPPA hadir sebagai wadah kebersamaan, pengembangan diri, dan solidaritas antar anak Papua dalam menempuh pendidikan.',
 		longDescription:
-			'Himappa adalah singkatan dari Himpunan Mahasiswa dan Pelajar Afirmasi Non Afirmasi Papua di Purwokerto. Afirmasi adalah salah satu Beasiswa dari kementrian Pendidikan dan kebudayaan yang diberikan kepada Pelajar dan Mahasiswa Papua berprestasi. Himappa didirikan pada tanggal 14 agustus 2016 oleh kaka-kaka mahasiswa afirmasi Papua angakatan pertama di Universitas Jenderal Soedirman dengan jumalh anggota 13 Orang. Awal mulanya Himappa dibentuk dengan tujuan untuk mempermudah masalah administrasi di Universitas Jenderal Soedirman selama 3 tahun namun dengan berjalannya waktu melalui banyak diskusi akhirnya pada tahun 2019 Himappa resmi menjadi Paguyuban yang merangkul seluruh anak Papua yang ada di Purwokerto mulai dari Pelajar hingga Mahasiswa sampai sekarang. Himappa berperan sebagai wadah bagi seluruh anggota himappa untuk belajar berorganisasi, saling merangkul antar anak-anak Papua dan sebagai rumah bagi kami anak-anak Papua. Jumlah Anggota Himappa adalah 129 Anggota terhitung mulai dari Pelajar-Mahasiswa, anggota Himappa adalah Pelajar dan Mahasiswa Papua yang menimba ilmu di Kota study purwokerto. Himappa menjadi Paguyuban yang resmi terdaftar di BEM Universitas Jenderal Soedirman pada tahun 2022.',
+			'HIMAPPA adalah singkatan dari Himpunan Mahasiswa dan Pelajar Afirmasi Non Afirmasi Papua di Purwokerto. Afirmasi adalah salah satu Beasiswa dari kementrian Pendidikan dan kebudayaan yang diberikan kepada Pelajar dan Mahasiswa Papua berprestasi. HIMAPPA didirikan pada tanggal 14 agustus 2016 oleh kaka-kaka mahasiswa afirmasi Papua angakatan pertama di Universitas Jenderal Soedirman dengan jumalh anggota 13 Orang. Awal mulanya HIMAPPA dibentuk dengan tujuan untuk mempermudah masalah administrasi di Universitas Jenderal Soedirman selama 3 tahun namun dengan berjalannya waktu melalui banyak diskusi akhirnya pada tahun 2019 HIMAPPA resmi menjadi Paguyuban yang merangkul seluruh anak Papua yang ada di Purwokerto mulai dari Pelajar hingga Mahasiswa sampai sekarang. HIMAPPA berperan sebagai wadah bagi seluruh anggota HIMAPPA untuk belajar berorganisasi, saling merangkul antar anak-anak Papua dan sebagai rumah bagi kami anak-anak Papua. Jumlah Anggota HIMAPPA adalah 129 Anggota terhitung mulai dari Pelajar-Mahasiswa, anggota HIMAPPA adalah Pelajar dan Mahasiswa Papua yang menimba ilmu di Kota study purwokerto. HIMAPPA menjadi Paguyuban yang resmi terdaftar di BEM Universitas Jenderal Soedirman pada tahun 2022.',
 		image: '/images/student-orgs/paguyuban/himappa/logo.webp',
 		events: [
 			{
@@ -261,9 +261,9 @@ const paguyuban: {
 		location: 'Jawa Tengah',
 		slug: 'cilacap',
 		description:
-			'HMC UNSOED (Himpunan Mahasiswa Cilacap) adalah paguyuban mahasiswa asal Kabupaten Cilacap yang menjadi wadah silaturahmi, pengembangan diri, dan pengabdian kepada masyarakat. Melalui semangat kekeluargaan dan musyawarah, HMC menyusun program kerja yang berdampak positif bagi anggota maupun masyarakat Cilacap.',
+			'HMC Unsoed (Himpunan Mahasiswa Cilacap) adalah paguyuban mahasiswa asal Kabupaten Cilacap yang menjadi wadah silaturahmi, pengembangan diri, dan pengabdian kepada masyarakat. Melalui semangat kekeluargaan dan musyawarah, HMC menyusun program kerja yang berdampak positif bagi anggota maupun masyarakat Cilacap.',
 		longDescription:
-			'HMC UNSOED ( Himpunan Mahasiswa Cilacap) merupakan organisasi berbasis paguyuban kedaerahan yang menjadi wadah silaturahmi dalam rangka menjalin komunikasi antar mahasiswa Unsoed yang berasal dari Kabupaten Cilacap. Tidak hanya menjadi wadah silaturahmi, HMC Unsoed juga dapat menjadi ruang berproses bagi anggota dalam bidang keorganisasian melalui serangkaian program kerja yang disusun berdasarkan musyawarah mufakat. Dalam penyusunannya setidaknya terdapat satu program kerja yang berdampak positif terhadap elemen masyarakat Kabupaten Cilacap. Dengan adanya hal tersebut maka baik secara langsung maupun tidak langsung masyarakat Kabupaten Cilacap dapat merasakan manfaat dari adanya HMC Unsoed ini. Adapun program kerja yang dilaksanakan adalah program kerja yang berbasis pada Tridharma Perguruan Tinggi dengan tidak mengesampingkan rasa kekeluargaan antar anggota. Untuk itu para anggota sangat diharapkan dapat berkontribusi secara aktif, serta mampu memberikan saran dan kritik guna kebaikan organisasi.',
+			'HMC Unsoed ( Himpunan Mahasiswa Cilacap) merupakan organisasi berbasis paguyuban kedaerahan yang menjadi wadah silaturahmi dalam rangka menjalin komunikasi antar mahasiswa Unsoed yang berasal dari Kabupaten Cilacap. Tidak hanya menjadi wadah silaturahmi, HMC Unsoed juga dapat menjadi ruang berproses bagi anggota dalam bidang keorganisasian melalui serangkaian program kerja yang disusun berdasarkan musyawarah mufakat. Dalam penyusunannya setidaknya terdapat satu program kerja yang berdampak positif terhadap elemen masyarakat Kabupaten Cilacap. Dengan adanya hal tersebut maka baik secara langsung maupun tidak langsung masyarakat Kabupaten Cilacap dapat merasakan manfaat dari adanya HMC Unsoed ini. Adapun program kerja yang dilaksanakan adalah program kerja yang berbasis pada Tridharma Perguruan Tinggi dengan tidak mengesampingkan rasa kekeluargaan antar anggota. Untuk itu para anggota sangat diharapkan dapat berkontribusi secara aktif, serta mampu memberikan saran dan kritik guna kebaikan organisasi.',
 		image: '/images/student-orgs/paguyuban/hmc/logo.webp',
 		events: [
 			{
@@ -288,7 +288,7 @@ const paguyuban: {
 		}
 	},
 	{
-		name: 'IKATAN KELUARGA MAHASISWA MINANG UNIVERSITAS JENDERAL SOEDIRMAN (IKAMMI UNSOED)',
+		name: 'Ikatan Keluarga Mahasiswa Minang Universitas Jenderal Soedirman (IKAMMI UNSOED)',
 		location: 'Luar Jawa',
 		slug: 'minang',
 		description:
@@ -345,7 +345,7 @@ const paguyuban: {
 		}
 	},
 	{
-		name: 'IKATAN MAHASISWA BANJARNEGARA UNIVERSITAS JENDERAL SOEDIRMAN (IMBARA UNSOED)',
+		name: 'Ikatan Mahasiswa Banjarnegara Universitas Jenderal Soedirman (IMBARA UNSOED)',
 		location: 'Jawa Tengah',
 		slug: 'banjarnegara',
 		description:
@@ -507,7 +507,7 @@ const paguyuban: {
 		description:
 			'SOEPER (Soedirman Perwira) adalah paguyuban mahasiswa Universitas Jenderal Soedirman asal Kabupaten Purbalingga. Dikenal aktif dan inovatif, SOEPER menjadi wadah kekeluargaan, pengembangan diri, serta pelestarian budaya melalui berbagai kegiatan sosial dan kreatif.',
 		longDescription:
-			'SOEPER (Soedirman Perwira) adalah organisasi yang mewadahi mahasiswa/i Universitas Jenderal Soedirman yang berasal dari Kabupaten Purbalingga. SOEPER dikenal sebagai paguyuban yang aktif dengan berbagai kegiatannya seperti Makrab, Sosialisasi, Soeper Mengajar, dan masih banyak lagi. Tahun ini SOEPER membawa gebrakan baru dengan agenda terbesarnya yaitu SOEPERATION yang merupakan acara untuk memperingati hari jadi dari SOEPER dengan berbagai rangkaian kegiatan yang seru dan menarik seperti perlombaan esport, seni musik, dan seni tari.',
+			'SOEPER (Soedirman Perwira) adalah organisasi yang mewadahi mahasiswa/i Universitas Jenderal Soedirman yang berasal dari Kabupaten Purbalingga. SOEPER dikenal sebagai paguyuban yang aktif dengan berbagai kegiatannya seperti Makrab, Sosialisasi, SOEPER Mengajar, dan masih banyak lagi. Tahun ini SOEPER membawa gebrakan baru dengan agenda terbesarnya yaitu SOEPERATION yang merupakan acara untuk memperingati hari jadi dari SOEPER dengan berbagai rangkaian kegiatan yang seru dan menarik seperti perlombaan esport, seni musik, dan seni tari.',
 		image: '/images/student-orgs/paguyuban/soeper/logo.webp',
 		events: [
 			{
@@ -527,13 +527,13 @@ const paguyuban: {
 		}
 	},
 	{
-		name: 'FORUM MAHASISWA INDRAMAYU (FORMASI)',
+		name: 'Forum Mahasiswa Indramayu (FORMASI)',
 		location: 'Jawa Barat',
 		slug: 'indramayu',
 		description:
-			'FORMASI (Forum mahasiswa Indramayu) merupakan sebuah paguyuban mahasiswa atau sebuah organisasi yang mewadahi mahasiswa asal Indramayu dari berbagai perguruan tinggi yang ada di daerah Purwokerto dan sekitarnya.',
+			'FORMASI (Forum Mahasiswa Indramayu) merupakan sebuah paguyuban mahasiswa atau sebuah organisasi yang mewadahi mahasiswa asal Indramayu dari berbagai perguruan tinggi yang ada di daerah Purwokerto dan sekitarnya.',
 		longDescription:
-			'FORMASI (Forum mahasiswa Indramayu) merupakan sebuah paguyuban mahasiswa atau sebuah organisasi yang mewadahi mahasiswa asal Indramayu dari berbagai perguruan tinggi yang ada di daerah Purwokerto dan sekitarnya. FORMASI hadir sebagai sarana untuk mempererat kebersamaan, menumbuhkan solidaritas, serta membangun kerja sama dalam mencapai tujuan Bersama.',
+			'FORMASI (Forum Mahasiswa Indramayu) merupakan sebuah paguyuban mahasiswa atau sebuah organisasi yang mewadahi mahasiswa asal Indramayu dari berbagai perguruan tinggi yang ada di daerah Purwokerto dan sekitarnya. FORMASI hadir sebagai sarana untuk mempererat kebersamaan, menumbuhkan solidaritas, serta membangun kerja sama dalam mencapai tujuan Bersama.',
 		image: '/images/student-orgs/paguyuban/FORMASI/logo.png',
 		contact: {
 			name: '@formasipwt',

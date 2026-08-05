@@ -215,6 +215,21 @@
 	  -webkit-text-stroke: 0.1px #F9E7A9;
 	}
 
+	.text-stroke-gold-countdown {
+	  -webkit-text-stroke: 1.5px #DEB65B;
+	}
+
+	.text-stroke-gold-rangkaian {
+	  -webkit-text-stroke: 1.5px #F9E7A9;
+	}
+
+	.gradient-text-title-blue {
+	  background: linear-gradient(180deg, #3E5EAA 0%, #001A58 100%);
+	  -webkit-background-clip: text;
+	  -webkit-text-fill-color: transparent;
+	  background-clip: text;
+	}
+
 	/* Hide scrollbar */
 	.scroll-bar-hide {
 		-ms-overflow-style: none;
