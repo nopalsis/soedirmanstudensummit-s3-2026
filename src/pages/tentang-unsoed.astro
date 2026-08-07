@@ -189,11 +189,18 @@ const defaultFakultas = dataFakultas[0];
                  semua heading page ini (Hero, Fakultas Unsoed, Hymne&Mars, Profil), varian gold/navy
                  tinggal ganti kelas gradient-nya. paint-order yg fix stroke makan lekukan huruf V/s/M,
                  bukan soal ketebalan px lagi.
-                 -mt-8 di ornamen: motong jarak kosong dari line-height:normal font 120px (line-box-nya
-                 jauh lebih tinggi dari tinggi glyph asli), biar ornamen nempel deket ke title. -->
-            <h2 class="text-center font-junigarden-swash text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[normal] gradient-text-title-blue text-stroke-gold [paint-order:stroke_fill]">Visi</h2>
-            <img src="/images/elements/visi-misi-ornamen.png" alt="" class="mx-auto -mt-8 mb-4 h-auto w-40" />
-            <p class="text-justify font-plus-jakarta-sans text-sm text-[#1e1e1e] leading-relaxed md:text-base">
+                 Gap headline→ornamen: dulu -mt-8 (fixed -32px) buat motong jarak kosong dari
+                 line-height:normal font yg scale per-breakpoint (text-lg..lg:text-5xl) — makin
+                 gede font, makin gede sisa line-height-nya, tapi -mt-8 tetep konstan, jadi gap
+                 efektifnya gak sama di tiap breakpoint (kadang nempel). Ganti ke flex-col gap-2,
+                 PERSIS pola yg dipakai Fakultas Unsoed (line ~251) buat ornamen atas+bawahnya —
+                 gap-2 = 8px KONSTAN lintas breakpoint, sesuai acuan satu-satunya yg valid di page
+                 ini (Hymne&Mars gak punya ornamen sama sekali, gak bisa jadi acuan). -->
+            <div class="flex flex-col items-center gap-2">
+              <h2 class="text-center font-junigarden-swash text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[normal] gradient-text-title-blue text-stroke-gold [paint-order:stroke_fill]">Visi</h2>
+              <img src="/images/elements/visi-misi-ornamen.png" alt="" class="h-auto w-40" />
+            </div>
+            <p class="mt-4 text-justify font-plus-jakarta-sans text-sm text-[#1e1e1e] leading-relaxed md:text-base">
               {visi}
             </p>
           </div>
@@ -204,10 +211,12 @@ const defaultFakultas = dataFakultas[0];
             <!-- Judul "Misi" balik jadi live text (node 755:174) — sama alasannya kayak Visi di atas.
                  Ornamen sama persis dgn punya Visi (figma node 3068:1154 & 3068:1162 identik pixel-per-
                  pixel, dicek via cmp) — satu asset shared, gak perlu versi mirror terpisah.
-                 Stroke 1px & -mt-8 ornamen: sama alasannya kayak Visi, lihat komentar di situ. -->
-            <h2 class="text-center font-junigarden-swash text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[normal] gradient-text-title-blue text-stroke-gold [paint-order:stroke_fill]">Misi</h2>
-            <img src="/images/elements/visi-misi-ornamen.png" alt="" class="mx-auto -mt-8 mb-4 h-auto w-40" />
-            <ol class="space-y-3">
+                 Gap headline→ornamen: sama alasannya kayak Visi, lihat komentar di situ. -->
+            <div class="flex flex-col items-center gap-2">
+              <h2 class="text-center font-junigarden-swash text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[normal] gradient-text-title-blue text-stroke-gold [paint-order:stroke_fill]">Misi</h2>
+              <img src="/images/elements/visi-misi-ornamen.png" alt="" class="h-auto w-40" />
+            </div>
+            <ol class="mt-4 space-y-3">
               {misi.map((item, index) => (
                 <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay={index * 100}>
                   <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1e4b82] font-bold text-white shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
