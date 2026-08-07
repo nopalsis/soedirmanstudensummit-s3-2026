@@ -178,7 +178,7 @@ const defaultFakultas = dataFakultas[0];
 
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="grid grid-cols-1 gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
-          <div data-aos="fade-right" data-aos-duration="800">
+          <div id="visi-block" data-aos="fade-right" data-aos-duration="800">
             <!-- Judul "Visi" balik jadi live text (node 755:87) — sebelumnya di-flatten ke PNG
                  (visi-title-group.png) krn teks+SVG terpisah bikin warna salah/ornamen kebalik;
                  sekarang itu bukan masalah lagi karena ornamen dipisah jadi asset sendiri
@@ -207,7 +207,7 @@ const defaultFakultas = dataFakultas[0];
 
           <div class="mx-auto hidden w-3 rounded-md bg-[#f3c662] md:block" aria-hidden="true"></div>
 
-          <div data-aos="fade-left" data-aos-duration="800">
+          <div id="misi-block" data-aos="fade-left" data-aos-duration="800">
             <!-- Judul "Misi" balik jadi live text (node 755:174) — sama alasannya kayak Visi di atas.
                  Ornamen sama persis dgn punya Visi (figma node 3068:1154 & 3068:1162 identik pixel-per-
                  pixel, dicek via cmp) — satu asset shared, gak perlu versi mirror terpisah.
@@ -554,4 +554,26 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
     bindToggle(hymneBtn, hymneAudio, marsAudio, marsBtn);
     bindToggle(marsBtn, marsAudio, hymneAudio, hymneBtn);
   </script>
+
+  <style>
+    /* Swash "V" di judul "Visi" kepotong sisi kiri — root cause BUKAN glyph/overflow/stroke
+       (udah dites satu-satu via computed style & isolated render test, semuanya gak clip).
+       Penyebab sebenarnya: rule bawaan AOS `[data-aos^="fade"].aos-animate { transform:
+       translateZ(0px) }` — residual transform yg dipasang AOS abis animasi kelar (fade-right/
+       fade-left), tujuannya cuma force GPU compositing layer buat performa. translateZ(0px)
+       NOL efek visual (halaman 2D), tapi bikin Chromium promote elemen itu ke layer sendiri
+       yg bound-nya kena hitung dari LAYOUT box, bukan ink/paint box — overshoot swash "V" yg
+       nongol di atas cap-height jadi ke-clip ke batas layer itu. "Misi" (huruf M, overshoot
+       lebih kecil) kebetulan gak separah itu jadi kelihatan aman.
+       Fix: nol-in transform SPESIFIK di state .aos-animate (final, settled) buat 2 wrapper
+       ini doang, via id (spesifisitas ngalahin rule AOS `[data-aos^="fade"][data-aos^="fade"]
+       .aos-animate` apapun urutan load stylesheet-nya). Gak nyentuh rule pre-animate
+       ([data-aos="fade-right"] tanpa .aos-animate) — animasi masuk (translateX awal) tetep
+       jalan normal, cuma transform SISA pasca-animasi yg dibuang. Teks gak geser sama sekali
+       (translateZ(0) toh gak punya efek visual dari awal). */
+    #visi-block[data-aos].aos-animate,
+    #misi-block[data-aos].aos-animate {
+      transform: none;
+    }
+  </style>
 </Layout>
