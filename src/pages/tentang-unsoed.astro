@@ -150,7 +150,17 @@ const defaultFakultas = dataFakultas[0];
     </div>
 
     <!-- 2. VISI & MISI -->
-    <section id="visi-misi-unsoed" class="relative overflow-hidden bg-white pt-24 pb-20 md:pt-32 md:pb-28">
+    <!-- pt-[clamp(...)]: dulu pt-24 md:pt-32 (fixed step) — sama kelas bug kayak komentar
+         pb-[20.1%] Hero di atas (step-function padding vs elemen yg scaling kontinu = ketiban
+         di viewport tertentu). wave-kanan-belt (aspect 1619/454, lebih gede overlap-nya drpd
+         wave-kiri 1493/367) turun 45% dari tinggi renders-nya sendiri ke bawah garis sambung
+         section = 45% x 65% x (454/1619) ≈ 8.2vw, TERUS MEMBESAR seiring viewport melebar krn
+         width belt-nya sendiri w-[65%] vw-relative. pt-32 (128px fixed) di viewport lebar
+         (>1440px) udah kalah sama intrusion itu → judul Visi/Misi ketiban/nempel belt. clamp()
+         = intrusion(8.2vw) + 4rem jarak-aman (samain pola gap Fakultas pt-16) → scale ngikutin
+         belt, gak ada titik gagal. Floor 5rem jaga viewport ekstrem sempit, cap 20rem cegah
+         whitespace kebablasan di ultra-wide (belt sendiri masih dekorasi, bukan konten). -->
+    <section id="visi-misi-unsoed" class="relative overflow-hidden bg-white pt-[clamp(5rem,8.2vw+4rem,20rem)] pb-20 md:pb-28">
       <img
         src="/images/elements/wayang-kiri.png"
         alt=""
