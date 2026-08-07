@@ -421,16 +421,17 @@ UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
       <div class="absolute inset-0 bg-[url('/images/elements/pattern-profil.png')] bg-cover bg-center bg-no-repeat"></div>
       <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
         <div class="flex flex-col items-center gap-8 text-center md:flex-row-reverse md:gap-12">
-          <!-- Flatten tunggal node Figma 755:158 (judul 2 baris + shadow) — versi CSS teks sebelumnya
-               udah cocok tapi tetap dilaporkan "belum berubah", flatten jadi gambar biar dijamin
-               identik terlepas dari cache/font-load timing -->
-          <img
-            src="/images/elements/profil-title.png"
-            alt="Profil Universitas Jenderal Soedirman"
-            class="h-auto w-full max-w-md md:max-w-lg"
+          <!-- Live text (balik dari flatten PNG profil-title.png) — masalah cache/font-load timing
+               yg dulu jadi alasan flatten udah gak relevan lagi karena sistem heading di page ini
+               (gradient-text-title-blue + paint-order:stroke_fill) udah stabil dipakai di section lain.
+               bg-white section = terang → varian navy sesuai rule warna page ini. -->
+          <h2
+            class="w-full max-w-md text-center font-junigarden-swash gradient-text-title-blue text-stroke-gold [paint-order:stroke_fill] text-xl sm:text-2xl md:max-w-lg md:text-3xl lg:text-4xl leading-tight"
             data-aos="fade-left"
             data-aos-duration="800"
-          />
+          >
+            Profil<br />Universitas Jenderal Soedirman
+          </h2>
 
           <!-- Bingkai Kolom UKM dihapus (keputusan user, daripada terus nyesuaikan ukuran) —
                video langsung tanpa frame tambahan. -->
