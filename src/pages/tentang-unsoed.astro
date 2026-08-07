@@ -184,11 +184,25 @@ const defaultFakultas = dataFakultas[0];
                  sekarang itu bukan masalah lagi karena ornamen dipisah jadi asset sendiri
                  (ornamen-only, figma node 3068:1162, flatten tunggal — bukan direkonstruksi manual)
                  dan teksnya cukup CSS langsung, gak perlu gabung ke gambar.
-                 Fill gradient-text-title-blue + stroke text-stroke-gold (bg terang section ini →
-                 varian navy, lihat rule warna page) + paint-order:stroke_fill — pola yg sama dipakai
-                 semua heading page ini (Hero, Fakultas Unsoed, Hymne&Mars, Profil), varian gold/navy
-                 tinggal ganti kelas gradient-nya. paint-order yg fix stroke makan lekukan huruf V/s/M,
-                 bukan soal ketebalan px lagi.
+                 Fill gradient-text-title-blue + stroke override 0.6px (bukan text-stroke-gold 0.1px
+                 shared) + paint-order:stroke_fill.
+
+                 ROOT CAUSE swash "V" kelihatan kepotong (bukti: select teks via mouse/JS Range —
+                 lingkaran swash-nya UTUH pas ke-select, tapi HOLLOW/cuma outline pas paint normal
+                 non-selected): background-clip:text (dipakai gradient-text-title-blue) gagal
+                 rasterize FILL gradient di sub-path glyph yg tipis/nyaris-nutup-sendiri (loop swash
+                 JunigardenSwash) — Skia/Chromium precision limit, bukan overflow ancestor (dicek
+                 SEMUA parent, semua overflow:visible), bukan clip-path/mask, bukan width constraint.
+                 Pas teks di-select, Chrome render pakai fallback solid-color (bukan gradient-clip),
+                 makanya loop keliatan penuh — itu BUKTI data glyph-nya lengkap, cuma FILL NORMAL yg
+                 gak sampai ke situ. paint-order (fix commit 5166501) nanganin masalah BEDA (stroke
+                 makan lekukan glyph di paint-order default) — gak nyentuh bug fill-gap ini.
+                 Fix: stroke 0.1px→0.6px. Stroke itu paint TERPISAH dari fill (gak kena bug masking
+                 background-clip yg sama), jadi otomatis nutup celah fill yg hilang. Diuji empiris:
+                 0.1px gap kelihatan jelas (terutama di ukuran diagnostic 120px font), 0.5-0.6px
+                 nutup rapat di ukuran real 48px (lg breakpoint) tanpa bikin stroke keliatan tebal
+                 di huruf lain yg gak kena bug.
+
                  Gap headline→ornamen: dulu -mt-8 (fixed -32px) buat motong jarak kosong dari
                  line-height:normal font yg scale per-breakpoint (text-lg..lg:text-5xl) — makin
                  gede font, makin gede sisa line-height-nya, tapi -mt-8 tetep konstan, jadi gap
@@ -197,7 +211,7 @@ const defaultFakultas = dataFakultas[0];
                  gap-2 = 8px KONSTAN lintas breakpoint, sesuai acuan satu-satunya yg valid di page
                  ini (Hymne&Mars gak punya ornamen sama sekali, gak bisa jadi acuan). -->
             <div class="flex flex-col items-center gap-2">
-              <h2 class="text-center font-junigarden-swash text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[normal] gradient-text-title-blue text-stroke-gold [paint-order:stroke_fill]">Visi</h2>
+              <h2 class="text-center font-junigarden-swash text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[normal] gradient-text-title-blue [-webkit-text-stroke:0.6px_#F9E7A9] [paint-order:stroke_fill]">Visi</h2>
               <img src="/images/elements/visi-misi-ornamen.png" alt="" class="h-auto w-40" />
             </div>
             <p class="mt-4 text-justify font-plus-jakarta-sans text-sm text-[#1e1e1e] leading-relaxed md:text-base">
@@ -213,7 +227,7 @@ const defaultFakultas = dataFakultas[0];
                  pixel, dicek via cmp) — satu asset shared, gak perlu versi mirror terpisah.
                  Gap headline→ornamen: sama alasannya kayak Visi, lihat komentar di situ. -->
             <div class="flex flex-col items-center gap-2">
-              <h2 class="text-center font-junigarden-swash text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[normal] gradient-text-title-blue text-stroke-gold [paint-order:stroke_fill]">Misi</h2>
+              <h2 class="text-center font-junigarden-swash text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[normal] gradient-text-title-blue [-webkit-text-stroke:0.6px_#F9E7A9] [paint-order:stroke_fill]">Misi</h2>
               <img src="/images/elements/visi-misi-ornamen.png" alt="" class="h-auto w-40" />
             </div>
             <ol class="mt-4 space-y-3">
