@@ -57,13 +57,31 @@ const genders = ['laki-laki', 'perempuan'] as const;
 						<h3 class="font-junigarden-swash mb-4 text-2xl text-[#ffc03f]">Ketentuan</h3>
 						<ul id="dresscode-rules" class="space-y-3 font-plus-jakarta-sans text-sm text-white sm:text-base"></ul>
 					</div>
-					<div class="flex flex-col items-center gap-8">
-						<div class="flex flex-col items-center gap-2">
-							<img id="dresscode-photo" src="" alt="" class="w-full max-w-xs rounded-lg shadow-lg" />
+					<div class="flex w-full max-w-sm flex-col items-center gap-8">
+						<div class="flex flex-col items-center gap-3">
+							<div class="grid w-full grid-cols-2 gap-3">
+								<div class="flex flex-col items-center gap-1">
+									<img id="dresscode-photo-full" src="" alt="" class="w-full rounded-lg shadow-lg" />
+									<span class="font-plus-jakarta-sans text-xs text-white/70">Tampak Depan</span>
+								</div>
+								<div class="flex flex-col items-center gap-1">
+									<img id="dresscode-photo-samping" src="" alt="" class="w-full rounded-lg shadow-lg" />
+									<span class="font-plus-jakarta-sans text-xs text-white/70">Tampak Samping</span>
+								</div>
+							</div>
 							<p id="dresscode-caption" class="font-plus-jakarta-sans text-center text-sm text-white"></p>
 						</div>
-						<div id="dresscode-nonhijab-block" class="hidden flex-col items-center gap-2">
-							<img id="dresscode-photo-nonhijab" src="" alt="" class="w-full max-w-xs rounded-lg shadow-lg" />
+						<div id="dresscode-nonhijab-block" class="hidden flex-col items-center gap-3">
+							<div class="grid w-full grid-cols-2 gap-3">
+								<div class="flex flex-col items-center gap-1">
+									<img id="dresscode-photo-nonhijab-full" src="" alt="" class="w-full rounded-lg shadow-lg" />
+									<span class="font-plus-jakarta-sans text-xs text-white/70">Tampak Depan</span>
+								</div>
+								<div class="flex flex-col items-center gap-1">
+									<img id="dresscode-photo-nonhijab-samping" src="" alt="" class="w-full rounded-lg shadow-lg" />
+									<span class="font-plus-jakarta-sans text-xs text-white/70">Tampak Samping</span>
+								</div>
+							</div>
 							<p id="dresscode-caption-nonhijab" class="font-plus-jakarta-sans text-center text-sm text-white"></p>
 						</div>
 					</div>
@@ -74,10 +92,12 @@ const genders = ['laki-laki', 'perempuan'] as const;
 
 	<script define:vars={{ dresscodeData }}>
 		const rulesEl = document.getElementById('dresscode-rules');
-		const photoEl = document.getElementById('dresscode-photo');
+		const photoFullEl = document.getElementById('dresscode-photo-full');
+		const photoSampingEl = document.getElementById('dresscode-photo-samping');
 		const captionEl = document.getElementById('dresscode-caption');
 		const nonHijabBlock = document.getElementById('dresscode-nonhijab-block');
-		const photoNonHijabEl = document.getElementById('dresscode-photo-nonhijab');
+		const photoNonHijabFullEl = document.getElementById('dresscode-photo-nonhijab-full');
+		const photoNonHijabSampingEl = document.getElementById('dresscode-photo-nonhijab-samping');
 		const captionNonHijabEl = document.getElementById('dresscode-caption-nonhijab');
 		const dayTabs = document.querySelectorAll('.day-tab');
 		const genderTabs = document.querySelectorAll('.gender-tab');
@@ -92,21 +112,22 @@ const genders = ['laki-laki', 'perempuan'] as const;
 				.map((rule) => `<li class="flex items-start gap-2"><span class="mt-1 text-[#ffc03f]">&#9679;</span><span>${rule}</span></li>`)
 				.join('');
 
-			photoEl.src = entry.image;
-			if (gender === 'perempuan') {
-				photoEl.alt = `Penampilan Perempuan Berhijab pada ${dayLabel}`;
-				captionEl.textContent = `Penampilan Perempuan Berhijab pada ${dayLabel}`;
-			} else {
-				photoEl.alt = `Penampilan Laki-laki pada ${dayLabel}`;
-				captionEl.textContent = `Penampilan Laki-laki pada ${dayLabel}`;
-			}
+			const label = gender === 'perempuan' ? `Penampilan Perempuan Berhijab pada ${dayLabel}` : `Penampilan Laki-laki pada ${dayLabel}`;
+			photoFullEl.src = entry.photos.full;
+			photoFullEl.alt = label;
+			photoSampingEl.src = entry.photos.samping;
+			photoSampingEl.alt = label;
+			captionEl.textContent = label;
 
-			if (gender === 'perempuan' && entry.imageNonHijab) {
+			if (gender === 'perempuan' && entry.photosNonHijab) {
+				const nonHijabLabel = `Penampilan Perempuan Tidak Berhijab pada ${dayLabel}`;
 				nonHijabBlock.classList.remove('hidden');
 				nonHijabBlock.classList.add('flex');
-				photoNonHijabEl.src = entry.imageNonHijab;
-				photoNonHijabEl.alt = `Penampilan Perempuan Tidak Berhijab pada ${dayLabel}`;
-				captionNonHijabEl.textContent = `Penampilan Perempuan Tidak Berhijab pada ${dayLabel}`;
+				photoNonHijabFullEl.src = entry.photosNonHijab.full;
+				photoNonHijabFullEl.alt = nonHijabLabel;
+				photoNonHijabSampingEl.src = entry.photosNonHijab.samping;
+				photoNonHijabSampingEl.alt = nonHijabLabel;
+				captionNonHijabEl.textContent = nonHijabLabel;
 			} else {
 				nonHijabBlock.classList.add('hidden');
 				nonHijabBlock.classList.remove('flex');
