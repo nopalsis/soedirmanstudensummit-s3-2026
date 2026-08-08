@@ -1,13 +1,583 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Marque from '../components/Marque.astro';
+import { visi, misi } from '../data/visi-misi';
+import dataFakultas from '../data/faculties';
+
+const defaultFakultas = dataFakultas[0];
 ---
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Redirecting...</title>
-    <script>
-      window.location.replace('/maintenance');
-    </script>
-  </head>
-  <body></body>
-</html>
+<Layout
+  title="Tentang Unsoed | Soedirman Student Summit 2026"
+  description="Profil Universitas Jenderal Soedirman: visi misi, fakultas, hymne & mars, dan profil kampus."
+>
+  <main class="overflow-x-hidden bg-white">
+    <!-- 1. HERO -->
+    <section
+      id="hero-unsoed"
+      class="relative pt-40 pb-[20.1%] md:pt-52 xl:pt-64"
+    >
+      <!-- Crop ratio port dari Figma node 755:48/755:49 (container 2396px / viewport 1920px) -->
+      <div class="absolute inset-0 overflow-hidden">
+        <img
+          src="/images/patung-kuda-halaman-rektor.webp"
+          alt=""
+          class="absolute left-0 top-[-22.77%] h-[156.67%] w-[124.8%] max-w-none object-cover"
+        />
+      </div>
+      <div class="absolute inset-0 bg-[linear-gradient(270deg,rgba(129,129,129,0.5)_0%,rgba(70,70,70,0.666)_35.9%,rgba(35,35,35,0.761)_63.6%,rgba(0,0,0,0.86)_100%)]"></div>
+
+      <img
+        src="/images/elements/burung.png"
+        alt=""
+        class="pointer-events-none absolute top-24 right-[18%] w-10 md:w-16 xl:w-20"
+        data-aos="fade-down"
+        data-aos-duration="800"
+        data-aos-delay="300"
+      />
+
+      <div class="relative z-10 mx-auto mb-16 max-w-screen-xl section-padding-x md:mx-0 md:mb-24 xl:mb-32">
+        <!-- Box paragraf harus SELEBAR title, bukan max-w-xl tetap 576px yg lebih sempit dari title.
+             Dua percobaan CSS-murni GAGAL, dua-duanya kena sirkularitas "lebar box A = lebar box B":
+             1) w-fit wrapper + child w-full → Chromium jatuh ke available width penuh (box JADI lebih
+                lebar dari title, bukan sama).
+             2) grid grid-cols-[max-content] → ternyata BUKAN cuma h1 yg dihitung: paragraf (teks
+                panjang, width:100% "dianggap auto" oleh spec grid pas ngukur intrinsic size) ikut
+                nyumbang max-content-nya SENDIRI ke track, dan itu = lebar teks paragraf TANPA wrap
+                sama sekali (jauh lebih lebar dari title) — track ke-lock ke situ, akibatnya paragraf
+                gak wrap (available width = kebutuhan penuh) dan box tembus keluar viewport.
+             CSS gak punya cara declarative buat "samain lebar box ke box lain" tanpa salah satu ikut
+             kena hitungan intrinsic size box satunya. Fix: ukur h1 via JS (getBoundingClientRect),
+             terapkan sbg max-width EKSPLISIT (px) ke box paragraf — bukan intrinsic sizing sama sekali,
+             jadi paragraf tetap wrap normal & box tetap ke-constrain. max-w-xl di bawah cuma fallback
+             sebelum script jalan (cegah flash lebar-penuh). Re-ukur pas resize (breakpoint ganti lebar
+             h1) & pas font Junigarden selesai load (document.fonts.ready — kalau diukur sebelum font
+             kepasang, lebar h1 masih pake fallback font, salah).
+
+             Percobaan JS pertama TETEP salah: h1 di bawah gak punya width constraint sendiri (block
+             polos, isi PENUH parent-nya) — text-center/text-left cuma geser teks DI DALAM box itu,
+             gak nyusutin box-nya. getBoundingClientRect() jadinya ngukur lebar CONTAINER (~lebar
+             max-w-screen-xl dikurangi padding), bukan lebar asli teks "Universitas Jenderal Soedirman".
+             Makanya box paragraf ketarik jauh lebih lebar dari yg keliatan di title.
+             Fix: w-fit di h1 SENDIRI (bukan dibagi ke wrapper bareng paragraf lagi — h1 sendirian
+             gak ada saingan intrinsic-size, jadi w-fit di sini aman, gak kena bug sirkularitas kayak
+             2 percobaan sebelumnya). Sekarang h1 shrink-wrap ke teks aslinya, getBoundingClientRect
+             ngukur lebar teks beneran. mx-auto md:mx-0 gantiin text-center/md:text-left buat
+             posisi (center di mobile, rata-kiri di desktop) — text-align jadi gak relevan lagi karena
+             box-nya udah pas ngepas teks, gak ada sisa ruang buat di-align. -->
+        <h1
+          id="hero-title"
+          class="mx-auto w-fit font-junigarden-swash gradient-text-title text-stroke-gold text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl [paint-order:stroke_fill] [text-shadow:0_4px_4px_rgba(0,0,0,0.25)] md:mx-0"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="200"
+        >
+          Universitas Jenderal Soedirman
+        </h1>
+
+        <!-- Deviasi dari Figma: alas paragraf dibuat glass lebih kuat demi kontras, atas keputusan eksplisit — jangan dikembalikan ke versi asli Figma -->
+        <div id="hero-paragraph-box" class="relative mx-auto mt-4 max-w-xl rounded-[32px] border border-white/15 bg-black/35 p-4 backdrop-blur-xl md:mx-0">
+          <p
+            class="relative text-justify font-plus-jakarta-sans text-xs leading-snug text-white sm:text-sm md:text-base"
+            data-aos="fade-up"
+            data-aos-duration="800"
+            data-aos-delay="500"
+          >
+            Universitas Jenderal Soedirman (Unsoed) adalah institusi&nbsp;pendidikan unggulan di
+            Purwokerto yang memadukan inovasi teknologi dan komitmen lingkungan dalam setiap aspek
+            pendidikan. Dengan kampus hijau yang modern dan beragam program studi, Unsoed siap
+            mencetak lulusan yang kreatif dan kompetitif di era digital. Temukan peluang akademis
+            dan profesional yang menarik di Unsoed, pusat pendidikan yang berorientasi masa depan!
+          </p>
+        </div>
+      </div>
+
+      <!-- pb-[20.1%]: dulu ada <img transisi-hero.png> in-flow di sini yg reservasi tinggi section ini
+           (386/1920 dari lebar) — dicabut, sekarang jadi elemen standalone di ANTARA section ini &
+           #visi-misi-unsoed (lihat setelah </section> ini). Foto hero di atas (h-[156.67%] w-[124.8%])
+           dikalibrasi ke TINGGI SECTION INI, jadi pb ini gantiin tinggi yg hilang biar rasio crop foto
+           gak berubah — 20.1% = 386/1920, SATU nilai kontinu (bukan step per-breakpoint kayak pb-48
+           md:pb-64 xl:pb-80 versi lama commit 98844b4, itu akar bug: padding step-function gak ikutin
+           tinggi elemen yg scaling kontinu, jadi ketiban/overlap di viewport antar-breakpoint). -->
+    </section>
+
+    <!-- SABUK transisi Hero->Visi-Misi: standalone, BUKAN child dari salah satu section — sengaja
+         nimpa foto Hero DI ATAS garis ini DAN nimpa putih Visi-Misi DI BAWAH garis ini sekaligus.
+         Keputusan desain: overlap ini SENGAJA lebih besar dari apa yg ada di Figma source (diukur
+         pixel-precise: render Figma 827:139 gak ada wave yg bleed ke Visi-Misi sama sekali, cuma
+         gap putih polos ~126px dari wave tengah ke judul Visi/Misi) — override ini eksplisit disetujui,
+         JANGAN dikembalikan ke proporsi Figma asli.
+
+         Wrapper h-0 relative: reservasi tinggi NOL di flow (gak dorong konten manapun), tapi jadi
+         containing-block buat img absolute di dalamnya. top:0 wrapper ini persis di garis sambung
+         kedua section (karena h-0 & posisinya persis setelah </section> Hero, sebelum <section>
+         Visi-Misi).
+
+         img: position:absolute, top-0 (nempel garis sambung), -translate-y-[55%] narik naik —
+         PAKAI transform bukan margin/top persentase, karena persentase margin/top itu relatif ke
+         LEBAR containing block (atau ke tinggi containing block yg di sini 0 — gak guna), sedangkan
+         translateY persen itu relatif ke TINGGI ELEMEN SENDIRI, otomatis kontinu ngikutin aspect-ratio
+         gambar sendiri, gak perlu step-function apapun.
+
+         z-[5]: Hero & Visi-Misi section cuma `relative` TANPA z-index eksplisit → TIDAK bikin stacking
+         context baru (beda dari z-index:0!) → children mereka (wayang z-0, konten teks z-10) langsung
+         head-to-head sama sabuk di context yg sama. z-[5] (di antara 0 & 10) otomatis kesisip pas:
+         di atas background/wayang, di bawah teks Visi/Misi & judul Hero.
+
+         DUA gambar (kiri: node 827:151, kanan: node 827:150), bukan 1 lagi — 1 gambar w-full
+         max-w-[1920px] dulu (versi awal) kepotong/jelek pas di-zoom out krn dipaksa ngisi lebar
+         viewport penuh dari 1 sumber. Sekarang tiap sisi anchor ke tepinya sendiri (left-0 / right-0)
+         pakai w-[65%] TANPA max-width cap — sengaja gak di-cap: kalau di-cap (kayak percobaan
+         w-full max-w-[1920px] yg lama), di viewport sangat lebar (>2×cap) dua sisi berhenti
+         membesar sementara jarak antara mereka terus melebar, ujungnya CELAH nganga di tengah
+         (wave putus). w-[65%] tanpa cap di kedua sisi = overlap 30% (65+65-100) GARANSI MATEMATIS
+         di lebar viewport BERAPAPUN karena keduanya scale proporsional bareng, gak ada titik gagal.
+         Trade-off: di viewport ekstrem lebar gambar bisa keliatan agak lembut/blur (upscale PNG
+         di atas resolusi native) — diterima, sabuk cuma dekorasi, mending gitu daripada ada celah.
+         Urutan DOM: kiri dulu baru kanan, jadi di zona overlap tengah kanan otomatis nimpa kiri
+         (z-index sama-sama z-[5], seri diputus urutan DOM, yg belakangan menang). -->
+    <div class="relative h-0" aria-hidden="true">
+      <img
+        src="/images/elements/wave-kiri-belt.png"
+        alt=""
+        class="pointer-events-none absolute top-0 left-0 z-[5] w-[65%] -translate-y-[55%] aspect-[1493/367]"
+      />
+      <img
+        src="/images/elements/wave-kanan-belt.png"
+        alt=""
+        class="pointer-events-none absolute top-0 right-0 z-[5] w-[65%] -translate-y-[55%] aspect-[1619/454]"
+      />
+    </div>
+
+    <!-- 2. VISI & MISI -->
+    <!-- pt-[clamp(...)]: dulu pt-24 md:pt-32 (fixed step) — sama kelas bug kayak komentar
+         pb-[20.1%] Hero di atas (step-function padding vs elemen yg scaling kontinu = ketiban
+         di viewport tertentu). wave-kanan-belt (aspect 1619/454, lebih gede overlap-nya drpd
+         wave-kiri 1493/367) turun 45% dari tinggi renders-nya sendiri ke bawah garis sambung
+         section = 45% x 65% x (454/1619) ≈ 8.2vw, TERUS MEMBESAR seiring viewport melebar krn
+         width belt-nya sendiri w-[65%] vw-relative. pt-32 (128px fixed) di viewport lebar
+         (>1440px) udah kalah sama intrusion itu → judul Visi/Misi ketiban/nempel belt. clamp()
+         = intrusion(8.2vw) + 4rem jarak-aman (samain pola gap Fakultas pt-16) → scale ngikutin
+         belt, gak ada titik gagal. Floor 5rem jaga viewport ekstrem sempit, cap 20rem cegah
+         whitespace kebablasan di ultra-wide (belt sendiri masih dekorasi, bukan konten). -->
+    <section id="visi-misi-unsoed" class="relative overflow-hidden bg-white pt-[clamp(5rem,8.2vw+4rem,20rem)] pb-20 md:pb-28">
+      <img
+        src="/images/elements/wayang-kiri.png"
+        alt=""
+        class="pointer-events-none absolute bottom-0 left-0 z-0 hidden w-48 -scale-x-100 opacity-90 md:block lg:w-64"
+        data-aos="fade-right"
+        data-aos-duration="1000"
+      />
+      <img
+        src="/images/elements/wayang-kanan.png"
+        alt=""
+        class="pointer-events-none absolute bottom-0 right-0 z-0 hidden w-48 opacity-90 md:block lg:w-64"
+        data-aos="fade-left"
+        data-aos-duration="1000"
+      />
+
+      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-[1fr_auto_1fr] md:gap-8">
+          <div id="visi-block" data-aos="fade-right" data-aos-duration="800">
+            <!-- Judul "Visi" balik jadi live text (node 755:87) — sebelumnya di-flatten ke PNG
+                 (visi-title-group.png) krn teks+SVG terpisah bikin warna salah/ornamen kebalik;
+                 sekarang itu bukan masalah lagi karena ornamen dipisah jadi asset sendiri
+                 (ornamen-only, figma node 3068:1162, flatten tunggal — bukan direkonstruksi manual)
+                 dan teksnya cukup CSS langsung, gak perlu gabung ke gambar.
+
+                 Heading class: DISAMAKAN PERSIS ke "Fakultas Unsoed" (line ~276) per keputusan
+                 2026-08-08 — no stroke override, no paint-order override, cuma gradient-text-title-blue
+                 + ukuran. Sebelumnya sempat pakai stroke override 0.6px #F9E7A9 buat nutup bug HOLLOW
+                 swash "V" (background-clip:text gagal rasterize fill di sub-path loop tipis, lihat commit
+                 993cf31 kalau perlu histori root-cause-nya) — stroke itu DICABUT di sini demi parity
+                 literal sama Fakultas, bukan berarti bug hollow-nya sudah kebukti hilang. Cek kondisi
+                 swash-V terkini di commit message revisi ini.
+
+                 Gap headline→ornamen: dulu -mt-8 (fixed -32px) buat motong jarak kosong dari
+                 line-height:normal font yg scale per-breakpoint (text-lg..lg:text-5xl) — makin
+                 gede font, makin gede sisa line-height-nya, tapi -mt-8 tetep konstan, jadi gap
+                 efektifnya gak sama di tiap breakpoint (kadang nempel). Ganti ke flex-col gap-2,
+                 PERSIS pola yg dipakai Fakultas Unsoed (line ~251) buat ornamen atas+bawahnya —
+                 gap-2 = 8px KONSTAN lintas breakpoint, sesuai acuan satu-satunya yg valid di page
+                 ini (Hymne&Mars gak punya ornamen sama sekali, gak bisa jadi acuan). -->
+            <div class="flex flex-col items-center gap-2">
+              <h2 class="px-4 text-center font-junigarden-swash gradient-text-title-blue text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl">Visi</h2>
+              <img src="/images/elements/visi-misi-ornamen.png" alt="" class="h-auto w-40" />
+            </div>
+            <p class="mt-4 text-justify font-plus-jakarta-sans text-sm text-[#1e1e1e] leading-relaxed md:text-base">
+              {visi}
+            </p>
+          </div>
+
+          <div class="mx-auto hidden w-3 rounded-md bg-[#f3c662] md:block" aria-hidden="true"></div>
+
+          <div id="misi-block" data-aos="fade-left" data-aos-duration="800">
+            <!-- Judul "Misi" balik jadi live text (node 755:174) — sama alasannya kayak Visi di atas.
+                 Ornamen sama persis dgn punya Visi (figma node 3068:1154 & 3068:1162 identik pixel-per-
+                 pixel, dicek via cmp) — satu asset shared, gak perlu versi mirror terpisah.
+                 Gap headline→ornamen: sama alasannya kayak Visi, lihat komentar di situ. -->
+            <div class="flex flex-col items-center gap-2">
+              <h2 class="px-4 text-center font-junigarden-swash gradient-text-title-blue text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl">Misi</h2>
+              <img src="/images/elements/visi-misi-ornamen.png" alt="" class="h-auto w-40" />
+            </div>
+            <ol class="mt-4 space-y-3">
+              {misi.map((item, index) => (
+                <li class="flex items-start gap-3" data-aos="fade-up" data-aos-delay={index * 100}>
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#1e4b82] font-bold text-white shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
+                    {index + 1}
+                  </span>
+                  <span class="pt-1 text-justify font-plus-jakarta-sans text-sm text-[#1e1e1e] leading-relaxed md:text-base">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. RUNNING TEXT -->
+    <Marque
+      bgColor="bg-[#95a6f2]"
+      textColor="text-black"
+      shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]"
+      direction="left"
+      img="/images/logo.webp"
+      fontClass="font-junigarden-swash"
+    />
+
+    <!-- 4. FAKULTAS -->
+    <!-- Ornamen atas/bawah (node 3068:1168, 3068:1169) & pattern (node 827:83) diganti — pattern
+         base tetap #F9F7EB (gak diubah, cuma motif overlay-nya yg ganti dari batik-1.webp lama).
+         bg-cover bg-no-repeat, BUKAN bg-repeat: node 827:83 di Figma ukurannya 1931x1191, nyaris
+         persis sama kayak section-nya sendiri (2041x1235) — ini FULL-SECTION fill sekali render,
+         bukan small tileable unit. Salah pasang bg-repeat bikin garis SEAM keliatan di titik
+         sambungan tile (kebukti di section Profil sebelah, edge kiri asset-nya beda pixel-per-pixel
+         sama edge kanan — dicek: 583/584 baris beda) — sama-sama diperbaiki di sini preventif
+         walau belum keliatan seam-nya di viewport yg udah dites (root cause-nya identik). -->
+    <section
+      id="fakultas-unsoed"
+      class="relative overflow-hidden bg-[#F9F7EB] bg-[url('/images/elements/pattern-fakultas.png')] bg-cover bg-center bg-no-repeat pt-16 pb-20 md:pt-24 md:pb-28"
+    >
+      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+        <div class="mb-10 flex flex-col items-center gap-2" data-aos="fade-up" data-aos-duration="800">
+          <img src="/images/elements/hiasan-atas.png" alt="" class="w-48 md:w-64" />
+          <h2 class="px-4 text-center font-junigarden-swash gradient-text-title-blue text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl">
+            Fakultas Unsoed
+          </h2>
+          <img src="/images/elements/hiasan-bawah.png" alt="" class="w-48 md:w-64" />
+        </div>
+
+        <div
+          id="fakultas-wrapper"
+          class="grid grid-cols-1 gap-6 md:grid-cols-[1fr_360px] md:gap-10"
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="200"
+        >
+          <!-- Detail panel -->
+          <div class="order-2 md:order-1">
+            <div class="mb-2 flex items-center gap-3">
+              <span id="fakultas-swatch" class:list={['h-4 w-4 shrink-0 rounded-full', defaultFakultas.facultyColor]} aria-hidden="true"></span>
+              <p id="fakultas-title" class="font-junigarden-swash text-xl sm:text-3xl md:text-4xl text-[rgba(255,192,63,0.75)] [-webkit-text-stroke:0.1px_#1e1e1e]">
+                {defaultFakultas.title}
+              </p>
+            </div>
+            <p id="fakultas-desc" class="mb-6 text-justify font-plus-jakarta-sans text-sm text-black leading-relaxed md:text-base">
+              {defaultFakultas.desc}
+            </p>
+            <a
+              id="fakultas-link"
+              href={defaultFakultas.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative inline-block overflow-hidden rounded-full px-6 py-2.5 font-medium text-[#1e1e1e] opacity-50 shadow-[0_0_10.6px_rgba(0,0,0,0.25)] transition-opacity hover:opacity-90"
+            >
+              <span class="absolute inset-0 rounded-full bg-gradient-to-r from-[#ffe086] to-[#ffc03f] shadow-[inset_3px_0px_10px_0px_white,inset_-4px_0px_10px_0px_white] backdrop-blur-[5px]" aria-hidden="true"></span>
+              <span class="relative">Lihat Website</span>
+            </a>
+          </div>
+
+          <!-- Gold list -->
+          <div class="order-1 max-h-96 overflow-y-auto rounded-md bg-gradient-to-r from-[#ffe086] to-[#ffc03f] p-4 shadow-[-1px_4px_10px_rgba(0,0,0,0.35)] md:order-2 md:max-h-[420px]">
+            <ul class="divide-y divide-black/10">
+              {dataFakultas.map((fakultas, index) => (
+                <li>
+                  <button
+                    type="button"
+                    class="fakultas-item flex w-full items-center gap-2 py-2.5 text-left font-plus-jakarta-sans text-sm text-[#1e1e1e] transition-colors hover:font-semibold md:text-base"
+                    data-active={index === 0 ? 'true' : 'false'}
+                    data-title={fakultas.title}
+                    data-desc={fakultas.desc}
+                    data-link={fakultas.link}
+                    data-color={fakultas.facultyColor}
+                  >
+                    <span class:list={['h-3 w-3 shrink-0 rounded-full', fakultas.facultyColor]} aria-hidden="true"></span>
+                    {fakultas.title}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pengganti awan besar atas Hymne&Mars: gambar berkali-kali salah ukuran/posisi/regresi.
+         Reuse template Marque yang sama persis dengan running text Visi-Misi↔Fakultas. -->
+    <Marque
+      bgColor="bg-[#95a6f2]"
+      textColor="text-black"
+      shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]"
+      direction="left"
+      img="/images/logo.webp"
+      fontClass="font-junigarden-swash"
+    />
+
+    <!-- 5. HYMNE & MARS -->
+    <!-- Background biru: dulu linear-gradient fade-out di kedua ujung (transparan di 0%/100%,
+         solid cuma di tengah 20.2%-85.1%) — diganti solid #3E6693 penuh dari batas atas section
+         sampai batas bawah (pas ketemu marquee di atas & bawah), gak ada fade lagi. Motif: pattern
+         node 755:306, teknik sama kayak Fakultas Unsoed (line ~227) — alpha native asset sendiri
+         yg jadi dampening, tanpa opacity utility. bg-cover bg-no-repeat, sama alasannya kayak
+         Fakultas: node 755:306 ukurannya 1921x1288 = full-section fill (section-nya 1994x1378),
+         bukan tileable unit. -->
+    <section
+      id="hymne-mars-unsoed"
+      class="relative overflow-hidden bg-[#3E6693] py-24 md:py-32"
+    >
+      <div class="absolute inset-0 bg-[url('/images/elements/pattern-hymne-mars.png')] bg-cover bg-center bg-no-repeat"></div>
+
+      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+        <h2
+          class="mb-12 text-center font-junigarden-swash gradient-text-title text-stroke-gold text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl [paint-order:stroke_fill]"
+          data-aos="fade-up"
+          data-aos-duration="800"
+        >
+          Hymne & Mars<br />Universitas Jenderal Soedirman
+        </h2>
+
+        <div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
+          <div data-aos="fade-right" data-aos-duration="800">
+            <p class="font-plus-jakarta-sans text-sm italic text-white/80">Hymne Unsoed</p>
+            <h3 class="mb-4 font-junigarden-swash text-xl sm:text-3xl md:text-4xl text-white">Harumkan Wiyata Tinggi</h3>
+            <p class="mb-6 whitespace-pre-line font-plus-jakarta-sans text-sm text-white leading-loose md:text-base">Karyamu cendekia didambakan negara
+Dharmamu sepenuhnya sumbangkan membangun nusa
+Membina sarana karya raksasa menuju bangsa sejahtera
+Budhaya pribadi yang asli murni harumkan wiyata tinggi</p>
+            <button
+              type="button"
+              id="btn-play-hymne"
+              class="audio-toggle relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-2.5 font-semibold text-white shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-transform hover:scale-105"
+            >
+              <span class="absolute inset-0 rounded-full bg-[#76a3ed] shadow-[inset_-4px_0px_20px_0px_white] backdrop-blur-[5px]" aria-hidden="true"></span>
+              <svg class="play-icon relative h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="pause-icon relative hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+              <span class="audio-label relative">Play</span>
+            </button>
+            <audio id="hymneAudio" src="/audio/hymne.mp3" preload="metadata"></audio>
+          </div>
+
+          <div data-aos="fade-left" data-aos-duration="800">
+            <p class="font-plus-jakarta-sans text-sm italic text-white/80">Mars Unsoed</p>
+            <h3 class="mb-4 font-junigarden-swash text-xl sm:text-3xl md:text-4xl text-white">Tingkatkan Martabat Bangsa</h3>
+            <p class="mb-6 whitespace-pre-line font-plus-jakarta-sans text-sm text-white leading-loose md:text-base">Kami Mahasiswa Unsoed bertekun dalam wiyata
+Jiwa Panglima besar Kita cerminkan hasrat membaja
+Memupuk rasa persatuan berdasarkan Pancasila
+Memimpin rakyat kesejahtera serta pribadi bangsa
+
+UNIVERSITAS NEGERI JENDERAL SOEDIRMAN maju terus pantang mundur
+UNIVERSITAS NEGERI JENDERAL SOEDIRMAN bercita-cita luhur
+
+Kami Mahasiswa Unsoed siap mengabdikan karya
+Masa Hari-hari datang kita hadapi bersama
+Seluruh rakyat Indonesia rasakan dharma sarjana
+Mencapai cita mengabdi Bangsa Indonesia yang jaya
+
+UNIVERSITAS NEGERI JENDERAL SOEDIRMAN isyaf akan tugas mulia
+UNIVERSITAS NEGERI JENDERAL SOEDIRMAN tinggikan martabat bangsa</p>
+            <button
+              type="button"
+              id="btn-play-mars"
+              class="audio-toggle relative inline-flex items-center gap-2 overflow-hidden rounded-full px-6 py-2.5 font-semibold text-white shadow-[0_0_5px_rgba(255,255,255,0.25)] transition-transform hover:scale-105"
+            >
+              <span class="absolute inset-0 rounded-full bg-[#76a3ed] shadow-[inset_-4px_0px_20px_0px_white] backdrop-blur-[5px]" aria-hidden="true"></span>
+              <svg class="play-icon relative h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"></path></svg>
+              <svg class="pause-icon relative hidden h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path></svg>
+              <span class="audio-label relative">Play</span>
+            </button>
+            <audio id="marsAudio" src="/audio/mars.mp3" preload="metadata"></audio>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pengganti awan besar bawah Hymne&Mars — instance kedua, sama persis. -->
+    <Marque
+      bgColor="bg-[#95a6f2]"
+      textColor="text-black"
+      shadowClass="shadow-[0px_0px_50px_0px_rgba(0,0,0,0.5)]"
+      direction="left"
+      img="/images/logo.webp"
+      fontClass="font-junigarden-swash"
+    />
+
+    <!-- 6. PROFIL (VIDEO) -->
+    <!-- bg-white base gak diubah (per instruksi) — cuma nambah motif node 3063:1088 di atasnya,
+         teknik sama kayak Fakultas/Hymne&Mars (alpha native asset, tanpa opacity utility).
+         bg-cover bg-no-repeat, BUKAN bg-repeat — ROOT CAUSE garis vertikal yg dilaporkan: node
+         3063:1088 ukurannya 1920x933, PERSIS sama kayak tinggi section ini (827:204 juga 933px) —
+         full-section fill sekali render, bukan tileable unit. Kebukti pixel: kolom kiri (x=0) vs
+         kolom kanan (x=1199) asset PNG-nya beda di 583 dari 584 baris (kiri ada garis dekoratif
+         solid, kanan mostly transparent) — pas di-tile via bg-repeat, sambungan antar-tile itu
+         yg keliatan sbg garis vertikal tiap 1200px. -->
+    <section id="profile-unsoed" class="relative overflow-hidden bg-white py-16 md:py-24">
+      <div class="absolute inset-0 bg-[url('/images/elements/pattern-profil.png')] bg-cover bg-center bg-no-repeat"></div>
+      <div class="relative z-10 mx-auto max-w-screen-xl section-padding-x">
+        <div class="flex flex-col items-center gap-8 text-center md:flex-row-reverse md:gap-12">
+          <!-- Live text (balik dari flatten PNG profil-title.png) — masalah cache/font-load timing
+               yg dulu jadi alasan flatten udah gak relevan lagi karena sistem heading di page ini
+               (gradient-text-title-blue + paint-order:stroke_fill) udah stabil dipakai di section lain.
+               bg-white section = terang → varian navy sesuai rule warna page ini. -->
+          <h2
+            class="w-full max-w-md text-center font-junigarden-swash gradient-text-title-blue text-xl sm:text-2xl md:max-w-lg md:text-3xl lg:text-4xl leading-tight"
+            data-aos="fade-left"
+            data-aos-duration="800"
+          >
+            Profil<br />Universitas Jenderal Soedirman
+          </h2>
+
+          <!-- Bingkai Kolom UKM dihapus (keputusan user, daripada terus nyesuaikan ukuran) —
+               video langsung tanpa frame tambahan. -->
+          <div class="w-full max-w-xl">
+            <!-- TODO: ganti dengan link resmi Video Profil 2026 begitu tersedia (masih pakai embed 2025) -->
+            <iframe
+              class="aspect-video w-full rounded-xl"
+              src="https://www.youtube.com/embed/3Wuof0OvQOg"
+              title="Profil Universitas Jenderal Soedirman"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Samain lebar box paragraf Hero ke lebar rendered title (lihat komentar di markup-nya buat
+    // kenapa ini gak bisa CSS-murni). Re-ukur pas resize (breakpoint ganti lebar h1) & pas font
+    // Junigarden kelar load (kalau diukur sebelum itu, lebar h1 masih pake fallback font, salah).
+    function syncHeroParagraphWidth() {
+      const title = document.getElementById('hero-title');
+      const box = document.getElementById('hero-paragraph-box');
+      if (!title || !box) return;
+
+      const titleRect = title.getBoundingClientRect();
+      if (titleRect.width > 0) box.style.maxWidth = `${titleRect.width}px`;
+    }
+
+    syncHeroParagraphWidth();
+    window.addEventListener('resize', syncHeroParagraphWidth);
+    document.fonts?.ready.then(syncHeroParagraphWidth);
+  </script>
+
+  <script>
+    const items = document.querySelectorAll<HTMLButtonElement>('.fakultas-item');
+    const titleEl = document.getElementById('fakultas-title');
+    const descEl = document.getElementById('fakultas-desc');
+    const linkEl = document.getElementById('fakultas-link') as HTMLAnchorElement | null;
+    const swatchEl = document.getElementById('fakultas-swatch');
+
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        items.forEach((i) => {
+          i.dataset.active = 'false';
+          i.classList.remove('font-semibold', 'underline');
+        });
+        item.dataset.active = 'true';
+        item.classList.add('font-semibold', 'underline');
+
+        if (titleEl) titleEl.textContent = item.dataset.title ?? '';
+        if (descEl) descEl.textContent = item.dataset.desc ?? '';
+        if (linkEl && item.dataset.link) linkEl.href = item.dataset.link;
+        if (swatchEl && item.dataset.color) {
+          swatchEl.className = `h-4 w-4 shrink-0 rounded-full ${item.dataset.color}`;
+        }
+      });
+    });
+
+    const activeItem = document.querySelector<HTMLButtonElement>('.fakultas-item[data-active="true"]');
+    activeItem?.classList.add('font-semibold', 'underline');
+  </script>
+
+  <script>
+    const hymneAudio = document.getElementById('hymneAudio') as HTMLAudioElement | null;
+    const marsAudio = document.getElementById('marsAudio') as HTMLAudioElement | null;
+    const bgAudio = document.getElementById('bgMusic') as HTMLAudioElement | null;
+    const bgToggleBtn = document.getElementById('btn-play-music');
+
+    function setButtonState(btn: HTMLElement, playing: boolean) {
+      btn.querySelector('.play-icon')?.classList.toggle('hidden', playing);
+      btn.querySelector('.pause-icon')?.classList.toggle('hidden', !playing);
+      const label = btn.querySelector('.audio-label');
+      if (label) label.textContent = playing ? 'Pause' : 'Play';
+    }
+
+    function bindToggle(
+      btn: HTMLElement | null,
+      audio: HTMLAudioElement | null,
+      other: HTMLAudioElement | null,
+      otherBtn: HTMLElement | null
+    ) {
+      if (!btn || !audio) return;
+
+      btn.addEventListener('click', () => {
+        if (audio.paused) {
+          if (other && !other.paused) other.pause();
+          if (bgAudio && !bgAudio.paused) bgToggleBtn?.click();
+          audio.play().catch((err) => console.log('Audio play failed:', err));
+        } else {
+          audio.pause();
+        }
+      });
+
+      audio.addEventListener('play', () => {
+        setButtonState(btn, true);
+        if (otherBtn) setButtonState(otherBtn, false);
+      });
+      audio.addEventListener('pause', () => setButtonState(btn, false));
+      audio.addEventListener('ended', () => setButtonState(btn, false));
+    }
+
+    const hymneBtn = document.getElementById('btn-play-hymne');
+    const marsBtn = document.getElementById('btn-play-mars');
+
+    bindToggle(hymneBtn, hymneAudio, marsAudio, marsBtn);
+    bindToggle(marsBtn, marsAudio, hymneAudio, hymneBtn);
+  </script>
+
+  <style>
+    /* Swash "V" di judul "Visi" kepotong sisi kiri — root cause BUKAN glyph/overflow/stroke
+       (udah dites satu-satu via computed style & isolated render test, semuanya gak clip).
+       Penyebab sebenarnya: rule bawaan AOS `[data-aos^="fade"].aos-animate { transform:
+       translateZ(0px) }` — residual transform yg dipasang AOS abis animasi kelar (fade-right/
+       fade-left), tujuannya cuma force GPU compositing layer buat performa. translateZ(0px)
+       NOL efek visual (halaman 2D), tapi bikin Chromium promote elemen itu ke layer sendiri
+       yg bound-nya kena hitung dari LAYOUT box, bukan ink/paint box — overshoot swash "V" yg
+       nongol di atas cap-height jadi ke-clip ke batas layer itu. "Misi" (huruf M, overshoot
+       lebih kecil) kebetulan gak separah itu jadi kelihatan aman.
+       Fix: nol-in transform SPESIFIK di state .aos-animate (final, settled) buat 2 wrapper
+       ini doang, via id (spesifisitas ngalahin rule AOS `[data-aos^="fade"][data-aos^="fade"]
+       .aos-animate` apapun urutan load stylesheet-nya). Gak nyentuh rule pre-animate
+       ([data-aos="fade-right"] tanpa .aos-animate) — animasi masuk (translateX awal) tetep
+       jalan normal, cuma transform SISA pasca-animasi yg dibuang. Teks gak geser sama sekali
+       (translateZ(0) toh gak punya efek visual dari awal). */
+    #visi-block[data-aos].aos-animate,
+    #misi-block[data-aos].aos-animate {
+      transform: none;
+    }
+  </style>
+</Layout>

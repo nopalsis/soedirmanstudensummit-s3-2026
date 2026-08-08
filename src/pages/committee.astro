@@ -1,13 +1,11 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import CommitteeSlider from '../components/Committee/CommitteeSlider.astro';
 ---
 
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Redirecting...</title>
-    <script>
-      window.location.replace('/maintenance');
-    </script>
-  </head>
-  <body></body>
-</html>
+<Layout
+	title="Committee | Soedirman Student Summit 2026"
+	description="Berkenalan dengan panitia inti Soedirman Student Summit 2026, tim di balik setiap divisi yang menyukseskan acara."
+>
+	<CommitteeSlider />
+</Layout>

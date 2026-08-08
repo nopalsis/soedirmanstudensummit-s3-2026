@@ -1,0 +1,19 @@
+---
+// Judul reusable Starter Pack (hero "Starter Pack" & section "Dress Code" pakai
+// komponen + aset yang SAMA PERSIS — figma node 847:157 / 847:170).
+// Do's & Don'ts GAK pakai ornament ini (langsung judul emas polos, lihat dos-donts.astro).
+interface Props {
+	title: string;
+	as?: 'h1' | 'h2';
+}
+
+const { title, as: Tag = 'h2' } = Astro.props;
+---
+
+<div class="mb-8 flex flex-col items-center gap-2" data-aos="fade-up">
+	<img src="/images/elements/scroll-above.svg" alt="" class="h-auto w-32 sm:w-44 md:w-56" />
+	<Tag
+		class="font-junigarden-swash gradient-text-title-blue text-stroke-gold text-center text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl [paint-order:stroke_fill]"
+	>{title}</Tag>
+	<img src="/images/elements/scroll-down.svg" alt="" class="h-auto w-32 sm:w-44 md:w-56" />
+</div>

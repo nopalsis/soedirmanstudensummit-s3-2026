@@ -1,0 +1,72 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HeroChrome from '../../../components/StarterPack/HeroChrome.astro';
+import BatikOverlay from '../../../components/StarterPack/BatikOverlay.astro';
+import SectionTitle from '../../../components/StarterPack/SectionTitle.astro';
+import barangBawaan from '../../../data/barang-bawaan';
+---
+
+<Layout title="Barang Bawaan | Starter Pack — Soedirman Student Summit 2026">
+	<HeroChrome active="peralatan" />
+
+	<section class="relative overflow-hidden bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
+		<BatikOverlay />
+
+		<div class="relative z-10 mx-auto max-w-screen-xl">
+			<SectionTitle title="Barang Bawaan" />
+
+			<div class="swiper barang-swiper mx-auto max-w-5xl" data-aos="fade-up">
+				<div class="swiper-wrapper items-stretch pb-12">
+					{barangBawaan.map((barang) => (
+						<div class="swiper-slide flex h-auto max-w-[260px] flex-col overflow-hidden rounded-[20px] bg-[#1b4682] shadow-lg">
+							<div class="relative flex h-40 items-center justify-center bg-[#1d3464]">
+								<img src={barang.image} alt={barang.name} class="max-h-28 object-contain" loading="lazy" />
+								<span
+									class:list={[
+										'absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-bold text-white',
+										barang.required ? 'bg-red-500' : 'bg-[#ffc03f] text-[#142142]',
+									]}
+								>
+									{barang.required ? 'Wajib' : 'Opsional'}
+								</span>
+							</div>
+							<div class="flex flex-1 flex-col gap-2 p-5 text-center text-white">
+								<h3 class="font-junigarden-swash text-xl text-[#ffc03f]">{barang.name}</h3>
+								<p class="font-plus-jakarta-sans text-sm">{barang.desc}</p>
+							</div>
+						</div>
+					))}
+				</div>
+				<div class="swiper-pagination"></div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</div>
+	</section>
+
+	<script>
+		import Swiper from 'swiper/bundle';
+		import 'swiper/css/bundle';
+
+		new Swiper('.barang-swiper', {
+			slidesPerView: 1,
+			spaceBetween: 20,
+			centeredSlides: true,
+			loop: true,
+			autoplay: { delay: 3000, disableOnInteraction: false },
+			effect: 'coverflow',
+			coverflowEffect: { rotate: 20, stretch: 0, depth: 100, modifier: 1, slideShadows: true },
+			pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true },
+			navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+			// ponytail: max slidesPerView capped at 3 (not 4) — barangBawaan only has 7 items,
+			// and Swiper's own loop-mode requires slide count >= 2x slidesPerView (7 >= 2*3=6 OK,
+			// 7 >= 2*4=8 fails). At slidesPerView:4 Swiper logs "not enough slides for loop mode"
+			// and the wrap-around shows a blank slide before content catches up. Bump the cap back
+			// to 4 once barangBawaan has 8+ items.
+			breakpoints: {
+				640: { slidesPerView: 2 },
+				768: { slidesPerView: 3 },
+			},
+		});
+	</script>
+</Layout>

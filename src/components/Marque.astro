@@ -2,103 +2,133 @@
 const data = "Soedirman Student Summit";
 
 interface Props {
-  img: string;
+  img?: string;
   direction: "left" | "right";
   bgColor: string;
   textColor: string;
+  fontClass?: string;
+  shadowClass?: string;
+  // Legacy flatten path: waktu font Miskan/LoveCraft belum tersedia lewat Figma MCP export
+  // (cuma gambar/vector), "SOEDIRMAN STUDENT SUMMIT 2026" di-render sbg unitImg (1 repeat-unit
+  // teks+logo jadi gambar berulang, bukan teks live). Sekarang LoveCraft.ttf sudah ada di
+  // public/fonts/, jadi tentang-unsoed.astro (Profile Unsoed) sudah balik ke teks live —
+  // prop ini disisakan buat caller lain yg masih mau pakai mode gambar.
+  unitImg?: string;
+  // Default true = perilaku lama semua caller lain gak berubah. index.astro (Beranda) pass
+  // false — versi deploy rekan tim gak ada "2026"-nya di marquee kuning ini, jadi span "2026"
+  // di bawah gak pernah render buat Beranda, terlepas dari font apa yg dipasang di situ.
+  showYear?: boolean;
 }
 
-const { img, direction, bgColor, textColor } = Astro.props;
+const { img, direction, bgColor, textColor, fontClass = "font-love-craft", shadowClass = "", unitImg, showYear = true } = Astro.props;
+const animClass = direction == "left" ? "animate-marquee" : "animate-marqueeReverse";
+// py-3 sm:py-4 md:py-5 (mode teks live, dipakai index.astro) SENGAJA gak disentuh — regresi ini
+// scoped ke mode unitImg aja (Figma node 929:709: logo 66px nyaris mentok di container 84px,
+// rasio ~78.6%; py-3..5 lama bikin rasio cuma ~58-62%, kegedean). py-1.5/py-2 di bawah bikin
+// rasio ~77-83% match h-10/12/14/16 tanpa ubah tinggi img-nya sendiri.
+const paddingClass = unitImg ? "py-1.5 md:py-2" : "py-3 sm:py-4 md:py-5";
 ---
 
-<div class=`flex overflow-x-hidden ${bgColor} ${textColor} py-3 sm:py-4 md:py-5`>
-   <!--  -->
-   <div
-     class=`whitespace-nowrap flex min-w-max ${direction == "left" ? "animate-marquee" : "animate-marqueeReverse"}`
-   >
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-         {data}
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-         {data}
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-         {data}
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-         {data}
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-   </div>
-   <div
-     class=`whitespace-nowrap flex min-w-max ${direction == "left" ? "animate-marquee" : "animate-marqueeReverse"}`
-   >
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-         {data}
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-         {data}
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-         {data}
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-     <div class="flex items-center min-w-fit px-2 sm:px-3">
-       <p class="font-love-craft text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-         {data}
-       </p>
-       <img
-         src={img}
-         alt="logo Soedirman student summit"
-         class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
-       />
-     </div>
-   </div>
- </div>
+<div class=`flex overflow-x-hidden ${bgColor} ${textColor} ${shadowClass} ${paddingClass}`>
+  {unitImg ? (
+    <>
+      <div class=`whitespace-nowrap flex min-w-max items-center ${animClass}`>
+        {Array.from({ length: 8 }).map(() => (
+          <img src={unitImg} alt="Soedirman Student Summit 2026" class="block h-10 sm:h-12 md:h-14 lg:h-16 w-auto" />
+        ))}
+      </div>
+      <div class=`whitespace-nowrap flex min-w-max items-center ${animClass}`>
+        {Array.from({ length: 8 }).map(() => (
+          <img src={unitImg} alt="" aria-hidden="true" class="block h-10 sm:h-12 md:h-14 lg:h-16 w-auto" />
+        ))}
+      </div>
+    </>
+  ) : (
+    <>
+      <div class=`whitespace-nowrap flex min-w-max ${animClass}`>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} {showYear && <span class="font-love-craft text-sm sm:text-base md:text-lg lg:text-xl align-middle">2026</span>}
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} {showYear && <span class="font-love-craft text-sm sm:text-base md:text-lg lg:text-xl align-middle">2026</span>}
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} {showYear && <span class="font-love-craft text-sm sm:text-base md:text-lg lg:text-xl align-middle">2026</span>}
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} {showYear && <span class="font-love-craft text-sm sm:text-base md:text-lg lg:text-xl align-middle">2026</span>}
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+      </div>
+      <div class=`whitespace-nowrap flex min-w-max ${animClass}`>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} {showYear && <span class="font-love-craft text-sm sm:text-base md:text-lg lg:text-xl align-middle">2026</span>}
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} {showYear && <span class="font-love-craft text-sm sm:text-base md:text-lg lg:text-xl align-middle">2026</span>}
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} {showYear && <span class="font-love-craft text-sm sm:text-base md:text-lg lg:text-xl align-middle">2026</span>}
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+        <div class="flex items-center min-w-fit px-2 sm:px-3">
+          <p class=`${fontClass} text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide`>
+            {data} {showYear && <span class="font-love-craft text-sm sm:text-base md:text-lg lg:text-xl align-middle">2026</span>}
+          </p>
+          <img
+            src={img}
+            alt="logo Soedirman student summit"
+            class="block w-8 sm:w-10 md:w-12 lg:w-16 mx-2 sm:mx-3 md:mx-4"
+          />
+        </div>
+      </div>
+    </>
+  )}
+</div>

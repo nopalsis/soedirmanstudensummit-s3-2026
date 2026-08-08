@@ -31,6 +31,13 @@
   font-display: optional;
 }
 
+@font-face {
+  font-family: 'Miskan';
+  src: url('/fonts/Miskan.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
 @theme {
 	/* Typography */
 	--font-inter: 'Inter', sans-serif;
@@ -40,8 +47,9 @@
 	--font-love-craft: 'LoveCraft', sans-serif;
 	--font-reikna: 'Reikna', sans-serif;
 	--font-goblin: 'GoblinOne', sans-serif;
-	--font-junigarden: 'JunigardenSwash', sans-serif;
 	--font-junigarden-swash: 'JunigardenSwash', sans-serif;
+	--font-junigarden: var(--font-junigarden-swash);
+	--font-miskan: 'Miskan', sans-serif;
 
 
 	/* Primary Colors — Dark Premium Palette */

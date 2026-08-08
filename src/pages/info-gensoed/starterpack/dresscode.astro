@@ -1,0 +1,151 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import HeroChrome from '../../../components/StarterPack/HeroChrome.astro';
+import BatikOverlay from '../../../components/StarterPack/BatikOverlay.astro';
+import SectionTitle from '../../../components/StarterPack/SectionTitle.astro';
+import dresscodeData from '../../../data/dresscode';
+
+const days = ['gladi', 'day1', 'day2'] as const;
+const genders = ['laki-laki', 'perempuan'] as const;
+---
+
+<Layout title="Dress Code | Starter Pack — Soedirman Student Summit 2026">
+	<HeroChrome active="dresscode" />
+
+	<section class="relative overflow-hidden bg-gradient-to-b from-[#76a3ed] to-[#1b4682] px-4 py-16 md:py-24">
+		<BatikOverlay />
+
+		<div class="relative z-10 mx-auto max-w-screen-xl">
+			<SectionTitle title="Dress Code" />
+
+			<div id="dresscode-app" class="mx-auto max-w-5xl">
+				<div class="mb-6 flex justify-center gap-2 sm:gap-4" role="tablist" aria-label="Pilih hari">
+					{days.map((day, i) => (
+						<button
+							type="button"
+							class="day-tab font-junigarden-swash rounded-[10px] bg-[#1b4682] px-4 py-3 text-base text-white transition-colors sm:px-8 sm:text-xl data-[active=true]:bg-[#1d3464]"
+							data-day={day}
+							data-active={i === 0 ? 'true' : 'false'}
+							role="tab"
+						>
+							{day === 'gladi' ? (
+								dresscodeData[day].label
+							) : (
+								<span class="inline-flex items-baseline">
+									Hari&nbsp;<span class="font-love-craft text-[9px] leading-none align-middle sm:text-[11px]">{day === 'day1' ? '1' : '2'}</span>
+								</span>
+							)}
+						</button>
+					))}
+				</div>
+
+				<div class="mb-8 flex justify-center gap-3 sm:gap-4">
+					{genders.map((gender, i) => (
+						<button
+							type="button"
+							class="gender-tab font-junigarden-swash flex h-14 w-[150px] items-center justify-center rounded-[10px] bg-[rgba(255,255,255,0.25)] px-2 text-base whitespace-nowrap text-[#1b4682] transition-shadow sm:h-16 sm:w-[219px] sm:text-lg md:text-xl data-[active=true]:ring-4 data-[active=true]:ring-[#1b4682]"
+							data-gender={gender}
+							data-active={i === 0 ? 'true' : 'false'}
+						>
+							{gender === 'laki-laki' ? 'Laki - laki' : 'Perempuan'}
+						</button>
+					))}
+				</div>
+
+				<div class="grid gap-6 rounded-[30px] bg-[#1d3464] p-6 md:grid-cols-2 md:p-10" data-aos="fade-up">
+					<div>
+						<h3 class="font-junigarden-swash mb-4 text-2xl text-[#ffc03f]">Ketentuan</h3>
+						<ul id="dresscode-rules" class="space-y-3 font-plus-jakarta-sans text-sm text-white sm:text-base"></ul>
+					</div>
+					<div class="flex w-full max-w-sm flex-col items-center gap-8">
+						<div class="flex flex-col items-center gap-3">
+							<div class="grid w-full grid-cols-2 gap-3">
+								<div class="flex flex-col items-center gap-1">
+									<img id="dresscode-photo-full" src="" alt="" class="w-full rounded-lg shadow-lg" />
+									<span class="font-plus-jakarta-sans text-xs text-white/70">Tampak Depan</span>
+								</div>
+								<div class="flex flex-col items-center gap-1">
+									<img id="dresscode-photo-samping" src="" alt="" class="w-full rounded-lg shadow-lg" />
+									<span class="font-plus-jakarta-sans text-xs text-white/70">Tampak Samping</span>
+								</div>
+							</div>
+							<p id="dresscode-caption" class="font-plus-jakarta-sans text-center text-sm text-white"></p>
+						</div>
+						<div id="dresscode-nonhijab-block" class="hidden flex-col items-center gap-3">
+							<div class="grid w-full grid-cols-2 gap-3">
+								<div class="flex flex-col items-center gap-1">
+									<img id="dresscode-photo-nonhijab-full" src="" alt="" class="w-full rounded-lg shadow-lg" />
+									<span class="font-plus-jakarta-sans text-xs text-white/70">Tampak Depan</span>
+								</div>
+								<div class="flex flex-col items-center gap-1">
+									<img id="dresscode-photo-nonhijab-samping" src="" alt="" class="w-full rounded-lg shadow-lg" />
+									<span class="font-plus-jakarta-sans text-xs text-white/70">Tampak Samping</span>
+								</div>
+							</div>
+							<p id="dresscode-caption-nonhijab" class="font-plus-jakarta-sans text-center text-sm text-white"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script define:vars={{ dresscodeData }}>
+		const rulesEl = document.getElementById('dresscode-rules');
+		const photoFullEl = document.getElementById('dresscode-photo-full');
+		const photoSampingEl = document.getElementById('dresscode-photo-samping');
+		const captionEl = document.getElementById('dresscode-caption');
+		const nonHijabBlock = document.getElementById('dresscode-nonhijab-block');
+		const photoNonHijabFullEl = document.getElementById('dresscode-photo-nonhijab-full');
+		const photoNonHijabSampingEl = document.getElementById('dresscode-photo-nonhijab-samping');
+		const captionNonHijabEl = document.getElementById('dresscode-caption-nonhijab');
+		const dayTabs = document.querySelectorAll('.day-tab');
+		const genderTabs = document.querySelectorAll('.gender-tab');
+
+		function render() {
+			const day = document.querySelector('.day-tab[data-active="true"]').dataset.day;
+			const gender = document.querySelector('.gender-tab[data-active="true"]').dataset.gender;
+			const entry = dresscodeData[day][gender];
+			const dayLabel = dresscodeData[day].label;
+
+			rulesEl.innerHTML = entry.rules
+				.map((rule) => `<li class="flex items-start gap-2"><span class="mt-1 text-[#ffc03f]">&#9679;</span><span>${rule}</span></li>`)
+				.join('');
+
+			const label = gender === 'perempuan' ? `Penampilan Perempuan Berhijab pada ${dayLabel}` : `Penampilan Laki-laki pada ${dayLabel}`;
+			photoFullEl.src = entry.photos.full;
+			photoFullEl.alt = label;
+			photoSampingEl.src = entry.photos.samping;
+			photoSampingEl.alt = label;
+			captionEl.textContent = label;
+
+			if (gender === 'perempuan' && entry.photosNonHijab) {
+				const nonHijabLabel = `Penampilan Perempuan Tidak Berhijab pada ${dayLabel}`;
+				nonHijabBlock.classList.remove('hidden');
+				nonHijabBlock.classList.add('flex');
+				photoNonHijabFullEl.src = entry.photosNonHijab.full;
+				photoNonHijabFullEl.alt = nonHijabLabel;
+				photoNonHijabSampingEl.src = entry.photosNonHijab.samping;
+				photoNonHijabSampingEl.alt = nonHijabLabel;
+				captionNonHijabEl.textContent = nonHijabLabel;
+			} else {
+				nonHijabBlock.classList.add('hidden');
+				nonHijabBlock.classList.remove('flex');
+			}
+		}
+
+		function bindGroup(tabs) {
+			tabs.forEach((tab) => {
+				tab.addEventListener('click', () => {
+					tabs.forEach((t) => (t.dataset.active = 'false'));
+					tab.dataset.active = 'true';
+					render();
+				});
+			});
+		}
+
+		bindGroup(dayTabs);
+		bindGroup(genderTabs);
+		render();
+	</script>
+</Layout>

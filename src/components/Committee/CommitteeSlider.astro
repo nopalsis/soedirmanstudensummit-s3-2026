@@ -1,0 +1,448 @@
+---
+import committees from '../../data/committees';
+
+const initialsOf = (memberName: string) =>
+	memberName
+		.split(' ')
+		.slice(0, 2)
+		.map((word) => word[0])
+		.join('')
+		.toUpperCase();
+
+// Divisions can share the exact same staff array (Pendamping Putra/Putri) — dedupe
+// by reference so the roster is only embedded once in the page, not once per card.
+const staffPools: string[][] = [];
+const staffKeyByIndex: (number | null)[] = committees.map((committee) => {
+	if (!committee.staff?.length) return null;
+	let poolIndex = staffPools.indexOf(committee.staff);
+	if (poolIndex === -1) {
+		poolIndex = staffPools.length;
+		staffPools.push(committee.staff);
+	}
+	return poolIndex;
+});
+---
+
+<section
+	class="relative min-h-[calc(100vh-var(--nav-height))] overflow-hidden bg-[--color-dark-base]"
+	data-aos="fade"
+>
+	<div class="relative h-[calc(100vh-var(--nav-height))]">
+		{committees.map((committee, index) => (
+			<div
+				class:list={['slide absolute inset-0', { active: index === 0 }]}
+				data-index={index}
+				aria-hidden={index === 0 ? 'false' : 'true'}
+			>
+				{committee.imageBackground ? (
+					<img
+						src={committee.imageBackground}
+						alt=""
+						class="absolute inset-0 h-full w-full object-cover"
+					/>
+				) : (
+					<div class="absolute inset-0" style="background-color: #76A3ED;">
+						<img
+							src="/images/elements/bgbatik-sambutan.webp"
+							alt=""
+							class="h-full w-full object-cover opacity-10"
+						/>
+					</div>
+				)}
+				<div
+					class="absolute inset-0"
+					style="background-image: linear-gradient(to top, var(--color-s3-blue) 10%, transparent);"
+					aria-hidden="true"
+				/>
+				<div class="absolute inset-0 bg-black/30" aria-hidden="true" />
+
+				<div class="relative z-10 mx-auto flex h-full max-w-screen-xl flex-col justify-center section-padding-x">
+					<div class="max-w-xl">
+						<p class="mb-2 font-plus-jakarta-sans text-sm tracking-[2px] text-white/80 uppercase">{committee.name}</p>
+						<h2 class="mb-4 font-junigarden-swash text-lg xs:text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white">{committee.memberName}</h2>
+
+						{committee.description && (
+							<p class="mb-6 max-w-lg font-plus-jakarta-sans text-sm text-white/90 md:text-base">{committee.description}</p>
+						)}
+
+						<div class="flex flex-wrap gap-3">
+							{committee.staff?.length ? (
+								<button
+									type="button"
+									class="staff-trigger glass-card rounded-md px-6 py-2.5 font-plus-jakarta-sans text-sm text-white transition-colors hover:bg-white/15"
+									data-staff-key={staffKeyByIndex[index]}
+									data-committee-name={committee.name}
+								>
+									Lihat Anggota
+								</button>
+							) : null}
+
+							{committee.instagram ? (
+								<a
+									href={`https://instagram.com/${committee.instagram}`}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="inline-flex items-center gap-2 rounded-md bg-[--color-s3-blue] px-6 py-2.5 font-plus-jakarta-sans text-sm text-white transition-colors hover:bg-[--color-s3-gold] hover:text-[--color-dark-base]"
+								>
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+										<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+									</svg>
+									Instagram
+								</a>
+							) : (
+								<button
+									type="button"
+									disabled
+									title="Instagram tidak tersedia"
+									aria-label="Instagram tidak tersedia"
+									class="inline-flex cursor-not-allowed items-center gap-2 rounded-md bg-white/10 px-6 py-2.5 font-plus-jakarta-sans text-sm text-white/50"
+								>
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+										<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+									</svg>
+									Instagram tidak tersedia
+								</button>
+							)}
+						</div>
+					</div>
+				</div>
+
+				{committee.image ? (
+					<img
+						src={committee.image}
+						alt={committee.memberName}
+						class="koor-photo pointer-events-none absolute right-[2%] bottom-0 z-[5] h-[64%] w-auto drop-shadow-[0_20px_30px_rgba(0,0,0,0.45)] sm:h-[78%] md:h-[88%] lg:right-[6%] lg:h-[94%]"
+					/>
+				) : (
+					<div class="pointer-events-none absolute right-[6%] bottom-10 z-[5] hidden h-24 w-24 items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-accent-primary),var(--color-accent-secondary))] shadow-lg sm:flex">
+						<svg viewBox="0 0 24 24" fill="currentColor" class="absolute h-14 w-14 text-white/25" aria-hidden="true">
+							<path d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12Zm0 2.4c-3.3 0-9.8 1.6-9.8 4.9v2.5h19.6v-2.5c0-3.3-6.5-4.9-9.8-4.9Z" />
+						</svg>
+						<span class="relative font-junigarden-swash text-xl font-bold text-white">{initialsOf(committee.memberName)}</span>
+					</div>
+				)}
+			</div>
+		))}
+
+		<!-- Prev / next arrows -->
+		<div class="absolute top-1/2 right-4 z-20 flex -translate-y-1/2 flex-col gap-3 md:right-8">
+			<button
+				type="button"
+				id="committee-prev"
+				aria-label="Divisi sebelumnya"
+				class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/20"
+			>
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6" /></svg>
+			</button>
+			<button
+				type="button"
+				id="committee-next"
+				aria-label="Divisi berikutnya"
+				class="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/20"
+			>
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6" /></svg>
+			</button>
+		</div>
+
+		<!-- Thumbnail nav -->
+		<div
+			class="absolute inset-x-0 bottom-0 z-20 flex gap-3 overflow-x-auto px-4 pt-10 pb-6 [scrollbar-width:none] md:px-10 [&::-webkit-scrollbar]:hidden"
+		>
+			{committees.map((committee, index) => (
+				<button
+					type="button"
+					class:list={['thumb relative h-24 w-20 shrink-0 overflow-hidden rounded-lg shadow-lg transition-transform duration-300 hover:-translate-y-1 md:h-28 md:w-24', { active: index === 0 }]}
+					data-index={index}
+					aria-label={`Ke divisi ${committee.name}`}
+				>
+					{committee.imageBackground ? (
+						<img
+							src={committee.imageBackground}
+							alt=""
+							class="thumb-img h-full w-full object-cover"
+						/>
+					) : (
+						<div class="h-full w-full" style="background-color: #76A3ED;" />
+					)}
+					<span
+						class="absolute inset-x-1 bottom-1 rounded px-1 py-1 text-center font-plus-jakarta-sans text-[10px] font-semibold text-white"
+						style="background-color: var(--color-s3-blue);"
+					>
+						{committee.name}
+					</span>
+					<span class="thumb-ring pointer-events-none absolute inset-0 rounded-lg" />
+				</button>
+			))}
+		</div>
+	</div>
+
+	<!-- Staff modal -->
+	<div
+		id="staff-modal"
+		class="fixed inset-0 z-100 hidden items-center justify-center p-4"
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="staff-modal-title"
+		aria-hidden="true"
+	>
+		<div id="staff-modal-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+		<div class="glass-card relative z-10 flex max-h-[85vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-[--color-dark-surface]">
+			<div class="flex items-center justify-between border-b border-[--color-dark-border] px-5 py-4 md:px-6">
+				<h3 id="staff-modal-title" class="font-plus-jakarta-sans text-base font-semibold text-white md:text-lg" />
+				<button
+					type="button"
+					id="staff-modal-close"
+					aria-label="Tutup"
+					class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+				>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
+				</button>
+			</div>
+			<div class="overflow-y-auto px-5 py-5 md:px-6 md:py-6">
+				<div id="staff-modal-grid" class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4" />
+				<div id="staff-modal-pagination" class="mt-6 flex flex-wrap items-center justify-center gap-2 font-plus-jakarta-sans text-sm" />
+			</div>
+		</div>
+	</div>
+	<script type="application/json" id="staff-pools" is:inline set:html={JSON.stringify(staffPools)} />
+</section>
+
+<script>
+	const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
+	const thumbs = Array.from(document.querySelectorAll<HTMLButtonElement>('.thumb'));
+	const thumbTrack = thumbs[0]?.parentElement;
+	const prevBtn = document.getElementById('committee-prev');
+	const nextBtn = document.getElementById('committee-next');
+
+	let index = 0;
+	let timer: ReturnType<typeof setInterval> | undefined;
+
+	function playPhotoIntro(slide: HTMLElement) {
+		const photo = slide.querySelector<HTMLElement>('.koor-photo');
+		if (!photo) return;
+		photo.getAnimations().forEach((anim) => anim.cancel());
+		photo.animate(
+			[{ transform: 'translateX(100%)' }, { transform: 'translateX(0)' }],
+			{ duration: 700, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', fill: 'forwards' }
+		);
+	}
+
+	function render() {
+		slides.forEach((slide, i) => {
+			const active = i === index;
+			slide.classList.toggle('active', active);
+			slide.setAttribute('aria-hidden', active ? 'false' : 'true');
+			if (active) playPhotoIntro(slide);
+		});
+		thumbs.forEach((thumb, i) => {
+			thumb.classList.toggle('active', i === index);
+		});
+		centerThumb(thumbs[index]);
+	}
+
+	function centerThumb(thumb: HTMLButtonElement | undefined) {
+		if (!thumb || !thumbTrack) return;
+		const target = thumb.offsetLeft - (thumbTrack.clientWidth - thumb.clientWidth) / 2;
+		const maxScrollLeft = thumbTrack.scrollWidth - thumbTrack.clientWidth;
+		thumbTrack.scrollTo({ left: Math.max(0, Math.min(target, maxScrollLeft)), behavior: 'smooth' });
+	}
+
+	function goTo(next: number) {
+		index = (next + slides.length) % slides.length;
+		render();
+	}
+
+	function startAutoSlide() {
+		timer = setInterval(() => goTo(index + 1), 5000);
+	}
+
+	function restartAutoSlide() {
+		if (timer) clearInterval(timer);
+		startAutoSlide();
+	}
+
+	prevBtn?.addEventListener('click', () => {
+		goTo(index - 1);
+		restartAutoSlide();
+	});
+	nextBtn?.addEventListener('click', () => {
+		goTo(index + 1);
+		restartAutoSlide();
+	});
+	thumbs.forEach((thumb, i) => {
+		thumb.addEventListener('click', () => {
+			goTo(i);
+			restartAutoSlide();
+		});
+	});
+
+	render();
+	startAutoSlide();
+
+	// Staff modal
+	const staffPoolsEl = document.getElementById('staff-pools');
+	const staffPools: string[][] = staffPoolsEl ? JSON.parse(staffPoolsEl.textContent || '[]') : [];
+
+	const staffModal = document.getElementById('staff-modal');
+	const staffModalBackdrop = document.getElementById('staff-modal-backdrop');
+	const staffModalTitle = document.getElementById('staff-modal-title');
+	const staffModalClose = document.getElementById('staff-modal-close');
+	const staffModalGrid = document.getElementById('staff-modal-grid');
+	const staffModalPagination = document.getElementById('staff-modal-pagination');
+
+	const STAFF_PER_PAGE = 20;
+	let activeStaffList: string[] = [];
+	let staffPage = 1;
+
+	function initialsOfStaffName(name: string) {
+		return name
+			.split(' ')
+			.filter(Boolean)
+			.slice(0, 2)
+			.map((word) => word[0])
+			.join('')
+			.toUpperCase();
+	}
+
+	function renderStaffGrid() {
+		if (!staffModalGrid) return;
+		const start = (staffPage - 1) * STAFF_PER_PAGE;
+		const pageItems = activeStaffList.slice(start, start + STAFF_PER_PAGE);
+		staffModalGrid.innerHTML = pageItems
+			.map(
+				(name) => `
+					<div class="rounded-xl border border-[--color-dark-border] bg-white/5 p-4 text-center transition-colors hover:bg-white/10">
+						<div class="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-s3-blue),var(--color-s3-gold))] text-sm font-bold text-white">${initialsOfStaffName(name)}</div>
+						<p class="font-plus-jakarta-sans text-sm text-white">${name}</p>
+					</div>
+				`
+			)
+			.join('');
+	}
+
+	function staffPageButton(page: number) {
+		const active = page === staffPage;
+		return `<button type="button" data-page="${page}" class="staff-page-btn min-w-9 rounded-md border px-3 py-1.5 transition-colors ${active ? 'border-[--color-s3-gold] bg-[--color-s3-gold] text-[--color-dark-base]' : 'border-white/20 bg-white/10 text-white hover:bg-white/20'}">${page}</button>`;
+	}
+
+	function renderStaffPagination() {
+		if (!staffModalPagination) return;
+		const totalPages = Math.ceil(activeStaffList.length / STAFF_PER_PAGE);
+		if (totalPages <= 1) {
+			staffModalPagination.innerHTML = '';
+			return;
+		}
+
+		let pages: number[];
+		if (totalPages <= 3) {
+			pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+		} else if (staffPage <= 2) {
+			pages = [1, 2, 3];
+		} else if (staffPage >= totalPages - 1) {
+			pages = [totalPages - 2, totalPages - 1, totalPages];
+		} else {
+			pages = [staffPage - 1, staffPage, staffPage + 1];
+		}
+
+		let html = `<button type="button" id="staff-page-prev" ${staffPage === 1 ? 'disabled' : ''} class="rounded-md border border-white/20 bg-white/10 px-3 py-1.5 text-white transition-colors hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-40">‹</button>`;
+		if (pages[0] > 1) html += staffPageButton(1) + `<span class="px-1 text-white/50">…</span>`;
+		html += pages.map(staffPageButton).join('');
+		if (pages[pages.length - 1] < totalPages) html += `<span class="px-1 text-white/50">…</span>` + staffPageButton(totalPages);
+		html += `<button type="button" id="staff-page-next" ${staffPage === totalPages ? 'disabled' : ''} class="rounded-md border border-white/20 bg-white/10 px-3 py-1.5 text-white transition-colors hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-40">›</button>`;
+
+		staffModalPagination.innerHTML = html;
+
+		staffModalPagination.querySelectorAll<HTMLButtonElement>('.staff-page-btn').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				staffPage = Number(btn.dataset.page);
+				renderStaffGrid();
+				renderStaffPagination();
+				staffModalGrid?.scrollIntoView({ block: 'nearest' });
+			});
+		});
+		document.getElementById('staff-page-prev')?.addEventListener('click', () => {
+			if (staffPage > 1) {
+				staffPage -= 1;
+				renderStaffGrid();
+				renderStaffPagination();
+			}
+		});
+		document.getElementById('staff-page-next')?.addEventListener('click', () => {
+			if (staffPage < totalPages) {
+				staffPage += 1;
+				renderStaffGrid();
+				renderStaffPagination();
+			}
+		});
+	}
+
+	function openStaffModal(staffKey: number, committeeName: string) {
+		activeStaffList = staffPools[staffKey] ?? [];
+		staffPage = 1;
+		if (staffModalTitle) staffModalTitle.textContent = `Staff ${committeeName}`;
+		renderStaffGrid();
+		renderStaffPagination();
+		staffModal?.classList.remove('hidden');
+		staffModal?.classList.add('flex');
+		staffModal?.setAttribute('aria-hidden', 'false');
+		document.body.classList.add('overflow-hidden');
+		if (timer) clearInterval(timer);
+	}
+
+	function closeStaffModal() {
+		staffModal?.classList.add('hidden');
+		staffModal?.classList.remove('flex');
+		staffModal?.setAttribute('aria-hidden', 'true');
+		document.body.classList.remove('overflow-hidden');
+		restartAutoSlide();
+	}
+
+	document.querySelectorAll<HTMLButtonElement>('.staff-trigger').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const key = btn.dataset.staffKey;
+			if (key === undefined) return;
+			openStaffModal(Number(key), btn.dataset.committeeName ?? '');
+		});
+	});
+
+	staffModalClose?.addEventListener('click', closeStaffModal);
+	staffModalBackdrop?.addEventListener('click', closeStaffModal);
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && !staffModal?.classList.contains('hidden')) closeStaffModal();
+	});
+</script>
+
+<style>
+	.slide {
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 800ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.slide.active {
+		opacity: 1;
+		pointer-events: auto;
+		z-index: 1;
+	}
+
+	.koor-photo {
+		transform: translateX(100%);
+	}
+
+	.thumb-img {
+		filter: brightness(0.5) saturate(0.75);
+		transition: filter 300ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.thumb.active .thumb-img {
+		filter: brightness(1.1) saturate(1);
+	}
+
+	.thumb-ring {
+		transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.thumb.active .thumb-ring {
+		box-shadow: 0 0 0 2px var(--color-s3-gold);
+	}
+</style>
