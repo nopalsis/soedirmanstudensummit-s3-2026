@@ -47,8 +47,10 @@ const tabs = [
 				<a
 					href={tab.href}
 					class:list={[
-						'font-junigarden-swash flex w-full max-w-[316px] items-center justify-center rounded-[10px] px-4 py-3 text-center text-base whitespace-nowrap text-[#ffc03f] transition-colors sm:w-auto sm:flex-1 sm:text-lg md:text-xl',
-						active === tab.key ? 'bg-[#1d3464]' : 'bg-[rgba(255,255,255,0.25)] hover:bg-[rgba(255,255,255,0.4)]',
+						'font-junigarden-swash flex w-full max-w-[316px] items-center justify-center rounded-[10px] px-4 py-3 text-center text-base whitespace-nowrap transition-colors sm:w-auto sm:flex-1 sm:text-lg md:text-xl',
+						active === tab.key
+							? 'bg-[#1d3464] text-[#ffc03f]'
+							: 'bg-[rgba(255,255,255,0.25)] text-[#1b4682] hover:bg-[rgba(255,255,255,0.4)]',
 					]}
 					style="-webkit-text-stroke: 0.1px #1d3464; paint-order: stroke fill;"
 					aria-current={active === tab.key ? 'page' : undefined}
