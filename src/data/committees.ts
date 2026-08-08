@@ -24,7 +24,8 @@
  *                       sengaja dipertahankan agar tombol "Lihat Anggota"
  *                       muncul otomatis begitu array diisi.
  * - Steering Committee: 3 entry terpisah (bukan satu card berisi 3 orang),
- *                       mengikuti pola repo 2025. Foto Farrel & Azzahra dari
+ *                       mengikuti pola repo 2025. Diposisikan PALING BELAKANG
+ *                       (setelah Pendamping Putri). Foto Farrel & Azzahra dari
  *                       folder "Foto Background Divisi"; foto Sefira di-porting
  *                       dari repo 2025 (menjabat Project Officer di 2025). Belum
  *                       ada data Instagram untuk ketiganya -> tombol Instagram
@@ -50,30 +51,6 @@ export type Committee = {
 };
 
 const committees: Committee[] = [
-	{
-		name: 'Steering Committee',
-		memberName: 'Farrel Ryansyah Putra',
-		image: '/images/committee/members/steering-committee-farrel.webp',
-		imageBackground: '/images/committee/backgrounds/steering-committee.webp',
-		description:
-			'Steering Committee bertanggung jawab untuk mengawasi dan memastikan kelancaran seluruh rangkaian acara Soedirman Student Summit 2026. Dengan pengalaman dan kepemimpinan yang kuat, mereka menjadi penghubung antara berbagai divisi, memastikan setiap aspek acara berjalan sesuai rencana dan tujuan yang telah ditetapkan.'
-	},
-	{
-		name: 'Steering Committee',
-		memberName: 'Azzahra Ayuvega Astridyareva',
-		image: '/images/committee/members/steering-committee-rere.webp',
-		imageBackground: '/images/committee/backgrounds/steering-committee.webp',
-		description:
-			'Steering Committee bertanggung jawab untuk mengawasi dan memastikan kelancaran seluruh rangkaian acara Soedirman Student Summit 2026. Dengan pengalaman dan kepemimpinan yang kuat, mereka menjadi penghubung antara berbagai divisi, memastikan setiap aspek acara berjalan sesuai rencana dan tujuan yang telah ditetapkan.'
-	},
-	{
-		name: 'Steering Committee',
-		memberName: 'Sefira Meilani Syaputri',
-		image: '/images/committee/members/steering-committee-sefira.webp',
-		imageBackground: '/images/committee/backgrounds/steering-committee.webp',
-		description:
-			'Steering Committee bertanggung jawab untuk mengawasi dan memastikan kelancaran seluruh rangkaian acara Soedirman Student Summit 2026. Dengan pengalaman dan kepemimpinan yang kuat, mereka menjadi penghubung antara berbagai divisi, memastikan setiap aspek acara berjalan sesuai rencana dan tujuan yang telah ditetapkan.'
-	},
 	{
 		name: 'Project Officer',
 		memberName: 'Alin Hasya Yondy Qinthara',
@@ -217,6 +194,30 @@ const committees: Committee[] = [
 		description:
 			'Menjadi garda depan dalam membimbing dan mendampingi mahasiswa baru selama rangkaian acara, Divisi Pendamping juga berperan dalam menyampaikan informasi, memfasilitasi interaksi, hingga memastikan partisipasi aktif dan ketertiban peserta di setiap sesi dengan komunikatif, hangat, dan penuh tanggung jawab.',
 		instagram: '211975_'
+	},
+	{
+		name: 'Steering Committee',
+		memberName: 'Farrel Ryansyah Putra',
+		image: '/images/committee/members/steering-committee-farrel.webp',
+		imageBackground: '/images/committee/backgrounds/steering-committee.webp',
+		description:
+			'Steering Committee bertanggung jawab untuk mengawasi dan memastikan kelancaran seluruh rangkaian acara Soedirman Student Summit 2026. Dengan pengalaman dan kepemimpinan yang kuat, mereka menjadi penghubung antara berbagai divisi, memastikan setiap aspek acara berjalan sesuai rencana dan tujuan yang telah ditetapkan.'
+	},
+	{
+		name: 'Steering Committee',
+		memberName: 'Azzahra Ayuvega Astridyareva',
+		image: '/images/committee/members/steering-committee-rere.webp',
+		imageBackground: '/images/committee/backgrounds/steering-committee.webp',
+		description:
+			'Steering Committee bertanggung jawab untuk mengawasi dan memastikan kelancaran seluruh rangkaian acara Soedirman Student Summit 2026. Dengan pengalaman dan kepemimpinan yang kuat, mereka menjadi penghubung antara berbagai divisi, memastikan setiap aspek acara berjalan sesuai rencana dan tujuan yang telah ditetapkan.'
+	},
+	{
+		name: 'Steering Committee',
+		memberName: 'Sefira Meilani Syaputri',
+		image: '/images/committee/members/steering-committee-sefira.webp',
+		imageBackground: '/images/committee/backgrounds/steering-committee.webp',
+		description:
+			'Steering Committee bertanggung jawab untuk mengawasi dan memastikan kelancaran seluruh rangkaian acara Soedirman Student Summit 2026. Dengan pengalaman dan kepemimpinan yang kuat, mereka menjadi penghubung antara berbagai divisi, memastikan setiap aspek acara berjalan sesuai rencana dan tujuan yang telah ditetapkan.'
 	}
 ];
 
