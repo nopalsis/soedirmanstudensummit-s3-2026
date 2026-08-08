@@ -75,7 +75,7 @@ const committees: Committee[] = [
 		name: 'Project Officer',
 		memberName: 'Alin Hasya Yondy Qinthara',
 		image: '/images/committee/members/project-officer.webp',
-		imageBackground: '/images/committee/backgrounds/po.webp',
+		imageBackground: '/images/committee/backgrounds/steering-committee.webp',
 		description:
 			'Mengawal arah gerak, menjaga konsistensi visi, dan memastikan setiap elemen acara berjalan harmonis dari awal hingga akhir. Project Officer bertanggung jawab penuh atas koordinasi antar divisi, pengambilan keputusan strategis, dan keberlangsungan seluruh program, serta menjadi pusat kendali dari seluruh rangkaian Soedirman Student Summit 2026.',
 		instagram: 'alinnyqq'
