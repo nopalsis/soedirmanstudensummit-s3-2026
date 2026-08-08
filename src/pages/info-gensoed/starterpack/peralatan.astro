@@ -58,10 +58,14 @@ import barangBawaan from '../../../data/barang-bawaan';
 			coverflowEffect: { rotate: 20, stretch: 0, depth: 100, modifier: 1, slideShadows: true },
 			pagination: { el: '.swiper-pagination', clickable: true, dynamicBullets: true },
 			navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+			// ponytail: max slidesPerView capped at 3 (not 4) — barangBawaan only has 7 items,
+			// and Swiper's own loop-mode requires slide count >= 2x slidesPerView (7 >= 2*3=6 OK,
+			// 7 >= 2*4=8 fails). At slidesPerView:4 Swiper logs "not enough slides for loop mode"
+			// and the wrap-around shows a blank slide before content catches up. Bump the cap back
+			// to 4 once barangBawaan has 8+ items.
 			breakpoints: {
 				640: { slidesPerView: 2 },
 				768: { slidesPerView: 3 },
-				1024: { slidesPerView: 4 },
 			},
 		});
 	</script>
