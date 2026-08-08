@@ -8,6 +8,19 @@ const initialsOf = (memberName: string) =>
 		.map((word) => word[0])
 		.join('')
 		.toUpperCase();
+
+// Divisions can share the exact same staff array (Pendamping Putra/Putri) — dedupe
+// by reference so the roster is only embedded once in the page, not once per card.
+const staffPools: string[][] = [];
+const staffKeyByIndex: (number | null)[] = committees.map((committee) => {
+	if (!committee.staff?.length) return null;
+	let poolIndex = staffPools.indexOf(committee.staff);
+	if (poolIndex === -1) {
+		poolIndex = staffPools.length;
+		staffPools.push(committee.staff);
+	}
+	return poolIndex;
+});
 ---
 
 <section
@@ -56,7 +69,9 @@ const initialsOf = (memberName: string) =>
 							{committee.staff?.length ? (
 								<button
 									type="button"
-									class="glass-card rounded-md px-6 py-2.5 font-plus-jakarta-sans text-sm text-white transition-colors hover:bg-white/15"
+									class="staff-trigger glass-card rounded-md px-6 py-2.5 font-plus-jakarta-sans text-sm text-white transition-colors hover:bg-white/15"
+									data-staff-key={staffKeyByIndex[index]}
+									data-committee-name={committee.name}
 								>
 									Lihat Anggota
 								</button>
@@ -160,6 +175,36 @@ const initialsOf = (memberName: string) =>
 			))}
 		</div>
 	</div>
+
+	<!-- Staff modal -->
+	<div
+		id="staff-modal"
+		class="fixed inset-0 z-100 hidden items-center justify-center p-4"
+		role="dialog"
+		aria-modal="true"
+		aria-labelledby="staff-modal-title"
+		aria-hidden="true"
+	>
+		<div id="staff-modal-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+		<div class="glass-card relative z-10 flex max-h-[85vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-[--color-dark-surface]">
+			<div class="flex items-center justify-between border-b border-[--color-dark-border] px-5 py-4 md:px-6">
+				<h3 id="staff-modal-title" class="font-plus-jakarta-sans text-base font-semibold text-white md:text-lg" />
+				<button
+					type="button"
+					id="staff-modal-close"
+					aria-label="Tutup"
+					class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+				>
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12" /></svg>
+				</button>
+			</div>
+			<div class="overflow-y-auto px-5 py-5 md:px-6 md:py-6">
+				<div id="staff-modal-grid" class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4" />
+				<div id="staff-modal-pagination" class="mt-6 flex flex-wrap items-center justify-center gap-2 font-plus-jakarta-sans text-sm" />
+			</div>
+		</div>
+	</div>
+	<script type="application/json" id="staff-pools" is:inline set:html={JSON.stringify(staffPools)} />
 </section>
 
 <script>
@@ -233,6 +278,138 @@ const initialsOf = (memberName: string) =>
 
 	render();
 	startAutoSlide();
+
+	// Staff modal
+	const staffPoolsEl = document.getElementById('staff-pools');
+	const staffPools: string[][] = staffPoolsEl ? JSON.parse(staffPoolsEl.textContent || '[]') : [];
+
+	const staffModal = document.getElementById('staff-modal');
+	const staffModalBackdrop = document.getElementById('staff-modal-backdrop');
+	const staffModalTitle = document.getElementById('staff-modal-title');
+	const staffModalClose = document.getElementById('staff-modal-close');
+	const staffModalGrid = document.getElementById('staff-modal-grid');
+	const staffModalPagination = document.getElementById('staff-modal-pagination');
+
+	const STAFF_PER_PAGE = 20;
+	let activeStaffList: string[] = [];
+	let staffPage = 1;
+
+	function initialsOfStaffName(name: string) {
+		return name
+			.split(' ')
+			.filter(Boolean)
+			.slice(0, 2)
+			.map((word) => word[0])
+			.join('')
+			.toUpperCase();
+	}
+
+	function renderStaffGrid() {
+		if (!staffModalGrid) return;
+		const start = (staffPage - 1) * STAFF_PER_PAGE;
+		const pageItems = activeStaffList.slice(start, start + STAFF_PER_PAGE);
+		staffModalGrid.innerHTML = pageItems
+			.map(
+				(name) => `
+					<div class="rounded-xl border border-[--color-dark-border] bg-white/5 p-4 text-center transition-colors hover:bg-white/10">
+						<div class="mx-auto mb-2 flex h-11 w-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,var(--color-s3-blue),var(--color-s3-gold))] text-sm font-bold text-white">${initialsOfStaffName(name)}</div>
+						<p class="font-plus-jakarta-sans text-sm text-white">${name}</p>
+					</div>
+				`
+			)
+			.join('');
+	}
+
+	function staffPageButton(page: number) {
+		const active = page === staffPage;
+		return `<button type="button" data-page="${page}" class="staff-page-btn min-w-9 rounded-md border px-3 py-1.5 transition-colors ${active ? 'border-[--color-s3-gold] bg-[--color-s3-gold] text-[--color-dark-base]' : 'border-white/20 bg-white/10 text-white hover:bg-white/20'}">${page}</button>`;
+	}
+
+	function renderStaffPagination() {
+		if (!staffModalPagination) return;
+		const totalPages = Math.ceil(activeStaffList.length / STAFF_PER_PAGE);
+		if (totalPages <= 1) {
+			staffModalPagination.innerHTML = '';
+			return;
+		}
+
+		let pages: number[];
+		if (totalPages <= 3) {
+			pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+		} else if (staffPage <= 2) {
+			pages = [1, 2, 3];
+		} else if (staffPage >= totalPages - 1) {
+			pages = [totalPages - 2, totalPages - 1, totalPages];
+		} else {
+			pages = [staffPage - 1, staffPage, staffPage + 1];
+		}
+
+		let html = `<button type="button" id="staff-page-prev" ${staffPage === 1 ? 'disabled' : ''} class="rounded-md border border-white/20 bg-white/10 px-3 py-1.5 text-white transition-colors hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-40">‹</button>`;
+		if (pages[0] > 1) html += staffPageButton(1) + `<span class="px-1 text-white/50">…</span>`;
+		html += pages.map(staffPageButton).join('');
+		if (pages[pages.length - 1] < totalPages) html += `<span class="px-1 text-white/50">…</span>` + staffPageButton(totalPages);
+		html += `<button type="button" id="staff-page-next" ${staffPage === totalPages ? 'disabled' : ''} class="rounded-md border border-white/20 bg-white/10 px-3 py-1.5 text-white transition-colors hover:bg-white/20 disabled:cursor-not-allowed disabled:opacity-40">›</button>`;
+
+		staffModalPagination.innerHTML = html;
+
+		staffModalPagination.querySelectorAll<HTMLButtonElement>('.staff-page-btn').forEach((btn) => {
+			btn.addEventListener('click', () => {
+				staffPage = Number(btn.dataset.page);
+				renderStaffGrid();
+				renderStaffPagination();
+				staffModalGrid?.scrollIntoView({ block: 'nearest' });
+			});
+		});
+		document.getElementById('staff-page-prev')?.addEventListener('click', () => {
+			if (staffPage > 1) {
+				staffPage -= 1;
+				renderStaffGrid();
+				renderStaffPagination();
+			}
+		});
+		document.getElementById('staff-page-next')?.addEventListener('click', () => {
+			if (staffPage < totalPages) {
+				staffPage += 1;
+				renderStaffGrid();
+				renderStaffPagination();
+			}
+		});
+	}
+
+	function openStaffModal(staffKey: number, committeeName: string) {
+		activeStaffList = staffPools[staffKey] ?? [];
+		staffPage = 1;
+		if (staffModalTitle) staffModalTitle.textContent = `Staff ${committeeName}`;
+		renderStaffGrid();
+		renderStaffPagination();
+		staffModal?.classList.remove('hidden');
+		staffModal?.classList.add('flex');
+		staffModal?.setAttribute('aria-hidden', 'false');
+		document.body.classList.add('overflow-hidden');
+		if (timer) clearInterval(timer);
+	}
+
+	function closeStaffModal() {
+		staffModal?.classList.add('hidden');
+		staffModal?.classList.remove('flex');
+		staffModal?.setAttribute('aria-hidden', 'true');
+		document.body.classList.remove('overflow-hidden');
+		restartAutoSlide();
+	}
+
+	document.querySelectorAll<HTMLButtonElement>('.staff-trigger').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const key = btn.dataset.staffKey;
+			if (key === undefined) return;
+			openStaffModal(Number(key), btn.dataset.committeeName ?? '');
+		});
+	});
+
+	staffModalClose?.addEventListener('click', closeStaffModal);
+	staffModalBackdrop?.addEventListener('click', closeStaffModal);
+	document.addEventListener('keydown', (e) => {
+		if (e.key === 'Escape' && !staffModal?.classList.contains('hidden')) closeStaffModal();
+	});
 </script>
 
 <style>
