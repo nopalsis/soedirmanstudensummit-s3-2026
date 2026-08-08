@@ -152,6 +152,7 @@ const initialsOf = (memberName: string) =>
 <script>
 	const slides = Array.from(document.querySelectorAll<HTMLElement>('.slide'));
 	const thumbs = Array.from(document.querySelectorAll<HTMLButtonElement>('.thumb'));
+	const thumbTrack = thumbs[0]?.parentElement;
 	const prevBtn = document.getElementById('committee-prev');
 	const nextBtn = document.getElementById('committee-next');
 
@@ -178,7 +179,14 @@ const initialsOf = (memberName: string) =>
 		thumbs.forEach((thumb, i) => {
 			thumb.classList.toggle('active', i === index);
 		});
-		thumbs[index]?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+		centerThumb(thumbs[index]);
+	}
+
+	function centerThumb(thumb: HTMLButtonElement | undefined) {
+		if (!thumb || !thumbTrack) return;
+		const target = thumb.offsetLeft - (thumbTrack.clientWidth - thumb.clientWidth) / 2;
+		const maxScrollLeft = thumbTrack.scrollWidth - thumbTrack.clientWidth;
+		thumbTrack.scrollTo({ left: Math.max(0, Math.min(target, maxScrollLeft)), behavior: 'smooth' });
 	}
 
 	function goTo(next: number) {
