@@ -9,14 +9,15 @@
  *   (drive.google.com/drive/folders/1hjqg-MP_nNlX5SGUW62LnsuSoKymBNmI)
  *   -> 16/16 sudah lengkap per 26 Juli 2026, pola nama file:
  *      "<Kode/Nama Divisi> (<Nama Lengkap Koordinator>).webp"
- * - Background divisi     : repo S3 2025 (static/img/committee/backgrounds/)
+ * - Background divisi     : folder lokal "Foto Background Divisi" (per divisi,
+ *                       2026). Acara, Humas, dan Steering Committee tidak
+ *                       punya foto sendiri di folder itu -> reuse background
+ *                       patung kuda Unsoed dari repo S3 2025
+ *                       (static/img/committee/backgrounds/patung-kuda-halaman-rektor.webp).
  *
- * Catatan status data (per 26 Juli 2026):
+ * Catatan status data (per 8 Agustus 2026):
  * - `image`           : LENGKAP 16/16, semua koor sudah punya foto asli.
- * - `imageBackground` : 15 dari 16 tersedia (reuse crowd photo 2025). Kurikulum
- *                       null -> fallback biru #76A3ED + motif batik 10%, karena
- *                       divisi ini baru di 2026 dan tidak ada padanan foto
- *                       massal dari 2025.
+ * - `imageBackground` : LENGKAP 16/16, semua divisi sudah punya background sendiri.
  * - `description`     : LENGKAP 16/16. Deskripsi Kurikulum dikonfirmasi user
  *                       langsung (bukan porting dari repo 2025 seperti divisi lain).
  * - `staff`           : belum ada data sama sekali untuk semua divisi. Field
@@ -73,7 +74,7 @@ const committees: Committee[] = [
 		name: 'Acara',
 		memberName: 'Randita Eka Wulandari',
 		image: '/images/committee/members/acara.webp',
-		imageBackground: '/images/committee/backgrounds/acara.webp',
+		imageBackground: '/images/committee/backgrounds/steering-committee.webp',
 		description:
 			'Merancang konsep acara, menyusun alur teknis, serta memastikan jalannya kegiatan sejalan dengan nilai yang akan disampaikan. Divisi Acara dalam pelaksanaannya juga berperan aktif dalam koordinasi lintas divisi dan stakeholder, serta bertanggung jawab penuh atas kelancaran pelaksanaan Soedirman Student Summit 2026.',
 		instagram: 'reewulan_'
@@ -82,7 +83,7 @@ const committees: Committee[] = [
 		name: 'Kurikulum',
 		memberName: 'Naila Adzima',
 		image: '/images/committee/members/kurikulum.webp',
-		imageBackground: null,
+		imageBackground: '/images/committee/backgrounds/kurikulum.webp',
 		description:
 			'Kurikulum: Berfokus pada perancangan alur pembelajaran, pengembangan materi, serta sistem penugasan dalam Soedirman Student Summit 2025. Divisi ini bertanggung jawab memastikan seluruh proses pembelajaran berjalan secara sistematis, relevan, dan sesuai dengan tujuan pengembangan mahasiswa baru. Terdiri dari beberapa fokus kerja seperti pengembangan materi, penyusunan penugasan, evaluasi pembelajaran, serta perancangan project implementatif. Divisi Kurikulum menjadi pusat pengembangan konsep akademik dan pengalaman belajar peserta selama rangkaian S3.',
 		instagram: 'nailaadzm'
@@ -100,7 +101,7 @@ const committees: Committee[] = [
 		name: 'Humas',
 		memberName: 'Citra Sastyaviani',
 		image: '/images/committee/members/humas.webp',
-		imageBackground: '/images/committee/backgrounds/humas.webp',
+		imageBackground: '/images/committee/backgrounds/steering-committee.webp',
 		description:
 			'Menjembatani komunikasi antara panitia dengan berbagai pihak internal maupun eksternal, seperti fakultas, paguyuban, UKM, hingga media partner. Divisi Humas juga berperan sebagai Liaison Officer bagi narasumber dan tim pendukung, serta memastikan segala kebutuhan teknis dan non-teknis terpenuhi dengan optimal.',
 		instagram: 'ctrasastyaa'
