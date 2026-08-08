@@ -196,7 +196,7 @@
 
   .soedirman-text {
     color: #001A58;
-    -webkit-text-stroke: 3px #DEB65B;
+    -webkit-text-stroke: 0.8px #DEB65B;
     paint-order: stroke fill;
     font-size: 1.2em;
     display: inline-block;
@@ -204,7 +204,7 @@
 
   .student-summit-text {
     color: #001A58;
-    -webkit-text-stroke: 3px #DEB65B;
+    -webkit-text-stroke: 0.8px #DEB65B;
     paint-order: stroke fill;
     display: inline-block;
   }
@@ -215,8 +215,16 @@
 
   .year-text {
     color: #001A58;
-    -webkit-text-stroke: 3px #DEB65B;
+    -webkit-text-stroke: 0.8px #DEB65B;
     paint-order: stroke fill;
+  }
+
+  @media (min-width: 640px) {
+    .soedirman-text,
+    .student-summit-text,
+    .year-text {
+      -webkit-text-stroke: 2.5px #DEB65B;
+    }
   }
 
   .soedirman-hero {

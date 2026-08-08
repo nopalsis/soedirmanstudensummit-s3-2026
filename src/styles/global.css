@@ -213,14 +213,27 @@
 
 	.text-stroke-gold {
 	  -webkit-text-stroke: 0.1px #F9E7A9;
+	  paint-order: stroke fill;
 	}
 
 	.text-stroke-gold-countdown {
-	  -webkit-text-stroke: 1.5px #DEB65B;
+	  -webkit-text-stroke: 0.5px #DEB65B;
+	  paint-order: stroke fill;
+	}
+	@media (min-width: 640px) {
+	  .text-stroke-gold-countdown {
+	    -webkit-text-stroke: 1.5px #DEB65B;
+	  }
 	}
 
 	.text-stroke-gold-rangkaian {
-	  -webkit-text-stroke: 1.5px #F9E7A9;
+	  -webkit-text-stroke: 0.4px #F9E7A9;
+	  paint-order: stroke fill;
+	}
+	@media (min-width: 640px) {
+	  .text-stroke-gold-rangkaian {
+	    -webkit-text-stroke: 1.5px #F9E7A9;
+	  }
 	}
 
 	.gradient-text-title-blue {
