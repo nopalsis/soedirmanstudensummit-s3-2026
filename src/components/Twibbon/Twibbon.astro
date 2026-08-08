@@ -61,23 +61,32 @@
       >
         <video
           id="twibbon-video"
-          src="/video/twibbon-preview.mp4"
-          poster="/images/frame.webp"
+          poster="/images/fallback.png"
           autoplay
           loop
           muted
           playsinline
+          webkit-playsinline
+          preload="auto"
           class="w-full h-auto object-contain rounded-xl group-hover:scale-105 transition-transform duration-500"
         >
+          <source src="/video/twibbon-preview.mp4" type="video/mp4" />
           <img
-            src="/images/frame.webp"
+            src="/images/fallback.png"
             alt="Twibbon S3 2026"
-            class="w-full h-auto object-contain"
-            loading="lazy"
+            class="w-full h-auto object-contain rounded-xl"
+            loading="eager"
             decoding="async"
-            onerror="this.onerror=null; this.src='/images/logo.webp';"
           />
         </video>
+        <img
+          id="twibbon-fallback-img"
+          src="/images/fallback.png"
+          alt="Twibbon S3 2026"
+          class="hidden w-full h-auto object-contain rounded-xl group-hover:scale-105 transition-transform duration-500"
+          loading="eager"
+          decoding="async"
+        />
 
         <!-- Sound Mute/Unmute Toggle Button -->
         <button
@@ -314,13 +323,40 @@ Twibbon #${groupClean}
 
   copyBtn?.addEventListener("click", handleCopy);
 
-  // Video Sound Toggle Handler
+  // Video Sound Toggle & Fallback Handler
   const twibbonVideo = document.getElementById(
     "twibbon-video",
   ) as HTMLVideoElement | null;
   const toggleSoundBtn = document.getElementById("toggle-video-sound");
   const soundOffIcon = document.getElementById("sound-off-icon");
   const soundOnIcon = document.getElementById("sound-on-icon");
+  const fallbackImg = document.getElementById("twibbon-fallback-img");
+
+  function handleVideoError() {
+    if (twibbonVideo) {
+      twibbonVideo.classList.add("hidden");
+    }
+    if (toggleSoundBtn) {
+      toggleSoundBtn.classList.add("hidden");
+    }
+    if (fallbackImg) {
+      fallbackImg.classList.remove("hidden");
+    }
+  }
+
+  if (twibbonVideo) {
+    twibbonVideo.addEventListener("error", handleVideoError);
+
+    // Attempt programmatic play & handle mobile autoplay restrictions / low power mode
+    twibbonVideo.muted = true;
+    const playPromise = twibbonVideo.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // If autoplay is blocked by mobile browser (e.g. low power mode), show fallback image
+        handleVideoError();
+      });
+    }
+  }
 
   toggleSoundBtn?.addEventListener("click", () => {
     if (!twibbonVideo) return;
