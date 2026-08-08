@@ -1,0 +1,387 @@
+---
+
+---
+
+<section
+  id="body-twibbon"
+  class="section-padding-x py-16 md:py-24 relative z-10 max-w-screen-xl mx-auto"
+>
+  <!-- Hero Ornaments & Title Header -->
+  <div
+    class="flex flex-col items-center justify-center gap-2 sm:gap-4 mb-10 md:mb-12"
+  >
+    <!-- Ornament Top -->
+    <img
+      src="/images/elements/scroll-above.svg"
+      alt="Ornamen Atas"
+      class="w-20 sm:w-24 md:w-32 lg:w-40"
+      loading="lazy"
+      decoding="async"
+      data-aos="zoom-in"
+      data-aos-duration="600"
+      data-aos-delay="0"
+    />
+
+    <!-- Section Title -->
+    <h1
+      class="gradient-text-title text-stroke-gold font-junigarden-swash px-4 text-center font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+      data-aos="fade-up"
+      data-aos-duration="800"
+      data-aos-delay="200"
+    >
+      Template Twibbon Gensoed
+    </h1>
+
+    <!-- Ornament Bottom -->
+    <img
+      src="/images/elements/scroll-down.svg"
+      alt="Ornamen Bawah"
+      class="w-20 sm:w-24 md:w-32 lg:w-40"
+      loading="lazy"
+      decoding="async"
+      data-aos="zoom-in"
+      data-aos-duration="600"
+      data-aos-delay="400"
+    />
+  </div>
+
+  <!-- Main Grid Content -->
+  <div
+    class="flex w-full flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-12"
+  >
+    <!-- Aside Left: Twibbon Preview & Link -->
+    <aside
+      class="flex flex-shrink-0 flex-col items-center gap-6 w-full max-w-[325px]"
+      data-aos="fade-right"
+      data-aos-duration="800"
+      data-aos-delay="300"
+    >
+      <div
+        class="relative w-full rounded-2xl border-4 border-[#DEB65B]/40 bg-[#001a35]/80 overflow-hidden shadow-2xl flex items-center justify-center group"
+      >
+        <video
+          id="twibbon-video"
+          src="/video/twibbon-preview.mp4"
+          poster="/images/frame.webp"
+          autoplay
+          loop
+          muted
+          playsinline
+          class="w-full h-auto object-contain rounded-xl group-hover:scale-105 transition-transform duration-500"
+        >
+          <img
+            src="/images/frame.webp"
+            alt="Twibbon S3 2026"
+            class="w-full h-auto object-contain"
+            loading="lazy"
+            decoding="async"
+            onerror="this.onerror=null; this.src='/images/logo.webp';"
+          />
+        </video>
+
+        <!-- Sound Mute/Unmute Toggle Button -->
+        <button
+          id="toggle-video-sound"
+          type="button"
+          class="absolute bottom-3 right-3 z-20 flex items-center justify-center bg-[#001a35]/85 hover:bg-[#001a35] text-[#F9E7A9] border border-[#DEB65B]/60 p-2.5 rounded-full backdrop-blur-md shadow-lg transition-all active:scale-95 cursor-pointer"
+          title="Aktifkan / Matikan Suara"
+          aria-label="Aktifkan / Matikan Suara"
+        >
+          <svg id="sound-off-icon" class="w-5 h-5 text-rose-400 shrink-0" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
+          </svg>
+          <svg id="sound-on-icon" class="w-5 h-5 text-emerald-400 shrink-0 hidden" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+          </svg>
+        </button>
+      </div>
+      <a
+        href="https://www.capcut.com/tv2/ZS4XGUT4u/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-gradient-to-r from-[#DEB65B] to-[#C9A84C] text-[#001A58] w-full rounded-xl px-6 py-3.5 text-center font-bold shadow-lg transition duration-200 hover:brightness-110 active:scale-95 flex items-center justify-center gap-2"
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          ></path>
+        </svg>
+        Download Template
+      </a>
+    </aside>
+
+    <!-- Aside Right: Form Inputs & Caption Preview -->
+    <aside class="flex flex-grow flex-col gap-8 w-full">
+      <!-- Form Inputs Card -->
+      <div
+        class="rounded-2xl border border-[#DEB65B]/30 bg-[#001a35]/80 p-6 shadow-2xl backdrop-blur-lg md:p-8"
+        data-aos="fade-left"
+        data-aos-duration="800"
+        data-aos-delay="400"
+      >
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+          <div class="flex flex-col gap-2">
+            <label for="name-field" class="text-[#F9E7A9] font-semibold text-sm"
+              >Nama Lengkap</label
+            >
+            <input
+              type="text"
+              class="text-gray-900 rounded-lg bg-white px-4 py-3 font-medium outline-none border border-gray-300 focus:ring-2 focus:ring-[#DEB65B] text-sm transition-all"
+              placeholder="Masukan nama kamu..."
+              id="name-field"
+              maxlength="50"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label
+              for="faculty-field"
+              class="text-[#F9E7A9] font-semibold text-sm">Fakultas</label
+            >
+            <input
+              type="text"
+              class="text-gray-900 rounded-lg bg-white px-4 py-3 font-medium outline-none border border-gray-300 focus:ring-2 focus:ring-[#DEB65B] text-sm transition-all"
+              placeholder="Masukan fakultas kamu..."
+              id="faculty-field"
+              maxlength="50"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label
+              for="group-field"
+              class="text-[#F9E7A9] font-semibold text-sm">Kelompok</label
+            >
+            <input
+              type="text"
+              class="text-gray-900 rounded-lg bg-white px-4 py-3 font-medium outline-none border border-gray-300 focus:ring-2 focus:ring-[#DEB65B] text-sm transition-all"
+              placeholder="Masukan kelompok kamu..."
+              id="group-field"
+              maxlength="50"
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <label
+              for="companion-field"
+              class="text-[#F9E7A9] font-semibold text-sm"
+              >Nama Pendamping Kelompok</label
+            >
+            <input
+              type="text"
+              class="text-gray-900 rounded-lg bg-white px-4 py-3 font-medium outline-none border border-gray-300 focus:ring-2 focus:ring-[#DEB65B] text-sm transition-all"
+              placeholder="Masukan nama pendamping kamu..."
+              id="companion-field"
+              maxlength="50"
+            />
+          </div>
+        </div>
+        <div class="mt-4 flex flex-col gap-2">
+          <label
+            for="motivation-field"
+            class="text-[#F9E7A9] font-semibold text-sm"
+            >Motivasi/Kata-kata untuk Diri Sendiri</label
+          >
+          <textarea
+            class="text-gray-900 rounded-lg bg-white px-4 py-3 font-medium outline-none border border-gray-300 focus:ring-2 focus:ring-[#DEB65B] text-sm transition-all"
+            placeholder="Tulis motivasi atau harapanmu sebagai mahasiswa baru..."
+            id="motivation-field"
+            rows="3"
+            maxlength="200"></textarea>
+        </div>
+      </div>
+
+      <!-- Caption Preview Card -->
+      <div
+        class="flex flex-col gap-4 rounded-2xl border border-[#DEB65B]/30 bg-[#001a35]/90 p-6 shadow-2xl backdrop-blur-lg md:p-8"
+        data-aos="fade-up"
+        data-aos-duration="800"
+        data-aos-delay="500"
+      >
+        <p
+          class="font-semibold w-full bg-[#DEB65B] text-[#001A58] px-4 py-2.5 rounded-lg text-base tracking-wide"
+        >
+          Caption Preview
+        </p>
+        <p
+          class="rounded-lg text-xs sm:text-sm text-gray-200 bg-[#001226] border border-[#DEB65B]/20 p-4 sm:p-5 break-words whitespace-pre-wrap leading-relaxed select-all"
+          id="caption"
+        >
+        </p>
+        <button
+          id="copy-btn"
+          type="button"
+          class="bg-gradient-to-r from-[#DEB65B] to-[#C9A84C] text-[#001A58] font-bold w-full rounded-xl px-6 py-3.5 text-center shadow-lg transition duration-200 hover:brightness-110 disabled:bg-gray-400 disabled:text-[#001A58]/70 disabled:cursor-not-allowed md:w-auto self-start flex items-center justify-center gap-2"
+          disabled
+        >
+          Salin Caption
+        </button>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script>
+  const nameField = document.getElementById(
+    "name-field",
+  ) as HTMLInputElement | null;
+  const facultyField = document.getElementById(
+    "faculty-field",
+  ) as HTMLInputElement | null;
+  const groupField = document.getElementById(
+    "group-field",
+  ) as HTMLInputElement | null;
+  const companionField = document.getElementById(
+    "companion-field",
+  ) as HTMLInputElement | null;
+  const motivationField = document.getElementById(
+    "motivation-field",
+  ) as HTMLTextAreaElement | null;
+  const captionEl = document.getElementById("caption");
+  const copyBtn = document.getElementById(
+    "copy-btn",
+  ) as HTMLButtonElement | null;
+
+  function getCaption(): string {
+    const name = nameField?.value.trim() || "";
+    const faculty = facultyField?.value.trim() || "";
+    const group = groupField?.value.trim() || "";
+    const companion = companionField?.value.trim() || "";
+    const motivation = motivationField?.value.trim() || "";
+
+    const motivationText =
+      motivation ||
+      "(Kata kata motivasi untuk diri sendiri sebagai Mahasiswa Baru Universitas Jenderal Soedirman)";
+    const nameText = name || "(nama)";
+    const facultyText = faculty || "(...)";
+    const companionTag = companion
+      ? companion.replace(/\s+/g, "")
+      : "pendamping";
+    const groupTag = group ? group.replace(/\s+/g, "") : "Kelompok";
+
+    return `[SHANKARA ABHINAYA : Satukan Harsa Awali Narasi dengan Karsa dan
+Aksi, Rangkul Potensi Diri Bersama Nilai Harmoni Ciptakan Kolaborasi
+Nyala Soedirman Muda] 
+
+${motivationText}
+
+Saya ${nameText} dari Fakultas ${facultyText} siap mengikuti rangkaian acara
+Soedirman Student Summit 2026.
+
+#SoedirmanStudentSummit #UniversitasJenderalSoedirman
+#Gensoed2026 #ShankaraAbhinaya #S32026 #PranaArtawiyasa
+#GensoedTwibbon_${companionTag} #${groupTag}
+
+@soedirmanstudentsummit @instagramkelompok @instagrampendamping`;
+  }
+
+  function updateUI() {
+    const name = nameField?.value.trim() || "";
+    const faculty = facultyField?.value.trim() || "";
+    const group = groupField?.value.trim() || "";
+    const companion = companionField?.value.trim() || "";
+    const motivation = motivationField?.value.trim() || "";
+
+    if (captionEl) {
+      captionEl.textContent = getCaption();
+    }
+
+    const isFormComplete = Boolean(
+      name && faculty && group && companion && motivation,
+    );
+    if (copyBtn) {
+      copyBtn.disabled = !isFormComplete;
+    }
+  }
+
+  function handleCopy() {
+    if (!copyBtn || copyBtn.disabled) return;
+
+    const currentCaption = getCaption();
+
+    const setCopyState = (msg: string) => {
+      if (copyBtn) copyBtn.textContent = msg;
+      setTimeout(() => {
+        if (copyBtn) copyBtn.textContent = "Salin Caption";
+      }, 1500);
+    };
+
+    if (
+      navigator.clipboard &&
+      typeof navigator.clipboard.writeText === "function"
+    ) {
+      navigator.clipboard
+        .writeText(currentCaption)
+        .then(() => setCopyState("Caption Berhasil Disalin"))
+        .catch(() => fallbackCopy(currentCaption, setCopyState));
+    } else {
+      fallbackCopy(currentCaption, setCopyState);
+    }
+  }
+
+  function fallbackCopy(text: string, cb: (msg: string) => void) {
+    try {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      cb("Caption Berhasil Disalin");
+    } catch {
+      cb("Gagal Menyalin");
+    }
+  }
+
+  // Attach Event Listeners
+  [
+    nameField,
+    facultyField,
+    groupField,
+    companionField,
+    motivationField,
+  ].forEach((field) => {
+    field?.addEventListener("input", updateUI);
+  });
+
+  copyBtn?.addEventListener("click", handleCopy);
+
+  // Video Sound Toggle Handler
+  const twibbonVideo = document.getElementById("twibbon-video") as HTMLVideoElement | null;
+  const toggleSoundBtn = document.getElementById("toggle-video-sound");
+  const soundOffIcon = document.getElementById("sound-off-icon");
+  const soundOnIcon = document.getElementById("sound-on-icon");
+
+  toggleSoundBtn?.addEventListener("click", () => {
+    if (!twibbonVideo) return;
+    twibbonVideo.muted = !twibbonVideo.muted;
+    if (twibbonVideo.muted) {
+      soundOffIcon?.classList.remove("hidden");
+      soundOnIcon?.classList.add("hidden");
+    } else {
+      soundOffIcon?.classList.add("hidden");
+      soundOnIcon?.classList.remove("hidden");
+    }
+  });
+
+  // Initial setup
+  updateUI();
+</script>
+
+<style>
+  .gradient-text-title {
+    background: linear-gradient(180deg, #3e5eaa 0%, #001a58 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-stroke-gold {
+    -webkit-text-stroke: 0.1px #deb65b;
+  }
+</style>

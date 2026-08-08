@@ -291,8 +291,13 @@ const events: { name: string; img: string }[] = [
 
       .know-more-title {
         color: #DEB65B;
-        -webkit-text-stroke: 2px #001A58;
+        -webkit-text-stroke: 0.5px #001A58;
         paint-order: stroke fill;
+      }
+      @media (min-width: 640px) {
+        .know-more-title {
+          -webkit-text-stroke: 2px #001A58;
+        }
       }
     </style>
 

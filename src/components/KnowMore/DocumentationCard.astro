@@ -37,6 +37,8 @@ const slides = docsImage.map((src, i) => ({
           src={slide.src}
           alt={slide.alt}
           class="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
           draggable="false"
         />
         <span class="overlay absolute inset-0 bg-black/30"></span>
