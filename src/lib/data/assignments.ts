@@ -123,7 +123,7 @@ export const assignments: Assignment[] = [
        description: "Unggah Twibbon resmi.",
        longDescription:
          "Twibbon menjadi media perkenalan yang membantu mahasiswa baru mengekspresikan identitas diri, membangun rasa bangga dan solidaritas, serta memanfaatkan media sosial secara bijak.",
-        openedAt: new Date(2026, 7, 8, 23, 59, 59),
+        openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
         deadline: new Date(2026, 7, 8, 23, 59, 59),
       },
       {
@@ -131,7 +131,7 @@ export const assignments: Assignment[] = [
        description: "Buat Life Mapping.",
        longDescription:
          "Mahasiswa baru diajak merefleksikan perjalanan hidup, memahami proses yang membentuk diri, serta menggambarkan harapan dan tujuan yang ingin dicapai selama menjalani kehidupan kampus.",
-        openedAt: new Date(2026, 7, 8, 23, 59, 59),
+        openedAt: new Date(Date.now() + 0 * 24 * 60 * 60 * 1000),
         deadline: new Date(2026, 7, 8, 23, 59, 59),
       },
 ];
